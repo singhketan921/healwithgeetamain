@@ -1,5 +1,6 @@
 ﻿'use client';
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
@@ -15,7 +16,16 @@ export default function CertifiedSection() {
         className="grid items-center max-w-6xl grid-cols-1 gap-12 mx-auto md:grid-cols-2"
       >
         {/* Left Side - Image */}
-        <div className="bg-gray-100 h-[300px] sm:h-[360px] rounded-2xl shadow-inner"></div>
+        <div className="bg-gray-100 h-[300px] sm:h-[360px] rounded-2xl shadow-inner">
+          <Image
+                      src="/assets/images/about.png"
+                      alt="Guide providing personalized consultation"
+                      width={500}
+                      height={420}
+                      className="object-cover w-full h-full"
+                      priority
+          />
+        </div>
 
         {/* Right Side - Text */}
         <div>

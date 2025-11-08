@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
 
 export default function ProductsHero() {
   return (
@@ -53,7 +55,14 @@ export default function ProductsHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
           className="hidden sm:block w-full md:w-[460px] lg:w-[500px] h-[380px] lg:h-[420px] bg-[#EDEDE9] rounded-[6px] shadow-inner"
-        />
+        ><Image
+        src="/assets/images/consultation.png"
+        alt="Guide providing personalized consultation"
+        width={500}
+        height={420}
+        className="object-cover w-full h-full"
+        priority
+      /></motion.div>
       </div>
     </section>
   );

@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CLEANSING_IMAGE = "/assets/images/lady.png";
+const CLEANSING_IMAGE = "/assets/images/about.png";
 
 export default function EnergeticBlessingSection() {
   return (
     <section className="w-full bg-[#faf9f4] py-16 px-5 sm:px-8">
       
         <div className="flex flex-col gap-6 lg:flex-row">
-          <div className="relative w-full h-64 sm:h-80 lg:h-auto lg:w-1/2">
+          <div className="relative w-full h-64 sm:h-80 lg:h-auto lg:w-1/3 lg:ml-20">
             <Image
               src={CLEANSING_IMAGE}
               alt="Energetic cleansing ritual being performed"
