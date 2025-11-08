@@ -54,7 +54,7 @@ export default function CoursesHero() {
           viewport={{ once: true }}
           className="hidden sm:block w-full md:w-[460px] lg:w-[500px] h-[380px] lg:h-[420px] bg-[#EDEDE9] rounded-[6px] shadow-inner"
         ><Image
-        src="/assets/images/consultation.png"
+        src="/assets/images/coursesimg.png"
         alt="Guide providing personalized consultation"
         width={500}
         height={420}

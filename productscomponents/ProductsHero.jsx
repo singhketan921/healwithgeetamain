@@ -56,13 +56,13 @@ export default function ProductsHero() {
           viewport={{ once: true }}
           className="hidden sm:block w-full md:w-[460px] lg:w-[500px] h-[380px] lg:h-[420px] bg-[#EDEDE9] rounded-[6px] shadow-inner"
         ><Image
-        src="/assets/images/consultation.png"
-        alt="Guide providing personalized consultation"
-        width={500}
-        height={420}
-        className="object-cover w-full h-full"
-        priority
-      /></motion.div>
+      src="/assets/images/gems.png"
+      alt="Guide providing personalized consultation"
+      width={500}
+      height={420}
+      className="object-cover w-full h-full"
+      priority
+    /></motion.div>
       </div>
     </section>
   );

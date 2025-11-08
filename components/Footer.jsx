@@ -37,25 +37,33 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex justify-center gap-5 mt-6 sm:justify-start">
             <a
-              href="#"
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noreferrer"
               className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
             >
               <FaYoutube />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
               className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
             >
               <FaInstagram />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
               className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
             >
               <FaFacebookF />
             </a>
             <a
-              href="#"
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noreferrer"
               className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
             >
               <FaXTwitter />
@@ -74,22 +82,22 @@ export default function Footer() {
           <h3 className="mb-2 text-lg font-semibold text-white">Services</h3>
           <ul className="space-y-1 text-sm text-gray-300">
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/consultations" className="hover:text-[#C5A35C] transition">
                 Consultations
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/healings" className="hover:text-[#C5A35C] transition">
                 Healings
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/courses" className="hover:text-[#C5A35C] transition">
                 Certificate Courses
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/contact" className="hover:text-[#C5A35C] transition">
                 Contact
               </a>
             </li>
@@ -107,27 +115,27 @@ export default function Footer() {
           <h3 className="mb-2 text-lg font-semibold text-white">Support</h3>
           <ul className="space-y-1 text-sm text-gray-300">
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/contact" className="hover:text-[#C5A35C] transition">
                 Contact Us
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/privacy" className="hover:text-[#C5A35C] transition">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/terms" className="hover:text-[#C5A35C] transition">
                 Terms of Service
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/refunds" className="hover:text-[#C5A35C] transition">
                 Refund Policy
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-[#C5A35C] transition">
+              <a href="/#testimonials" className="hover:text-[#C5A35C] transition">
                 Testimonials
               </a>
             </li>
