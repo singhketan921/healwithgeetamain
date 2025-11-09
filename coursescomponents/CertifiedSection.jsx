@@ -18,7 +18,7 @@ export default function CertifiedSection() {
         {/* Left Side - Image */}
         <div className="bg-gray-100 h-[300px] sm:h-[360px] rounded-2xl shadow-inner">
           <Image
-                      src="/assets/images/certified.png"
+                      src="/assets/images/certifiedasset.png"
                       alt="Guide providing personalized consultation"
                       width={500}
                       height={420}

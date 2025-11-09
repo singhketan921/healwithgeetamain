@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 const astrologyImage = "/assets/images/astrology.jpg";
+const astrologyImage1 = "/assets/images/modality5.png";
 
 const learnings = [
   {
@@ -25,19 +26,19 @@ const learnings = [
     price: "$1,200",
     duration: "24 Weeks Duration",
     features: ["Live Group Sessions", "Official Certification", "Lifetime Access"],
-    image: astrologyImage,
+    image: astrologyImage1,
   },
 ];
 
 export default function Learnings() {
   return (
     <section className="relative bg-[#EBF0E7] py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10 text-center">
+      <div className="relative z-10 px-6 mx-auto text-center max-w-7xl sm:px-8">
         {/* Heading */}
         <h2 className="font-serif text-[2.5rem] sm:text-[3rem] font-semibold text-charcoal mb-3">
           Learnings
         </h2>
-        <p className="text-charcoal/80 text-base sm:text-lg mb-8">
+        <p className="mb-8 text-base text-charcoal/80 sm:text-lg">
           Quality Learnings that are tailored for excellence.
         </p>
 
@@ -52,7 +53,7 @@ export default function Learnings() {
         </div>
 
         {/* Course Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 justify-items-center">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 justify-items-center">
           {learnings.map((course, index) => (
             <motion.div
               key={course.id}
@@ -78,9 +79,9 @@ export default function Learnings() {
 
                 <h3 className="text-lg font-semibold text-[#51624F] mb-2">{course.title}</h3>
 
-                <p className="text-charcoal/80 text-sm leading-relaxed mb-5">{course.description}</p>
+                <p className="mb-5 text-sm leading-relaxed text-charcoal/80">{course.description}</p>
 
-                <ul className="grid grid-cols-2 gap-y-2 text-sm text-charcoal/90 mb-6">
+                <ul className="grid grid-cols-2 mb-6 text-sm gap-y-2 text-charcoal/90">
                   {[course.duration, ...course.features].map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
                       <span>&bull;</span> {feature}

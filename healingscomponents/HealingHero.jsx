@@ -55,7 +55,7 @@ export default function HealingHero() {
           className="hidden sm:block w-full md:w-[460px] lg:w-[500px] h-[380px] lg:h-[420px] rounded-[20px] shadow-[0_15px_40px_rgba(0,0,0,0.08)] overflow-hidden bg-white"
         >
           <Image
-            src="/assets/images/healing.png"
+            src="/assets/images/healinghero.png"
             alt="Guide providing personalized consultation"
             width={500}
             height={420}

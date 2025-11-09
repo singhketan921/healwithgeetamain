@@ -4,16 +4,19 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const astrology = "/assets/images/astrology.jpg";
-const tarot = "/assets/images/astrology.jpg";
-const healing = "/assets/images/astrology.jpg";
+const tarot = "/assets/images/modality5.png";
+const healing = "/assets/images/modality4.png";
+const healing1 = "/assets/images/modality3.png";
+const healing2 = "/assets/images/modality2.png";
+const healing3 = "/assets/images/modality1.png";
 
 const services = [
   { id: 1, title: "Astrology Consultation", image: astrology },
   { id: 2, title: "Tarot Reading", image: tarot },
   { id: 3, title: "Energy Healing", image: healing },
-  { id: 4, title: "Reiki Session", image: healing },
-  { id: 5, title: "Chakra Balancing", image: astrology },
-  { id: 6, title: "Palmistry Reading", image: tarot },
+  { id: 4, title: "Reiki Session", image: healing1 },
+  { id: 5, title: "Chakra Balancing", image: healing2 },
+  { id: 6, title: "Palmistry Reading", image: healing3 },
 ];
 
 export default function Services() {

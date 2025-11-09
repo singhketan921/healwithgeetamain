@@ -51,7 +51,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-b from-[#FFFEFA] via-[#F9F2DA] to-[#F3E6C4] border border-[#F3E1B8] rounded-[24px] shadow-[0_18px_40px_rgba(209,177,97,0.15)] hover:shadow-[0_22px_45px_rgba(209,177,97,0.22)] transition-all overflow-hidden text-left flex flex-col justify-between"
+            className="bg-gradient-to-b from-white via-[#FCF7EB] to-[#F6EAD3] border border-[#F4E8CC] rounded-[24px] shadow-[0_12px_30px_rgba(160,138,88,0.08)] hover:shadow-[0_18px_36px_rgba(160,138,88,0.16)] transition-all overflow-hidden text-left flex flex-col justify-between"
           >
             {/* Image */}
             <img
@@ -87,7 +87,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
               <div className="mt-6">
                 <a
                   href="/consultations#bookconsultation"
-                  className="block text-center w-full bg-gradient-to-r from-[#F2D7A2] to-[#E1BE82] text-[#1B1B1B] text-sm font-medium rounded-full py-2.5 hover:opacity-95 transition"
+                  className="block text-center w-full bg-[#C6A24A] text-white text-sm font-medium rounded-full py-2.5 shadow-[0_6px_18px_rgba(198,162,74,0.3)] hover:bg-[#b28f3f] transition"
                 >
                   Book Now
                 </a>

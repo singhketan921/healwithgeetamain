@@ -57,7 +57,7 @@ export default function CoursesLearnings({ courses = [] }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
             viewport={{ once: true }}
-            className="flex flex-col overflow-hidden transition bg-gradient-to-b from-[#FFFEFA] via-[#F8F1DB] to-[#F2E3C3] border border-[#F1E0BB] shadow-[0_15px_35px_rgba(195,161,84,0.12)] rounded-2xl hover:shadow-[0_20px_40px_rgba(195,161,84,0.2)]"
+            className="flex flex-col overflow-hidden transition bg-gradient-to-b from-white via-[#FBF6E7] to-[#F5EAD3] border border-[#F0E1C2] shadow-[0_10px_28px_rgba(150,130,90,0.1)] rounded-2xl hover:shadow-[0_16px_34px_rgba(150,130,90,0.16)]"
           >
             {/* Image */}
             <img
@@ -94,7 +94,7 @@ export default function CoursesLearnings({ courses = [] }) {
                 </span>
                 <a
                   href="/courses#form"
-                  className="bg-gradient-to-r from-[#F2D7A2] to-[#E1BE82] text-[#1B1B1B] text-sm font-medium px-5 py-2 rounded-full hover:opacity-95 transition"
+                  className="bg-[#E1C17B] text-[#1B1B1B] text-sm font-medium px-5 py-2 rounded-full shadow-[0_6px_15px_rgba(225,193,123,0.35)] hover:bg-[#d5b26a] transition"
                 >
                   Enroll Now
                 </a>
