@@ -78,7 +78,7 @@ export default function HealingModalities({ modalities = [] }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             viewport={{ once: true }}
-            className="overflow-hidden transition bg-white border border-gray-100 shadow-md rounded-2xl hover:shadow-lg"
+            className="overflow-hidden transition bg-gradient-to-b from-[#FFFEFA] via-[#F8F1DB] to-[#F2E3C3] border border-[#F1E0BB] shadow-[0_14px_35px_rgba(205,170,88,0.15)] rounded-2xl hover:shadow-[0_18px_40px_rgba(205,170,88,0.2)]"
           >
             {/* Image */}
             <img
@@ -120,7 +120,7 @@ export default function HealingModalities({ modalities = [] }) {
               {/* Button */}
               <a
                 href="#bookconsultation"
-                className="bg-[#A8B963] text-white font-medium text-sm py-3 rounded-lg w-full hover:bg-[#99A855] transition text-center"
+                className="bg-gradient-to-r from-[#F2D7A2] to-[#E1BE82] text-[#1B1B1B] font-medium text-sm py-3 rounded-lg w-full hover:opacity-95 transition text-center"
               >
                 Book Now
               </a>

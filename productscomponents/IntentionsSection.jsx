@@ -32,7 +32,8 @@ const ICON_MAP = {
   heart: (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-[#A8B963]"
+      className="h-6 w-6 text-[#E4C77C]"
+      className="h-6 w-6 text-[#F2D7A2]"
       aria-hidden="true"
     >
       <path
@@ -44,7 +45,7 @@ const ICON_MAP = {
   shield: (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-[#A8B963]"
+      className="h-6 w-6 text-[#F2D7A2]"
       aria-hidden="true"
     >
       <path
@@ -56,7 +57,7 @@ const ICON_MAP = {
   eye: (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-[#A8B963]"
+      className="h-6 w-6 text-[#F2D7A2]"
       aria-hidden="true"
     >
       <path

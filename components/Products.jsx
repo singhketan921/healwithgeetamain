@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 const moonstone = "/assets/images/moonstone.jpg";
 
@@ -13,6 +14,9 @@ const fallbackProducts = [
     type: "Pendant",
     priceText: "$38.00",
     image: moonstone,
+    variantId: null,
+    price: 38,
+    currency: "USD",
   },
   {
     id: 2,
@@ -21,6 +25,9 @@ const fallbackProducts = [
     type: "Pendant",
     priceText: "$38.00",
     image: moonstone,
+    variantId: null,
+    price: 38,
+    currency: "USD",
   },
   {
     id: 3,
@@ -29,6 +36,9 @@ const fallbackProducts = [
     type: "Pendant",
     priceText: "$38.00",
     image: moonstone,
+    variantId: null,
+    price: 38,
+    currency: "USD",
   },
 ];
 
@@ -43,6 +53,7 @@ const formatPrice = (amount, currency = "USD") => {
 };
 
 export default function Products({ products = [], storeUrl }) {
+  const { addItem } = useCart();
   const [backgroundStars] = useState(() =>
     Array.from({ length: 25 }, () => ({
       top: Math.random() * 100,
@@ -66,12 +77,15 @@ export default function Products({ products = [], storeUrl }) {
         id: product.id ?? index,
         title: product.title,
         subtitle: product.subtitle ?? product.description,
+        description: product.description,
         type: product.type,
         image: product.image ?? moonstone,
         priceText:
           product.priceText || formatPrice(product.price, product.currency),
+        price: Number(product.price) || null,
+        currency: product.currency || "USD",
         url: product.url || fallbackUrl,
-        cartUrl: product.cartUrl ?? null,
+        variantId: product.variantId ?? product.primaryVariantId ?? null,
       };
     });
   }, [products, storeUrl]);
@@ -104,7 +118,7 @@ export default function Products({ products = [], storeUrl }) {
         <div className="mb-14">
           <a
             href="/products"
-            className="inline-block bg-[#ACBF69] text-white px-8 py-3 rounded-md font-medium text-lg shadow-sm transition hover:bg-[#9CAD5B]"
+            className="inline-block bg-[#F2D7A2] text-[#1B1B1B] px-8 py-3 rounded-md font-medium text-lg shadow-sm transition hover:bg-[#e5c486]"
           >
             Browse Products
           </a>
@@ -116,6 +130,16 @@ export default function Products({ products = [], storeUrl }) {
               key={product.id ?? index}
               product={product}
               index={index}
+              onAdd={() =>
+                addItem({
+                  variantId: product.variantId,
+                  title: product.title,
+                  subtitle: product.subtitle,
+                  price: product.price,
+                  currency: product.currency,
+                  image: product.image,
+                })
+              }
             />
           ))}
         </div>
@@ -124,10 +148,10 @@ export default function Products({ products = [], storeUrl }) {
   );
 }
 
-function ProductCard({ product, index }) {
+function ProductCard({ product, index, onAdd }) {
   const [hovered, setHovered] = useState(false);
-  const productLink = product.cartUrl || product.url;
-  const isCartLink = Boolean(product.cartUrl);
+  const productLink = product.url;
+  const canAdd = Boolean(product.variantId);
 
   return (
     <motion.div
@@ -169,27 +193,44 @@ function ProductCard({ product, index }) {
             {product.priceText ?? "—"}
           </span>
 
-          {productLink ? (
-            <motion.a
-              href={productLink}
-              target={isCartLink ? "_self" : "_blank"}
-              rel={isCartLink ? undefined : "noreferrer"}
+          {canAdd ? (
+            <motion.button
+              type="button"
+              onClick={onAdd}
               initial={{ width: 28 }}
               animate={{
                 width: hovered ? 130 : 28,
-                backgroundColor: "#ACBF69",
+                backgroundColor: "#F2D7A2",
                 borderRadius: 9999,
                 boxShadow: hovered
-                  ? "0 4px 15px rgba(172, 191, 105, 0.4)"
+                  ? "0 4px 15px rgba(242, 215, 162, 0.45)"
                   : "0 0 0 rgba(0,0,0,0)",
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="h-7 flex items-center justify-center text-white text-sm font-medium overflow-hidden"
+              className="h-7 flex items-center justify-center text-[#1B1B1B] text-sm font-medium overflow-hidden"
             >
               {hovered ? (
-                <span className="px-2 whitespace-nowrap">
-                  {isCartLink ? "Add to Cart" : "Shop Product"}
-                </span>
+                <span className="px-2 whitespace-nowrap">Add to Cart</span>
+              ) : (
+                <span className="text-lg leading-none">+</span>
+              )}
+            </motion.button>
+          ) : productLink ? (
+            <motion.a
+              href={productLink}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ width: 28 }}
+              animate={{
+                width: hovered ? 130 : 28,
+                backgroundColor: "#E5E5E5",
+                borderRadius: 9999,
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="h-7 flex items-center justify-center text-gray-600 text-xs font-medium overflow-hidden"
+            >
+              {hovered ? (
+                <span className="px-2 whitespace-nowrap">View Product</span>
               ) : (
                 <span className="text-lg leading-none">+</span>
               )}
@@ -199,11 +240,11 @@ function ProductCard({ product, index }) {
               initial={{ width: 28 }}
               animate={{
                 width: hovered ? 115 : 28,
-                backgroundColor: "#ACBF69",
+                backgroundColor: "#E5E5E5",
                 borderRadius: 9999,
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="h-7 flex items-center justify-center text-white text-xs font-medium overflow-hidden"
+              className="h-7 flex items-center justify-center text-gray-500 text-xs font-medium overflow-hidden"
             >
               Coming Soon
             </motion.span>

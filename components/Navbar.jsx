@@ -1,7 +1,8 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 const logo = "/assets/images/logo.png";
 
@@ -18,6 +19,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const [showShadow, setShowShadow] = useState(false);
+  const { items, toggleCart } = useCart();
+  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     let scrollTimeout;
@@ -40,7 +43,6 @@ export default function Navbar() {
         setIsScrolling(false);
         setShowShadow(false);
       }, 300);
-
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -66,7 +68,6 @@ export default function Navbar() {
       }}
     >
       <div className="flex items-center justify-between w-full px-4 py-4 sm:px-6 lg:px-12">
-        {/* LEFT - Logo + Name (pinned left) */}
         <Link
           href="/"
           className="flex items-center gap-3 text-charcoal flex-shrink-0 md:min-w-[140px] lg:min-w-[220px]"
@@ -87,7 +88,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* CENTER - Nav Links */}
         <nav className="hidden md:flex flex-grow justify-center gap-2 text-sm font-medium text-charcoal md:gap-2.5 lg:gap-6">
           {links.map((link) => (
             <Link
@@ -100,9 +100,8 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT - Search Bar */}
-        <div className="hidden md:flex items-center justify-end flex-shrink-0 md:min-w-[140px] lg:min-w-[200px] xl:min-w-[220px]">
-          <div className="relative w-full md:max-w-[120px] md:ml-4 lg:ml-6 lg:max-w-[200px] xl:max-w-[240px]">
+        <div className="hidden md:flex items-center justify-end flex-shrink-0 gap-3 md:min-w-[220px]">
+          <div className="relative w-full md:max-w-[150px] lg:max-w-[200px]">
             <input
               type="search"
               placeholder="Search in site"
@@ -123,33 +122,56 @@ export default function Navbar() {
               />
             </svg>
           </div>
+          <button
+            onClick={toggleCart}
+            className="relative px-4 py-2 text-sm font-medium text-charcoal border border-gray-200 rounded-full hover:border-charcoal transition"
+          >
+            Cart
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 text-[11px] font-semibold bg-charcoal text-white rounded-full min-w-[20px] h-[20px] leading-[20px] text-center">
+                {itemCount}
+              </span>
+            )}
+          </button>
         </div>
 
-        {/* MOBILE - Menu Button */}
-        <button
-          onClick={() => setIsOpen((prev) => !prev)}
-          className="inline-flex items-center justify-center p-2 ml-auto transition-colors border border-gray-300 rounded-md text-charcoal md:hidden hover:bg-gray-100"
-          aria-expanded={isOpen}
-          aria-label="Toggle navigation"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+        <div className="flex items-center gap-2 md:hidden ml-auto">
+          <button
+            onClick={toggleCart}
+            className="relative px-4 py-2 text-sm font-medium text-charcoal border border-gray-200 rounded-full hover:border-charcoal transition"
+            aria-label="Open cart"
           >
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            Cart
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 text-[11px] font-semibold bg-charcoal text-white rounded-full min-w-[18px] h-[18px] leading-[18px] text-center">
+                {itemCount}
+              </span>
             )}
-          </svg>
-        </button>
+          </button>
+          <button
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="inline-flex items-center justify-center p-2 transition-colors border border-gray-300 rounded-md text-charcoal hover:bg-gray-100"
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              {isOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* MOBILE - Dropdown (Glassy Menu) */}
       {isOpen && (
         <div className="border-t border-gray-200 shadow-lg bg-white/90 backdrop-blur-lg md:hidden animate-fadeIn">
           <nav className="flex flex-col px-4 py-4">
@@ -164,16 +186,24 @@ export default function Navbar() {
               </Link>
             ))}
           </nav>
-          <div className="px-4 pb-4">
+          <div className="px-4 pb-4 space-y-3">
             <input
               type="search"
               placeholder="Search in site"
               className="w-full h-10 px-4 text-sm placeholder-gray-400 bg-white border border-gray-200 rounded-full text-charcoal focus:border-olive focus:outline-none focus:ring-2 focus:ring-olive/20"
             />
+            <button
+              onClick={() => {
+                toggleCart();
+                setIsOpen(false);
+              }}
+              className="w-full rounded-full border border-gray-200 py-2 text-sm font-medium text-charcoal hover:border-charcoal transition"
+            >
+              View Cart ({itemCount})
+            </button>
           </div>
         </div>
       )}
     </header>
   );
 }
-

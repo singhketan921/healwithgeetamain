@@ -38,7 +38,7 @@ export default function EnergeticBlessingSection() {
             </p>
             <Link
               href="/"
-              className="inline-flex items-center justify-center self-center rounded-full bg-[#A8B963] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#8DA14C] lg:self-start"
+              className="inline-flex items-center justify-center self-center rounded-full bg-[#F2D7A2] px-8 py-3 text-sm font-semibold text-[#1E1D1A] transition hover:bg-[#e5c486] lg:self-start"
             >
               Learn More About Our Process
             </Link>

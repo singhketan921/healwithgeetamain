@@ -1,3 +1,4 @@
+import ProductsGrid from "@/components/ProductsGrid";
 import { fetchShopifyProducts } from "@/lib/services/shopifyProductService";
 
 const FALLBACK_IMAGE = "/assets/images/moonstone.jpg";
@@ -9,6 +10,9 @@ const FALLBACK_PRODUCTS = [
     description: "Calm intuition • emotional balance",
     priceText: "$38.00",
     image: FALLBACK_IMAGE,
+    variantId: null,
+    currency: "USD",
+    priceNumber: 38,
   },
   {
     id: "fallback-2",
@@ -16,6 +20,9 @@ const FALLBACK_PRODUCTS = [
     description: "Heart-opening • compassion",
     priceText: "$44.00",
     image: FALLBACK_IMAGE,
+    variantId: null,
+    currency: "USD",
+    priceNumber: 44,
   },
   {
     id: "fallback-3",
@@ -23,6 +30,9 @@ const FALLBACK_PRODUCTS = [
     description: "Protection • grounding",
     priceText: "$52.00",
     image: FALLBACK_IMAGE,
+    variantId: null,
+    currency: "USD",
+    priceNumber: 52,
   },
 ];
 
@@ -48,6 +58,8 @@ const normalizeProducts = (products = [], storeUrl) => {
         ? `${storeUrl}/products/${product.handle}`
         : null;
 
+    const priceNumber = Number(product.price) || null;
+
     return {
       id: product.id ?? `shopify-${index}`,
       title: product.title,
@@ -57,8 +69,12 @@ const normalizeProducts = (products = [], storeUrl) => {
         product.priceText ||
         formatPrice(product.price, product.currency) ||
         "—",
-      url: product.url || fallbackUrl,
-      cartLink: product.cartUrl ?? null,
+      currency: product.currency || "USD",
+      priceNumber,
+      variantId: product.primaryVariantId ?? product.variantId ?? null,
+      vendor: product.subtitle,
+      handle: product.handle,
+      url: fallbackUrl,
     };
   });
 };
@@ -77,7 +93,7 @@ export default async function ProductsSection({ limit = 12 }) {
   return (
     <section
       id="products"
-      className="w-full bg-gradient-to-b from-[#FDFCF8] via-[#F5F1E4] to-[#EFE8D3] py-20 px-6"
+      className="w-full bg-gradient-to-b from-[#FFFEFA] via-[#F7F1DF] to-[#F1E4C7] py-20 px-6"
     >
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-[#1F1F1F] mb-3">
@@ -87,55 +103,7 @@ export default async function ProductsSection({ limit = 12 }) {
           Discover crystals that align with your specific intentions and needs.
         </p>
 
-        <div
-          id="product-grid"
-          className="grid grid-cols-1 gap-8 mt-14 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {productCards.map((product) => (
-            <article
-              key={product.id}
-              className="bg-white rounded-[22px] shadow-[0_10px_40px_rgba(32,32,32,0.05)] overflow-hidden flex flex-col"
-            >
-              <div className="relative w-full h-64 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-col flex-1 p-6 text-left">
-                <p className="uppercase text-[0.65rem] tracking-[0.3em] text-[#B6B199] mb-2">
-                  Featured Crystal
-                </p>
-                <h3 className="text-xl font-semibold text-[#201F1C] mb-2">
-                  {product.title}
-                </h3>
-                <p className="text-sm text-[#595650] flex-1 mb-4">
-                  {product.description || "Energetic support for modern rituals."}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold text-[#1F1F1F]">
-                    {product.priceText}
-                  </span>
-                  {product.cartLink || product.url ? (
-                    <a
-                      href={product.cartLink || product.url}
-                      target={product.cartLink ? "_self" : "_blank"}
-                      rel={product.cartLink ? undefined : "noreferrer"}
-                      className="text-sm font-medium text-[#A8B963] hover:text-[#8FA24E] transition"
-                    >
-                      {product.cartLink ? "Add to Cart →" : "Shop Now →"}
-                    </a>
-                  ) : (
-                    <span className="text-xs uppercase tracking-[0.25em] text-[#A6A39A]">
-                      Coming Soon
-                    </span>
-                  )}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        <ProductsGrid products={productCards} />
       </div>
     </section>
   );
