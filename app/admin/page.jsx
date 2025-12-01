@@ -22,7 +22,7 @@ export default async function AdminDashboardPage() {
   ]);
 
   return (
-    <div className="min-h-screen bg-[#F7F6F1] py-14 px-6 lg:px-12">
+    <div className="min-h-screen bg-[#EAE4DC] py-14 px-6 lg:px-12">
       <div className="max-w-6xl mx-auto space-y-10">
         <header className="space-y-3">
           <p className="text-xs uppercase tracking-[0.35em] text-gray-500">
@@ -54,7 +54,7 @@ export default async function AdminDashboardPage() {
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm text-gray-700">
-              <thead className="bg-[#F9F8F4] text-xs uppercase tracking-wide text-gray-500">
+              <thead className="bg-[#EAE4DC] text-xs uppercase tracking-wide text-gray-500">
                 <tr>
                   <th className="px-6 py-3">Name</th>
                   <th className="px-6 py-3">Type</th>
@@ -132,7 +132,7 @@ export default async function AdminDashboardPage() {
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm text-gray-700">
-              <thead className="bg-[#F9F8F4] text-xs uppercase tracking-wide text-gray-500">
+              <thead className="bg-[#EAE4DC] text-xs uppercase tracking-wide text-gray-500">
                 <tr>
                   <th className="px-6 py-3">Name</th>
                   <th className="px-6 py-3">Topic</th>

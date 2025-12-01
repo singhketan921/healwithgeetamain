@@ -1,104 +1,75 @@
 'use client';
 
-import { motion } from "framer-motion";
-
-const astrologyImage = "/assets/images/astrology.jpg";
-const astrologyImage1 = "/assets/images/modality5.png";
-
 const learnings = [
   {
     id: 1,
     title: "Vedic Astrology Mastery",
     subtitle: "Certificate Course",
     description:
-      "Comprehensive 6-month program covering birth chart analysis, planetary periods, predictive techniques, and practical consultation skills.",
+      "A six-month editorial lab covering chart drafting, predictive flows, and client storytelling.",
     price: "$1,200",
-    duration: "24 Weeks Duration",
-    features: ["Live Group Sessions", "Official Certification", "Lifetime Access"],
-    image: astrologyImage,
+    duration: "24 Week Residency",
   },
   {
     id: 2,
-    title: "Vedic Astrology Mastery",
-    subtitle: "Certificate Course",
+    title: "Tarot Narratives Studio",
+    subtitle: "Immersive Cohort",
     description:
-      "Comprehensive 6-month program covering birth chart analysis, planetary periods, predictive techniques, and practical consultation skills.",
-    price: "$1,200",
-    duration: "24 Weeks Duration",
-    features: ["Live Group Sessions", "Official Certification", "Lifetime Access"],
-    image: astrologyImage1,
+      "Explore symbolism, therapeutic spreads, and performance style readings for circles and digital salons.",
+    price: "$720",
+    duration: "12 Week Salon",
   },
 ];
 
 export default function Learnings() {
   return (
-    <section className="relative bg-[#EBF0E7] py-20 overflow-hidden">
-      <div className="relative z-10 px-6 mx-auto text-center max-w-7xl sm:px-8">
-        {/* Heading */}
-        <h2 className="font-serif text-[2.5rem] sm:text-[3rem] font-semibold text-charcoal mb-3">
-          Learnings
-        </h2>
-        <p className="mb-8 text-base text-charcoal/80 sm:text-lg">
-          Quality Learnings that are tailored for excellence.
-        </p>
-
-        {/* Browse Button */}
-        <div className="mb-14">
+    <section className="bg-[#F5F2EE] py-24 text-[#524E48]">
+      <div className="max-w-6xl px-6 mx-auto space-y-12">
+        <header className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
+              Classroom Dispatch
+            </p>
+            <h2 className="font-serif text-[2.5rem] leading-tight">
+              Study group for mystic editors
+            </h2>
+          </div>
           <a
             href="/courses"
-            className="inline-block bg-[#ACBF69] text-white px-8 py-3 rounded-md font-medium text-lg shadow-sm transition hover:bg-[#9CAD5B]"
+            className="text-xs uppercase tracking-[0.4em] border px-6 py-3 rounded-full border-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC]"
           >
-            Browse Learnings
+            Browse Courses
           </a>
-        </div>
+        </header>
 
-        {/* Course Cards Grid */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 justify-items-center">
-          {learnings.map((course, index) => (
-            <motion.div
+        <div className="space-y-10">
+          {learnings.map((course) => (
+            <article
               key={course.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-[20px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] overflow-hidden w-full max-w-[540px] transition-all duration-300 hover:shadow-lg"
+              className="grid gap-6 py-6 border-t border-[#B0AAA0]/40 md:grid-cols-12 first:border-t-0"
             >
-              <img
-                src={course.image}
-                alt={course.title}
-                className="w-full h-[220px] object-cover rounded-t-[20px]"
-              />
-
-              <div className="px-8 py-6 text-left">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="bg-[#F7E0A3] text-[#2e2e2e] text-sm font-medium px-4 py-1 rounded-full">
-                    {course.subtitle}
-                  </span>
-                  <span className="text-[#ACBF69] text-lg font-semibold">{course.price}</span>
-                </div>
-
-                <h3 className="text-lg font-semibold text-[#51624F] mb-2">{course.title}</h3>
-
-                <p className="mb-5 text-sm leading-relaxed text-charcoal/80">{course.description}</p>
-
-                <ul className="grid grid-cols-2 mb-6 text-sm gap-y-2 text-charcoal/90">
-                  {[course.duration, ...course.features].map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <span>&bull;</span> {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="flex justify-center">
-                  <a
-                    href="/courses#form"
-                    className="w-full text-center bg-[#ACBF69] text-white font-medium py-3 rounded-full hover:bg-[#9CAD5B] transition"
-                  >
-                    Enroll Now
-                  </a>
-                </div>
+              <div className="md:col-span-3">
+                <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
+                  {course.subtitle}
+                </p>
               </div>
-            </motion.div>
+              <div className="md:col-span-6 space-y-3">
+                <h3 className="font-serif text-2xl">{course.title}</h3>
+                <p className="text-sm text-[#524E48]/80 leading-relaxed">
+                  {course.description}
+                </p>
+              </div>
+              <div className="md:col-span-3 flex flex-col gap-3 text-sm uppercase tracking-[0.35em] text-[#B0AAA0]">
+                <span>{course.duration}</span>
+                <span>{course.price}</span>
+                <a
+                  href="/courses#form"
+                  className="text-[#524E48] hover:text-[#A59079]"
+                >
+                  Enroll
+                </a>
+              </div>
+            </article>
           ))}
         </div>
       </div>

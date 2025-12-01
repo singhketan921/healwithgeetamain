@@ -8,7 +8,7 @@ import BeginTransformationSection from "@/contactcomponents/BeginTransformationS
 import { fetchTestimonials } from "@/lib/services/testimonialService";
 
 export const metadata = {
-  title: "Products • HealWithGeeta",
+  title: "Products - HealWithGeeta",
   description:
     "Browse curated crystals, ritual kits, and spiritual tools sourced directly from our Shopify storefront.",
 };

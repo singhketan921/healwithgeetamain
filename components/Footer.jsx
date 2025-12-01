@@ -1,157 +1,71 @@
-﻿'use client';
+'use client';
 
 import { FaFacebookF, FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
-import { motion } from "framer-motion";
 
 const logo = "/assets/images/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#232323] text-white py-14 px-6">
-      <div className="grid grid-cols-1 gap-12 mx-auto text-center max-w-7xl sm:grid-cols-3 sm:text-left">
-        {/* LOGO + DESCRIPTION */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center sm:items-start"
-        >
-          {/* Logo */}
-          <div className="flex flex-col items-center mb-3 sm:items-start">
-            <img
-              src={logo}
-              alt="HealWithGeeta Logo"
-              className="object-contain w-20 h-auto mb-2"
-            />
-            <h2 className="mt-2 text-xl font-semibold text-white">
-              HealWithGeeta
-            </h2>
+    <footer className="bg-[#F5F2EE] text-[#524E48] py-16 px-6 border-t border-[#EAE4DC]">
+      <div className="max-w-6xl mx-auto space-y-12">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="HealWithGeeta" className="w-14 h-14 object-contain" />
+              <div>
+                <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">HealWithGeeta</p>
+                <p className="font-serif text-xl">Ritual Wellness Gazette</p>
+              </div>
+            </div>
+            <p className="text-sm leading-relaxed text-[#524E48]/80 max-w-md">
+              A modern apothecary of astrology, healing, and high-touch rituals for luminous women everywhere.
+            </p>
+            <div className="flex gap-3">
+              {[FaYoutube, FaInstagram, FaFacebookF, FaXTwitter].map((Icon, idx) => (
+                <a
+                  key={idx}
+                  href="#"
+                  className="w-10 h-10 rounded-full border border-[#B0AAA0] flex items-center justify-center text-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Icon />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <p className="max-w-xs text-sm leading-relaxed text-gray-300">
-            Guiding souls on their spiritual journey through the timeless wisdom
-            of Vedic sciences, astrology, and healing practices.
-          </p>
-
-          {/* Social Icons */}
-          <div className="flex justify-center gap-5 mt-6 sm:justify-start">
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
-            >
-              <FaYoutube />
-            </a>
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center text-gray-200 hover:text-[#C5A35C] hover:border-[#C5A35C] transition"
-            >
-              <FaXTwitter />
-            </a>
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">Offerings</p>
+            <ul className="space-y-2 text-sm">
+              {["Consultations", "Healings", "Courses", "Products"].map((item) => (
+                <li key={item}>
+                  <a className="hover:text-[#A59079] transition" href={`/${item.toLowerCase()}`}>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        </motion.div>
 
-        {/* SERVICES SECTION (Hidden on mobile) */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="hidden space-y-3 sm:block"
-        >
-          <h3 className="mb-2 text-lg font-semibold text-white">Services</h3>
-          <ul className="space-y-1 text-sm text-gray-300">
-            <li>
-              <a href="/consultations" className="hover:text-[#C5A35C] transition">
-                Consultations
-              </a>
-            </li>
-            <li>
-              <a href="/healings" className="hover:text-[#C5A35C] transition">
-                Healings
-              </a>
-            </li>
-            <li>
-              <a href="/courses" className="hover:text-[#C5A35C] transition">
-                Certificate Courses
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="hover:text-[#C5A35C] transition">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </motion.div>
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">Studio</p>
+            <ul className="space-y-2 text-sm">
+              {["Contact", "Privacy", "Terms", "Refunds"].map((item) => (
+                <li key={item}>
+                  <a className="hover:text-[#A59079] transition" href={`/${item.toLowerCase()}`}>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-        {/* SUPPORT SECTION (Hidden on mobile) */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="hidden space-y-3 sm:block"
-        >
-          <h3 className="mb-2 text-lg font-semibold text-white">Support</h3>
-          <ul className="space-y-1 text-sm text-gray-300">
-            <li>
-              <a href="/contact" className="hover:text-[#C5A35C] transition">
-                Contact Us
-              </a>
-            </li>
-            <li>
-              <a href="/privacy" className="hover:text-[#C5A35C] transition">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="/terms" className="hover:text-[#C5A35C] transition">
-                Terms of Service
-              </a>
-            </li>
-            <li>
-              <a href="/refunds" className="hover:text-[#C5A35C] transition">
-                Refund Policy
-              </a>
-            </li>
-            <li>
-              <a href="/#testimonials" className="hover:text-[#C5A35C] transition">
-                Testimonials
-              </a>
-            </li>
-          </ul>
-        </motion.div>
-      </div>
-
-      {/* COPYRIGHT */}
-      <div className="pt-6 mt-12 text-sm text-center text-gray-400 border-t border-gray-700">
-        &copy; {new Date().getFullYear()} HealWithGeeta. All rights reserved.
+        <div className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0] text-center">
+          © {new Date().getFullYear()} HealWithGeeta · Crafted with cosmic intention
+        </div>
       </div>
     </footer>
   );
 }
-
-
-
-
-

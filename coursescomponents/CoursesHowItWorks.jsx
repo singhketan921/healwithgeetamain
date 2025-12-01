@@ -1,73 +1,73 @@
-﻿'use client';
+'use client';
 
 import { motion } from "framer-motion";
 import { FaUserPlus, FaVideo, FaTasks, FaCertificate } from "react-icons/fa";
 
+const steps = [
+  {
+    icon: <FaUserPlus />,
+    title: "Enroll",
+    text: "Choose your cohort and secure your seat.",
+  },
+  {
+    icon: <FaVideo />,
+    title: "Attend Live Class",
+    text: "Weekly Zoom salons with Geeta and guest mentors.",
+  },
+  {
+    icon: <FaTasks />,
+    title: "Practice & Submit",
+    text: "Assignments read like editorial briefs with real feedback.",
+  },
+  {
+    icon: <FaCertificate />,
+    title: "Get Certified",
+    text: "Graduate with credentials recognized by our global community.",
+  },
+];
+
 export default function CoursesHowItWorks() {
-  const steps = [
-    {
-      icon: <FaUserPlus />,
-      title: "Enroll",
-      text: "Choose your course and complete registration",
-    },
-    {
-      icon: <FaVideo />,
-      title: "Attend Live Class",
-      text: "Join interactive sessions with expert guidance",
-    },
-    {
-      icon: <FaTasks />,
-      title: "Complete Assignments",
-      text: "Practice with real-world applications",
-    },
-    {
-      icon: <FaCertificate />,
-      title: "Receive Certification",
-      text: "Get recognized for your achievements",
-    },
-  ];
-
   return (
-    <section className="bg-[#FAF9F4] py-20 px-6 sm:px-10">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="max-w-6xl mx-auto text-center"
-      >
-        {/* Section Heading */}
-        <h2 className="font-serif text-[2.3rem] sm:text-[2.8rem] font-semibold text-charcoal mb-3">
-          How it Works
-        </h2>
-        <p className="text-base text-gray-700 sm:text-lg mb-14">
-          Your journey to spiritual clarity in four simple steps
-        </p>
+    <section className="bg-white py-24 text-[#524E48]">
+      <div className="max-w-6xl px-6 mx-auto space-y-10">
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+            Process
+          </p>
+          <h2 className="font-serif text-[2.4rem] leading-tight">
+            How each course unfolds
+          </h2>
+          <p className="text-base text-[#524E48]/80">
+            A four-part rhythm that mirrors the cadence of a beautifully edited feature.
+          </p>
+        </div>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2">
           {steps.map((step, i) => (
-            <motion.div
-              key={i}
+            <motion.article
+              key={step.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col items-center text-center"
+              className="rounded-[30px] border border-[#EAE4DC] bg-[#F8F6F3] shadow-[0_18px_45px_rgba(82,78,72,0.08)] p-6 flex gap-5"
             >
-              <div className="bg-[#E3C875] text-white w-24 h-24 flex items-center justify-center rounded-full text-4xl mb-5 shadow-inner">
+              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center text-2xl text-[#A59079]">
                 {step.icon}
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-charcoal">
-                {step.title}
-              </h3>
-              <p className="text-gray-600 text-sm max-w-[200px]">
-                {step.text}
-              </p>
-            </motion.div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="font-serif text-xl mt-1">{step.title}</h3>
+                <p className="text-sm text-[#524E48]/75 leading-relaxed mt-2">
+                  {step.text}
+                </p>
+              </div>
+            </motion.article>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

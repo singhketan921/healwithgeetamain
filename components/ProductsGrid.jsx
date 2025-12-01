@@ -4,69 +4,112 @@ import { useCart } from "@/context/CartContext";
 
 export default function ProductsGrid({ products = [] }) {
   const { addItem } = useCart();
+  if (!products.length) return null;
+
+  const spotlight = products[0];
+  const collection = products.slice(1);
+
+  const handleAdd = (product) => {
+    if (!product.variantId) return;
+    addItem({
+      variantId: product.variantId,
+      title: product.title,
+      subtitle: product.description,
+      price: product.priceNumber,
+      currency: product.currency,
+      image: product.image,
+      vendor: product.vendor,
+      handle: product.handle,
+    });
+  };
 
   return (
-    <div
-      id="product-grid"
-      className="grid grid-cols-1 gap-8 mt-14 sm:grid-cols-2 lg:grid-cols-3"
-    >
-      {products.map((product) => {
-        const price = product.priceText ?? "—";
-        const canAdd = Boolean(product.variantId);
-
-        return (
-          <article
-            key={product.id}
-            className="bg-white rounded-[22px] shadow-[0_10px_40px_rgba(32,32,32,0.05)] overflow-hidden flex flex-col"
-          >
-            <div className="relative w-full h-64 overflow-hidden">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 hover:scale-105"
-              />
+    <div className="mt-16 space-y-12">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-start">
+        <article className="rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_25px_80px_rgba(82,78,72,0.08)] overflow-hidden flex flex-col">
+          <div className="relative h-80">
+            <img
+              src={spotlight.image}
+              alt={spotlight.title}
+              className="object-cover w-full h-full"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#EAE4DC]/70 to-transparent" />
+          </div>
+          <div className="p-8 space-y-4 text-[#524E48]">
+            <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+              Spotlight Ritual
+            </p>
+            <h3 className="font-serif text-[2rem] leading-tight">
+              {spotlight.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-[#524E48]/80">
+              {spotlight.description ||
+                "Limited release tool curated for protection, balance, and luminous intention."}
+            </p>
+            <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
+              <span>{spotlight.type || "Artifact"}</span>
+              <span>&middot;</span>
+              <span>{spotlight.priceText ?? "Sold Out"}</span>
             </div>
-            <div className="flex flex-col flex-1 p-6 text-left">
-              <p className="uppercase text-[0.65rem] tracking-[0.3em] text-[#B6B199] mb-2">
-                Featured Crystal
+            <div className="flex gap-4">
+              {spotlight.variantId ? (
+                <button
+                  onClick={() => handleAdd(spotlight)}
+                  className="flex-1 px-6 py-3 text-xs font-semibold uppercase tracking-[0.35em] border border-[#524E48] rounded-full hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <span className="flex-1 px-6 py-3 text-center text-xs uppercase tracking-[0.35em] border border-[#B0AAA0] rounded-full text-[#B0AAA0]">
+                  Archive
+                </span>
+              )}
+            </div>
+          </div>
+        </article>
+
+        <div className="grid gap-6 sm:grid-cols-2 text-[#524E48]">
+          {collection.map((product) => (
+            <article
+              key={product.id}
+              className="rounded-[28px] border border-[#EAE4DC] bg-white/90 shadow-[0_18px_50px_rgba(82,78,72,0.07)] p-6 flex flex-col gap-4"
+            >
+              <p className="text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
+                {product.type || "Edition"}
               </p>
-              <h3 className="text-xl font-semibold text-[#201F1C] mb-2">
+              <h4 className="font-serif text-xl leading-snug">
                 {product.title}
-              </h3>
-              <p className="text-sm text-[#595650] flex-1 mb-4">
+              </h4>
+              <p className="text-sm text-[#524E48]/70 flex-1 leading-relaxed">
                 {product.description || "Energetic support for modern rituals."}
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-lg font-semibold text-[#1F1F1F]">
-                  {price}
-                </span>
-                <button
-                  disabled={!canAdd}
-                  onClick={() =>
-                    addItem({
-                      variantId: product.variantId,
-                      title: product.title,
-                      subtitle: product.description,
-                      price: product.priceNumber,
-                      currency: product.currency,
-                      image: product.image,
-                      vendor: product.vendor,
-                      handle: product.handle,
-                    })
-                  }
-                  className={`text-sm font-medium rounded-full px-4 py-2 transition ${
-                    canAdd
-                      ? "bg-[#F2D7A2] text-[#1B1B1B] hover:bg-[#e5c486]"
-                      : "bg-gray-100 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  {canAdd ? "Add to Cart" : "Sold Out"}
-                </button>
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
+                <span>{product.priceText ?? "Sold Out"}</span>
+                {product.variantId ? (
+                  <button
+                    onClick={() => handleAdd(product)}
+                    className="px-4 py-2 border border-[#524E48] rounded-full text-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                  >
+                    Add
+                  </button>
+                ) : product.url ? (
+                  <a
+                    href={product.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-4 py-2 border border-[#B0AAA0] rounded-full hover:border-[#524E48]"
+                  >
+                    View
+                  </a>
+                ) : (
+                  <span>Archive</span>
+                )}
               </div>
-            </div>
-          </article>
-        );
-      })}
+            </article>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

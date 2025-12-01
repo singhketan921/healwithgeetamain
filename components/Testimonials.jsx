@@ -1,140 +1,59 @@
 'use client';
 
-import { motion, useAnimation } from "framer-motion";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6";
 
 const fallbackTestimonials = [
   {
     id: "spotlight-1",
     name: "John Doe",
     role: "Software Engineer, New York",
-    rating: 4.5,
-    video: "/assets/videos/testimonial1.mp4",
+    rating: 5,
+    quote:
+      "The consultation felt like stepping inside an illuminated archive of my own story. I left with rituals, tinctures, and profound clarity.",
   },
 ];
 
 export default function Testimonials({ testimonials = [] }) {
-  const controls = useAnimation();
-  const marqueeRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const items = useMemo(
-    () => (testimonials.length ? testimonials : fallbackTestimonials),
-    [testimonials]
-  );
-
-  useEffect(() => {
-    const updateViewportFlag = () => setIsMobile(window.innerWidth < 640);
-    updateViewportFlag();
-    window.addEventListener("resize", updateViewportFlag);
-    return () => window.removeEventListener("resize", updateViewportFlag);
-  }, []);
-
-  const startMarquee = useCallback(
-    (speed = isMobile ? 120 : 85) => {
-      controls.start({
-        x: ["0%", "-100%"],
-        transition: {
-          repeat: Infinity,
-          ease: "linear",
-          duration: speed,
-        },
-      });
-    },
-    [controls, isMobile]
-  );
-
-  useEffect(() => {
-    startMarquee();
-  }, [startMarquee]);
-
-  const handleMouseEnter = useCallback(() => {
-    if (!isMobile) {
-      controls.stop();
-    }
-  }, [controls, isMobile]);
-
-  const handleMouseLeave = useCallback(() => {
-    if (!isMobile) {
-      startMarquee();
-    }
-  }, [isMobile, startMarquee]);
-
-  const handleVideoPlay = useCallback(() => controls.stop(), [controls]);
-  const handleVideoPause = useCallback(() => startMarquee(), [startMarquee]);
+  const items = testimonials.length ? testimonials : fallbackTestimonials;
 
   return (
-    <section className="relative py-20 overflow-hidden bg-white">
-      <div className="px-6 mx-auto text-center max-w-7xl sm:px-8">
-        {/* Heading */}
-        <h2 className="font-serif text-[2.6rem] sm:text-[3rem] font-semibold text-charcoal mb-3">
-          Sacred Transformations
-        </h2>
-        <p className="max-w-3xl mx-auto mb-12 text-base text-charcoal/80 sm:text-lg">
-          Discover how ancient wisdom has transformed the lives of our cherished
-          community members.
-        </p>
-
-        {/* Marquee container */}
-        <div
-          className="relative w-screen overflow-hidden -translate-x-1/2 cursor-pointer left-1/2"
-          ref={marqueeRef}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <motion.div
-            className="flex gap-8 w-max"
-            animate={controls}
-            initial={{ x: 0 }}
-          >
-            {[...items, ...items].map((t, i) => (
-              <div
-                key={`${t.id ?? i}-${i}`}
-                className={`flex-none bg-[#E8DFC8] rounded-[20px] p-6 flex flex-col justify-between
-                  ${
-                    isMobile
-                      ? "w-screen mx-3"
-                      : "w-[460px] sm:w-[500px] md:w-[660px]"
-                  }`}
+    <section className="bg-[#EAE4DC] py-24 text-[#524E48]">
+      <div className="max-w-6xl px-6 mx-auto space-y-12">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
+              Testimonials
+            </p>
+            <h2 className="mt-4 font-serif text-[2.6rem] leading-tight">
+              Women writing new chapters
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-[#524E48]/80">
+              Letters and field reports from the HealWithGeeta community—inked
+              after ceremonies, tarot salons, and wellness residencies.
+            </p>
+          </div>
+          <div className="lg:col-span-8 space-y-8">
+            {items.map((entry) => (
+              <article
+                key={entry.id}
+                className="p-8 border border-[#B0AAA0]/50 rounded-[32px] bg-white"
               >
-                {/* Video */}
-                <div className="mb-6 overflow-hidden bg-gray-200 rounded-[16px]">
-                  <video
-                    src={t.video}
-                    controls
-                    onPlay={handleVideoPlay}
-                    onPause={handleVideoPause}
-                    className={`w-full object-cover rounded-[16px] ${
-                      isMobile ? "h-[220px]" : "h-[260px] md:h-[280px]"
-                    }`}
-                  />
+                <div className="flex gap-1 text-[#A59079] mb-4 text-lg">
+                  {Array.from({ length: Math.round(entry.rating) }).map(
+                    (_, idx) => (
+                      <FaStar key={idx} />
+                    )
+                  )}
                 </div>
-
-                {/* User Info */}
-                <div className="flex items-start gap-4">
-                  <div className="flex items-center justify-center w-12 h-12 text-2xl text-gray-500 bg-white rounded-full">
-                    <span>*</span>
-                  </div>
-                  <div className="text-left">
-                    <h4 className="text-base font-semibold text-black">
-                      {t.name}
-                    </h4>
-                    <p className="text-sm text-black/80">{t.role}</p>
-                    <div className="flex items-center gap-1 mt-1 text-[#C5A35C]">
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStar />
-                      <FaStarHalfStroke />
-                      <span className="ml-1 text-sm text-black/70">
-                        {t.rating}/5
-                      </span>
-                    </div>
-                  </div>
+                <p className="font-serif text-2xl leading-snug mb-6">
+                  {entry.quote}
+                </p>
+                <div className="text-sm uppercase tracking-[0.35em] text-[#B0AAA0]">
+                  {entry.name} · {entry.role}
                 </div>
-              </div>
+              </article>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

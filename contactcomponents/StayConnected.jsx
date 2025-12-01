@@ -1,77 +1,67 @@
-﻿'use client';
+'use client';
 
 import { motion } from "framer-motion";
 import { FaYoutube, FaInstagram, FaFacebookF, FaXTwitter } from "react-icons/fa6";
 
+const SOCIALS = [
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/" },
+  { icon: FaYoutube, label: "YouTube", href: "https://www.youtube.com/" },
+  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/" },
+  { icon: FaXTwitter, label: "Twitter", href: "https://twitter.com/" },
+];
+
 export default function StayConnected() {
   return (
-    <section className="bg-[#FDFCF8] border-t border-[#E8E6DA] py-20 px-6 sm:px-10">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="max-w-3xl mx-auto text-center"
-      >
-        {/* Heading */}
-        <h2 className="font-serif text-4xl sm:text-5xl font-semibold text-[#1E1E1E] mb-4">
-          Stay Connected
-        </h2>
+    <section className="relative overflow-hidden border-t border-[#D5CCC4] bg-[#F4EEE7] px-6 py-24">
+      <div className="absolute inset-0 pointer-events-none">
+        <span className="absolute left-1/2 top-0 h-60 w-60 -translate-x-1/2 rounded-full bg-white blur-[140px]" />
+      </div>
 
-        {/* Subtext */}
-        <p className="mb-10 text-base leading-relaxed text-gray-700 sm:text-lg">
-          Follow <span className="font-medium text-[#1E1E1E]">HealWithGeeta</span> on
-          social media for daily wisdom, astrology insights, and healing practices.
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="relative z-10 mx-auto max-w-4xl text-center text-[#524E48]"
+      >
+        <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+          Dispatches
+        </p>
+        <h2 className="mt-3 font-serif text-[2.6rem] leading-tight">
+          Stay connected with HealWithGeeta
+        </h2>
+        <p className="mt-4 text-base text-[#524E48]/80">
+          Follow the studio diary for daily rituals, astrology notes, and behind the
+          scenes of new products.
         </p>
 
-        {/* Social Icons */}
-        <div className="flex justify-center gap-6 mb-12">
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#E8D48A] hover:bg-[#DFC765] transition rounded-full p-3"
-            aria-label="YouTube"
-          >
-            <FaYoutube className="text-[#1E1E1E] text-xl" />
-          </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#E8D48A] hover:bg-[#DFC765] transition rounded-full p-3"
-            aria-label="Instagram"
-          >
-            <FaInstagram className="text-[#1E1E1E] text-xl" />
-          </a>
-          <a
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#E8D48A] hover:bg-[#DFC765] transition rounded-full p-3"
-            aria-label="Facebook"
-          >
-            <FaFacebookF className="text-[#1E1E1E] text-xl" />
-          </a>
-          <a
-            href="https://twitter.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#E8D48A] hover:bg-[#DFC765] transition rounded-full p-3"
-            aria-label="Twitter / X"
-          >
-            <FaXTwitter className="text-[#1E1E1E] text-xl" />
-          </a>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {SOCIALS.map(({ icon: Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between rounded-[28px] border border-[#EAE4DC] bg-white/90 px-6 py-4 text-left shadow-[0_18px_40px_rgba(82,78,72,0.08)]"
+            >
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-[#B0AAA0]">{label}</p>
+                <p className="font-serif text-xl text-[#524E48]">@healwithgeeta</p>
+              </div>
+              <span className="rounded-full bg-[#F6F3EF] p-3 text-[#A59079]">
+                <Icon className="text-lg" />
+              </span>
+            </a>
+          ))}
         </div>
 
-        {/* Follow Button */}
         <a
           href="https://www.instagram.com/"
           target="_blank"
           rel="noreferrer"
-          className="inline-block bg-[#A8B963] hover:bg-[#9CAF5C] text-white font-medium text-lg px-10 py-3 rounded-full transition shadow-sm"
+          className="mt-10 inline-flex items-center justify-center rounded-full border border-[#524E48] px-10 py-3 text-xs font-semibold uppercase tracking-[0.4em] text-[#524E48] transition hover:bg-[#524E48] hover:text-[#F4EEE7]"
         >
-          Follow Us
+          Follow us
         </a>
       </motion.div>
     </section>

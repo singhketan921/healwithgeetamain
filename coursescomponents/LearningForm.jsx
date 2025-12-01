@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -70,33 +70,31 @@ export default function LearningForm({ onSubmit }) {
   };
 
   return (
-    <section className="px-6 py-20 bg-white sm:px-10">
+    <section className="px-6 py-24 bg-white text-[#524E48]" id="form">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-3xl mx-auto text-center"
+        className="max-w-4xl mx-auto space-y-8"
       >
-        {/* Heading */}
-        <h2 className="font-serif text-[2rem] sm:text-[2.5rem] font-semibold text-charcoal mb-3">
-          Begin Your Learning Journey
-        </h2>
-        <p className="mb-10 text-base text-gray-700 sm:text-lg">
-          Take the first step toward spiritual clarity and transformation
-        </p>
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+            Enrollment
+          </p>
+          <h2 className="font-serif text-[2.4rem] leading-tight">
+            Begin your learning journey
+          </h2>
+          <p className="text-base text-[#524E48]/80">
+            Tell us the course calling your name and we’ll curate schedules, payment plans, and prep materials.
+          </p>
+        </div>
 
-        {/* Form Card */}
         <form
           onSubmit={handleSubmit}
-          className="bg-[#F8F5ED] rounded-2xl shadow-sm p-6 sm:p-8 text-left"
+          className="bg-[#F8F6F3] rounded-[32px] border border-[#EAE4DC] shadow-[0_20px_60px_rgba(82,78,72,0.08)] p-8 space-y-4"
         >
-          <h3 className="mb-6 text-lg font-semibold text-charcoal">
-            Enroll in Our Certified Courses
-          </h3>
-
-          {/* Input Grid */}
-          <div className="grid grid-cols-1 gap-4 mb-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <input
               type="text"
               name="name"
@@ -104,7 +102,7 @@ export default function LearningForm({ onSubmit }) {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
             <input
               type="email"
@@ -113,11 +111,8 @@ export default function LearningForm({ onSubmit }) {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 mb-4 sm:grid-cols-2">
             <input
               type="tel"
               name="phone"
@@ -125,30 +120,27 @@ export default function LearningForm({ onSubmit }) {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
             <select
               name="service"
               value={formData.service}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ACBF69] text-gray-600"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 bg-white text-[#524E48]/75 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             >
-              <option value="">Select Service</option>
-              <option value="Astrology">Astrology</option>
-              <option value="Tarot Reading">Tarot Reading</option>
-              <option value="Healing">Healing</option>
+              <option value="">Select Course</option>
+              <option value="Vedic Astrology">Vedic Astrology</option>
+              <option value="Intuitive Tarot">Intuitive Tarot</option>
+              <option value="Energy Healing">Energy Healing</option>
             </select>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 mb-4 sm:grid-cols-2">
             <input
               type="date"
               name="date"
               value={formData.date}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
             <input
               type="time"
@@ -156,48 +148,37 @@ export default function LearningForm({ onSubmit }) {
               value={formData.time}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
           </div>
 
-          {/* Textarea */}
           <textarea
             name="message"
-            placeholder="Tell us about your goals and what you are seeking guidance on ..."
+            placeholder="Intentions, learning goals, or experience you’d like us to know about..."
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+            className="w-full border border-[#EAE4DC] rounded-[24px] px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
           ></textarea>
 
-          {/* Submit Button */}
-          <div className="flex justify-center">
+          <div className="space-y-3 text-center">
             <button
               type="submit"
-              className="bg-[#EFDFA8] text-charcoal font-semibold px-10 py-3 rounded-full hover:bg-[#E6D28C] transition disabled:opacity-60"
+              className="w-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] rounded-full border border-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC] transition disabled:opacity-60"
               disabled={status.state === "loading"}
             >
-              {status.state === "loading" ? "Submitting..." : "Enroll Now"}
+              {status.state === "loading" ? "Submitting..." : "Submit Request"}
             </button>
+            {status.state === "error" && (
+              <p className="text-sm text-red-600">{status.message}</p>
+            )}
+            {status.state === "success" && (
+              <p className="text-sm text-green-700">{status.message}</p>
+            )}
+            <p className="text-xs text-[#B0AAA0] uppercase tracking-[0.4em]">
+              Your information stays sacred · Privacy policy
+            </p>
           </div>
-
-          {status.state === "error" && (
-            <p className="mt-3 text-sm text-red-600 text-center">
-              {status.message}
-            </p>
-          )}
-          {status.state === "success" && (
-            <p className="mt-3 text-sm text-green-700 text-center">
-              {status.message}
-            </p>
-          )}
-
-          <p className="mt-3 text-xs text-center text-gray-500">
-            Your information is safe and will never be shared.{" "}
-            <a href="#" className="underline">
-              Privacy Policy
-            </a>
-          </p>
         </form>
       </motion.div>
     </section>

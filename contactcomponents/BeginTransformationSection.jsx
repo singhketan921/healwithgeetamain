@@ -1,41 +1,44 @@
-﻿'use client';
+'use client';
 
 import { motion } from "framer-motion";
 
 export default function BeginTransformationSection() {
   return (
-    <section className="bg-gradient-to-r from-[#A8B963] to-[#E8D48A]  text-white w-full py-20 px-6 sm:px-10 text-center">
+    <section className="relative overflow-hidden bg-[#EAE4DC] px-6 py-20">
+      <div className="absolute inset-0 pointer-events-none">
+        <span className="absolute left-0 top-0 h-64 w-64 rounded-full bg-white blur-[140px]" />
+        <span className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[#CDBFB4] blur-[160px]" />
+      </div>
+
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-3xl mx-auto"
+        className="relative z-10 mx-auto max-w-4xl rounded-[40px] border border-[#EAE4DC] bg-white/85 px-8 py-12 text-center text-[#524E48] shadow-[0_25px_80px_rgba(82,78,72,0.12)]"
       >
-        {/* Heading */}
-        <h2 className="mb-4 font-serif text-4xl font-semibold text-white sm:text-5xl">
-          Begin Your Transformation Today
+        <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+          Final note
+        </p>
+        <h2 className="mt-4 font-serif text-[2.8rem] leading-tight">
+          Begin your transformation today
         </h2>
-
-        {/* Subheading */}
-        <p className="mb-10 text-lg sm:text-base text-white/90">
+        <p className="mt-4 text-base text-[#524E48]/80">
           Schedule a consultation or send a message to start your healing journey.
         </p>
 
-        {/* Buttons */}
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="/consultations"
-            className="bg-[#a8b963] text-[#A8B963] font-serif font-medium px-8 py-3 rounded-full shadow hover:bg-[#2e2e2e] transition"
+            className="inline-flex items-center justify-center rounded-full border border-[#524E48] px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#524E48] transition hover:bg-[#524E48] hover:text-[#EAE4DC]"
           >
-            Book Consultation
+            Book consultation
           </a>
-
           <a
             href="/contact"
-            className="px-8 py-3 font-medium text-white transition border border-white rounded-full hover:bg-white/10"
+            className="inline-flex items-center justify-center rounded-full border border-[#B0AAA0] px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#B0AAA0] transition hover:text-[#524E48] hover:border-[#524E48]"
           >
-            Contact Us
+            Contact us
           </a>
         </div>
       </motion.div>

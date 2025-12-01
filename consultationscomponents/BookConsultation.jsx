@@ -64,31 +64,30 @@ export default function BookConsultation() {
   };
 
   return (
-    <section className="bg-[#E8E4D2] py-20 px-6 sm:px-8">
+    <section className="bg-[#F5F2EE] py-24 px-6 text-[#524E48]">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto text-center"
+        className="max-w-4xl mx-auto space-y-8"
       >
-        {/* Heading */}
-        <h2 className="font-serif text-[2.4rem] sm:text-[3rem] font-semibold text-charcoal mb-3">
-          Book Your Consultation
-        </h2>
-        <p className="text-gray-700 text-base sm:text-lg mb-10">
-          Take the first step toward spiritual clarity and transformation
-        </p>
+        <div className="text-left space-y-3">
+          <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+            Booking
+          </p>
+          <h2 className="font-serif text-[2.6rem] leading-tight">
+            Schedule your consultation
+          </h2>
+          <p className="text-base text-[#524E48]/80">
+            Share your details and intention. We reply within 48 hours with available slots and ceremony notes.
+          </p>
+        </div>
 
-        {/* Form Card */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-2xl shadow-md p-8 sm:p-10 text-left"
+          className="bg-white rounded-[32px] border border-[#EAE4DC] shadow-[0_20px_60px_rgba(82,78,72,0.08)] p-8 space-y-4"
         >
-          <h3 className="text-lg font-semibold text-charcoal mb-6">
-            Schedule Your Consultation
-          </h3>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
@@ -97,7 +96,7 @@ export default function BookConsultation() {
               value={form.fullName}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
             <input
               type="email"
@@ -106,7 +105,7 @@ export default function BookConsultation() {
               value={form.email}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
             <input
               type="tel"
@@ -115,19 +114,17 @@ export default function BookConsultation() {
               value={form.phone}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
             <select
               name="service"
               value={form.service}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-full px-4 py-3 w-full text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 bg-white text-[#524E48]/75 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             >
               <option value="">Select Service</option>
-              <option value="Astrology Consultation">
-                Astrology Consultation
-              </option>
+              <option value="Astrology Consultation">Astrology Consultation</option>
               <option value="Tarot Reading">Tarot Reading</option>
               <option value="Energy Healing">Energy Healing</option>
             </select>
@@ -137,16 +134,16 @@ export default function BookConsultation() {
               value={form.date}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-full px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             />
             <select
               name="time"
               value={form.time}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-full px-4 py-3 w-full text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+              className="border border-[#EAE4DC] rounded-full px-5 py-3 bg-white text-[#524E48]/75 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
             >
-              <option value="">Select Time</option>
+              <option value="">Preferred Time</option>
               <option value="10:00 AM">10:00 AM</option>
               <option value="2:00 PM">2:00 PM</option>
               <option value="6:00 PM">6:00 PM</option>
@@ -157,28 +154,27 @@ export default function BookConsultation() {
             name="message"
             value={form.message}
             onChange={handleChange}
-            placeholder="Tell us about your goals and what you are seeking guidance on ..."
+            placeholder="Intentions, themes, or questions you'd like us to focus on..."
             rows="4"
-            className="border border-gray-300 rounded-xl px-4 py-3 w-full mt-4 focus:outline-none focus:ring-2 focus:ring-[#ACBF69]"
+            className="border border-[#EAE4DC] rounded-[24px] px-5 py-4 w-full focus:outline-none focus:ring-2 focus:ring-[#A59079]"
           />
 
-          <div className="text-center mt-8">
+          <div className="space-y-3 text-center">
             <button
               type="submit"
-              className="bg-[#F8DE9D] hover:bg-[#F3D57A] text-charcoal font-semibold px-10 py-3 rounded-full transition-all shadow-sm"
+              className="w-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] rounded-full border border-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
               disabled={status.state === "loading"}
             >
-              {status.state === "loading" ? "Submitting..." : "Book Now"}
+              {status.state === "loading" ? "Submitting..." : "Book Consultation"}
             </button>
             {status.state === "error" && (
-              <p className="mt-3 text-sm text-red-600">{status.message}</p>
+              <p className="text-sm text-red-600">{status.message}</p>
             )}
             {status.state === "success" && (
-              <p className="mt-3 text-sm text-green-700">{status.message}</p>
+              <p className="text-sm text-green-700">{status.message}</p>
             )}
-            <p className="text-xs text-gray-500 mt-3">
-              Your information is safe and will never be shared.{" "}
-              <span className="underline cursor-pointer">Privacy Policy</span>
+            <p className="text-xs text-[#B0AAA0] uppercase tracking-[0.4em]">
+              Your information stays sacred · Privacy policy
             </p>
           </div>
         </form>

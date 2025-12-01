@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -15,53 +15,64 @@ const defaultFaqs = [
     id: "schedule",
     question: "How much time do I need to dedicate each week?",
     answer:
-      "Most courses recommend 3–4 hours per week, including live circles and self-paced practices.",
+      "Most courses recommend 3-4 hours per week, including live circles and self-paced practices.",
   },
   {
     id: "support",
     question: "Is there mentorship or community support?",
     answer:
-      "Yes. You’ll have access to live Q&A calls, private community spaces, and guidance from Geeta throughout the journey.",
+      "Yes. You'll have access to live Q&A calls, private community spaces, and guidance from Geeta throughout the journey.",
   },
 ];
 
 export default function CoursesFAQ({ faqs = [] }) {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null);
   const safeFaqs = faqs.length ? faqs : defaultFaqs;
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <section className="bg-[#E9E6D2] w-full py-20 px-6 sm:px-10">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto"
-      >
-        {/* Heading */}
-        <h2 className="font-serif text-[2.3rem] sm:text-[2.8rem] font-semibold text-charcoal text-center mb-12">
-          Have Questions?
-        </h2>
+    <section className="bg-[#F5F2EE] w-full py-24 px-6 text-[#524E48]" id="contactfaq">
+      <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          <div>
+            <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+              Guidance
+            </p>
+            <h2 className="font-serif text-[2.4rem] leading-tight">
+              Frequently asked by our students
+            </h2>
+          </div>
+          <p className="text-base text-[#524E48]/80">
+            Enrollment teams answer every message with nuance—here are a few
+            excerpts straight from our inbox.
+          </p>
+        </motion.div>
 
-        {/* FAQ Accordion */}
-        <div className="space-y-4">
-          {safeFaqs.map((faq, i) => (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          viewport={{ once: true }}
+          className="space-y-4"
+        >
+          {safeFaqs.map((faq, index) => (
             <div
-              key={faq.id ?? i}
-              className="bg-[#A5B967] rounded-md overflow-hidden shadow-sm"
+              key={faq.id ?? index}
+              className="border border-[#EAE4DC] rounded-[24px] overflow-hidden bg-white shadow-[0_6px_25px_rgba(82,78,72,0.06)]"
             >
               <button
-                className="flex items-center justify-between w-full px-5 py-4 font-medium text-left text-white focus:outline-none"
-                onClick={() => toggleFAQ(i)}
+                className="flex items-center justify-between w-full px-5 py-4 font-medium text-left uppercase tracking-[0.2em]"
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 {faq.question}
                 <FaChevronDown
                   className={`transition-transform duration-300 ${
-                    openIndex === i ? "rotate-180" : "rotate-0"
+                    openIndex === index ? "rotate-180" : ""
                   }`}
                 />
               </button>
@@ -69,22 +80,21 @@ export default function CoursesFAQ({ faqs = [] }) {
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={
-                  openIndex === i
+                  openIndex === index
                     ? { height: "auto", opacity: 1 }
                     : { height: 0, opacity: 0 }
                 }
                 transition={{ duration: 0.3 }}
-                className="px-5 overflow-hidden text-sm text-gray-700 bg-white"
+                className="overflow-hidden"
               >
-                {openIndex === i && (
-                  <div className="py-3">{faq.answer}</div>
-                )}
+                <div className="px-5 pb-4 text-sm text-[#524E48]/75 leading-relaxed">
+                  {faq.answer}
+                </div>
               </motion.div>
             </div>
           ))}
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
-

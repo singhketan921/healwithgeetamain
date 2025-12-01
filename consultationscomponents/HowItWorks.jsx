@@ -12,9 +12,9 @@ export default function HowItWorks() {
       desc: "Select the service that resonates with your needs",
     },
     {
-        icon: <FaCalendarDays />,
-        title: "Schedule your Session",
-        desc: "Pick a convenient date and time that works for you",
+      icon: <FaCalendarDays />,
+      title: "Schedule your Session",
+      desc: "Pick a convenient date and time that works for you",
     },
     {
       icon: <FaVideo />,
@@ -29,42 +29,43 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="bg-[#FCFBF8] py-20 px-6 sm:px-10 text-center relative overflow-hidden">
-      {/* Heading */}
-      <div className="max-w-3xl mx-auto mb-16">
-        <h2 className="font-serif text-[2rem] sm:text-[2.6rem] md:text-[3rem] font-semibold text-charcoal mb-3">
-          How it Works
-        </h2>
-        <p className="text-base text-gray-600 sm:text-lg">
-          Your journey to spiritual clarity in four simple steps
-        </p>
-      </div>
+    <section className="bg-[#F5F2EE] py-24 text-[#524E48]">
+      <div className="max-w-6xl px-6 mx-auto space-y-10">
+        <div className="space-y-4">
+          <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+            Process
+          </p>
+          <h2 className="font-serif text-[2.6rem] leading-tight">
+            How a consultation unfolds
+          </h2>
+          <p className="text-base text-[#524E48]/80 max-w-3xl">
+            A four-part rhythm designed to make your experience feel editorial, intentional, and deeply human.
+          </p>
+        </div>
 
-      {/* Steps */}
-      <div className="relative max-w-6xl mx-auto">
-        {/* Dotted line */}
-        <div className="absolute top-[45px] left-0 right-0 hidden md:block border-t-2 border-dotted border-[#E4C77C]" />
-
-        <div className="relative z-10 grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2">
           {steps.map((step, i) => (
-            <motion.div
-              key={i}
+            <motion.article
+              key={step.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col items-center text-center"
+              className="rounded-[30px] border border-[#EAE4DC] bg-white shadow-[0_18px_50px_rgba(82,78,72,0.08)] p-6 flex gap-4"
             >
-              <div className="w-20 h-20 rounded-full bg-[#E4C77C] flex items-center justify-center text-white text-3xl mb-6 shadow-md">
+              <div className="w-14 h-14 rounded-full bg-[#A59079] text-white flex items-center justify-center text-2xl">
                 {step.icon}
               </div>
-              <h3 className="mb-1 text-base font-semibold text-charcoal">
-                {step.title}
-              </h3>
-              <p className="text-gray-600 text-sm max-w-[200px]">
-                {step.desc}
-              </p>
-            </motion.div>
+              <div className="space-y-2">
+                <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="font-serif text-xl">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-[#524E48]/75">
+                  {step.desc}
+                </p>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
