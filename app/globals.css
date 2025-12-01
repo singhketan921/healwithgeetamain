@@ -38,10 +38,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: inherit;
-}
-
 .bg-hero-gradient {
   background: radial-gradient(circle at center, #fffff1 0%, #f3ede2 100%);
 }
