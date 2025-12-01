@@ -1,4 +1,5 @@
 import ProductsGrid from "@/components/ProductsGrid";
+import Reveal from "@/components/Reveal";
 import { fetchShopifyProducts } from "@/lib/services/shopifyProductService";
 
 const FALLBACK_IMAGE = "/assets/images/moonstone.jpg";
@@ -129,7 +130,7 @@ export default async function ProductsSection({ limit = 12 }) {
 
       <div className="relative z-10 max-w-6xl mx-auto text-[#524E48] space-y-14">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-start">
-          <div className="space-y-6">
+          <Reveal className="space-y-6">
             <p className="text-xs uppercase tracking-[0.5em] text-[#B0AAA0]">
               Collection dossier
             </p>
@@ -167,9 +168,9 @@ export default async function ProductsSection({ limit = 12 }) {
                 </article>
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="rounded-[40px] bg-white border border-[#EAE4DC] shadow-[0_30px_90px_rgba(82,78,72,0.12)] p-10 space-y-6">
+          <Reveal delay={0.2} className="rounded-[40px] bg-white border border-[#EAE4DC] shadow-[0_30px_90px_rgba(82,78,72,0.12)] p-10 space-y-6">
             <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
               Styling memo
             </p>
@@ -184,10 +185,12 @@ export default async function ProductsSection({ limit = 12 }) {
               <span>&middot;</span>
               <span>Limited editions</span>
             </div>
-          </div>
+          </Reveal>
         </div>
 
-        <ProductsGrid products={productCards} />
+        <Reveal delay={0.3}>
+          <ProductsGrid products={productCards} />
+        </Reveal>
       </div>
     </section>
   );

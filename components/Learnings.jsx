@@ -1,5 +1,7 @@
 'use client';
 
+import Reveal from "@/components/Reveal";
+
 const learnings = [
   {
     id: 1,
@@ -7,7 +9,7 @@ const learnings = [
     subtitle: "Certificate Course",
     description:
       "A six-month editorial lab covering chart drafting, predictive flows, and client storytelling.",
-    price: "$1,200",
+    price: ",200",
     duration: "24 Week Residency",
   },
   {
@@ -16,7 +18,7 @@ const learnings = [
     subtitle: "Immersive Cohort",
     description:
       "Explore symbolism, therapeutic spreads, and performance style readings for circles and digital salons.",
-    price: "$720",
+    price: "",
     duration: "12 Week Salon",
   },
 ];
@@ -25,7 +27,7 @@ export default function Learnings() {
   return (
     <section className="bg-[#F5F2EE] py-24 text-[#524E48]">
       <div className="max-w-6xl px-6 mx-auto space-y-12">
-        <header className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
               Classroom Dispatch
@@ -40,12 +42,13 @@ export default function Learnings() {
           >
             Browse Courses
           </a>
-        </header>
+        </Reveal>
 
         <div className="space-y-10">
-          {learnings.map((course) => (
-            <article
+          {learnings.map((course, index) => (
+            <Reveal
               key={course.id}
+              delay={0.1 * index}
               className="grid gap-6 py-6 border-t border-[#B0AAA0]/40 md:grid-cols-12 first:border-t-0"
             >
               <div className="md:col-span-3">
@@ -69,7 +72,7 @@ export default function Learnings() {
                   Enroll
                 </a>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

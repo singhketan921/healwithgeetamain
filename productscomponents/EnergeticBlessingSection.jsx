@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 
 const CLEANSING_IMAGE = "/assets/images/about.png";
 const ALT_IMAGE = "/assets/images/modality2.png";
@@ -29,7 +30,7 @@ export default function EnergeticBlessingSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto text-[#524E48]">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
-          <div className="space-y-6">
+          <Reveal className="space-y-6">
             <p className="text-xs uppercase tracking-[0.5em] text-[#B0AAA0]">
               Cleansing journal
             </p>
@@ -60,9 +61,9 @@ export default function EnergeticBlessingSection() {
             >
               Learn about our process
             </Link>
-          </div>
+          </Reveal>
 
-          <div className="relative">
+          <Reveal delay={0.2} className="relative">
             <div className="rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_30px_90px_rgba(82,78,72,0.12)] overflow-hidden">
               <div className="grid grid-rows-2">
                 <div className="relative h-72">
@@ -95,7 +96,7 @@ export default function EnergeticBlessingSection() {
                 "We log every cleanse in our studio ledger so you know the moon phase, botanicals, and prayers your piece received."
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

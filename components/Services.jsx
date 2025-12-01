@@ -1,5 +1,7 @@
 'use client';
 
+import Reveal from "@/components/Reveal";
+
 const services = [
   { id: 1, title: "Astrology Consultation", blurb: "Natal, transit and relationship charting woven into actionable rituals." },
   { id: 2, title: "Tarot & Timeline Reading", blurb: "Editorial spreads that frame your current chapter, cast in archetypes." },
@@ -11,7 +13,7 @@ export default function Services() {
   return (
     <section className="bg-white py-24 text-[#524E48]">
       <div className="max-w-6xl px-6 mx-auto space-y-12">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
               Columns
@@ -26,16 +28,17 @@ export default function Services() {
           >
             View All
           </a>
-        </div>
+        </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((service, index) => (
-            <article
+            <Reveal
               key={service.id}
+              delay={0.1 * index}
               className="rounded-[30px] border border-[#EAE4DC] bg-[#F6F3EF] shadow-[0_22px_60px_rgba(82,78,72,0.08)] p-8 flex flex-col gap-4"
             >
               <div className="text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
-                {String(index + 1).padStart(2, "0")} · Service
+                {String(index + 1).padStart(2, "0")} - Service
               </div>
               <h3 className="font-serif text-2xl leading-tight">{service.title}</h3>
               <p className="text-sm leading-relaxed text-[#524E48]/80 flex-1">
@@ -47,7 +50,7 @@ export default function Services() {
               >
                 Book
               </a>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

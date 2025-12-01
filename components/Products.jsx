@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { useCart } from "@/context/CartContext";
+import Reveal from "@/components/Reveal";
 
 const moonstone = "/assets/images/moonstone.jpg";
 
@@ -61,9 +62,7 @@ export default function Products({ products = [], storeUrl }) {
 
     return products.map((product, index) => {
       const fallbackUrl =
-        storeUrl && product.handle
-          ? `${storeUrl}/products/${product.handle}`
-          : null;
+        storeUrl && product.handle ? `${storeUrl}/products/${product.handle}` : null;
 
       return {
         id: product.id ?? index,
@@ -88,7 +87,7 @@ export default function Products({ products = [], storeUrl }) {
     <section className="bg-[#EAE4DC] py-24 text-[#524E48]">
       <div className="max-w-6xl px-6 mx-auto space-y-16">
         <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4 flex flex-col gap-8">
+          <Reveal className="lg:col-span-4 flex flex-col gap-8">
             <p className="text-xs uppercase tracking-[0.55em] text-[#B0AAA0]">
               Ritual Cabinet
             </p>
@@ -96,7 +95,7 @@ export default function Products({ products = [], storeUrl }) {
               Objects for everyday alchemy
             </h2>
             <p className="text-lg leading-relaxed text-[#524E48]/85">
-              Each remedy is a limited-edition drop—moonstone pendants bathed in
+              Each remedy is a limited-edition drop - moonstone pendants bathed in
               mantra, serum oils infused with spikenard and goldenseal, and
               incense carved from Himalayan resins. Shop the apothecary edit or
               book a private curation.
@@ -125,12 +124,13 @@ export default function Products({ products = [], storeUrl }) {
                 </span>
               </div>
             )}
-          </div>
+          </Reveal>
 
           <div className="lg:col-span-8 space-y-10">
             {productList.map((product, index) => (
-              <article
+              <Reveal
                 key={product.id ?? index}
+                delay={0.05 * index}
                 className="grid items-center gap-4 py-6 border-b border-[#B0AAA0]/40 last:border-0 lg:grid-cols-12"
               >
                 <div className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0] lg:col-span-2">
@@ -180,7 +180,7 @@ export default function Products({ products = [], storeUrl }) {
                     )}
                   </div>
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
 
 export default function BeginTransformationSection() {
   return (
@@ -10,13 +10,7 @@ export default function BeginTransformationSection() {
         <span className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[#CDBFB4] blur-[160px]" />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="relative z-10 mx-auto max-w-4xl rounded-[40px] border border-[#EAE4DC] bg-white/85 px-8 py-12 text-center text-[#524E48] shadow-[0_25px_80px_rgba(82,78,72,0.12)]"
-      >
+      <Reveal className="relative z-10 mx-auto max-w-4xl rounded-[40px] border border-[#EAE4DC] bg-white/85 px-8 py-12 text-center text-[#524E48] shadow-[0_25px_80px_rgba(82,78,72,0.12)]">
         <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
           Final note
         </p>
@@ -34,14 +28,14 @@ export default function BeginTransformationSection() {
           >
             Book consultation
           </a>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full border border-[#B0AAA0] px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#B0AAA0] transition hover:text-[#524E48] hover:border-[#524E48]"
-          >
-            Contact us
-          </a>
+        <a
+          href="/contact"
+          className="inline-flex items-center justify-center rounded-full border border-[#B0AAA0] px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#B0AAA0] transition hover:text-[#524E48] hover:border-[#524E48]"
+        >
+          Contact us
+        </a>
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

@@ -1,5 +1,7 @@
 'use client';
 
+import Reveal from "@/components/Reveal";
+
 export default function EditorialHero({
   eyebrow = "Feature",
   title,
@@ -13,7 +15,7 @@ export default function EditorialHero({
     <section className="relative overflow-hidden bg-[#EAE4DC] py-16 sm:py-20 text-[#524E48]">
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-0">
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="space-y-6">
+          <Reveal className="space-y-6">
             <p className="text-[0.65rem] uppercase tracking-[0.5em] text-[#B0AAA0]">
               {eyebrow}
             </p>
@@ -48,9 +50,9 @@ export default function EditorialHero({
                 </a>
               )}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="rounded-[30px] sm:rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_30px_80px_rgba(82,78,72,0.12)] overflow-hidden min-h-[260px] sm:min-h-[360px] flex items-center justify-center">
+          <Reveal delay={0.2} className="rounded-[30px] sm:rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_30px_80px_rgba(82,78,72,0.12)] overflow-hidden min-h-[260px] sm:min-h-[360px] flex items-center justify-center">
             {typeof media === "string" ? (
               <img
                 src={media}
@@ -61,7 +63,7 @@ export default function EditorialHero({
             ) : (
               media
             )}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

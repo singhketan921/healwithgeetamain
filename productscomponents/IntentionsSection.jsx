@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 const INTENTIONS = [
   {
     id: "balance",
@@ -65,7 +67,7 @@ export default function IntentionsSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto text-[#524E48]">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="space-y-6">
+          <Reveal className="space-y-6">
             <p className="text-xs uppercase tracking-[0.5em] text-[#B0AAA0]">
               Intention styling
             </p>
@@ -99,12 +101,13 @@ export default function IntentionsSection() {
                 <p className="text-sm text-[#524E48]/80">Cleansed before dispatch</p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            {INTENTIONS.map((item) => (
-              <article
+            {INTENTIONS.map((item, index) => (
+              <Reveal
                 key={item.id}
+                delay={0.1 * index}
                 className="rounded-[30px] border border-[#EAE4DC] bg-white shadow-[0_25px_70px_rgba(82,78,72,0.08)] p-7 flex flex-col gap-4"
               >
                 <div className="flex items-center gap-4">
@@ -122,7 +125,7 @@ export default function IntentionsSection() {
                   Explore set
                   <span className="inline-block h-px w-12 bg-[#A59079]" />
                 </a>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import Reveal from "@/components/Reveal";
 
 const INITIAL_FORM = {
   name: "",
@@ -74,7 +75,7 @@ export default function ContactFormSection() {
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 lg:flex-row">
-        <div className="flex-1 space-y-6">
+        <Reveal className="flex-1 space-y-6">
           <p className="text-xs uppercase tracking-[0.5em] text-[#B0AAA0]">
             Correspondence desk
           </p>
@@ -171,9 +172,9 @@ export default function ContactFormSection() {
               <p className="text-sm text-[#4A7C59]">{status.message}</p>
             )}
           </form>
-        </div>
+        </Reveal>
 
-        <aside className="w-full max-w-sm self-start rounded-[32px] border border-[#EAE4DC] bg-white/85 p-6 text-[#524E48] shadow-[0_25px_70px_rgba(82,78,72,0.08)]">
+        <Reveal delay={0.2} className="w-full max-w-sm self-start rounded-[32px] border border-[#EAE4DC] bg-white/85 p-6 text-[#524E48] shadow-[0_25px_70px_rgba(82,78,72,0.08)]">
           <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
             Studio concierge
           </p>
@@ -186,7 +187,7 @@ export default function ContactFormSection() {
             <p>Email: hello@healwithgeeta.com</p>
             <p>Address: Mumbai, India (appointments only)</p>
           </div>
-        </aside>
+        </Reveal>
       </div>
     </section>
   );

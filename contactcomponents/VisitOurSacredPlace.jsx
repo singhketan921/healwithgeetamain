@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
 
 const CHECKLIST = [
   "Private consultation rooms",
@@ -17,13 +17,7 @@ export default function VisitOurSacredPlace() {
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="space-y-6 text-[#524E48]"
-        >
+        <Reveal className="space-y-6 text-[#524E48]">
           <p className="text-xs uppercase tracking-[0.5em] text-[#B0AAA0]">
             Studio visit
           </p>
@@ -58,15 +52,9 @@ export default function VisitOurSacredPlace() {
           >
             Get directions
           </a>
-        </motion.div>
+        </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="rounded-[32px] border border-[#EAE4DC] bg-white/90 p-4 shadow-[0_25px_80px_rgba(82,78,72,0.12)]"
-        >
+        <Reveal delay={0.2} direction="up" className="rounded-[32px] border border-[#EAE4DC] bg-white/90 p-4 shadow-[0_25px_80px_rgba(82,78,72,0.12)]">
           <iframe
             title="studio-map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.8837030282037!2d-86.80248998481135!3d33.52068288075259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88891be8b3f6239f%3A0x9ad07e3f02e7ab23!2sBirmingham%2C%20AL!5e0!3m2!1sen!2sus!4v1695999439478!5m2!1sen!2sus"
@@ -82,7 +70,7 @@ export default function VisitOurSacredPlace() {
             </p>
             <p>Address shared upon confirmation. Wheelchair access available.</p>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 'use client';
 
+import Reveal from "@/components/Reveal";
 import { useCart } from "@/context/CartContext";
 
 export default function ProductsGrid({ products = [] }) {
@@ -26,7 +27,7 @@ export default function ProductsGrid({ products = [] }) {
   return (
     <div className="mt-16 space-y-12">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-start">
-        <article className="rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_25px_80px_rgba(82,78,72,0.08)] overflow-hidden flex flex-col">
+        <Reveal className="rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_25px_80px_rgba(82,78,72,0.08)] overflow-hidden flex flex-col group transition-transform duration-500 hover:-translate-y-2">
           <div className="relative h-80">
             <img
               src={spotlight.image}
@@ -67,13 +68,14 @@ export default function ProductsGrid({ products = [] }) {
               )}
             </div>
           </div>
-        </article>
+        </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 text-[#524E48]">
-          {collection.map((product) => (
-            <article
+          {collection.map((product, index) => (
+            <Reveal
               key={product.id}
-              className="rounded-[28px] border border-[#EAE4DC] bg-white/90 shadow-[0_18px_50px_rgba(82,78,72,0.07)] p-6 flex flex-col gap-4"
+              delay={0.08 * index}
+              className="rounded-[28px] border border-[#EAE4DC] bg-white/90 shadow-[0_18px_50px_rgba(82,78,72,0.07)] p-6 flex flex-col gap-4 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(82,78,72,0.12)]"
             >
               <p className="text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
                 {product.type || "Edition"}
@@ -106,7 +108,7 @@ export default function ProductsGrid({ products = [] }) {
                   <span>Archive</span>
                 )}
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

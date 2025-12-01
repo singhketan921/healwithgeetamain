@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
 import { FaYoutube, FaInstagram, FaFacebookF, FaXTwitter } from "react-icons/fa6";
 
 const SOCIALS = [
@@ -17,13 +17,7 @@ export default function StayConnected() {
         <span className="absolute left-1/2 top-0 h-60 w-60 -translate-x-1/2 rounded-full bg-white blur-[140px]" />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="relative z-10 mx-auto max-w-4xl text-center text-[#524E48]"
-      >
+      <Reveal className="relative z-10 mx-auto max-w-4xl text-center text-[#524E48]">
         <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
           Dispatches
         </p>
@@ -63,7 +57,7 @@ export default function StayConnected() {
         >
           Follow us
         </a>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }
