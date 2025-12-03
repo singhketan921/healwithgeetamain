@@ -122,7 +122,11 @@ export default async function ProductsSection({ limit = 12 }) {
   const productCards = normalizeProducts(payload.products, payload.storeUrl);
 
   return (
-    <section id="products" className="relative overflow-hidden bg-[#F6F3EF] py-24 px-6">
+    <section
+      id="products"
+      className="relative overflow-hidden py-24 px-6"
+      style={{ backgroundImage: "var(--gradient-luxe)" }}
+    >
       <div className="absolute inset-0 pointer-events-none">
         <span className="absolute -left-24 top-10 w-72 h-72 rounded-full bg-[#EAE4DC] blur-[160px]" />
         <span className="absolute right-0 bottom-0 w-64 h-64 rounded-full bg-[#C7B9AD] blur-[150px]" />

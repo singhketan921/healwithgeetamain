@@ -18,7 +18,10 @@ export default function Testimonials({ testimonials = [] }) {
   const items = testimonials.length ? testimonials : fallbackTestimonials;
 
   return (
-    <section className="bg-[#EAE4DC] py-24 text-[#524E48]">
+    <section
+      className="py-24 text-[#524E48]"
+      style={{ backgroundImage: "var(--gradient-sand)" }}
+    >
       <div className="max-w-6xl px-6 mx-auto space-y-12">
         <div className="grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">

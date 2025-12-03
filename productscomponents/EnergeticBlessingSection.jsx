@@ -22,7 +22,10 @@ const RITUAL_STEPS = [
 
 export default function EnergeticBlessingSection() {
   return (
-    <section className="relative overflow-hidden bg-[#F4EEE7] py-24 px-6">
+    <section
+      className="relative overflow-hidden py-24 px-6"
+      style={{ backgroundImage: "var(--gradient-luxe)" }}
+    >
       <div className="absolute inset-0 pointer-events-none">
         <span className="absolute -left-10 bottom-10 w-64 h-64 rounded-full bg-[#EAE4DC] blur-[140px]" />
         <span className="absolute right-0 top-0 w-72 h-72 rounded-full bg-[#CDBFB4] blur-[170px]" />

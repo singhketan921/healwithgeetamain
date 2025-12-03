@@ -68,7 +68,10 @@ export default function ContactFormSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#F6F3EF] px-6 py-24">
+    <section
+      className="relative overflow-hidden px-6 py-24"
+      style={{ backgroundImage: "var(--gradient-luxe)" }}
+    >
       <div className="absolute inset-0 pointer-events-none">
         <span className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-white blur-[150px]" />
         <span className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[#D3C6BA] blur-[150px]" />

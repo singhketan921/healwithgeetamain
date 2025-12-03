@@ -59,7 +59,10 @@ const ICON_MAP = {
 
 export default function IntentionsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#EAE4DC] py-24 px-6">
+    <section
+      className="relative overflow-hidden py-24 px-6"
+      style={{ backgroundImage: "var(--gradient-sand)" }}
+    >
       <div className="absolute inset-0 pointer-events-none">
         <span className="absolute left-0 top-10 w-72 h-72 rounded-full bg-white blur-[160px]" />
         <span className="absolute right-0 bottom-0 w-60 h-60 rounded-full bg-[#D6CCC3] blur-[140px]" />
