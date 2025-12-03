@@ -26,10 +26,14 @@ const learnings = [
 export default function Learnings() {
   return (
     <section
-      className="py-24 text-[#524E48]"
+      className="relative overflow-hidden py-24 text-[#524E48]"
       style={{ backgroundImage: "var(--gradient-luxe)" }}
     >
-      <div className="max-w-6xl px-6 mx-auto space-y-12">
+      <div className="glow-layer">
+        <span className="glow-spot glow-spot-cream left-1/2 top-0 -translate-x-1/2" />
+        <span className="glow-spot glow-spot-olive right-0 bottom-0" />
+      </div>
+      <div className="relative max-w-6xl px-6 mx-auto space-y-12">
         <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">

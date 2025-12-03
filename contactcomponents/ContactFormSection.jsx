@@ -72,9 +72,9 @@ export default function ContactFormSection() {
       className="relative overflow-hidden px-6 py-24"
       style={{ backgroundImage: "var(--gradient-luxe)" }}
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <span className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-white blur-[150px]" />
-        <span className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[#D3C6BA] blur-[150px]" />
+      <div className="glow-layer">
+        <span className="glow-spot glow-spot-sand -left-24 top-10" />
+        <span className="glow-spot glow-spot-cream right-0 bottom-0" />
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-12 lg:flex-row">

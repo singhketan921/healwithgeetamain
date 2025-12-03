@@ -127,9 +127,9 @@ export default async function ProductsSection({ limit = 12 }) {
       className="relative overflow-hidden py-24 px-6"
       style={{ backgroundImage: "var(--gradient-luxe)" }}
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <span className="absolute -left-24 top-10 w-72 h-72 rounded-full bg-[#EAE4DC] blur-[160px]" />
-        <span className="absolute right-0 bottom-0 w-64 h-64 rounded-full bg-[#C7B9AD] blur-[150px]" />
+      <div className="glow-layer">
+        <span className="glow-spot glow-spot-sand -left-32 top-10" />
+        <span className="glow-spot glow-spot-olive right-0 bottom-0" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-[#524E48] space-y-14">

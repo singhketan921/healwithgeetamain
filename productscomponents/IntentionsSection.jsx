@@ -63,9 +63,9 @@ export default function IntentionsSection() {
       className="relative overflow-hidden py-24 px-6"
       style={{ backgroundImage: "var(--gradient-sand)" }}
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <span className="absolute left-0 top-10 w-72 h-72 rounded-full bg-white blur-[160px]" />
-        <span className="absolute right-0 bottom-0 w-60 h-60 rounded-full bg-[#D6CCC3] blur-[140px]" />
+      <div className="glow-layer">
+        <span className="glow-spot glow-spot-sand -left-16 top-8" />
+        <span className="glow-spot glow-spot-cream right-0 bottom-8" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-[#524E48]">

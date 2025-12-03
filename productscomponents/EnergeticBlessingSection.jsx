@@ -26,9 +26,9 @@ export default function EnergeticBlessingSection() {
       className="relative overflow-hidden py-24 px-6"
       style={{ backgroundImage: "var(--gradient-luxe)" }}
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <span className="absolute -left-10 bottom-10 w-64 h-64 rounded-full bg-[#EAE4DC] blur-[140px]" />
-        <span className="absolute right-0 top-0 w-72 h-72 rounded-full bg-[#CDBFB4] blur-[170px]" />
+      <div className="glow-layer">
+        <span className="glow-spot glow-spot-sand -left-16 bottom-10" />
+        <span className="glow-spot glow-spot-olive right-0 top-0" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-[#524E48]">

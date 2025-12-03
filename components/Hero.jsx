@@ -11,6 +11,10 @@ export default function Hero() {
       style={{ backgroundImage: "var(--gradient-sand)" }}
     >
       <div className="absolute inset-0 bg-white/20 mix-blend-lighten" />
+      <div className="glow-layer">
+        <span className="glow-spot glow-spot-sand -left-20 top-10" />
+        <span className="glow-spot glow-spot-olive right-0 bottom-0" />
+      </div>
       <div className="relative">
         <EditorialHero
           eyebrow="Studio Letter - Issue 01"

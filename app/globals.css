@@ -45,6 +45,37 @@ a {
   background: radial-gradient(circle at center, #fffff1 0%, #f3ede2 100%);
 }
 
+.glow-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glow-spot {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.75;
+}
+
+.glow-spot-sand {
+  background: radial-gradient(circle, rgba(234, 228, 220, 0.95), rgba(234, 228, 220, 0));
+}
+
+.glow-spot-olive {
+  background: radial-gradient(circle, rgba(165, 144, 121, 0.9), rgba(165, 144, 121, 0));
+}
+
+.glow-spot-cream {
+  background: radial-gradient(circle, rgba(176, 170, 160, 0.7), rgba(176, 170, 160, 0));
+}
+
+.glow-spot-charcoal {
+  background: radial-gradient(circle, rgba(82, 78, 72, 0.6), rgba(82, 78, 72, 0));
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -19,10 +19,14 @@ export default function Testimonials({ testimonials = [] }) {
 
   return (
     <section
-      className="py-24 text-[#524E48]"
+      className="relative overflow-hidden py-24 text-[#524E48]"
       style={{ backgroundImage: "var(--gradient-sand)" }}
     >
-      <div className="max-w-6xl px-6 mx-auto space-y-12">
+      <div className="glow-layer">
+        <span className="glow-spot glow-spot-sand -left-24 top-10" />
+        <span className="glow-spot glow-spot-charcoal right-10 bottom-0" />
+      </div>
+      <div className="relative max-w-6xl px-6 mx-auto space-y-12">
         <div className="grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
