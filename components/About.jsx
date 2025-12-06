@@ -1,6 +1,10 @@
 'use client';
 
 const aboutImg = "/assets/images/about.png";
+const galleryImages = [
+  { src: "/assets/images/consulthero.png", alt: "Consultation ritual" },
+  { src: "/assets/images/gems.png", alt: "Products flatlay" },
+];
 
 export default function About() {
   return (
@@ -23,20 +27,24 @@ export default function About() {
               </h2>
             </div>
 
-            <p className="text-lg leading-[1.9]">
-              <span className="float-left mr-3 text-5xl font-serif text-[#A59079]">
-                W
-              </span>
-              ith over a decade of clinical-grade spiritual work,
-              HealWithGeeta unfolds like an artisan magazine—each consultation
-              a feature story, each product a limited print. Astrology charts
-              are penned beside lunar almanacs, herbal decoctions steep
-              overnight, and clients are cast not as patients but as
-              protagonists reclaiming their narrative. Our practice spans natal
-              charting, intuitive tarot, restorative breathwork, and bespoke
-              energy formulas—each crafted to honor the psyche, skin, and
-              spirit as one continuum.
-            </p>
+            <div className="space-y-6 text-lg leading-[1.8]">
+              <p>
+                <span className="float-left mr-3 text-5xl font-serif text-[#A59079]">
+                  W
+                </span>
+                ith over a decade of clinical-grade spiritual work,
+                HealWithGeeta unfolds like an artisan magazine—each consultation
+                a feature story, each product a limited print.
+              </p>
+              <p>
+                Astrology charts are penned beside lunar almanacs, herbal
+                decoctions steep overnight, and clients are cast not as patients
+                but as protagonists reclaiming their narrative. Our practice
+                spans natal charting, intuitive tarot, restorative breathwork,
+                and bespoke energy formulas—each crafted to honor the psyche,
+                skin, and spirit as one continuum.
+              </p>
+            </div>
 
             <div className="grid gap-6 sm:grid-cols-2">
               <article className="p-6 border rounded-3xl border-[#EAE4DC] bg-[#EAE4DC]/35">
@@ -55,6 +63,23 @@ export default function About() {
                   5,000+ sessions | circles hosted across 12 countries
                 </h4>
               </article>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {galleryImages.map((image) => (
+                <div
+                  key={image.src}
+                  className="relative h-48 rounded-[28px] overflow-hidden border border-[#EAE4DC]"
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="object-cover w-full h-full"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-[#524E48]/20 mix-blend-multiply" />
+                </div>
+              ))}
             </div>
           </div>
 

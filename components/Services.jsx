@@ -8,6 +8,11 @@ const services = [
   { id: 3, title: "Energy + Somatic Healing", blurb: "Hybrid Reiki, pranic breath, and sound therapy choreographed per body." },
   { id: 4, title: "Botanical Prescriptions", blurb: "Custom tonics, serums and altar mists blended to your elemental makeup." },
 ];
+const serviceGallery = [
+  "/assets/images/consulthero.png",
+  "/assets/images/healinghero.png",
+  "/assets/images/gems.png",
+];
 
 export default function Services() {
   return (
@@ -37,7 +42,8 @@ export default function Services() {
           </a>
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid gap-6 md:grid-cols-2">
           {services.map((service, index) => (
             <Reveal
               key={service.id}
@@ -59,6 +65,24 @@ export default function Services() {
               </a>
             </Reveal>
           ))}
+        </div>
+          <Reveal delay={0.2} className="grid gap-4">
+            {serviceGallery.map((img, idx) => (
+              <div
+                key={img}
+                className={`rounded-[28px] overflow-hidden border border-[#EAE4DC] h-40 sm:h-48 ${
+                  idx === 1 ? "sm:translate-x-6" : ""
+                }`}
+              >
+                <img
+                  src={img}
+                  alt="service mood"
+                  className="object-cover w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </Reveal>
         </div>
       </div>
     </section>

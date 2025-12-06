@@ -82,6 +82,25 @@ export default function Learnings() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2} className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-[28px] overflow-hidden border border-[#EAE4DC] h-56">
+            <img
+              src="/assets/images/courseshero.png"
+              alt="Course studio"
+              className="object-cover w-full h-full"
+              loading="lazy"
+            />
+          </div>
+          <div className="rounded-[28px] overflow-hidden border border-[#EAE4DC] h-56">
+            <img
+              src="/assets/images/astrology.jpg"
+              alt="Astrology sketch"
+              className="object-cover w-full h-full"
+              loading="lazy"
+            />
+          </div>
+        </Reveal>
       </div>
     </section>
   );

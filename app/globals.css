@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
 @theme inline {
@@ -14,12 +14,12 @@
   --shadow-halo: 0 24px 60px -30px rgba(184, 148, 67, 0.55);
   --background-image-hero-pattern: url("data:image/svg+xml,%3Csvg width='240' height='240' viewBox='0 0 240 240' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.14'%3E%3Cpath d='M120 24c12.387 28.81 40.66 56.179 68.357 64.54-10.502 4.733-23.398 8.389-36.71 8.389-13.312 0-26.208-3.656-36.71-8.39C120 119.01 162.783 152.916 216 168c-27.325 15.781-68.565 24-96 24s-68.676-8.219-96-24c53.217-15.084 96-48.99 96-79.46-10.502 4.734-23.398 8.39-36.71 8.39-13.312 0-26.208-3.656-36.71-8.39C79.34 80.18 107.613 52.81 120 24Z' fill='%23B89443'/%3E%3C/g%3E%3C/svg%3E");
   --background-image-hero-radial: radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 65%);
-  --font-sans: var(--font-outfit, "Outfit", sans-serif);
-  --font-serif: "Playfair Display", serif;
+  --font-sans-primary: "Montserrat", "Lora", sans-serif;
+  --font-serif-primary: "Cormorant Garamond", serif;
 }
 
 :root {
-  font-family: var(--font-outfit, "Outfit", sans-serif);
+  font-family: var(--font-sans-primary);
   line-height: 1.5;
   font-weight: 400;
   color: #524e48;
