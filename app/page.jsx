@@ -21,27 +21,39 @@ export default async function HomePage() {
       </section>
 
       <section id="about" className="w-full">
-        <About />
+        <div className="section-panel section-panel--ivory">
+          <About />
+        </div>
       </section>
 
       <section id="products" className="w-full">
-        <Products products={shopify.products} storeUrl={shopify.storeUrl} />
+        <div className="section-panel section-panel--peach">
+          <Products products={shopify.products} storeUrl={shopify.storeUrl} />
+        </div>
       </section>
 
       <section id="services" className="w-full">
-        <Services />
+        <div className="section-panel section-panel--rose">
+          <Services />
+        </div>
       </section>
 
       <section id="learnings" className="w-full">
-        <Learnings />
+        <div className="section-panel section-panel--amber">
+          <Learnings />
+        </div>
       </section>
 
       <section id="testimonials" className="w-full">
-        <Testimonials testimonials={testimonials} />
+        <div className="section-panel section-panel--peach">
+          <Testimonials testimonials={testimonials} />
+        </div>
       </section>
 
       <section id="contact" className="w-full">
-        <ContactForm />
+        <div className="section-panel section-panel--ivory">
+          <ContactForm />
+        </div>
       </section>
     </div>
   );

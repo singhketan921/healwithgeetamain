@@ -23,9 +23,13 @@ export default function RootLayout({ children }) {
         className={`${outfit.variable} ${outfit.className} antialiased bg-beige text-charcoal`}
       >
         <CartProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <div className="site-shell">
+            <div className="site-glow site-glow-top" />
+            <div className="site-glow site-glow-bottom" />
+            <Navbar />
+            <main className="site-content">{children}</main>
+            <Footer />
+          </div>
         </CartProvider>
       </body>
     </html>
