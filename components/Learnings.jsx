@@ -26,13 +26,13 @@ export default function Learnings() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/courses#learnings"
-              className="inline-flex items-center justify-center rounded-full bg-[#8a8176] px-8 py-3 text-[12px] tracking-[0.18em] text-white shadow-[0_10px_26px_rgba(0,0,0,0.18)] uppercase"
+              className="inline-flex items-center justify-center rounded-full bg-[#ffffff] border-[#8a8176]/40 px-8 py-3 text-[12px] tracking-[0.18em] text-[#ffffff] shadow-[0_10px_26px_rgba(0,0,0,0.18)] uppercase"
             >
               Explore Learnings
             </Link>
             <Link
               href="/courses"
-              className="inline-flex items-center justify-center rounded-full border border-[#8a8176]/40 bg-transparent px-8 py-3 text-[12px] tracking-[0.18em] text-[#8a8176] uppercase"
+              className="inline-flex items-center justify-center rounded-full bg-[#ffffff] border border-[#8a8176]/40 px-8 py-3 text-[12px] tracking-[0.18em] text-[#8a8176] uppercase"
             >
               View Courses
             </Link>
