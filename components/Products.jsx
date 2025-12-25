@@ -1,8 +1,7 @@
-'use client';
+"use client";
 
 import { useMemo } from "react";
 import { useCart } from "@/context/CartContext";
-import Reveal from "@/components/Reveal";
 
 const moonstone = "/assets/images/moonstone.jpg";
 
@@ -81,108 +80,86 @@ export default function Products({ products = [], storeUrl }) {
     });
   }, [products, storeUrl]);
 
-  const feature = productList[0];
-
   return (
-    <section className="bg-[#EAE4DC] py-24 text-[#524E48]">
-      <div className="max-w-6xl px-6 mx-auto space-y-16">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <Reveal className="lg:col-span-4 flex flex-col gap-8">
-            <p className="text-xs uppercase tracking-[0.55em] text-[#B0AAA0]">
-              Ritual Cabinet
-            </p>
-            <h2 className="font-serif text-[2.8rem] leading-tight">
-              Objects for everyday alchemy
-            </h2>
-            <p className="text-lg leading-relaxed text-[#524E48]/85">
-              Each remedy is a limited-edition drop - moonstone pendants bathed in
-              mantra, serum oils infused with spikenard and goldenseal, and
-              incense carved from Himalayan resins. Shop the apothecary edit or
-              book a private curation.
-            </p>
-            {feature && (
-              <div className="p-6 border rounded-[32px] border-[#B0AAA0]/60 bg-white">
-                <p className="text-xs uppercase tracking-[0.35em] text-[#B0AAA0] mb-4">
-                  Feature
-                </p>
-                <div className="rounded-[26px] overflow-hidden mb-4">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="object-cover w-full h-60"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="font-serif text-2xl leading-tight">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm text-[#524E48]/70">
-                  {feature.subtitle}
-                </p>
-                <span className="block mt-4 text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
-                  {feature.priceText}
-                </span>
-              </div>
-            )}
-          </Reveal>
+    <section className="bg-white py-20 text-[#6d655d]">
+      <div className="relative mx-auto max-w-[1400px] px-6">
+        <span className="pointer-events-none absolute left-6 top-8 h-2 w-2 rounded-full bg-[#e2dbd2]" />
+        <span className="pointer-events-none absolute right-10 top-16 h-3 w-3 rounded-full border border-[#eee7df]" />
+        <div className="text-center">
+          <h2 className="text-[30px] sm:text-[38px] font-semibold tracking-[0.14em] text-[#6a625a]">
+            RITUAL TOOLS
+          </h2>
+          <p className="mt-3 text-[14px] sm:text-[15px] tracking-[0.08em] text-[#a59d94]">
+            Curated pieces for daily balance and intention
+          </p>
+        </div>
 
-          <div className="lg:col-span-8 space-y-10">
-            {productList.map((product, index) => (
-              <Reveal
-                key={product.id ?? index}
-                delay={0.05 * index}
-                className="grid items-center gap-4 py-6 border-b border-[#B0AAA0]/40 last:border-0 lg:grid-cols-12"
-              >
-                <div className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0] lg:col-span-2">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <div className="lg:col-span-6 space-y-2">
-                  <h3 className="font-serif text-2xl">{product.title}</h3>
-                  <p className="text-sm text-[#524E48]/75">
-                    {product.subtitle || product.description || "Limited drop"}
-                  </p>
-                </div>
-                <div className="flex flex-col gap-3 text-right lg:col-span-4">
-                  <p className="text-sm uppercase tracking-[0.35em] text-[#B0AAA0]">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {productList.map((product, index) => (
+            <div
+              key={product.id ?? index}
+              className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-black/5 bg-white shadow-[0_14px_32px_rgba(0,0,0,0.08)]"
+            >
+              <div className="relative">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="h-[220px] w-full object-cover sm:h-[250px] lg:h-[260px]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/5" />
+              </div>
+
+              <div className="flex flex-1 flex-col px-6 py-6">
+                <p className="text-[12px] uppercase tracking-[0.25em] text-[#b5ada4]">
+                  {product.type || "Ritual"}
+                </p>
+                <h3 className="mt-3 text-[20px] font-semibold text-[#6a625a]">
+                  {product.title}
+                </h3>
+                <p className="mt-2 text-[14px] leading-[1.7] text-[#948c83]">
+                  {product.subtitle || product.description || "Limited drop"}
+                </p>
+
+                <div className="mt-5 flex items-center justify-between">
+                  <span className="text-[12px] uppercase tracking-[0.25em] text-[#b5ada4]">
                     {product.priceText ?? "Sold Out"}
-                  </p>
-                  <div className="flex justify-end gap-3 text-xs uppercase tracking-[0.4em]">
-                    {product.variantId ? (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          addItem({
-                            variantId: product.variantId,
-                            title: product.title,
-                            subtitle: product.subtitle,
-                            price: product.price,
-                            currency: product.currency,
-                            image: product.image,
-                          })
-                        }
-                        className="px-4 py-2 border border-[#524E48] rounded-full hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
-                      >
-                        Add to Cart
-                      </button>
-                    ) : product.url ? (
-                      <a
-                        href={product.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="px-4 py-2 border border-[#524E48] rounded-full hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
-                      >
-                        View
-                      </a>
-                    ) : (
-                      <span className="px-4 py-2 border border-[#B0AAA0] rounded-full text-[#B0AAA0]">
-                        Archive
-                      </span>
-                    )}
-                  </div>
+                  </span>
+                  {product.variantId ? (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        addItem({
+                          variantId: product.variantId,
+                          title: product.title,
+                          subtitle: product.subtitle,
+                          price: product.price,
+                          currency: product.currency,
+                          image: product.image,
+                        })
+                      }
+                      className="rounded-full bg-[#8a8176] px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white"
+                    >
+                      Add to Cart
+                    </button>
+                  ) : product.url ? (
+                    <a
+                      href={product.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-[#8a8176]/40 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[#8a8176]"
+                    >
+                      View
+                    </a>
+                  ) : (
+                    <span className="rounded-full border border-[#d9d1c8] px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-[#c7beb4]">
+                      Archive
+                    </span>
+                  )}
                 </div>
-              </Reveal>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

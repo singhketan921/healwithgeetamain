@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import DailyNeeds from "@/components/DailyNeeds";
 import About from "@/components/About";
 import Products from "@/components/Products";
 import Services from "@/components/Services";
@@ -20,40 +21,32 @@ export default async function HomePage() {
         <Hero />
       </section>
 
+      <section id="daily-needs" className="w-full">
+        <DailyNeeds />
+      </section>
+
       <section id="about" className="w-full">
-        <div className="section-panel section-panel--ivory">
-          <About />
-        </div>
+        <About />
       </section>
 
       <section id="products" className="w-full">
-        <div className="section-panel section-panel--peach">
-          <Products products={shopify.products} storeUrl={shopify.storeUrl} />
-        </div>
+        <Products products={shopify.products} storeUrl={shopify.storeUrl} />
       </section>
 
       <section id="services" className="w-full">
-        <div className="section-panel section-panel--rose">
-          <Services />
-        </div>
+        <Services />
       </section>
 
       <section id="learnings" className="w-full">
-        <div className="section-panel section-panel--amber">
-          <Learnings />
-        </div>
+        <Learnings />
       </section>
 
       <section id="testimonials" className="w-full">
-        <div className="section-panel section-panel--peach">
-          <Testimonials testimonials={testimonials} />
-        </div>
+        <Testimonials testimonials={testimonials} />
       </section>
 
       <section id="contact" className="w-full">
-        <div className="section-panel section-panel--ivory">
-          <ContactForm />
-        </div>
+        <ContactForm />
       </section>
     </div>
   );
