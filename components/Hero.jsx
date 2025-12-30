@@ -1,109 +1,85 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-
-const BG_IMAGES = [
-  "/assets/images/courseshero.png",
-  "/assets/images/healinghero.png",
-  "/assets/images/gems.png",
+const MARQUEE_ITEMS = [
+  "Astrology Reading",
+  "Aura Healing",
+  "Reiki Power",
+  "Negative Release",
+  "Cosmic Guidance",
+  "Number Healing",
+  "Divine Alignment",
+  "Spiritual Awakening",
+  "Chakra Balance",
+  "Astro Guidance",
 ];
 
-const INTERVAL_MS = 800; // faster
-const FADE_MS = 500;
-
 export default function Hero() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (BG_IMAGES.length <= 1) return;
-
-    const t = setInterval(() => {
-      setIndex((prev) => (prev + 1) % BG_IMAGES.length);
-    }, INTERVAL_MS);
-
-    return () => clearInterval(t);
-  }, []);
-
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#d7d1c7]">
-      {/* Background carousel */}
-      {BG_IMAGES.map((src, i) => (
-        <Image
-          key={src}
-          src={src}
-          alt="Hero"
-          fill
-          priority={i === 0}
-          className={[
-            "object-cover object-center",
-            "transition-opacity",
-            i === index ? "opacity-100" : "opacity-0",
-          ].join(" ")}
-          style={{ transitionDuration: `${FADE_MS}ms` }}
-        />
-      ))}
+    <section
+      className="w-full pt-[68px]"
+      style={{
+        background:
+          "linear-gradient(90deg, #DBD8CD 27%, #BCB7AA 59%, #B6B1A3 73%, #9E968B 100%)",
+      }}
+    >
+      <Marquee direction="left" />
 
-      {/* Slight wash like screenshot */}
-      <div className="absolute inset-0 bg-white/10" />
+      <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-6 py-12 lg:grid-cols-[0.55fr_0.45fr]">
+        <div className="relative">
+          <img
+            src="/assets/images/consulthero.png"
+            alt="Spiritual guide with crystal"
+            className="h-auto w-full max-w-[620px] object-contain"
+            loading="lazy"
+          />
+        </div>
 
-      {/* Left content */}
-      <div className="relative z-10 min-h-screen">
-        <div className="mx-auto flex min-h-screen w-full max-w-[1400px] px-6 sm:px-10">
-          <div className="flex w-full max-w-[560px] flex-col justify-center py-16 sm:py-20">
-            <div className="mb-8">
-              <span className="inline-flex rounded-full bg-white px-5 py-2 text-[12px] tracking-[0.18em] text-[#6b6257] shadow-sm">
-                HEAL WITH GEETA
-              </span>
-            </div>
+        <div className="text-white">
+          <h1 className="text-[30px] sm:text-[36px] lg:text-[40px] font-semibold leading-[1.1]">
+            Where Healing
+            <br />
+            Meets Alignment
+          </h1>
+          <p className="mt-3 max-w-[320px] text-[14px] leading-[1.6] text-white/90">
+            Astrology, healing, and guidance to align and uplift you.
+          </p>
 
-            <h1 className="text-white uppercase font-sans font-extrabold leading-[0.98] tracking-[0.02em] text-[44px] sm:text-[62px] lg:text-[74px]">
-              HEAL, ALIGN,
-              <br />
-              AND RENEW
-              <br />
-              WITH GUIDED
-              <br />
-              SPIRITUAL CARE
-            </h1>
-
-            <p className="mt-8 max-w-[420px] text-white/90 text-[16px] leading-7">
-              Personalized astrology readings, energy healing, and soulful
-              guidance sessions to help you clear blocks, restore balance, and
-              move forward with confidence.
-            </p>
-
-            <div className="mt-10 relative flex items-center">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 pl-10 text-[14px] tracking-[0.12em] uppercase text-[#3b352f] shadow-md"
-              >
-                Begin Transformation
-              </a>
-            </div>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <button className="rounded-[10px] bg-white px-6 py-2.5 text-[13px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.18)]">
+              Begin Transformation
+            </button>
+            <button className="rounded-[10px] border border-white/70 bg-transparent px-6 py-2.5 text-[13px] font-semibold text-white">
+              Explore More
+            </button>
           </div>
-
-          <div className="flex-1" />
         </div>
       </div>
 
-      {/* Dots (bottom-center) */}
-      {BG_IMAGES.length > 1 && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-          {BG_IMAGES.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setIndex(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className={[
-                "h-2 rounded-full transition-all",
-                i === index ? "w-10 bg-white/90" : "w-2 bg-white/40 hover:bg-white/60",
-              ].join(" ")}
-            />
-          ))}
+      <div className="relative pb-8">
+        <div className="mx-auto flex w-full max-w-[1200px] justify-center">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-white/70" />
+            <span className="h-2 w-8 rounded-full bg-white" />
+            <span className="h-2 w-2 rounded-full bg-white/70" />
+          </div>
         </div>
-      )}
+      </div>
+
+      <Marquee direction="right" />
     </section>
+  );
+}
+
+function Marquee({ direction = "left" }) {
+  return (
+    <div className="marquee">
+      <div className={["marquee-track", direction === "left" ? "marquee-left" : "marquee-right"].join(" ")}>
+        {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => (
+          <span key={`${direction}-${idx}`} className="marquee-item">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }

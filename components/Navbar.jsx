@@ -1,137 +1,85 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
 const logo = "/assets/images/logo.png";
 
 const links = [
-  { name: "Home", href: "/" },
   { name: "Consultations", href: "/consultations" },
   { name: "Courses", href: "/courses" },
   { name: "Healings", href: "/healings" },
-  { name: "Products", href: "/products" },
   { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const [showShadow, setShowShadow] = useState(false);
-  const { items, toggleCart } = useCart();
-  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
-
-  useEffect(() => {
-    let scrollTimeout;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 10) {
-        setIsScrolling(true);
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => setShowShadow(true), 120);
-      } else {
-        setIsScrolling(false);
-        clearTimeout(scrollTimeout);
-        setShowShadow(false);
-      }
-
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        setIsScrolling(false);
-        setShowShadow(false);
-      }, 300);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(scrollTimeout);
-    };
-  }, []);
+  const { toggleCart } = useCart();
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] ${
-        isScrolling
-          ? "bg-white/30 backdrop-blur-md border-b border-gray-100"
-          : "bg-white border-b border-gray-100"
-      }`}
-      style={{
-        boxShadow: showShadow
-          ? "0 4px 18px rgba(0, 0, 0, 0.07)"
-          : "0 0 0 rgba(0, 0, 0, 0)",
-        transition:
-          "background-color 0.4s ease, box-shadow 0.6s ease, backdrop-filter 0.5s ease",
-      }}
+      className="fixed top-0 left-0 z-50 w-full border-b border-gray-100 bg-[#f5f4f1]"
     >
-      <div className="flex items-center justify-between w-full px-4 py-4 sm:px-6 lg:px-12">
+      <div className="flex h-16 items-center justify-between w-full px-4 sm:px-6 lg:px-12">
         <Link
           href="/"
-          className="flex items-center gap-3 text-charcoal flex-shrink-0 md:min-w-[140px] lg:min-w-[220px]"
+          className="flex items-center gap-3 text-[#4d4d4d] flex-shrink-0 md:min-w-[160px] lg:min-w-[220px]"
         >
           <img
             src={logo}
-            alt="HealWithGeeta lotus logo"
-            className={`h-8 w-8 transition-transform duration-500 ${
-              isScrolling ? "scale-95 opacity-90" : "scale-100 opacity-100"
-            }`}
+            alt="FaithHealers lotus logo"
+            className="h-8 w-8"
           />
           <span
-            className={`text-lg font-semibold tracking-wide text-charcoal transition-all duration-500 ${
-              isScrolling ? "text-opacity-90" : "text-opacity-100"
-            }`}
+            className="text-xl font-semibold tracking-wide"
           >
-            HealWithGeeta
+            FaithHealers
           </span>
         </Link>
 
-        <nav className="hidden md:flex flex-grow justify-center gap-2 text-sm font-medium text-charcoal md:gap-2.5 lg:gap-6">
+        <nav className="hidden md:flex flex-grow justify-center gap-8 text-[15px] font-medium text-[#4d4d4d]">
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="transition-colors duration-200 text-charcoal hover:text-olive focus-visible:text-olive focus-visible:outline-none"
+              className="transition-colors duration-200 hover:text-black focus-visible:text-black focus-visible:outline-none"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center justify-end flex-shrink-0 gap-3 md:min-w-[220px]">
-          <div className="relative w-full md:max-w-[150px] lg:max-w-[200px]">
-            <input
-              type="search"
-              placeholder="Search in site"
-              className="w-full h-10 px-3 text-sm placeholder-gray-400 bg-white border border-gray-200 rounded-full pr-9 text-charcoal focus:border-olive focus:outline-none focus:ring-2 focus:ring-olive/20 lg:px-4 lg:pr-10"
-            />
-            <svg
-              className="absolute w-4 h-4 text-gray-400 -translate-y-1/2 pointer-events-none right-3 top-1/2"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m21 21-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
-              />
-            </svg>
-          </div>
+        <div className="hidden md:flex items-center justify-end flex-shrink-0 gap-5 md:min-w-[220px]">
           <button
-            onClick={toggleCart}
-            className="relative px-4 py-2 text-sm font-medium text-charcoal border border-gray-200 rounded-full hover:border-charcoal transition"
+            type="button"
+            className="text-black transition-transform duration-150 hover:scale-105"
+            aria-label="Account"
           >
-            Cart
-            {itemCount > 0 && (
-              <span className="absolute -top-1 -right-1 text-[11px] font-semibold bg-charcoal text-white rounded-full min-w-[20px] h-[20px] leading-[20px] text-center">
-                {itemCount}
-              </span>
-            )}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-6 w-6"
+            >
+              <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" />
+              <path d="M4 20a8 8 0 0 1 16 0Z" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={toggleCart}
+            className="text-black transition-transform duration-150 hover:scale-105"
+            aria-label="Cart"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-6 w-6"
+            >
+              <path d="M7.5 18a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 7.5 18Zm9 0A1.5 1.5 0 1 0 18 19.5 1.5 1.5 0 0 0 16.5 18ZM6.2 6l-.8-2H2.5a.75.75 0 0 0 0 1.5h1.9l2.3 8.1a2.25 2.25 0 0 0 2.16 1.65h7.44a2.25 2.25 0 0 0 2.2-1.76l1.5-6A.75.75 0 0 0 19.3 6Zm12.05 1.5-1.22 4.88a.75.75 0 0 1-.73.62H8.86a.75.75 0 0 1-.72-.56L6.54 7.5Z" />
+            </svg>
           </button>
         </div>
 
@@ -142,11 +90,6 @@ export default function Navbar() {
             aria-label="Open cart"
           >
             Cart
-            {itemCount > 0 && (
-              <span className="absolute -top-1 -right-1 text-[11px] font-semibold bg-charcoal text-white rounded-full min-w-[18px] h-[18px] leading-[18px] text-center">
-                {itemCount}
-              </span>
-            )}
           </button>
           <button
             onClick={() => setIsOpen((prev) => !prev)}

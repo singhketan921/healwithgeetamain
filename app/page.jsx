@@ -29,9 +29,7 @@ export default async function HomePage() {
         <About />
       </section>
 
-      <section id="products" className="w-full">
-        <Products products={shopify.products} storeUrl={shopify.storeUrl} />
-      </section>
+      
 
       <section id="services" className="w-full">
         <Services />
