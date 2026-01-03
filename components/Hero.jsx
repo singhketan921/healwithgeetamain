@@ -18,7 +18,7 @@ export default function Hero() {
     <section
       className="hero-section w-full"
       style={{
-        backgroundImage:
+      backgroundImage:
           "url('/assets/images/herosection image faithhealers.png'), linear-gradient(90deg, #DBD8CD 0%, #BCB7AA 45%, #B6B1A3 70%, #9E968B 100%)",
         backgroundSize: "cover, cover",
         backgroundPosition: "left 48px, left center",
