@@ -2,83 +2,98 @@
 
 export default function Learnings() {
   return (
-    <section className="bg-[#f5f2ef] text-[#6b625a]">
-      <div className="mx-auto max-w-[1200px] px-6 pb-16 pt-12">
+    <section
+      className="text-[#6b625a]"
+      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #EEECE9 100%)" }}
+    >
+      <div className="mx-auto max-w-[1200px] px-4 pb-16 pt-12 sm:px-6">
         <div className="text-center">
-          <h2 className="text-[26px] sm:text-[30px] md:text-[34px] font-semibold tracking-[0.12em] text-[#6b625a]">
+          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-semibold tracking-[0.12em] text-[#5f5750]">
             THE HEALING APPROACH
           </h2>
-          <p className="mx-auto mt-3 max-w-[700px] text-[13px] sm:text-[14px] leading-[1.6] text-[#7a736c]">
+          <p className="mx-auto mt-3 max-w-[720px] text-[14px] sm:text-[17px] leading-[1.6] text-[#7a736c]">
             Each Learning Blends Astrology, Energy Work, And Practical Rituals To Help You Heal,
             Align, And Move Forward With Clarity.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-            <button className="min-w-[200px] rounded-[10px] bg-white px-8 py-2.5 text-[13px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)]">
+            <button className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-8 sm:px-10 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.15)]">
               Explore Healings
             </button>
-            <button className="min-w-[200px] rounded-[10px] border border-[#8f857c] bg-transparent px-8 py-2.5 text-[13px] font-semibold text-[#6b625a]">
+            <button className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-8 sm:px-10 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a]">
               Explore Courses
             </button>
           </div>
         </div>
 
-        <div className="relative mt-14">
-          <div className="absolute left-1/2 top-[44px] h-[220px] w-[520px] -translate-x-1/2 rounded-[18px] bg-[#d7d3cf]" />
+        <div className="relative mt-12 sm:mt-14 sm:min-h-[400px]">
+          <div className="hidden sm:block absolute right-0 top-10 h-[240px] w-[520px] rounded-[22px] bg-[#d9d9d9]" />
 
-          <div className="relative grid gap-6">
-            <div className="flex justify-center">
-              <div className="rounded-[14px] bg-white px-6 py-3 text-center shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                <div className="text-[13px] font-semibold text-[#6b625a]">
-                  Step 2 - Spiritual Analysis
-                </div>
-                <div className="mt-1 text-[11px] text-[#9a938c]">
-                  Using Astrology, Tarot, Numerology &amp; Intuition.
-                </div>
-              </div>
+          <div className="text-center sm:absolute sm:left-0 sm:top-0 sm:w-full">
+            <h3 className="text-[24px] sm:text-[34px] font-semibold tracking-[0.08em] text-[#6b625a]">
+              HEALING <span className="italic font-light">PATHWAYS</span>
+            </h3>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:hidden">
+            <StepCard
+              title="Step 1 - Consultation"
+              description="We Understand Your Energy, Birth Details, And Concerns."
+            />
+            <StepCard
+              title="Step 2 - Spiritual Analysis"
+              description="Using Astrology, Tarot, Numerology &amp; Intuition."
+            />
+            <StepCard
+              title="Step 3 - Healing &amp; Guidance"
+              description="Energy Clearing, Chakra Balancing &amp; Solutions."
+            />
+            <StepCard
+              title="Step 4 - Life Alignment"
+              description="Personal Remedies And Next Steps."
+            />
+          </div>
+
+          <div className="hidden sm:block">
+            <div className="absolute left-0 top-[78px]">
+              <StepCard
+                title="Step 2 - Spiritual Analysis"
+                description="Using Astrology, Tarot, Numerology &amp; Intuition."
+              />
             </div>
 
-            <div className="flex justify-center">
-              <div className="rounded-[14px] bg-white px-6 py-3 text-center shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                <div className="text-[13px] font-semibold text-[#6b625a]">
-                  Step 1 - Consultation
-                </div>
-                <div className="mt-1 text-[11px] text-[#9a938c]">
-                  We Understand Your Energy, Birth Details, And Concerns.
-                </div>
-              </div>
+            <div className="absolute right-12 top-[78px]">
+              <StepCard
+                title="Step 1 - Consultation"
+                description="We Understand Your Energy, Birth Details, And Concerns."
+              />
             </div>
 
-            <div className="flex justify-center">
-              <div className="rounded-[14px] bg-white px-6 py-3 text-center shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                <div className="text-[13px] font-semibold text-[#6b625a]">
-                  Step 3 - Healing &amp; Guidance
-                </div>
-                <div className="mt-1 text-[11px] text-[#9a938c]">
-                  Energy Clearing, Chakra Balancing &amp; Solutions.
-                </div>
-              </div>
+            <div className="absolute left-1/2 top-[220px] -translate-x-1/2">
+              <StepCard
+                title="Step 3 - Healing &amp; Guidance"
+                description="Energy Clearing, Chakra Balancing &amp; Solutions."
+              />
             </div>
 
-            <div className="flex justify-center">
-              <div className="rounded-[14px] bg-white px-6 py-3 text-center shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
-                <div className="text-[13px] font-semibold text-[#6b625a]">
-                  Step 4 - Life Alignment
-                </div>
-                <div className="mt-1 text-[11px] text-[#9a938c]">
-                  Personal Remedies And Next Steps.
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-2 text-center">
-              <h3 className="text-[24px] sm:text-[28px] font-semibold tracking-[0.08em] text-[#6b625a]">
-                HEALING <span className="italic font-light">PATHWAYS</span>
-              </h3>
+            <div className="absolute right-10 top-[190px]">
+              <StepCard
+                title="Step 4 - Life Alignment"
+                description="Personal Remedies And Next Steps."
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function StepCard({ title, description }) {
+  return (
+    <div className="rounded-[14px] bg-white px-6 py-3 text-center shadow-[0_10px_22px_rgba(0,0,0,0.12)]">
+      <div className="text-[15px] sm:text-[16px] font-semibold text-[#6b625a]">{title}</div>
+      <div className="mt-1 text-[13px] sm:text-[14px] text-[#9a938c]">{description}</div>
+    </div>
   );
 }

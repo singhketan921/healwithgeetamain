@@ -16,41 +16,37 @@ const MARQUEE_ITEMS = [
 export default function Hero() {
   return (
     <section
-      className="w-full pt-[68px]"
+      className="hero-section w-full"
       style={{
-        background:
-          "linear-gradient(90deg, #DBD8CD 27%, #BCB7AA 59%, #B6B1A3 73%, #9E968B 100%)",
+        backgroundImage:
+          "url('/assets/images/herosection image faithhealers.png'), linear-gradient(90deg, #DBD8CD 0%, #BCB7AA 45%, #B6B1A3 70%, #9E968B 100%)",
+        backgroundSize: "cover, cover",
+        backgroundPosition: "left 48px, left center",
+        backgroundRepeat: "no-repeat, no-repeat",
       }}
     >
       <Marquee direction="left" />
 
-      <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-6 py-12 lg:grid-cols-[0.55fr_0.45fr]">
-        <div className="relative">
-          <img
-            src="/assets/images/consulthero.png"
-            alt="Spiritual guide with crystal"
-            className="h-auto w-full max-w-[620px] object-contain"
-            loading="lazy"
-          />
-        </div>
+      <div className="hero-main w-full">
+        <div className="flex w-full items-center justify-end px-6 py-12 lg:px-12">
+          <div className="w-full max-w-[420px] text-white lg:w-[33%] lg:max-w-none">
+            <h1 className="text-[38px] sm:text-[46px] lg:text-[56px] font-semibold leading-[1.1]">
+              Where Healing
+              <br />
+              Meets Alignment
+            </h1>
+            <p className="mt-3 max-w-[420px] text-[16px] sm:text-[18px] leading-[1.6] text-white/90">
+              Astrology, healing, and guidance to align and uplift you.
+            </p>
 
-        <div className="text-white">
-          <h1 className="text-[30px] sm:text-[36px] lg:text-[40px] font-semibold leading-[1.1]">
-            Where Healing
-            <br />
-            Meets Alignment
-          </h1>
-          <p className="mt-3 max-w-[320px] text-[14px] leading-[1.6] text-white/90">
-            Astrology, healing, and guidance to align and uplift you.
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-4">
-            <button className="rounded-[10px] bg-white px-6 py-2.5 text-[13px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.18)]">
-              Begin Transformation
-            </button>
-            <button className="rounded-[10px] border border-white/70 bg-transparent px-6 py-2.5 text-[13px] font-semibold text-white">
-              Explore More
-            </button>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <button className="rounded-[12px] bg-white px-8 py-3.5 text-[15px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.18)]">
+                Begin Transformation
+              </button>
+              <button className="rounded-[12px] border border-white/70 bg-transparent px-8 py-3.5 text-[15px] sm:text-[16px] font-semibold text-white">
+                Explore More
+              </button>
+            </div>
           </div>
         </div>
       </div>

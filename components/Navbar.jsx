@@ -19,9 +19,9 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 z-50 w-full border-b border-gray-100 bg-[#f5f4f1]"
+      className="fixed top-0 left-0 z-50 w-full border-b border-[#524E48] bg-[#F1F1F1]"
     >
-      <div className="flex h-16 items-center justify-between w-full px-4 sm:px-6 lg:px-12">
+      <div className="flex h-16 items-center justify-between w-full px-[19px] py-[18px] gap-[139px]">
         <Link
           href="/"
           className="flex items-center gap-3 text-[#4d4d4d] flex-shrink-0 md:min-w-[160px] lg:min-w-[220px]"

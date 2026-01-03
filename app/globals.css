@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-beige: #eae4dc; /* white chocolate */
+  --color-beige: #eeece9; /* white chocolate */
   --color-cream: #b0aaa0; /* dark gray */
   --color-olive: #a59079; /* grullo */
   --color-charcoal: #524e48; /* dark liver */
@@ -23,7 +23,8 @@
   line-height: 1.5;
   font-weight: 400;
   color: #524e48;
-  background-color: #eae4dc;
+  background-color: #eeece9;
+  --navbar-height: 64px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,18 +34,16 @@ body {
   margin: 0;
   min-width: 320px;
   color: inherit;
-  background: radial-gradient(circle at 20% 0%, rgba(255, 243, 226, 0.95), rgba(246, 228, 209, 0.85)),
-    radial-gradient(circle at 90% 10%, rgba(255, 217, 188, 0.8), transparent 60%),
-    linear-gradient(180deg, #fdf8f2 0%, #f4e4d5 45%, #f2dfce 100%) fixed;
+  background: #eeece9;
+  overflow-x: hidden;
 }
 
 .site-shell {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
-  background: radial-gradient(circle at 30% 15%, rgba(255, 255, 255, 0.95), transparent 65%),
-    radial-gradient(circle at 80% 5%, rgba(255, 195, 161, 0.45), transparent 55%),
-    radial-gradient(circle at 15% 80%, rgba(181, 173, 160, 0.35), transparent 55%);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background: #eeece9;
 }
 
 .site-content {
@@ -54,6 +53,21 @@ body {
   border-radius: 0;
   padding: 0;
   box-shadow: none;
+}
+
+.hero-section {
+  padding-top: var(--navbar-height);
+  min-height: 100vh;
+  min-height: 100svh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .site-glow {
@@ -240,9 +254,9 @@ a {
 
 .marquee {
   overflow: hidden;
-  background: #e6e0d7;
-  border-top: 0.2px solid #524e48;
-  border-bottom: 0.2px solid #524e48;
+  background: #eeece9;
+  border-top: 0;
+  border-bottom: 0;
 }
 
 .marquee-track {

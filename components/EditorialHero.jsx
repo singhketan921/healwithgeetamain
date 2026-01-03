@@ -12,8 +12,8 @@ export default function EditorialHero({
   media,
 }) {
   return (
-    <section className="relative overflow-hidden bg-[#EAE4DC] py-12 sm:py-20 text-[#524E48]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-0">
+    <section className="hero-section relative overflow-hidden bg-[#EAE4DC] pb-12 sm:pb-20 text-[#524E48]">
+      <div className="hero-main max-w-6xl mx-auto px-5 sm:px-6 lg:px-0">
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <Reveal className="space-y-6">
             <p className="text-[0.65rem] uppercase tracking-[0.5em] text-[#B0AAA0]">

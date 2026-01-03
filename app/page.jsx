@@ -16,7 +16,7 @@ export default async function HomePage() {
   ]);
 
   return (
-    <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
+    <div className="flex flex-col items-center scroll-smooth">
       <section id="hero" className="w-full">
         <Hero />
       </section>
