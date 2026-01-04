@@ -21,7 +21,7 @@ export default function Navbar() {
     <header
       className="fixed top-0 left-0 z-50 w-full border-b border-[#524E48] bg-[#F1F1F1]"
     >
-      <div className="flex h-16 items-center justify-between w-full px-[19px] py-[18px] gap-[139px]">
+      <div className="flex h-16 items-center justify-between w-full px-4 py-3 gap-4 md:px-[19px] md:py-[18px] md:gap-[139px]">
         <Link
           href="/"
           className="flex items-center gap-3 text-[#4d4d4d] flex-shrink-0 md:min-w-[160px] lg:min-w-[220px]"
@@ -29,10 +29,10 @@ export default function Navbar() {
           <img
             src={logo}
             alt="FaithHealers lotus logo"
-            className="h-8 w-8"
+            className="h-7 w-7 md:h-8 md:w-8"
           />
           <span
-            className="text-xl font-semibold tracking-wide"
+            className="text-[18px] md:text-xl font-semibold tracking-wide"
           >
             FaithHealers
           </span>
@@ -86,7 +86,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 md:hidden ml-auto">
           <button
             onClick={toggleCart}
-            className="relative px-4 py-2 text-sm font-medium text-charcoal border border-gray-200 rounded-full hover:border-charcoal transition"
+            className="relative px-3 py-2 text-[13px] font-medium text-charcoal border border-gray-200 rounded-full hover:border-charcoal transition"
             aria-label="Open cart"
           >
             Cart

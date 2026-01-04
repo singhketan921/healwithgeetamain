@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const MARQUEE_ITEMS = [
   "Astrology Reading",
   "Aura Healing",
@@ -31,12 +33,18 @@ export default function Hero() {
             </p>
 
             <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-6 sm:gap-4">
-              <button className="rounded-[12px] bg-white px-6 py-3 text-[13px] sm:px-8 sm:py-3.5 sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.18)]">
+              <Link
+                href="/healings"
+                className="rounded-[12px] bg-white px-6 py-3 text-[13px] sm:px-8 sm:py-3.5 sm:text-[16px] font-semibold !text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.18)]"
+              >
                 Begin Transformation
-              </button>
-              <button className="rounded-[12px] border border-white/70 bg-transparent px-6 py-3 text-[13px] sm:px-8 sm:py-3.5 sm:text-[16px] font-semibold text-white">
+              </Link>
+              <Link
+                href="/#learnings"
+                className="rounded-[12px] border border-white/70 bg-transparent px-6 py-3 text-[13px] sm:px-8 sm:py-3.5 sm:text-[16px] font-semibold text-white"
+              >
                 Explore More
-              </button>
+              </Link>
             </div>
           </div>
         </div>

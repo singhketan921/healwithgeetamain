@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Testimonials() {
   return (
     <section className="bg-[#EEECE9] py-16 text-[#6b625a]">
@@ -15,12 +17,18 @@ export default function Testimonials() {
           </p>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <button className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)]">
+            <Link
+              href="/consultations"
+              className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)] text-center"
+            >
               Explore Consultations
-            </button>
-            <button className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a]">
+            </Link>
+            <Link
+              href="/healings"
+              className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] text-center"
+            >
               Explore Healings
-            </button>
+            </Link>
           </div>
         </div>
 

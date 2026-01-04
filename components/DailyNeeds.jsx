@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function DailyNeeds() {
   return (
     <section className="bg-[#EEECE9] py-14 text-[#6b625a]">
@@ -8,21 +10,24 @@ export default function DailyNeeds() {
           <div className="grid gap-6">
             <div className="relative z-10 overflow-visible rounded-[30px] bg-[#DFDCD6] shadow-[0_7px_20.4px_rgba(0,0,0,0.25)] w-full max-w-[681px] min-h-[200px] sm:h-[391px]">
               <div className="grid h-full grid-cols-[1.1fr_0.9fr] items-center gap-4 p-5 sm:block sm:p-7 sm:gap-0">
-                <div>
+                <div className="relative z-10">
                   <h3 className="text-[20px] sm:text-[24px] font-semibold text-[#5f5750]">Spiritual Consultations</h3>
                   <p className="mt-2 max-w-[260px] text-[14px] sm:text-[16px] leading-[1.6] text-[#7a736c]">
                     Tarot, astrology, numerology, Vastu, and intuitive readings for refined spiritual
                     guidance.
                   </p>
-                  <button className="mt-4 rounded-full bg-[#9b8872] px-6 sm:px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold text-white">
+                  <Link
+                    href="/consultations"
+                    className="mt-4 inline-flex rounded-full bg-[#9b8872] px-6 sm:px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold !text-white"
+                  >
                     Explore More
-                  </button>
+                  </Link>
                 </div>
-                <div className="relative h-[110px] overflow-visible sm:hidden">
+                <div className="relative h-[100px] overflow-visible sm:hidden">
                   <img
                     src="/assets/images/spiritual consultations img.png"
                     alt="Spiritual consultations"
-                    className="absolute right-0 -bottom-6 h-[150%] w-[100%] object-cover"
+                    className="absolute -right-10 -bottom-14 h-[240%] w-[170%] max-w-none object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -36,22 +41,25 @@ export default function DailyNeeds() {
             </div>
 
             <div className="relative z-10 overflow-visible rounded-[30px] bg-[#F8FCFF] shadow-[0_7px_33px_rgba(0,0,0,0.25)] w-full max-w-[681px] min-h-[240px] sm:h-[391px]">
-              <div className="grid h-full grid-cols-[1.1fr_0.9fr] items-center gap-4 p-5 sm:grid-cols-[2fr_1fr] sm:gap-0 sm:p-7">
-                <div>
+              <div className="grid h-full grid-cols-[1.1fr_0.9fr] items-center gap-4 p-5 sm:grid-cols-[1.1fr_0.9fr] sm:gap-0 sm:p-7">
+                <div className="relative z-10 sm:order-2">
                   <h3 className="text-[20px] sm:text-[24px] font-semibold text-[#5f5750]">Spiritual Healings</h3>
                   <p className="mt-2 text-[14px] sm:text-[16px] leading-[1.6] text-[#7a736c]">
                     A blend of energy and vibration to cleanse, align, and harmonize your mind, body,
                     and spirit.
                   </p>
-                  <button className="mt-4 rounded-full bg-[#9b8872] px-6 sm:px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold text-white">
+                  <Link
+                    href="/healings"
+                    className="mt-4 inline-flex rounded-full bg-[#9b8872] px-6 sm:px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold !text-white"
+                  >
                     Explore More
-                  </button>
+                  </Link>
                 </div>
-                <div className="relative h-[110px] overflow-visible sm:h-full sm:overflow-visible">
+                <div className="relative h-[100px] overflow-visible sm:order-1 sm:h-full sm:overflow-visible sm:-translate-y-6">
                   <img
                     src="/assets/images/spiritual healings img.png"
                     alt="Spiritual healings"
-                    className="absolute right-0 -bottom-6 h-[150%] w-[100%] object-cover sm:absolute sm:-left-10 sm:-top-25 sm:h-[165%] sm:w-[130%]"
+                    className="absolute -right-10 -bottom-14 h-[240%] w-[170%] max-w-none object-cover sm:absolute sm:-left-30 sm:-top-20 sm:h-[175%] sm:w-[140%]"
                     loading="lazy"
                   />
                 </div>
@@ -66,9 +74,12 @@ export default function DailyNeeds() {
                 A collection of spiritual courses designed to elevate your knowledge and inner
                 growth.
               </p>
-              <button className="mt-5 rounded-full bg-[#9b8872] px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold text-white">
+              <Link
+                href="/courses"
+                className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#9b8872] px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold !text-white"
+              >
                 Explore More
-              </button>
+              </Link>
               <img
                 src="/assets/images/divine learning image.png"
                 alt="Divine learning"

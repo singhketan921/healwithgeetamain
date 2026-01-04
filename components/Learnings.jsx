@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Learnings() {
   return (
     <section
@@ -17,12 +19,18 @@ export default function Learnings() {
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-            <button className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-8 sm:px-10 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.15)]">
+            <Link
+              href="/healings"
+              className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-8 sm:px-10 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.15)] text-center"
+            >
               Explore Healings
-            </button>
-            <button className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-8 sm:px-10 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a]">
+            </Link>
+            <Link
+              href="/courses"
+              className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-8 sm:px-10 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] text-center"
+            >
               Explore Courses
-            </button>
+            </Link>
           </div>
         </div>
 

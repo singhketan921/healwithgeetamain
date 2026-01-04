@@ -254,6 +254,9 @@ a {
 @media (max-width: 640px) {
   .hero-bg {
     background-position: left 260px, left center;
+    background-image:
+      url("/assets/images/HeroSection Image faithhealers.png"),
+      linear-gradient(0deg, #DBD8CD 0%, #BCB7AA 45%, #B6B1A3 70%, #9E968B 100%);
   }
 }
 
