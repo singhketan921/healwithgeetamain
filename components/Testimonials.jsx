@@ -24,11 +24,11 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:grid sm:gap-6 sm:px-0 sm:pb-0 sm:grid-cols-2 lg:grid-cols-4">
           {Array.from({ length: 4 }).map((_, idx) => (
             <div
               key={`testimonial-placeholder-${idx}`}
-              className="w-full max-w-[320px] mx-auto aspect-[9/16] rounded-[24px] bg-[#d9d9d9]"
+              className="min-w-[240px] max-w-[260px] w-[70vw] aspect-[9/16] rounded-[24px] bg-[#d9d9d9] sm:w-full sm:max-w-[320px] sm:mx-auto"
             />
           ))}
         </div>

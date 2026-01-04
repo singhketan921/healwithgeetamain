@@ -35,23 +35,49 @@ export default function Learnings() {
             </h3>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:hidden">
-            <StepCard
-              title="Step 1 - Consultation"
-              description="We Understand Your Energy, Birth Details, And Concerns."
-            />
-            <StepCard
-              title="Step 2 - Spiritual Analysis"
-              description="Using Astrology, Tarot, Numerology &amp; Intuition."
-            />
-            <StepCard
-              title="Step 3 - Healing &amp; Guidance"
-              description="Energy Clearing, Chakra Balancing &amp; Solutions."
-            />
-            <StepCard
-              title="Step 4 - Life Alignment"
-              description="Personal Remedies And Next Steps."
-            />
+          <div className="sm:hidden">
+            <div className="relative mt-8 overflow-hidden rounded-[28px] bg-[#d9d9d9] min-h-[680px]">
+              <div className="absolute inset-0 bg-[#c9c4bc] opacity-35" />
+
+              <div className="relative p-4">
+                <div className="rounded-full bg-[#6d655d] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-white w-fit">
+                  Protocol
+                </div>
+              </div>
+
+              <div className="absolute left-4 top-[90px] w-[52%]">
+                <StepCard
+                  title="Step 2 - Spiritual Analysis"
+                  description="Using Astrology, Tarot, Numerology &amp; Intuition."
+                />
+              </div>
+
+              <div className="absolute right-4 top-[18px] w-[46%]">
+                <StepCard
+                  title="Step 1 - Consultation"
+                  description="We Understand Your Energy, Birth Details, And Concerns."
+                />
+              </div>
+
+              <div className="absolute left-1/2 top-[44%] -translate-x-1/2 text-center text-[#6b625a]/70">
+                <div className="text-[24px] font-semibold tracking-[0.08em]">HEALING</div>
+                <div className="text-[18px] italic font-light tracking-[0.08em]">PATHWAYS</div>
+              </div>
+
+              <div className="absolute left-4 bottom-4 w-[52%]">
+                <StepCard
+                  title="Step 3 - Healing &amp; Guidance"
+                  description="Energy Clearing, Chakra Balancing &amp; Solutions."
+                />
+              </div>
+
+              <div className="absolute right-4 bottom-[140px] w-[46%]">
+                <StepCard
+                  title="Step 4 - Life Alignment"
+                  description="Personal Remedies And Next Steps."
+                />
+              </div>
+            </div>
           </div>
 
           <div className="hidden sm:block">
