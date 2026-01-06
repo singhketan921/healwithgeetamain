@@ -14,12 +14,17 @@ export default function About() {
         <div className="mt-10 grid items-center gap-10 lg:grid-cols-[0.58fr_0.42fr]">
           <div className="relative">
             <div className="overflow-hidden rounded-[16px] bg-black shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
-              <img
-                src="/assets/images/spiritual guide img.jpg"
-                alt="Geeta Sharma performing a spiritual healing"
+              <video
                 className="h-full w-full object-cover"
-                loading="lazy"
-              />
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/assets/images/spiritual guide img.jpg"
+              >
+                <source src="/assets/images/CRYSTAL HEALING .mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
 

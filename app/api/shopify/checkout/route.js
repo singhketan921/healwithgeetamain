@@ -55,6 +55,12 @@ export async function POST(request) {
         lines,
       },
     });
+    if (!data) {
+      return NextResponse.json(
+        { error: "Shopify store is unavailable." },
+        { status: 503 }
+      );
+    }
 
     const cart = data?.cartCreate?.cart;
     const userErrors = data?.cartCreate?.userErrors ?? [];

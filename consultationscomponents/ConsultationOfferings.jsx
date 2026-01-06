@@ -28,17 +28,21 @@ export default function ConsultationOfferings({ offerings = [] }) {
   const safeOfferings = offerings.length ? offerings : fallbackOfferings;
 
   return (
-    <section id="offerings" className="bg-white py-24 text-[#524E48]">
-      <div className="max-w-6xl px-6 mx-auto space-y-12">
+    <section
+      id="offerings"
+      className="py-24 text-[#6b625a]"
+      style={{ background: "linear-gradient(180deg, #EEECE9 0%, #FFFFFF 100%)" }}
+    >
+      <div className="mx-auto max-w-[1200px] px-6 space-y-12">
         <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
           <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+            <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
               Offerings
             </p>
-            <h2 className="font-serif text-[2.6rem] leading-tight">
+            <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
               Choose the guidance that resonates
             </h2>
-            <p className="text-base leading-relaxed text-[#524E48]/80">
+            <p className="text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
               Sessions blend astrology, intuitive strategy, and ritual prescriptions. Each is handwritten to your chart and lifestyle.
             </p>
           </div>
@@ -50,7 +54,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="rounded-[30px] border border-[#EAE4DC] bg-[#F8F6F3] shadow-[0_18px_45px_rgba(82,78,72,0.08)] overflow-hidden flex flex-col"
+                className="rounded-[16px] border border-[#e7dfd6] bg-[#fbf8f5] shadow-[0_12px_30px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col"
               >
                 <img
                   src={item.image ?? "/assets/images/astrology.jpg"}
@@ -58,18 +62,18 @@ export default function ConsultationOfferings({ offerings = [] }) {
                   className="w-full h-44 object-cover"
                 />
                 <div className="flex flex-col h-full p-6 space-y-4">
-                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
+                  <div className="flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
                     <span>Session</span>
                     <span>{formatPrice(item.price, item.currency)}</span>
                   </div>
-                  <h3 className="font-serif text-2xl leading-snug">
+                  <h3 className="text-[20px] sm:text-[22px] font-semibold leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[#524E48]/75 flex-1 leading-relaxed">
+                  <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]">
                     {item.description}
                   </p>
                   {item.modalities?.length ? (
-                    <ul className="text-xs text-[#B0AAA0] uppercase tracking-[0.3em] space-y-1">
+                    <ul className="text-[12px] text-[#9a938c] uppercase tracking-[0.2em] space-y-1">
                       {item.modalities.map((modality) => (
                         <li key={modality}>{modality}</li>
                       ))}
@@ -77,7 +81,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
                   ) : null}
                   <a
                     href="/consultations#bookconsultation"
-                    className="inline-flex items-center justify-center px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] border border-[#524E48] rounded-full hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                    className="rounded-[12px] border border-[#8f857c] bg-transparent px-6 py-2 text-[13px] font-semibold text-[#6b625a] text-center"
                   >
                     Book
                   </a>

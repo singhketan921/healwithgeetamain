@@ -243,20 +243,92 @@ a {
 }
 
 .hero-bg {
-  background-image:
-    url("/assets/images/HeroSection Image faithhealers.png"),
-    linear-gradient(90deg, #DBD8CD 0%, #BCB7AA 45%, #B6B1A3 70%, #9E968B 100%);
-  background-size: cover, cover;
-  background-position: left 48px, left center;
-  background-repeat: no-repeat, no-repeat;
+  position: relative;
+  background-image: linear-gradient(90deg, #DBD8CD 0%, #BCB7AA 45%, #B6B1A3 70%, #9E968B 100%);
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-bg::before,
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: hero-swap 18s infinite steps(1, end);
+  z-index: 0;
+}
+
+.hero-bg::before {
+  background-image: url("/assets/images/hero 1.png");
+  animation-delay: 0s;
+}
+
+.hero-bg::after {
+  background-image: url("/assets/images/hero 2.png");
+  animation-delay: 6s;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation: hero-swap 18s infinite steps(1, end);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg-slide-3 {
+  background-image: url("/assets/images/hero 3.png");
+  animation-delay: 12s;
+}
+
+.hero-bg > :not(.hero-bg-slide) {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 640px) {
   .hero-bg {
-    background-position: left 260px, left center;
-    background-image:
-      url("/assets/images/HeroSection Image faithhealers.png"),
-      linear-gradient(0deg, #DBD8CD 0%, #BCB7AA 45%, #B6B1A3 70%, #9E968B 100%);
+    background-image: linear-gradient(0deg, #DBD8CD 0%, #BCB7AA 45%, #B6B1A3 70%, #9E968B 100%);
+  }
+
+  .hero-bg::before,
+  .hero-bg::after,
+  .hero-bg-slide {
+    background-position: left center;
+    background-image: url("/assets/images/hero 1 mobile.png");
+  }
+
+  .hero-bg::after {
+    background-image: url("/assets/images/hero 2 mobile.png");
+  }
+
+  .hero-bg-slide-3 {
+    background-image: url("/assets/images/hero 3 mobile.png");
+  }
+}
+
+@keyframes hero-swap {
+  0% {
+    opacity: 1;
+  }
+  32% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

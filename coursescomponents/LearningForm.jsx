@@ -70,29 +70,29 @@ export default function LearningForm({ onSubmit }) {
   };
 
   return (
-    <section className="px-6 py-24 bg-white text-[#524E48]" id="form">
+    <section className="px-6 py-24 bg-[#EEECE9] text-[#6b625a]" id="form">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto space-y-8"
+        className="mx-auto max-w-[1200px] space-y-8"
       >
         <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+          <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
             Enrollment
           </p>
-          <h2 className="font-serif text-[2.4rem] leading-tight">
+          <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
             Begin your learning journey
           </h2>
-          <p className="text-base text-[#524E48]/80">
+          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
             Tell us the course calling your name and we’ll curate schedules, payment plans, and prep materials.
           </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="bg-[#F8F6F3] rounded-[32px] border border-[#EAE4DC] shadow-[0_20px_60px_rgba(82,78,72,0.08)] p-8 space-y-4"
+          className="rounded-[28px] border border-[#e7dfd6] bg-[#fbf8f5] p-8 shadow-[0_14px_32px_rgba(0,0,0,0.08)] space-y-4"
         >
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <input
@@ -102,7 +102,7 @@ export default function LearningForm({ onSubmit }) {
               value={formData.name}
               onChange={handleChange}
               required
-              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
+              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             />
             <input
               type="email"
@@ -111,7 +111,7 @@ export default function LearningForm({ onSubmit }) {
               value={formData.email}
               onChange={handleChange}
               required
-              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
+              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             />
             <input
               type="tel"
@@ -120,14 +120,14 @@ export default function LearningForm({ onSubmit }) {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
+              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             />
             <select
               name="service"
               value={formData.service}
               onChange={handleChange}
               required
-              className="border border-[#EAE4DC] rounded-full px-5 py-3 bg-white text-[#524E48]/75 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
+              className="border border-[#e7dfd6] rounded-full px-5 py-3 bg-white text-[#7a736c] focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             >
               <option value="">Select Course</option>
               <option value="Vedic Astrology">Vedic Astrology</option>
@@ -140,7 +140,7 @@ export default function LearningForm({ onSubmit }) {
               value={formData.date}
               onChange={handleChange}
               required
-              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
+              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             />
             <input
               type="time"
@@ -148,7 +148,7 @@ export default function LearningForm({ onSubmit }) {
               value={formData.time}
               onChange={handleChange}
               required
-              className="border border-[#EAE4DC] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
+              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             />
           </div>
 
@@ -158,13 +158,13 @@ export default function LearningForm({ onSubmit }) {
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            className="w-full border border-[#EAE4DC] rounded-[24px] px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#A59079]"
+            className="w-full border border-[#e7dfd6] rounded-[22px] px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
           ></textarea>
 
           <div className="space-y-3 text-center">
             <button
               type="submit"
-              className="w-full px-6 py-3 text-xs font-semibold uppercase tracking-[0.4em] rounded-full border border-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC] transition disabled:opacity-60"
+              className="w-full rounded-full bg-[#8a8176] px-6 py-3 text-[12px] uppercase tracking-[0.2em] text-white disabled:opacity-60"
               disabled={status.state === "loading"}
             >
               {status.state === "loading" ? "Submitting..." : "Submit Request"}
@@ -175,7 +175,7 @@ export default function LearningForm({ onSubmit }) {
             {status.state === "success" && (
               <p className="text-sm text-green-700">{status.message}</p>
             )}
-            <p className="text-xs text-[#B0AAA0] uppercase tracking-[0.4em]">
+            <p className="text-[12px] text-[#9a938c] uppercase tracking-[0.28em]">
               Your information stays sacred · Privacy policy
             </p>
           </div>

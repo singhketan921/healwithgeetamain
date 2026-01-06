@@ -15,7 +15,8 @@ const links = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { toggleCart } = useCart();
+  const { toggleCart, items } = useCart();
+  const itemCount = items.reduce((sum, item) => sum + (item.quantity || 0), 0);
 
   return (
     <header

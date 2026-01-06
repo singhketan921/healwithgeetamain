@@ -28,17 +28,17 @@ export default function ConsultTestimonials({
   const safeTestimonials = testimonials.length ? testimonials : fallbackTestimonials;
 
   return (
-    <section className="px-6 py-20 overflow-hidden text-center bg-white sm:px-10">
+    <section className="px-6 py-20 overflow-hidden text-center bg-[#EEECE9] sm:px-10">
       {/* Heading */}
-      <div className="max-w-3xl mx-auto mb-14">
-        <h2 className="font-serif text-[2rem] sm:text-[2.6rem] md:text-[3rem] font-semibold text-charcoal mb-3">
+      <div className="mx-auto mb-14 max-w-[1200px]">
+        <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em] text-[#6b625a] mb-3">
           {title}
         </h2>
-        <p className="text-base text-gray-600 sm:text-lg">{subtitle}</p>
+        <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">{subtitle}</p>
       </div>
 
       {/* Desktop & Tablet Grid */}
-      <div className="hidden max-w-6xl gap-8 mx-auto sm:grid sm:grid-cols-2">
+      <div className="hidden mx-auto max-w-[1200px] gap-8 sm:grid sm:grid-cols-2">
         {safeTestimonials.map((t, i) => (
           <motion.div
             key={t.id ?? i}
@@ -46,30 +46,30 @@ export default function ConsultTestimonials({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-between p-6 text-left transition-all bg-white shadow-md rounded-2xl hover:shadow-lg"
+            className="flex flex-col justify-between p-6 text-left transition-all bg-white shadow-[0_12px_30px_rgba(0,0,0,0.12)] rounded-[16px]"
           >
             <div className="flex items-start gap-4 mb-4">
               {/* Avatar */}
-              <div className="h-12 w-12 rounded-full bg-[#524E48] flex items-center justify-center text-white text-2xl">
+              <div className="h-12 w-12 rounded-full bg-[#6b625a] flex items-center justify-center text-white text-2xl">
                 <span>*</span>
               </div>
 
               {/* Info */}
               <div>
-                <h4 className="text-base font-semibold text-charcoal">{t.name}</h4>
-                <p className="text-sm text-gray-600">{t.role}</p>
-                <div className="flex items-center gap-1 text-[#A59079] mt-1">
+                <h4 className="text-[16px] font-semibold text-[#6b625a]">{t.name}</h4>
+                <p className="text-[14px] text-[#7a736c]">{t.role}</p>
+                <div className="flex items-center gap-1 text-[#8f857c] mt-1">
                   <FaStar />
                   <FaStar />
                   <FaStar />
                   <FaStar />
                   <FaStarHalfStroke />
-                  <span className="ml-1 text-sm text-gray-600">{t.rating}/5</span>
+                  <span className="ml-1 text-[12px] text-[#7a736c]">{t.rating}/5</span>
                 </div>
               </div>
             </div>
 
-            <p className="text-sm italic leading-relaxed text-gray-700">
+            <p className="text-[14px] italic leading-[1.7] text-[#7a736c]">
               &ldquo;{t.text ?? t.quote}&rdquo;
             </p>
           </motion.div>
@@ -87,31 +87,31 @@ export default function ConsultTestimonials({
           {safeTestimonials.map((t, i) => (
             <motion.div
               key={t.id ?? i}
-              className="min-w-[100%] bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between"
+              className="min-w-[100%] bg-white rounded-[16px] shadow-[0_12px_30px_rgba(0,0,0,0.12)] p-6 flex flex-col justify-between"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="h-10 w-10 rounded-full bg-[#524E48] flex items-center justify-center text-white text-xl">
+                <div className="h-10 w-10 rounded-full bg-[#6b625a] flex items-center justify-center text-white text-xl">
                   <span>*</span>
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-charcoal">{t.name}</h4>
-                  <p className="text-xs text-gray-600">{t.role}</p>
-                  <div className="flex items-center gap-1 text-[#A59079] mt-1 text-xs">
+                  <h4 className="text-[14px] font-semibold text-[#6b625a]">{t.name}</h4>
+                  <p className="text-[12px] text-[#7a736c]">{t.role}</p>
+                  <div className="flex items-center gap-1 text-[#8f857c] mt-1 text-[12px]">
                     <FaStar />
                     <FaStar />
                     <FaStar />
                     <FaStar />
                     <FaStarHalfStroke />
-                    <span className="ml-1 text-xs text-gray-600">{t.rating}/5</span>
+                    <span className="ml-1 text-[12px] text-[#7a736c]">{t.rating}/5</span>
                   </div>
                 </div>
               </div>
 
-              <p className="text-sm italic leading-relaxed text-gray-700">
+              <p className="text-[14px] italic leading-[1.7] text-[#7a736c]">
                 &ldquo;{t.text ?? t.quote}&rdquo;
               </p>
             </motion.div>

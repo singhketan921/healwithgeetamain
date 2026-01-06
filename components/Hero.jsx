@@ -18,6 +18,7 @@ const MARQUEE_ITEMS = [
 export default function Hero() {
   return (
     <section className="hero-section hero-bg w-full">
+      <span className="hero-bg-slide hero-bg-slide-3" aria-hidden="true" />
       <Marquee direction="left" />
 
       <div className="hero-main w-full">
@@ -40,7 +41,7 @@ export default function Hero() {
                 Begin Transformation
               </Link>
               <Link
-                href="/#learnings"
+                href="/courses"
                 className="rounded-[12px] border border-white/70 bg-transparent px-6 py-3 text-[13px] sm:px-8 sm:py-3.5 sm:text-[16px] font-semibold text-white"
               >
                 Explore More

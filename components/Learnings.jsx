@@ -35,7 +35,19 @@ export default function Learnings() {
         </div>
 
         <div className="relative mt-12 sm:mt-14 sm:min-h-[400px]">
-          <div className="hidden sm:block absolute right-0 top-10 h-[240px] w-[520px] rounded-[22px] bg-[#d9d9d9]" />
+          <div className="hidden sm:block absolute right-0 top-10 h-[240px] w-[520px] overflow-hidden rounded-[22px] bg-black">
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/assets/images/spiritual guide img.jpg"
+            >
+              <source src="/assets/images/SOUND HEALING_with Sound.mp4" type="video/mp4" />
+            </video>
+          </div>
 
           <div className="text-center sm:absolute sm:left-0 sm:top-0 sm:w-full">
             <h3 className="text-[24px] sm:text-[34px] font-semibold tracking-[0.08em] text-[#6b625a]">
@@ -45,13 +57,18 @@ export default function Learnings() {
 
           <div className="sm:hidden">
             <div className="relative mt-8 overflow-hidden rounded-[28px] bg-[#d9d9d9] min-h-[680px]">
+              <video
+                className="absolute inset-0 h-full w-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/assets/images/spiritual guide img.jpg"
+              >
+                <source src="/assets/images/SOUND HEALING_with Sound.mp4" type="video/mp4" />
+              </video>
               <div className="absolute inset-0 bg-[#c9c4bc] opacity-35" />
-
-              <div className="relative p-4">
-                <div className="rounded-full bg-[#6d655d] px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-white w-fit">
-                  Protocol
-                </div>
-              </div>
 
               <div className="absolute left-4 top-[90px] w-[52%]">
                 <StepCard
@@ -65,11 +82,6 @@ export default function Learnings() {
                   title="Step 1 - Consultation"
                   description="We Understand Your Energy, Birth Details, And Concerns."
                 />
-              </div>
-
-              <div className="absolute left-1/2 top-[44%] -translate-x-1/2 text-center text-[#6b625a]/70">
-                <div className="text-[24px] font-semibold tracking-[0.08em]">HEALING</div>
-                <div className="text-[18px] italic font-light tracking-[0.08em]">PATHWAYS</div>
               </div>
 
               <div className="absolute left-4 bottom-4 w-[52%]">

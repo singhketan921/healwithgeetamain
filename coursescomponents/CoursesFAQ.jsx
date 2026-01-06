@@ -30,8 +30,8 @@ export default function CoursesFAQ({ faqs = [] }) {
   const safeFaqs = faqs.length ? faqs : defaultFaqs;
 
   return (
-    <section className="bg-[#F5F2EE] w-full py-24 px-6 text-[#524E48]" id="contactfaq">
-      <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2">
+    <section className="bg-[#EEECE9] w-full py-24 px-6 text-[#6b625a]" id="contactfaq">
+      <div className="mx-auto max-w-[1200px] grid gap-12 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,14 +40,14 @@ export default function CoursesFAQ({ faqs = [] }) {
           className="space-y-6"
         >
           <div>
-            <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+            <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
               Guidance
             </p>
-            <h2 className="font-serif text-[2.4rem] leading-tight">
+            <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
               Frequently asked by our students
             </h2>
           </div>
-          <p className="text-base text-[#524E48]/80">
+          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
             Enrollment teams answer every message with nuance—here are a few
             excerpts straight from our inbox.
           </p>
@@ -63,10 +63,10 @@ export default function CoursesFAQ({ faqs = [] }) {
           {safeFaqs.map((faq, index) => (
             <div
               key={faq.id ?? index}
-              className="border border-[#EAE4DC] rounded-[24px] overflow-hidden bg-white shadow-[0_6px_25px_rgba(82,78,72,0.06)]"
+              className="border border-[#e7dfd6] rounded-[16px] overflow-hidden bg-white shadow-[0_10px_24px_rgba(0,0,0,0.08)]"
             >
               <button
-                className="flex items-center justify-between w-full px-5 py-4 font-medium text-left uppercase tracking-[0.2em]"
+                className="flex items-center justify-between w-full px-5 py-4 text-left text-[14px] font-semibold tracking-wide"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 {faq.question}
@@ -87,7 +87,7 @@ export default function CoursesFAQ({ faqs = [] }) {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-5 pb-4 text-sm text-[#524E48]/75 leading-relaxed">
+                <div className="px-5 pb-4 text-[14px] text-[#7a736c] leading-[1.7]">
                   {faq.answer}
                 </div>
               </motion.div>

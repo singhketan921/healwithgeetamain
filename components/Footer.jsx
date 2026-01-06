@@ -13,8 +13,8 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <img src={logo} alt="HealWithGeeta" className="w-14 h-14 object-contain" />
               <div>
-                <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">HealWithGeeta</p>
-                <p className="font-serif text-xl">Ritual Wellness Gazette</p>
+                
+                <p className="font-serif text-xl">FaithHealers</p>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-[#524E48]/80 max-w-md">
@@ -38,7 +38,7 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">Offerings</p>
             <ul className="space-y-2 text-sm">
-              {["Consultations", "Healings", "Courses", "Products"].map((item) => (
+              {["Consultations", "Healings", "Courses"].map((item) => (
                 <li key={item}>
                   <a className="hover:text-[#A59079] transition" href={`/${item.toLowerCase()}`}>
                     {item}
@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">Studio</p>
             <ul className="space-y-2 text-sm">
-              {["Contact", "Privacy", "Terms", "Refunds"].map((item) => (
+              {["Contact", "Privacy", "Terms"].map((item) => (
                 <li key={item}>
                   <a className="hover:text-[#A59079] transition" href={`/${item.toLowerCase()}`}>
                     {item}
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0] text-center">
-          © {new Date().getFullYear()} HealWithGeeta · Crafted with cosmic intention
+          © {new Date().getFullYear()} FaithHealers · Crafted with cosmic intention
         </div>
       </div>
     </footer>

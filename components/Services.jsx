@@ -22,13 +22,18 @@ export default function Services() {
       </div>
 
       <div className="bg-black">
-        <div className="mx-auto flex max-w-[1200px] items-center justify-center px-4 py-8 sm:px-6 sm:py-10">
-          <img
-            src="/assets/images/spiritual guide img.jpg"
-            alt="Geeta Sharma performing a spiritual healing"
-            className="h-auto w-full max-w-[520px] sm:max-w-[880px] object-contain"
-            loading="lazy"
-          />
+        <div className="mx-auto flex w-full items-center justify-center px-0 py-0">
+          <video
+            className="h-[320px] w-full object-cover sm:h-[520px]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/assets/images/spiritual guide img.jpg"
+          >
+            <source src="/assets/images/FAITHHEALERS JOURNEY  home videp.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </section>

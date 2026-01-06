@@ -39,35 +39,39 @@ export default function CoursesLearnings({ courses = [] }) {
   const collection = safeCourses.slice(1);
 
   return (
-    <section className="bg-[#F5F2EE] py-24 text-[#524E48]" id="learnings">
-      <div className="max-w-6xl px-6 mx-auto space-y-12">
+    <section
+      className="py-24 text-[#6b625a]"
+      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #EEECE9 100%)" }}
+      id="learnings"
+    >
+      <div className="mx-auto max-w-[1200px] px-6 space-y-12">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start">
-          <article className="rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_25px_80px_rgba(82,78,72,0.08)] overflow-hidden flex flex-col">
+          <article className="rounded-[16px] border border-[#e7dfd6] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col">
             <div className="relative h-80 overflow-hidden">
               <img
                 src={feature.image ?? "/assets/images/astrology.jpg"}
                 alt={feature.title}
                 className="object-cover w-full h-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#EAE4DC]/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#e7dfd6]/80 to-transparent" />
             </div>
             <div className="p-8 space-y-4">
-              <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+              <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
                 Featured Course
               </p>
-              <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
+              <div className="flex flex-wrap gap-4 text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
                 <span>{formatDuration(feature.durationWeeks, feature.format)}</span>
                 <span>·</span>
                 <span>{feature.price ? formatPrice(feature.price, feature.currency) : "Custom"}</span>
               </div>
-              <h3 className="font-serif text-[2rem] leading-tight">
+              <h3 className="text-[22px] sm:text-[24px] font-semibold leading-tight">
                 {feature.title}
               </h3>
-              <p className="text-sm text-[#524E48]/75 leading-relaxed">
+              <p className="text-[14px] text-[#7a736c] leading-[1.7]">
                 {feature.headline ?? feature.description}
               </p>
               {feature.modules?.length ? (
-                <ul className="text-xs uppercase tracking-[0.3em] text-[#B0AAA0] space-y-1">
+                <ul className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c] space-y-1">
                   {feature.modules.slice(0, 4).map((module) => (
                     <li key={module}>{module}</li>
                   ))}
@@ -75,7 +79,7 @@ export default function CoursesLearnings({ courses = [] }) {
               ) : null}
               <a
                 href="/courses#form"
-                className="inline-flex items-center justify-center px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] border border-[#524E48] rounded-full hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                className="min-w-[200px] rounded-[12px] bg-white px-6 py-2 text-[14px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)] text-center"
               >
                 Enroll
               </a>
@@ -84,13 +88,13 @@ export default function CoursesLearnings({ courses = [] }) {
 
           <div className="space-y-8">
             <div className="space-y-3">
-              <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+              <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
                 Curriculum
               </p>
-              <h2 className="font-serif text-[2.4rem] leading-tight">
+              <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
                 Other courses in this editorial series
               </h2>
-              <p className="text-base text-[#524E48]/80">
+              <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
                 Each module reads like a magazine story—dense with technique yet styled for modern seekers.
               </p>
             </div>
@@ -103,23 +107,23 @@ export default function CoursesLearnings({ courses = [] }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   viewport={{ once: true }}
-                  className="grid gap-4 py-4 border-b border-[#EAE4DC] last:border-0 md:grid-cols-12"
+                  className="grid gap-4 py-4 border-b border-[#e7dfd6] last:border-0 md:grid-cols-12"
                 >
-                  <div className="text-xs uppercase tracking-[0.35em] text-[#B0AAA0] md:col-span-2">
+                  <div className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c] md:col-span-2">
                     {String(index + 1).padStart(2, "0")}
                   </div>
                   <div className="space-y-2 md:col-span-7">
-                    <h3 className="font-serif text-xl">{course.title}</h3>
-                    <p className="text-sm text-[#524E48]/75 leading-relaxed">
+                    <h3 className="text-[18px] sm:text-[20px] font-semibold">{course.title}</h3>
+                    <p className="text-[14px] text-[#7a736c] leading-[1.7]">
                       {course.description}
                     </p>
                   </div>
-                  <div className="flex flex-col gap-2 text-sm uppercase tracking-[0.35em] text-[#B0AAA0] md:col-span-3">
+                  <div className="flex flex-col gap-2 text-[12px] uppercase tracking-[0.2em] text-[#9a938c] md:col-span-3">
                     <span>{formatDuration(course.durationWeeks, course.format)}</span>
                     <span>{course.price ? formatPrice(course.price, course.currency) : "Custom"}</span>
                     <a
                       href="/courses#form"
-                      className="text-[#524E48] hover:text-[#A59079]"
+                      className="text-[#6b625a] hover:text-[#8f857c]"
                     >
                       Enroll
                     </a>

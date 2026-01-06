@@ -28,16 +28,16 @@ const steps = [
 
 export default function CoursesHowItWorks() {
   return (
-    <section className="bg-white py-24 text-[#524E48]">
-      <div className="max-w-6xl px-6 mx-auto space-y-10">
+    <section className="bg-[#EEECE9] py-24 text-[#6b625a]">
+      <div className="mx-auto max-w-[1200px] px-6 space-y-10">
         <div className="space-y-3">
-          <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+          <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
             Process
           </p>
-          <h2 className="font-serif text-[2.4rem] leading-tight">
+          <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
             How each course unfolds
           </h2>
-          <p className="text-base text-[#524E48]/80">
+          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
             A four-part rhythm that mirrors the cadence of a beautifully edited feature.
           </p>
         </div>
@@ -50,17 +50,17 @@ export default function CoursesHowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="rounded-[30px] border border-[#EAE4DC] bg-[#F8F6F3] shadow-[0_18px_45px_rgba(82,78,72,0.08)] p-6 flex gap-5"
+              className="rounded-[16px] border border-[#e7dfd6] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.12)] p-6 flex gap-5"
             >
-              <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center text-2xl text-[#A59079]">
+              <div className="w-14 h-14 rounded-full bg-[#6d655d] flex items-center justify-center text-2xl text-white">
                 {step.icon}
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
+                <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="font-serif text-xl mt-1">{step.title}</h3>
-                <p className="text-sm text-[#524E48]/75 leading-relaxed mt-2">
+                <h3 className="text-[18px] sm:text-[20px] font-semibold mt-1">{step.title}</h3>
+                <p className="text-[14px] text-[#7a736c] leading-[1.7] mt-2">
                   {step.text}
                 </p>
               </div>

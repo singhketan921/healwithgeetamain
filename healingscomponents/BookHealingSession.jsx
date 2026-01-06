@@ -63,23 +63,23 @@ export default function BookHealingSession() {
   };
 
   return (
-    <section className="py-24 bg-[#F5F2EE] px-6 sm:px-10 text-[#524E48]">
+    <section className="py-24 bg-[#EEECE9] px-6 sm:px-10 text-[#6b625a]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="space-y-6 max-w-5xl mx-auto"
+        className="space-y-6 mx-auto max-w-[1200px]"
       >
         <div className="space-y-3 text-center">
-          <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
+          <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
             Booking
           </p>
-          <h2 className="font-serif text-[2.4rem] leading-tight">
+          <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
             Ready to receive?
           </h2>
-          <p className="text-base text-[#524E48]/75">
-            Tell us the sensation you seek—grounding, release, or energy boost—and we’ll choreograph the healing.
+          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
+            Tell us the sensation you seek-grounding, release, or energy boost-and we'll choreograph the healing.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export default function BookHealingSession() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white rounded-[32px] border border-[#EAE4DC] shadow-[0_20px_60px_rgba(82,78,72,0.08)] p-8 space-y-4"
+          className="bg-[#fbf8f5] rounded-[28px] border border-[#e7dfd6] shadow-[0_14px_32px_rgba(0,0,0,0.08)] p-8 space-y-4"
         >
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <input
@@ -99,7 +99,7 @@ export default function BookHealingSession() {
               value={form.fullName}
               onChange={handleChange}
               required
-              className="w-full border border-[#EAE4DC] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#A59079] outline-none"
+              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
             />
             <input
               type="email"
@@ -108,7 +108,7 @@ export default function BookHealingSession() {
               value={form.email}
               onChange={handleChange}
               required
-              className="w-full border border-[#EAE4DC] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#A59079] outline-none"
+              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
             />
             <input
               type="tel"
@@ -117,14 +117,14 @@ export default function BookHealingSession() {
               value={form.phone}
               onChange={handleChange}
               required
-              className="w-full border border-[#EAE4DC] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#A59079] outline-none"
+              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
             />
             <select
               name="service"
               value={form.service}
               onChange={handleChange}
               required
-              className="w-full border border-[#EAE4DC] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#A59079] outline-none bg-white text-[#524E48]/75"
+              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none bg-white text-[#7a736c]"
             >
               <option value="">Select Service</option>
               <option value="Energy Healing">Energy Healing</option>
@@ -138,7 +138,7 @@ export default function BookHealingSession() {
               value={form.date}
               onChange={handleChange}
               required
-              className="w-full border border-[#EAE4DC] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#A59079] outline-none"
+              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
             />
             <input
               type="time"
@@ -146,7 +146,7 @@ export default function BookHealingSession() {
               value={form.time}
               onChange={handleChange}
               required
-              className="w-full border border-[#EAE4DC] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#A59079] outline-none"
+              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
             />
           </div>
 
@@ -156,12 +156,12 @@ export default function BookHealingSession() {
             onChange={handleChange}
             rows="4"
             placeholder="Intentions, areas of imbalance, or sensations you're craving..."
-            className="w-full border border-[#EAE4DC] rounded-[24px] px-5 py-4 focus:ring-2 focus:ring-[#A59079] outline-none"
+            className="w-full border border-[#e7dfd6] rounded-[22px] px-5 py-4 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
           ></textarea>
 
           <button
             type="submit"
-            className="w-full bg-[#524E48] text-[#EAE4DC] text-xs font-semibold uppercase tracking-[0.4em] rounded-full py-3 hover:bg-[#3a3733] transition disabled:opacity-60"
+            className="w-full rounded-full bg-[#8a8176] px-6 py-3 text-[12px] uppercase tracking-[0.2em] text-white disabled:opacity-60"
             disabled={status.state === "loading"}
           >
             {status.state === "loading" ? "Submitting..." : "Book Healing"}
@@ -175,7 +175,7 @@ export default function BookHealingSession() {
               {status.message}
             </p>
           )}
-          <p className="text-xs text-center text-[#B0AAA0] uppercase tracking-[0.4em]">
+          <p className="text-[12px] text-center text-[#9a938c] uppercase tracking-[0.28em]">
             Your information stays sacred · Privacy policy
           </p>
         </motion.form>
