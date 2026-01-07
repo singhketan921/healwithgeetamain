@@ -30,13 +30,11 @@ const formatPrice = (value, currency = "USD") => {
 const formatDuration = (weeks, format) => {
   if (!weeks) return format ?? "";
   const base = `${weeks} ${weeks === 1 ? "Week" : "Weeks"}`;
-  return format ? `${base} · ${format}` : base;
+  return format ? `${base} - ${format}` : base;
 };
 
 export default function CoursesLearnings({ courses = [] }) {
   const safeCourses = courses.length ? courses : fallbackCourses;
-  const feature = safeCourses[0];
-  const collection = safeCourses.slice(1);
 
   return (
     <section
@@ -44,94 +42,58 @@ export default function CoursesLearnings({ courses = [] }) {
       style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #EEECE9 100%)" }}
       id="learnings"
     >
-      <div className="mx-auto max-w-[1200px] px-6 space-y-12">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start">
-          <article className="rounded-[16px] border border-[#e7dfd6] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col">
-            <div className="relative h-80 overflow-hidden">
+      <div className="mx-auto max-w-[1320px] px-6 space-y-12">
+        <div className="space-y-4 max-w-[720px] mx-auto text-center">
+          <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
+            Certificate Courses
+          </p>
+          <h2 className="text-[28px] sm:text-[36px] md:text-[40px] font-semibold tracking-[0.14em] text-[#6b625a]">
+            Learn Sacred Practices with Guidance
+          </h2>
+          <div className="mx-auto h-[2px] w-16 rounded-full bg-[#d8cfc6]" />
+          <p className="text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
+            Explore our full list of certificate courses designed for spiritual seekers and future practitioners.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {safeCourses.map((course, index) => (
+            <motion.article
+              key={course.id ?? index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className="rounded-[18px] border border-[#e7dfd6] bg-[#fbf8f5] shadow-[0_16px_32px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col"
+            >
               <img
-                src={feature.image ?? "/assets/images/astrology.jpg"}
-                alt={feature.title}
-                className="object-cover w-full h-full"
+                src={course.image ?? "/assets/images/astrology.jpg"}
+                alt={course.title}
+                className="w-full h-52 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#e7dfd6]/80 to-transparent" />
-            </div>
-            <div className="p-8 space-y-4">
-              <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-                Featured Course
-              </p>
-              <div className="flex flex-wrap gap-4 text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
-                <span>{formatDuration(feature.durationWeeks, feature.format)}</span>
-                <span>·</span>
-                <span>{feature.price ? formatPrice(feature.price, feature.currency) : "Custom"}</span>
-              </div>
-              <h3 className="text-[22px] sm:text-[24px] font-semibold leading-tight">
-                {feature.title}
-              </h3>
-              <p className="text-[14px] text-[#7a736c] leading-[1.7]">
-                {feature.headline ?? feature.description}
-              </p>
-              {feature.modules?.length ? (
-                <ul className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c] space-y-1">
-                  {feature.modules.slice(0, 4).map((module) => (
-                    <li key={module}>{module}</li>
-                  ))}
-                </ul>
-              ) : null}
-              <a
-                href="/courses#form"
-                className="min-w-[200px] rounded-[12px] bg-white px-6 py-2 text-[14px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)] text-center"
-              >
-                Enroll
-              </a>
-            </div>
-          </article>
-
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-                Curriculum
-              </p>
-              <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
-                Other courses in this editorial series
-              </h2>
-              <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
-                Each module reads like a magazine story—dense with technique yet styled for modern seekers.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {[feature, ...collection].map((course, index) => (
-                <motion.article
-                  key={course.id ?? index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="grid gap-4 py-4 border-b border-[#e7dfd6] last:border-0 md:grid-cols-12"
+              <div className="flex flex-col h-full p-6 space-y-4">
+                <div className="flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
+                  <span>{course.level ?? "Certificate"}</span>
+                  <span>{course.price ? formatPrice(course.price, course.currency) : "Custom"}</span>
+                </div>
+                <h3 className="text-[20px] sm:text-[22px] font-semibold leading-snug">
+                  {course.title}
+                </h3>
+                <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]">
+                  {course.headline ?? course.description}
+                </p>
+                <div className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
+                  {formatDuration(course.durationWeeks, course.format) || "Certificate Program"}
+                </div>
+                <a
+                  href="/courses#form"
+                  className="rounded-[12px] border border-[#8f857c] bg-transparent px-6 py-2 text-[13px] font-semibold text-[#6b625a] text-center"
                 >
-                  <div className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c] md:col-span-2">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-                  <div className="space-y-2 md:col-span-7">
-                    <h3 className="text-[18px] sm:text-[20px] font-semibold">{course.title}</h3>
-                    <p className="text-[14px] text-[#7a736c] leading-[1.7]">
-                      {course.description}
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-2 text-[12px] uppercase tracking-[0.2em] text-[#9a938c] md:col-span-3">
-                    <span>{formatDuration(course.durationWeeks, course.format)}</span>
-                    <span>{course.price ? formatPrice(course.price, course.currency) : "Custom"}</span>
-                    <a
-                      href="/courses#form"
-                      className="text-[#6b625a] hover:text-[#8f857c]"
-                    >
-                      Enroll
-                    </a>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </div>
+                  Enroll
+                </a>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
