@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export default function Testimonials() {
+export default function Testimonials({ testimonials = [] }) {
   return (
     <section className="bg-[#EEECE9] py-16 text-[#6b625a]">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
@@ -33,11 +33,21 @@ export default function Testimonials() {
         </div>
 
         <div className="mt-8 -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:grid sm:gap-6 sm:px-0 sm:pb-0 sm:grid-cols-2 lg:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, idx) => (
+          {testimonials.map((item, idx) => (
             <div
-              key={`testimonial-placeholder-${idx}`}
-              className="min-w-[240px] max-w-[260px] w-[70vw] aspect-[9/16] rounded-[24px] bg-[#d9d9d9] sm:w-full sm:max-w-[320px] sm:mx-auto"
-            />
+              key={item.id ?? `testimonial-${idx}`}
+              className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] border border-[#e7dfd6] bg-white p-5 shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto"
+            >
+              <p className="text-sm leading-[1.6] text-[#6b625a]">
+                "{item.quote}"
+              </p>
+              <div className="mt-4 text-xs uppercase tracking-[0.2em] text-[#9a938c]">
+                {item.name}
+              </div>
+              {item.role ? (
+                <div className="text-xs text-[#7a736c]">{item.role}</div>
+              ) : null}
+            </div>
           ))}
         </div>
       </div>

@@ -1,21 +1,7 @@
 'use client';
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-
-const fallbackCourses = [
-  {
-    id: "placeholder-course",
-    title: "Vedic Astrology Mastery",
-    description:
-      "An in-depth 8-week program exploring birth charts, planetary alignments, and the ancient art of prediction.",
-    durationWeeks: 8,
-    format: "Online",
-    price: 1200,
-    currency: "USD",
-    image: "/assets/images/astrology.jpg",
-    modules: [],
-  },
-];
 
 const formatPrice = (value, currency = "USD") => {
   if (typeof value === "number") {
@@ -27,14 +13,20 @@ const formatPrice = (value, currency = "USD") => {
   return value ?? "";
 };
 
-const formatDuration = (weeks, format) => {
-  if (!weeks) return format ?? "";
-  const base = `${weeks} ${weeks === 1 ? "Week" : "Weeks"}`;
-  return format ? `${base} - ${format}` : base;
+const formatDuration = (months, format, weeks) => {
+  if (months) {
+    const base = `${months} ${months === 1 ? "Month" : "Months"}`;
+    return format ? `${base} - ${format}` : base;
+  }
+  if (weeks) {
+    const base = `${weeks} ${weeks === 1 ? "Week" : "Weeks"}`;
+    return format ? `${base} - ${format}` : base;
+  }
+  return format ?? "";
 };
 
 export default function CoursesLearnings({ courses = [] }) {
-  const safeCourses = courses.length ? courses : fallbackCourses;
+  const safeCourses = courses;
 
   return (
     <section
@@ -57,43 +49,62 @@ export default function CoursesLearnings({ courses = [] }) {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {safeCourses.map((course, index) => (
-            <motion.article
-              key={course.id ?? index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="rounded-[18px] border border-[#e7dfd6] bg-[#fbf8f5] shadow-[0_16px_32px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col"
-            >
-              <img
-                src={course.image ?? "/assets/images/astrology.jpg"}
-                alt={course.title}
-                className="w-full h-52 object-cover"
-              />
-              <div className="flex flex-col h-full p-6 space-y-4">
-                <div className="flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
-                  <span>{course.level ?? "Certificate"}</span>
-                  <span>{course.price ? formatPrice(course.price, course.currency) : "Custom"}</span>
+          {safeCourses.map((course, index) => {
+            const courseId = course.id ?? course._id;
+            return (
+              <motion.article
+                key={courseId ?? index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="rounded-[18px] border border-[#e7dfd6] bg-[#fbf8f5] shadow-[0_16px_32px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col"
+              >
+                <Link href={`/courses/${courseId}`} className="block">
+                  <img
+                    src={course.image || "/assets/images/astrology.jpg"}
+                    alt={course.title}
+                    className="w-full h-52 object-cover"
+                  />
+                </Link>
+                <div className="flex flex-col h-full p-6 space-y-4">
+                  <div className="flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
+                    <span>{course.level ?? "Certificate"}</span>
+                    <span>
+                      {course.priceTiers?.length
+                        ? `${course.priceTiers.length} price options`
+                        : course.price
+                          ? formatPrice(course.price, course.currency)
+                          : "Custom"}
+                    </span>
+                  </div>
+                  <Link href={`/courses/${courseId}`}>
+                    <h3 className="text-[20px] sm:text-[22px] font-semibold leading-snug">
+                      {course.title}
+                    </h3>
+                  </Link>
+                  <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]">
+                    {course.headline ?? course.description}
+                  </p>
+                  <div className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
+                    {formatDuration(
+                      course.durationMonths,
+                      course.format,
+                      course.durationWeeks
+                    ) || "Certificate Program"}
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <Link
+                      href={`/courses/${courseId}`}
+                      className="rounded-[12px] border border-[#8f857c] bg-transparent px-6 py-2 text-[13px] font-semibold text-[#6b625a] text-center"
+                    >
+                      View details
+                    </Link>
+                  </div>
                 </div>
-                <h3 className="text-[20px] sm:text-[22px] font-semibold leading-snug">
-                  {course.title}
-                </h3>
-                <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]">
-                  {course.headline ?? course.description}
-                </p>
-                <div className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
-                  {formatDuration(course.durationWeeks, course.format) || "Certificate Program"}
-                </div>
-                <a
-                  href="/courses#form"
-                  className="rounded-[12px] border border-[#8f857c] bg-transparent px-6 py-2 text-[13px] font-semibold text-[#6b625a] text-center"
-                >
-                  Enroll
-                </a>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>
