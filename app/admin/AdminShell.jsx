@@ -40,7 +40,7 @@ export default function AdminShell({ children }) {
                   href={link.href}
                   className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold ${
                     active
-                      ? "bg-[#6b625a] text-white"
+                      ? "bg-[#6b625a] !text-white"
                       : "text-[#6b625a] hover:bg-[#efe7de]"
                   }`}
                 >

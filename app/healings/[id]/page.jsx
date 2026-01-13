@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Testimonials from "@/components/Testimonials";
 import { fetchHealingModalityById } from "@/lib/services/healingService";
 
 function formatPrice(value, currency = "USD") {
@@ -136,6 +137,9 @@ export default async function HealingDetailPage({ params }) {
           </div>
         </aside>
       </div>
+      <section className="mt-16 -mx-6 lg:-mx-12">
+        <Testimonials showCtas={false} />
+      </section>
     </div>
   );
 }

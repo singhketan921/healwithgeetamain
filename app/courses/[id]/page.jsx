@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Testimonials from "@/components/Testimonials";
 import { fetchCourseById } from "@/lib/services/courseService";
 
 function formatPrice(value, currency = "USD") {
@@ -211,7 +212,7 @@ export default async function CourseDetailPage({ params }) {
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href="/courses#form"
-                className="rounded-[12px] bg-[#6b625a] px-6 py-3 text-[13px] font-semibold text-white text-center"
+                className="rounded-[12px] bg-[#6b625a] px-6 py-3 text-[13px] font-semibold !text-white text-center"
               >
                 {course.ctaText || "Enroll in this course"}
               </a>
@@ -406,6 +407,9 @@ export default async function CourseDetailPage({ params }) {
           </div>
         </aside>
       </div>
+      <section className="mt-16 -mx-6 lg:-mx-12">
+        <Testimonials showCtas={false} />
+      </section>
     </div>
   );
 }

@@ -36,7 +36,7 @@ export default async function AdminConsultationsPage() {
         </div>
         <Link
           href="/admin/consultations/new"
-          className="rounded-full bg-[#6b625a] px-5 py-2 text-sm font-semibold text-white"
+          className="rounded-full bg-[#6b625a] px-5 py-2 text-sm font-semibold !text-white"
         >
           Add consultation
         </Link>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export default function Testimonials({ testimonials = [] }) {
+export default function Testimonials({ showCtas = true } = {}) {
   return (
     <section className="bg-[#EEECE9] py-16 text-[#6b625a]">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
@@ -16,39 +16,81 @@ export default function Testimonials({ testimonials = [] }) {
             Spiritual Transformation.
           </p>
 
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Link
-              href="/consultations"
-              className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)] text-center"
-            >
-              Explore Consultations
-            </Link>
-            <Link
-              href="/healings"
-              className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] text-center"
-            >
-              Explore Healings
-            </Link>
-          </div>
+          {showCtas ? (
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <Link
+                href="/consultations"
+                className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)] text-center"
+              >
+                Explore Consultations
+              </Link>
+              <Link
+                href="/healings"
+                className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] text-center"
+              >
+                Explore Healings
+              </Link>
+            </div>
+          ) : null}
         </div>
 
         <div className="mt-8 -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:grid sm:gap-6 sm:px-0 sm:pb-0 sm:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((item, idx) => (
-            <div
-              key={item.id ?? `testimonial-${idx}`}
-              className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] border border-[#e7dfd6] bg-white p-5 shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto"
-            >
-              <p className="text-sm leading-[1.6] text-[#6b625a]">
-                "{item.quote}"
-              </p>
-              <div className="mt-4 text-xs uppercase tracking-[0.2em] text-[#9a938c]">
-                {item.name}
-              </div>
-              {item.role ? (
-                <div className="text-xs text-[#7a736c]">{item.role}</div>
-              ) : null}
+          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
+            <div className="aspect-[9/16] w-full">
+              <iframe
+                src="https://www.youtube.com/embed/8VdXcf7Dke4"
+                title="HealWithGeeta testimonial"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
-          ))}
+            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
+              Video testimonial
+            </div>
+          </div>
+          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
+            <div className="aspect-[9/16] w-full">
+              <iframe
+                src="https://www.youtube.com/embed/qODcx8MckdM"
+                title="HealWithGeeta testimonial video 2"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
+              Video testimonial
+            </div>
+          </div>
+          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
+            <div className="aspect-[9/16] w-full">
+              <iframe
+                src="https://www.youtube.com/embed/trNw4MSuNRg"
+                title="HealWithGeeta testimonial video 3"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
+              Video testimonial
+            </div>
+          </div>
+          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
+            <div className="aspect-[9/16] w-full">
+              <iframe
+                src="https://www.youtube.com/embed/g7ZnJU-_iYE"
+                title="HealWithGeeta testimonial video 4"
+                className="h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
+              Video testimonial
+            </div>
+          </div>
         </div>
       </div>
     </section>

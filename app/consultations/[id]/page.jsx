@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Testimonials from "@/components/Testimonials";
 import { fetchConsultationById } from "@/lib/services/consultationService";
 
 function formatPrice(value, currency = "USD") {
@@ -126,6 +127,9 @@ export default async function ConsultationDetailPage({ params }) {
           </div>
         </aside>
       </div>
+      <section className="mt-16 -mx-6 lg:-mx-12">
+        <Testimonials showCtas={false} />
+      </section>
     </div>
   );
 }
