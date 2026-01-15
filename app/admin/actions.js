@@ -6,6 +6,7 @@ import {
   deleteCatalogItem,
   upsertCatalogItem,
 } from "@/lib/repositories/catalogRepository";
+import { requireAdminSession } from "@/lib/auth/session";
 
 function slugify(value) {
   return value
@@ -151,6 +152,7 @@ async function storeUploadedImage(file) {
 
 async function upsertCatalog(collection, formData, payload) {
   try {
+    await requireAdminSession();
     const title = normalizeText(formData.get("title"));
     const idInput = normalizeText(formData.get("id"));
     const id = idInput || slugify(title);
@@ -195,6 +197,7 @@ async function upsertCatalog(collection, formData, payload) {
 
 async function removeCatalog(collection, formData) {
   try {
+    await requireAdminSession();
     const id = normalizeText(formData.get("id"));
     const returnTo = normalizeText(formData.get("returnTo"));
     if (!id) {

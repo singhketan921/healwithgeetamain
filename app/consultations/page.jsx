@@ -19,9 +19,9 @@ export default async function ConsultationsPage() {
 
   return (
     <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
-      <section id="hero" className="w-full">
+      {/* <section id="hero" className="w-full">
         <ConsultHero />
-      </section>
+      </section> */}
 
       <section id="consultationOfferings" className="w-full">
         <ConsultationOfferings offerings={consultations} />

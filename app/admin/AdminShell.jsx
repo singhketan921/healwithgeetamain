@@ -16,7 +16,7 @@ function isActive(pathname, href) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export default function AdminShell({ children }) {
+export default function AdminShell({ children, session, onLogout }) {
   const pathname = usePathname();
 
   return (
@@ -49,6 +49,28 @@ export default function AdminShell({ children }) {
               );
             })}
           </nav>
+          {session ? (
+            <div className="mt-8 space-y-3 rounded-xl border border-[#e1d8ce] bg-white/80 p-4">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-[#9a938c]">
+                  Signed in
+                </p>
+                <p className="truncate text-sm font-semibold text-[#6b625a]">
+                  {session.email}
+                </p>
+              </div>
+              {onLogout ? (
+                <form action={onLogout}>
+                  <button
+                    type="submit"
+                    className="w-full rounded-lg border border-[#8f857c] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#6b625a] transition hover:bg-[#efe7de]"
+                  >
+                    Sign out
+                  </button>
+                </form>
+              ) : null}
+            </div>
+          ) : null}
         </aside>
         <main className="flex-1 px-6 pb-12 pt-24 lg:px-12">{children}</main>
       </div>
