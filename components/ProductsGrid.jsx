@@ -27,7 +27,7 @@ export default function ProductsGrid({ products = [] }) {
   return (
     <div className="mt-16 space-y-12">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-start">
-        <Reveal className="rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_25px_80px_rgba(82,78,72,0.08)] overflow-hidden flex flex-col group transition-transform duration-500 hover:-translate-y-2">
+        <Reveal className="rounded-[36px] border border-[#D0BFA9] bg-white shadow-[0_25px_80px_rgba(82,78,72,0.08)] overflow-hidden flex flex-col group transition-transform duration-500 hover:-translate-y-2">
           <div className="relative h-80">
             <img
               src={spotlight.image}
@@ -35,7 +35,7 @@ export default function ProductsGrid({ products = [] }) {
               className="object-cover w-full h-full"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#EAE4DC]/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#D0BFA9]/70 to-transparent" />
           </div>
           <div className="p-8 space-y-4 text-[#524E48]">
             <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
@@ -57,7 +57,7 @@ export default function ProductsGrid({ products = [] }) {
               {spotlight.variantId ? (
                 <button
                   onClick={() => handleAdd(spotlight)}
-                  className="flex-1 px-6 py-3 text-xs font-semibold uppercase tracking-[0.35em] border border-[#524E48] rounded-full hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                  className="flex-1 px-6 py-3 text-xs font-semibold uppercase tracking-[0.35em] border border-[#524E48] rounded-full hover:bg-[#524E48] hover:text-[#D0BFA9] transition"
                 >
                   Add to Cart
                 </button>
@@ -75,7 +75,7 @@ export default function ProductsGrid({ products = [] }) {
             <Reveal
               key={product.id}
               delay={0.08 * index}
-              className="rounded-[28px] border border-[#EAE4DC] bg-white/90 shadow-[0_18px_50px_rgba(82,78,72,0.07)] p-6 flex flex-col gap-4 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(82,78,72,0.12)]"
+              className="rounded-[28px] border border-[#D0BFA9] bg-white/90 shadow-[0_18px_50px_rgba(82,78,72,0.07)] p-6 flex flex-col gap-4 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(82,78,72,0.12)]"
             >
               <p className="text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
                 {product.type || "Edition"}
@@ -91,7 +91,7 @@ export default function ProductsGrid({ products = [] }) {
                 {product.variantId ? (
                   <button
                     onClick={() => handleAdd(product)}
-                    className="px-4 py-2 border border-[#524E48] rounded-full text-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                    className="px-4 py-2 border border-[#524E48] rounded-full text-[#524E48] hover:bg-[#524E48] hover:text-[#D0BFA9] transition"
                   >
                     Add
                   </button>

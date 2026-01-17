@@ -7,6 +7,10 @@ const NAV_LINKS = [
   { href: "/admin/consultations", label: "Consultations" },
   { href: "/admin/healings", label: "Healings" },
   { href: "/admin/courses", label: "Courses" },
+  { href: "/admin/workshops", label: "Workshops" },
+  { href: "/admin/music", label: "FH Music" },
+  { href: "/admin/spin-wheel", label: "Spin Wheel" },
+  { href: "/admin/blogs", label: "Blogs" },
   { href: "/admin/bookings", label: "Bookings" },
   { href: "/admin/messages", label: "Messages" },
 ];
@@ -20,7 +24,7 @@ export default function AdminShell({ children, session, onLogout }) {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen bg-[#EAE4DC]">
+    <div className="min-h-screen bg-[#D0BFA9]">
       <div className="flex min-h-screen">
         <aside className="w-64 border-r border-[#e1d8ce] bg-[#fbf8f5] px-5 pb-10 pt-24">
           <div className="space-y-1">

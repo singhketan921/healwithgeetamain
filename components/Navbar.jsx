@@ -8,6 +8,7 @@ const logo = "/assets/images/logo.png";
 
 const links = [
   { name: "Consultations", href: "/consultations" },
+  { name: "FH Music", href: "/fhmusic" },
   { name: "Courses", href: "/courses" },
   { name: "Healings", href: "/healings" },
   { name: "Contact", href: "/contact" },
@@ -20,7 +21,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 z-50 w-full border-b border-[#524E48] bg-[#F1F1F1]"
+      className="fixed top-0 left-0 z-50 w-full border-b border-[#524E48] bg-[#FFFFFF]"
     >
       <div className="flex h-16 items-center justify-between w-full px-4 py-3 gap-4 md:px-[19px] md:py-[18px] md:gap-[139px]">
         <Link

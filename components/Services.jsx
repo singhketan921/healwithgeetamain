@@ -2,12 +2,12 @@
 
 export default function Services() {
   return (
-    <section className="w-full bg-[#B5AEA6]">
+    <section className="w-full bg-[#D0BEA8]">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-center gap-4 px-4 py-6 text-center sm:flex-row sm:gap-5 sm:px-6 sm:py-7">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white sm:h-16 sm:w-16">
           <img src="/assets/images/logo.png" alt="" className="h-8 w-8" />
         </div>
-        <div className="text-white">
+        <div className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]">
           <h2 className="text-[20px] sm:text-[26px] font-semibold leading-tight tracking-[0.08em]">
             EXPERIENCE THE
             <br />
@@ -15,7 +15,7 @@ export default function Services() {
             <br />
             BALANCE AND CLARITY
           </h2>
-          <p className="mt-2 text-[12px] sm:text-[14px] tracking-[0.02em] text-white/80">
+          <p className="mt-2 text-[12px] sm:text-[14px] tracking-[0.02em] text-white">
             Watch How Spiritual Guidance Transforms Lives.
           </p>
         </div>

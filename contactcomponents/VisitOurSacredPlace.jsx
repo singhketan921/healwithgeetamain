@@ -10,7 +10,7 @@ const CHECKLIST = [
 
 export default function VisitOurSacredPlace() {
   return (
-    <section className="relative overflow-hidden bg-[#EEECE9] px-6 py-24">
+    <section className="relative overflow-hidden bg-[#F9F4E8] px-6 py-24">
       <div className="absolute inset-0 pointer-events-none">
         <span className="absolute left-0 top-16 h-72 w-72 rounded-full bg-white blur-[150px]" />
         <span className="absolute right-0 bottom-0 h-60 w-60 rounded-full bg-[#CDBFB4] blur-[150px]" />

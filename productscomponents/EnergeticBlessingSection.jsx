@@ -48,7 +48,7 @@ export default function EnergeticBlessingSection() {
               {RITUAL_STEPS.map((step) => (
                 <article
                   key={step.title}
-                  className="rounded-[26px] border border-[#EAE4DC] bg-white/80 shadow-[0_18px_50px_rgba(82,78,72,0.08)] p-6 space-y-2"
+                  className="rounded-[26px] border border-[#D0BFA9] bg-white/80 shadow-[0_18px_50px_rgba(82,78,72,0.08)] p-6 space-y-2"
                 >
                   <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
                     {step.title}
@@ -67,7 +67,7 @@ export default function EnergeticBlessingSection() {
           </Reveal>
 
           <Reveal delay={0.2} className="relative">
-            <div className="rounded-[36px] border border-[#EAE4DC] bg-white shadow-[0_30px_90px_rgba(82,78,72,0.12)] overflow-hidden">
+            <div className="rounded-[36px] border border-[#D0BFA9] bg-white shadow-[0_30px_90px_rgba(82,78,72,0.12)] overflow-hidden">
               <div className="grid grid-rows-2">
                 <div className="relative h-72">
                   <Image
@@ -79,7 +79,7 @@ export default function EnergeticBlessingSection() {
                     priority
                   />
                 </div>
-                <div className="relative h-72 border-t border-[#EAE4DC]">
+                <div className="relative h-72 border-t border-[#D0BFA9]">
                   <Image
                     src={ALT_IMAGE}
                     alt="Blessing tools"
@@ -91,7 +91,7 @@ export default function EnergeticBlessingSection() {
               </div>
             </div>
 
-            <div className="absolute -bottom-10 left-6 right-6 rounded-[32px] border border-[#EAE4DC] bg-white/90 backdrop-blur p-6 shadow-[0_25px_80px_rgba(82,78,72,0.12)]">
+            <div className="absolute -bottom-10 left-6 right-6 rounded-[32px] border border-[#D0BFA9] bg-white/90 backdrop-blur p-6 shadow-[0_25px_80px_rgba(82,78,72,0.12)]">
               <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
                 Studio memo
               </p>

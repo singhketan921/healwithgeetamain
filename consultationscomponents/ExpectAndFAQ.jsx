@@ -36,7 +36,7 @@ export default function ExpectAndFAQ({ faqs = [] }) {
   const safeFaqs = useMemo(() => (faqs.length ? faqs : defaultFaqs), [faqs]);
 
   return (
-    <section className="py-24 bg-[#EEECE9] text-[#6b625a] px-6">
+    <section className="py-24 bg-[#F9F4E8] text-[#6b625a] px-6">
       <div className="mx-auto max-w-[1200px] grid gap-12 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

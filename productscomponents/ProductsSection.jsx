@@ -149,7 +149,7 @@ export default async function ProductsSection({ limit = 12 }) {
               {COLLECTION_TAGS.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-[#EAE4DC] px-4 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-[#A59079] bg-white/70"
+                  className="rounded-full border border-[#D0BFA9] px-4 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-[#A59079] bg-white/70"
                 >
                   {tag}
                 </span>
@@ -160,7 +160,7 @@ export default async function ProductsSection({ limit = 12 }) {
               {CURATION_NOTES.map((note) => (
                 <article
                   key={note.title}
-                  className="rounded-[28px] border border-[#EAE4DC] bg-white/85 shadow-[0_20px_55px_rgba(82,78,72,0.08)] p-6 space-y-3"
+                  className="rounded-[28px] border border-[#D0BFA9] bg-white/85 shadow-[0_20px_55px_rgba(82,78,72,0.08)] p-6 space-y-3"
                 >
                   <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
                     {note.detail}
@@ -174,7 +174,7 @@ export default async function ProductsSection({ limit = 12 }) {
             </div>
           </Reveal>
 
-          <Reveal delay={0.2} className="rounded-[40px] bg-white border border-[#EAE4DC] shadow-[0_30px_90px_rgba(82,78,72,0.12)] p-10 space-y-6">
+          <Reveal delay={0.2} className="rounded-[40px] bg-white border border-[#D0BFA9] shadow-[0_30px_90px_rgba(82,78,72,0.12)] p-10 space-y-6">
             <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
               Styling memo
             </p>

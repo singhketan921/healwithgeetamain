@@ -15,7 +15,7 @@ export default async function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#EAE4DC] px-6 py-16">
+    <div className="min-h-screen bg-[#D0BFA9] px-6 py-16">
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-10 rounded-2xl border border-[#e1d8ce] bg-white/80 px-8 py-12 shadow-[0_18px_36px_rgba(0,0,0,0.08)] lg:px-12">
         <div className="space-y-3 text-center">
           <p className="text-xs uppercase tracking-[0.32em] text-[#9a938c]">

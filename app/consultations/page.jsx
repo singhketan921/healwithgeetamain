@@ -40,7 +40,7 @@ export default async function ConsultationsPage() {
       </section>
 
       <section id="bookconsultation" className="w-full">
-        <BookConsultation />
+        <BookConsultation offerings={consultations} />
       </section>
     </div>
   );
