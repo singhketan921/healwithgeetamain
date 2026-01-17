@@ -6,13 +6,16 @@ import Services from "@/components/Services";
 import Learnings from "@/components/Learnings";
 import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
+import SpinWheel from "@/components/SpinWheel";
 import { fetchTestimonials } from "@/lib/services/testimonialService";
 import { fetchShopifyProducts } from "@/lib/services/shopifyProductService";
+import { fetchSpinWheelSettings } from "@/lib/services/spinWheelService";
 
 export default async function HomePage() {
-  const [testimonials, shopify] = await Promise.all([
+  const [testimonials, shopify, spinWheelSettings] = await Promise.all([
     fetchTestimonials(),
     fetchShopifyProducts(6),
+    fetchSpinWheelSettings(),
   ]);
 
   return (
@@ -37,6 +40,10 @@ export default async function HomePage() {
 
       <section id="learnings" className="w-full">
         <Learnings />
+      </section>
+
+      <section id="spin-wheel" className="w-full">
+        <SpinWheel winProbability={spinWheelSettings.winProbability} />
       </section>
 
       <section id="testimonials" className="w-full">

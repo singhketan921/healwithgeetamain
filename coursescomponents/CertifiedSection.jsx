@@ -7,7 +7,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function CertifiedSection() {
   return (
-    <section className="px-6 py-24 bg-[#EEECE9] text-[#6b625a] sm:px-10">
+    <section className="px-6 py-24 bg-[#F9F4E8] text-[#6b625a] sm:px-10">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

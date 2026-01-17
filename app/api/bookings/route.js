@@ -14,7 +14,8 @@ export async function POST(request) {
   const payload = await request.json();
   const result = await submitBooking(payload);
   if (!result.success) {
-    return NextResponse.json({ errors: result.errors }, { status: 422 });
+    const status = result.status || 422;
+    return NextResponse.json({ errors: result.errors }, { status });
   }
   return NextResponse.json({ data: result.data }, { status: 201 });
 }

@@ -6,6 +6,7 @@ import {
   deleteCatalogItem,
   upsertCatalogItem,
 } from "@/lib/repositories/catalogRepository";
+import { requireAdminSession } from "@/lib/auth/session";
 
 function slugify(value) {
   return value
@@ -34,6 +35,13 @@ function parseNumber(value) {
   }
   const num = Number(value);
   return Number.isFinite(num) ? num : null;
+}
+
+function parseBoolean(value) {
+  if (!value) {
+    return false;
+  }
+  return value === "on" || value === "true" || value === true;
 }
 
 function normalizeText(value) {
@@ -149,8 +157,36 @@ async function storeUploadedImage(file) {
   }
 }
 
+async function storeUploadedAsset(file) {
+  if (!file || typeof file.arrayBuffer !== "function") {
+    return "";
+  }
+
+  const bytes = await file.arrayBuffer();
+  if (!bytes || !bytes.byteLength) {
+    return "";
+  }
+
+  try {
+    const { mkdir, writeFile } = await import("fs/promises");
+    const path = await import("path");
+    const ext = path.extname(file.name || "").toLowerCase() || ".bin";
+    const fileName = `${crypto.randomUUID()}${ext}`;
+    const uploadDir = path.join(process.cwd(), "public", "uploads");
+    await mkdir(uploadDir, { recursive: true });
+    await writeFile(path.join(uploadDir, fileName), Buffer.from(bytes));
+    return `/uploads/${fileName}`;
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : JSON.stringify(error);
+    console.error("Asset upload skipped:", message);
+    return "";
+  }
+}
+
 async function upsertCatalog(collection, formData, payload) {
   try {
+    await requireAdminSession();
     const title = normalizeText(formData.get("title"));
     const idInput = normalizeText(formData.get("id"));
     const id = idInput || slugify(title);
@@ -176,6 +212,24 @@ async function upsertCatalog(collection, formData, payload) {
     if (collection === "healings") {
       revalidatePath("/healings");
     }
+    if (collection === "workshops") {
+      revalidatePath("/workshops");
+      if (id) {
+        revalidatePath(`/workshops/${id}`);
+      }
+    }
+    if (collection === "music") {
+      revalidatePath("/fhmusic");
+    }
+    if (collection === "spinwheel") {
+      revalidatePath("/");
+    }
+    if (collection === "blogs") {
+      revalidatePath("/blogs");
+      if (id) {
+        revalidatePath(`/blogs/${id}`);
+      }
+    }
 
     if (returnTo) {
       redirect(returnTo);
@@ -195,6 +249,7 @@ async function upsertCatalog(collection, formData, payload) {
 
 async function removeCatalog(collection, formData) {
   try {
+    await requireAdminSession();
     const id = normalizeText(formData.get("id"));
     const returnTo = normalizeText(formData.get("returnTo"));
     if (!id) {
@@ -211,6 +266,24 @@ async function removeCatalog(collection, formData) {
     }
     if (collection === "healings") {
       revalidatePath("/healings");
+    }
+    if (collection === "workshops") {
+      revalidatePath("/workshops");
+      if (id) {
+        revalidatePath(`/workshops/${id}`);
+      }
+    }
+    if (collection === "music") {
+      revalidatePath("/fhmusic");
+    }
+    if (collection === "spinwheel") {
+      revalidatePath("/");
+    }
+    if (collection === "blogs") {
+      revalidatePath("/blogs");
+      if (id) {
+        revalidatePath(`/blogs/${id}`);
+      }
     }
 
     if (returnTo) {
@@ -301,4 +374,86 @@ export async function upsertHealing(formData) {
 
 export async function deleteHealing(formData) {
   return removeCatalog("healings", formData);
+}
+
+export async function upsertWorkshop(formData) {
+  const imageUpload = await storeUploadedImage(formData.get("heroImageFile"));
+  const payload = {
+    subtitle: normalizeText(formData.get("subtitle")),
+    heroImage: imageUpload || normalizeText(formData.get("heroImage")),
+    teaser: normalizeText(formData.get("teaser")),
+    description: normalizeText(formData.get("description")),
+    offerBadge: normalizeText(formData.get("offerBadge")),
+    offerTitle: normalizeText(formData.get("offerTitle")),
+    offerDescription: normalizeText(formData.get("offerDescription")),
+    price: parseNumber(formData.get("price")),
+    currency: normalizeCurrency(formData.get("currency")),
+    seats: parseNumber(formData.get("seats")),
+    startDate: normalizeText(formData.get("startDate")),
+    startTime: normalizeText(formData.get("startTime")),
+    timezone: normalizeText(formData.get("timezone")),
+    durationMinutes: parseNumber(formData.get("durationMinutes")),
+    location: normalizeText(formData.get("location")),
+    ctaLabel: normalizeText(formData.get("ctaLabel")),
+    ctaLink: normalizeText(formData.get("ctaLink")),
+    highlights: parseList(formData.get("highlights")),
+    agenda: parseList(formData.get("agenda")),
+    includes: parseList(formData.get("includes")),
+    whoItsFor: parseList(formData.get("whoItsFor")),
+    hostName: normalizeText(formData.get("hostName")),
+    hostTitle: normalizeText(formData.get("hostTitle")),
+    hostBio: normalizeText(formData.get("hostBio")),
+    hostImage: normalizeText(formData.get("hostImage")),
+    active: parseBoolean(formData.get("active")),
+  };
+
+  return upsertCatalog("workshops", formData, payload);
+}
+
+export async function deleteWorkshop(formData) {
+  return removeCatalog("workshops", formData);
+}
+
+export async function upsertMusicTrack(formData) {
+  const audioUpload = await storeUploadedAsset(formData.get("audioFile"));
+  const coverUpload = await storeUploadedImage(formData.get("coverImageFile"));
+  const payload = {
+    artist: normalizeText(formData.get("artist")),
+    description: normalizeText(formData.get("description")),
+    audioUrl: audioUpload || normalizeText(formData.get("audioUrl")),
+    coverImage: coverUpload || normalizeText(formData.get("coverImage")),
+    active: parseBoolean(formData.get("active")),
+  };
+
+  return upsertCatalog("music", formData, payload);
+}
+
+export async function deleteMusicTrack(formData) {
+  return removeCatalog("music", formData);
+}
+
+export async function upsertSpinWheelSettings(formData) {
+  const payload = {
+    winProbability: parseNumber(formData.get("winProbability")),
+  };
+
+  return upsertCatalog("spinwheel", formData, payload);
+}
+
+export async function upsertBlog(formData) {
+  const imageUpload = await storeUploadedImage(formData.get("imageFile"));
+  const payload = {
+    excerpt: normalizeText(formData.get("excerpt")),
+    content: normalizeText(formData.get("content")),
+    author: normalizeText(formData.get("author")),
+    publishDate: normalizeText(formData.get("publishDate")),
+    image: imageUpload || normalizeText(formData.get("image")),
+    active: parseBoolean(formData.get("active")),
+  };
+
+  return upsertCatalog("blogs", formData, payload);
+}
+
+export async function deleteBlog(formData) {
+  return removeCatalog("blogs", formData);
 }
