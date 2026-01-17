@@ -6,7 +6,7 @@ export default function Learnings() {
   return (
     <section
       className="text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #EEECE9 100%)" }}
+      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F9F4E8 100%)" }}
     >
       <div className="mx-auto max-w-[1200px] px-4 pb-16 pt-12 sm:px-6">
         <div className="text-center">

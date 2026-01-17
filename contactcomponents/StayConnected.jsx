@@ -12,7 +12,7 @@ const SOCIALS = [
 
 export default function StayConnected() {
   return (
-    <section className="relative overflow-hidden border-t border-[#d9d2ca] bg-[#EEECE9] px-6 py-24">
+    <section className="relative overflow-hidden border-t border-[#d9d2ca] bg-[#F9F4E8] px-6 py-24">
       <div className="absolute inset-0 pointer-events-none">
         <span className="absolute left-1/2 top-0 h-60 w-60 -translate-x-1/2 rounded-full bg-white blur-[140px]" />
       </div>

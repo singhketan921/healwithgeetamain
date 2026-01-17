@@ -7,6 +7,10 @@ const NAV_LINKS = [
   { href: "/admin/consultations", label: "Consultations" },
   { href: "/admin/healings", label: "Healings" },
   { href: "/admin/courses", label: "Courses" },
+  { href: "/admin/workshops", label: "Workshops" },
+  { href: "/admin/music", label: "FH Music" },
+  { href: "/admin/spin-wheel", label: "Spin Wheel" },
+  { href: "/admin/blogs", label: "Blogs" },
   { href: "/admin/bookings", label: "Bookings" },
   { href: "/admin/messages", label: "Messages" },
 ];
@@ -16,11 +20,11 @@ function isActive(pathname, href) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export default function AdminShell({ children }) {
+export default function AdminShell({ children, session, onLogout }) {
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen bg-[#EAE4DC]">
+    <div className="min-h-screen bg-[#D0BFA9]">
       <div className="flex min-h-screen">
         <aside className="w-64 border-r border-[#e1d8ce] bg-[#fbf8f5] px-5 pb-10 pt-24">
           <div className="space-y-1">
@@ -49,6 +53,28 @@ export default function AdminShell({ children }) {
               );
             })}
           </nav>
+          {session ? (
+            <div className="mt-8 space-y-3 rounded-xl border border-[#e1d8ce] bg-white/80 p-4">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.24em] text-[#9a938c]">
+                  Signed in
+                </p>
+                <p className="truncate text-sm font-semibold text-[#6b625a]">
+                  {session.email}
+                </p>
+              </div>
+              {onLogout ? (
+                <form action={onLogout}>
+                  <button
+                    type="submit"
+                    className="w-full rounded-lg border border-[#8f857c] px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#6b625a] transition hover:bg-[#efe7de]"
+                  >
+                    Sign out
+                  </button>
+                </form>
+              ) : null}
+            </div>
+          ) : null}
         </aside>
         <main className="flex-1 px-6 pb-12 pt-24 lg:px-12">{children}</main>
       </div>

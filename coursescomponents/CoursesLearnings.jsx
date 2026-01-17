@@ -31,7 +31,7 @@ export default function CoursesLearnings({ courses = [] }) {
   return (
     <section
       className="py-24 text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #EEECE9 100%)" }}
+      style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F9F4E8 100%)" }}
       id="learnings"
     >
       <div className="mx-auto max-w-[1320px] px-6 space-y-12">

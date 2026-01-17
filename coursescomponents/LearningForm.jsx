@@ -70,7 +70,7 @@ export default function LearningForm({ onSubmit }) {
   };
 
   return (
-    <section className="px-6 py-24 bg-[#EEECE9] text-[#6b625a]" id="form">
+    <section className="px-6 py-24 bg-[#F9F4E8] text-[#6b625a]" id="form">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

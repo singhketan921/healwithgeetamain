@@ -17,17 +17,17 @@ export default async function CoursesPage() {
 
   return (
     <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
-      <section id="hero" className="w-full">
+      {/* <section id="hero" className="w-full">
         <CoursesHero />
-      </section>
+      </section> */}
 
       <section id="learnings" className="w-full">
         <CoursesLearnings courses={courses} />
       </section>
 
-      <section id="products" className="w-full">
+      {/* <section id="products" className="w-full">
         <CertifiedSection />
-      </section>
+      </section> */}
 
       <section id="courseshowitworks" className="w-full">
         <CoursesHowItWorks />

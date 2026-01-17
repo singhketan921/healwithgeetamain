@@ -20,7 +20,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
     <section
       id="offerings"
       className="py-24 text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #EEECE9 0%, #FFFFFF 100%)" }}
+      style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
     >
       <div className="mx-auto max-w-[1320px] px-6 space-y-12">
         <div className="space-y-4 max-w-[720px] mx-auto text-center">
@@ -64,16 +64,17 @@ export default function ConsultationOfferings({ offerings = [] }) {
                       {item.title}
                     </h3>
                   </Link>
-                  <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]">
+                  <p
+                    className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
                     {item.description}
                   </p>
-                  {item.modalities?.length ? (
-                    <ul className="text-[12px] text-[#9a938c] uppercase tracking-[0.2em] space-y-1">
-                      {item.modalities.map((modality) => (
-                        <li key={modality}>{modality}</li>
-                      ))}
-                    </ul>
-                  ) : null}
                   <div className="flex flex-col gap-3">
                     <Link
                       href={`/consultations/${itemId}`}

@@ -20,7 +20,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-[#EEECE9] py-20 text-[#6d655d]">
+    <section className="bg-[#F9F4E8] py-20 text-[#6d655d]">
       <div className="relative mx-auto max-w-[1200px] px-6">
         <span className="pointer-events-none absolute left-6 top-8 h-2 w-2 rounded-full bg-[#e2dbd2]" />
         <span className="pointer-events-none absolute right-10 top-16 h-3 w-3 rounded-full border border-[#eee7df]" />

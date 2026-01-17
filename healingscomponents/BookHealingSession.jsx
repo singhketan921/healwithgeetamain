@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -63,7 +63,7 @@ export default function BookHealingSession() {
   };
 
   return (
-    <section className="py-24 bg-[#EEECE9] px-6 sm:px-10 text-[#6b625a]">
+    <section className="py-24 bg-[#F9F4E8] px-6 sm:px-10 text-[#6b625a]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ export default function BookHealingSession() {
             </p>
           )}
           <p className="text-[12px] text-center text-[#9a938c] uppercase tracking-[0.28em]">
-            Your information stays sacred · Privacy policy
+            Your information stays sacred � Privacy policy
           </p>
         </motion.form>
       </motion.div>

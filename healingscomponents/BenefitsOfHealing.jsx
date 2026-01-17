@@ -23,7 +23,7 @@ const columns = [
 
 export default function BenefitsOfHealing() {
   return (
-    <section className="py-24 bg-[#EEECE9] text-[#6b625a] px-6 sm:px-10">
+    <section className="py-24 bg-[#F9F4E8] text-[#6b625a] px-6 sm:px-10">
       <div className="mx-auto max-w-[1200px] space-y-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

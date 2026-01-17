@@ -20,7 +20,7 @@ export default function HealingModalities({ modalities = [] }) {
     <section
       id="modalities"
       className="py-24 text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #EEECE9 0%, #FFFFFF 100%)" }}
+      style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
     >
       <div className="mx-auto max-w-[1320px] px-6 space-y-12">
         <div className="space-y-4 max-w-[720px] mx-auto text-center">

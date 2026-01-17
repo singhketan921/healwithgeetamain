@@ -17,9 +17,9 @@ export default async function HealingsPage() {
 
   return (
     <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
-      <section id="hero" className="w-full">
+      {/* <section id="hero" className="w-full">
         <HealingHero />
-      </section>
+      </section> */}
 
       <section id="consultationOfferings" className="w-full">
         <HealingModalities modalities={modalities} />

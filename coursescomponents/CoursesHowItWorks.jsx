@@ -28,7 +28,7 @@ const steps = [
 
 export default function CoursesHowItWorks() {
   return (
-    <section className="bg-[#EEECE9] py-24 text-[#6b625a]">
+    <section className="bg-[#F9F4E8] py-24 text-[#6b625a]">
       <div className="mx-auto max-w-[1200px] px-6 space-y-10">
         <div className="space-y-3">
           <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">

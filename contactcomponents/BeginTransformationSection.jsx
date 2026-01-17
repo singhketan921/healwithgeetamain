@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 
 export default function BeginTransformationSection() {
   return (
-    <section className="relative overflow-hidden bg-[#EEECE9] px-6 py-20">
+    <section className="relative overflow-hidden bg-[#F9F4E8] px-6 py-20">
       <div className="absolute inset-0 pointer-events-none">
         <span className="absolute left-0 top-0 h-64 w-64 rounded-full bg-white blur-[140px]" />
         <span className="absolute right-0 bottom-0 h-64 w-64 rounded-full bg-[#CDBFB4] blur-[160px]" />

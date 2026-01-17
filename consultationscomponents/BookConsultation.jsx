@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -13,7 +13,7 @@ const initialForm = {
   message: "",
 };
 
-export default function BookConsultation() {
+export default function BookConsultation({ offerings = [] }) {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState({ state: "idle", message: "" });
 
@@ -64,7 +64,7 @@ export default function BookConsultation() {
   };
 
   return (
-    <section className="bg-[#EEECE9] py-24 px-6 text-[#6b625a]">
+    <section className="bg-[#F9F4E8] py-24 px-6 text-[#6b625a]">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -124,9 +124,17 @@ export default function BookConsultation() {
               className="border border-[#e7dfd6] rounded-full px-5 py-3 bg-white text-[#7a736c] focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             >
               <option value="">Select Service</option>
-              <option value="Astrology Consultation">Astrology Consultation</option>
-              <option value="Tarot Reading">Tarot Reading</option>
-              <option value="Energy Healing">Energy Healing</option>
+              {offerings.map((offering) => {
+                const value = offering.id ?? offering._id ?? offering.title;
+                if (!value) {
+                  return null;
+                }
+                return (
+                  <option key={value} value={value}>
+                    {offering.title ?? value}
+                  </option>
+                );
+              })}
             </select>
             <input
               type="date"

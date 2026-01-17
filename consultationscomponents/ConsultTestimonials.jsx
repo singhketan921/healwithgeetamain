@@ -28,7 +28,7 @@ export default function ConsultTestimonials({
   const safeTestimonials = testimonials.length ? testimonials : fallbackTestimonials;
 
   return (
-    <section className="px-6 py-20 overflow-hidden text-center bg-[#EEECE9] sm:px-10">
+    <section className="px-6 py-20 overflow-hidden text-center bg-[#F9F4E8] sm:px-10">
       {/* Heading */}
       <div className="mx-auto mb-14 max-w-[1200px]">
         <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em] text-[#6b625a] mb-3">

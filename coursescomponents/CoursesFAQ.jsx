@@ -30,7 +30,7 @@ export default function CoursesFAQ({ faqs = [] }) {
   const safeFaqs = faqs.length ? faqs : defaultFaqs;
 
   return (
-    <section className="bg-[#EEECE9] w-full py-24 px-6 text-[#6b625a]" id="contactfaq">
+    <section className="bg-[#F9F4E8] w-full py-24 px-6 text-[#6b625a]" id="contactfaq">
       <div className="mx-auto max-w-[1200px] grid gap-12 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -2,10 +2,31 @@
 
 import Link from "next/link";
 
+const VIDEO_TESTIMONIALS = [
+  {
+    src: "https://www.youtube.com/embed/8VdXcf7Dke4",
+    title: "HealWithGeeta testimonial",
+  },
+  {
+    src: "https://www.youtube.com/embed/qODcx8MckdM",
+    title: "HealWithGeeta testimonial video 2",
+  },
+  {
+    src: "https://www.youtube.com/embed/trNw4MSuNRg",
+    title: "HealWithGeeta testimonial video 3",
+  },
+  {
+    src: "https://www.youtube.com/embed/g7ZnJU-_iYE",
+    title: "HealWithGeeta testimonial video 4",
+  },
+];
+
 export default function Testimonials({ showCtas = true } = {}) {
+  const videos = [...VIDEO_TESTIMONIALS, ...VIDEO_TESTIMONIALS];
+
   return (
-    <section className="bg-[#EEECE9] py-16 text-[#6b625a]">
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+    <section className="bg-[#F9F4E8] py-16 text-[#6b625a]">
+      <div className="w-full px-4 sm:px-6">
         <div className="text-center">
           <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-semibold tracking-[0.12em] text-[#6b625a]">
             REAL TRANSFORMATION STORIES
@@ -34,63 +55,26 @@ export default function Testimonials({ showCtas = true } = {}) {
           ) : null}
         </div>
 
-        <div className="mt-8 -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:grid sm:gap-6 sm:px-0 sm:pb-0 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
-            <div className="aspect-[9/16] w-full">
-              <iframe
-                src="https://www.youtube.com/embed/8VdXcf7Dke4"
-                title="HealWithGeeta testimonial"
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+        <div className="mt-8 -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:gap-6 sm:px-0 sm:pb-0 flex-nowrap">
+          {videos.map((video, index) => (
+            <div
+              key={`${video.src}-${index}`}
+              className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto"
+            >
+              <div className="aspect-[9/16] w-full">
+                <iframe
+                  src={video.src}
+                  title={video.title}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
+                Video testimonial
+              </div>
             </div>
-            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
-              Video testimonial
-            </div>
-          </div>
-          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
-            <div className="aspect-[9/16] w-full">
-              <iframe
-                src="https://www.youtube.com/embed/qODcx8MckdM"
-                title="HealWithGeeta testimonial video 2"
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
-              Video testimonial
-            </div>
-          </div>
-          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
-            <div className="aspect-[9/16] w-full">
-              <iframe
-                src="https://www.youtube.com/embed/trNw4MSuNRg"
-                title="HealWithGeeta testimonial video 3"
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
-              Video testimonial
-            </div>
-          </div>
-          <div className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto">
-            <div className="aspect-[9/16] w-full">
-              <iframe
-                src="https://www.youtube.com/embed/g7ZnJU-_iYE"
-                title="HealWithGeeta testimonial video 4"
-                className="h-full w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
-            <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
-              Video testimonial
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

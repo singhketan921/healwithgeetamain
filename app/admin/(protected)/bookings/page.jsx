@@ -38,6 +38,7 @@ export default async function AdminBookingsPage() {
                 <th className="px-6 py-3">Contact</th>
                 <th className="px-6 py-3">Preferred Slot</th>
                 <th className="px-6 py-3">Notes</th>
+                <th className="px-6 py-3">Zoom</th>
                 <th className="px-6 py-3">Created</th>
               </tr>
             </thead>
@@ -45,7 +46,7 @@ export default async function AdminBookingsPage() {
               {bookings.length === 0 && (
                 <tr>
                   <td
-                    colSpan={6}
+                    colSpan={7}
                     className="px-6 py-8 text-center text-[#9a938c]"
                   >
                     No bookings captured yet.
@@ -80,6 +81,20 @@ export default async function AdminBookingsPage() {
                   </td>
                   <td className="px-6 py-4 text-sm text-[#7a736c]">
                     {booking.notes ?? "-"}
+                  </td>
+                  <td className="px-6 py-4 text-xs text-[#9a938c]">
+                    {booking.zoomJoinUrl ? (
+                      <a
+                        href={booking.zoomJoinUrl}
+                        className="text-[#6b625a] underline"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Join link
+                      </a>
+                    ) : (
+                      "-"
+                    )}
                   </td>
                   <td className="px-6 py-4 text-xs text-[#9a938c]">
                     {formatDate(booking.createdAt)}

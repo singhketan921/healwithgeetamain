@@ -6,7 +6,7 @@ const logo = "/assets/images/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F5F2EE] text-[#524E48] py-16 px-6 border-t border-[#EAE4DC]">
+    <footer className="bg-white text-[#524E48] py-16 px-6 border-t border-[#D0BFA9]">
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div className="space-y-4">
@@ -25,7 +25,7 @@ export default function Footer() {
                 <a
                   key={idx}
                   href="#"
-                  className="w-10 h-10 rounded-full border border-[#B0AAA0] flex items-center justify-center text-[#524E48] hover:bg-[#524E48] hover:text-[#EAE4DC] transition"
+                  className="w-10 h-10 rounded-full border border-[#B0AAA0] flex items-center justify-center text-[#524E48] hover:bg-[#524E48] hover:text-[#D0BFA9] transition"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">Studio</p>
             <ul className="space-y-2 text-sm">
-              {["Contact", "Privacy", "Terms"].map((item) => (
+              {["Blogs", "Contact", "Privacy", "Terms"].map((item) => (
                 <li key={item}>
                   <a className="hover:text-[#A59079] transition" href={`/${item.toLowerCase()}`}>
                     {item}

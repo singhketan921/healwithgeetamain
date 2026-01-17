@@ -81,7 +81,7 @@ export default function IntentionsSection() {
               Shop like an editorial: choose a storyline - balance, protection, clarity - and we match the right stones, serums, and ritual notes for you.
             </p>
 
-            <div className="rounded-[32px] border border-[#EAE4DC] bg-white/85 shadow-[0_20px_55px_rgba(82,78,72,0.09)] p-8 space-y-4">
+            <div className="rounded-[32px] border border-[#D0BFA9] bg-white/85 shadow-[0_20px_55px_rgba(82,78,72,0.09)] p-8 space-y-4">
               <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">
                 Editor's pull quote
               </p>
@@ -91,13 +91,13 @@ export default function IntentionsSection() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[24px] border border-[#EAE4DC] bg-white/70 px-6 py-5">
+              <div className="rounded-[24px] border border-[#D0BFA9] bg-white/70 px-6 py-5">
                 <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
                   Shipping
                 </p>
                 <p className="text-sm text-[#524E48]/80">Worldwide within 5 days</p>
               </div>
-              <div className="rounded-[24px] border border-[#EAE4DC] bg-white/70 px-6 py-5">
+              <div className="rounded-[24px] border border-[#D0BFA9] bg-white/70 px-6 py-5">
                 <p className="text-xs uppercase tracking-[0.45em] text-[#B0AAA0]">
                   Blessing
                 </p>
@@ -111,7 +111,7 @@ export default function IntentionsSection() {
               <Reveal
                 key={item.id}
                 delay={0.1 * index}
-                className="rounded-[30px] border border-[#EAE4DC] bg-white shadow-[0_25px_70px_rgba(82,78,72,0.08)] p-7 flex flex-col gap-4"
+                className="rounded-[30px] border border-[#D0BFA9] bg-white shadow-[0_25px_70px_rgba(82,78,72,0.08)] p-7 flex flex-col gap-4"
               >
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-full bg-[#F6F3EF] flex items-center justify-center">

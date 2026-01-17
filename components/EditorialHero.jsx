@@ -14,7 +14,7 @@ export default function EditorialHero({
   return (
     <section
       className="hero-section relative overflow-hidden pb-12 sm:pb-20 text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #EEECE9 0%, #FFFFFF 100%)" }}
+      style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
     >
       <div className="hero-main mx-auto max-w-[1200px] px-5 sm:px-6">
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

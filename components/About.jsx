@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       className="py-14 text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #EEECE9 0%, #FFFFFF 100%)" }}
+      style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
     >
       <div className="mx-auto max-w-[1200px] px-6">
         <h2 className="text-center text-[28px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.14em] text-[#6b625a]">
