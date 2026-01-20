@@ -83,7 +83,7 @@ export default function CoursesLearnings({ courses = [] }) {
                       {course.title}
                     </h3>
                   </Link>
-                  <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]">
+                  <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7] preserve-format">
                     {course.headline ?? course.description}
                   </p>
                   <div className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">

@@ -72,7 +72,7 @@ export default function HealingModalities({ modalities = [] }) {
                         {modality.title}
                       </h3>
                     </Link>
-                    <p className="mt-2 text-[14px] text-[#7a736c] leading-[1.6]">
+                    <p className="mt-2 text-[14px] text-[#7a736c] leading-[1.6] preserve-format">
                       {modality.description}
                     </p>
                     {modality.benefits?.length ? (

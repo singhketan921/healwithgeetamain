@@ -26,12 +26,11 @@ export default function AdminBlogNewPage() {
         <input type="hidden" name="returnTo" value="/admin/blogs" />
         <div className="grid gap-4 md:grid-cols-2">
           <label className="space-y-2 text-sm">
-            <span>Slug (ID)</span>
+            <span>Slug (optional)</span>
             <input
               name="id"
               className="w-full rounded-xl border border-gray-200 px-3 py-2"
-              placeholder="e.g. sacred-rituals-guide"
-              required
+              placeholder="auto-generated from title"
             />
           </label>
           <label className="space-y-2 text-sm">

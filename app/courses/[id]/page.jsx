@@ -24,25 +24,70 @@ function formatDuration(months, format, weeks) {
   return format ?? "";
 }
 
-function renderListBlock(title, items) {
-  if (!items?.length) {
+function extractLowestPrice(text, fallbackCurrency) {
+  if (!text) {
     return null;
   }
+  const normalized = text.toString();
+  const isInr =
+    /₹|inr|rs\.?/i.test(normalized) || /\/-/.test(normalized);
+  const currency = isInr ? "INR" : fallbackCurrency;
+  const matches = Array.from(
+    normalized.matchAll(/(\d{1,3}(?:[,\s]\d{3})+|\d+)(?:\.\d+)?/g)
+  );
+  const values = matches
+    .map((match) => match[0].replace(/[,\s]/g, ""))
+    .map((value) => Number(value))
+    .filter((value) => Number.isFinite(value) && value > 0);
+  if (!values.length) {
+    return null;
+  }
+  return { amount: Math.min(...values), currency };
+}
+
+function extractDurationText(text) {
+  if (!text) {
+    return "";
+  }
+  const normalized = text.toString();
+  const durationMatch = normalized.match(
+    /duration[^0-9]*([0-9]+(?:\.[0-9]+)?\s*(?:day|days|week|weeks|month|months|hour|hours|minute|minutes))/i
+  );
+  if (durationMatch?.[1]) {
+    return durationMatch[1].trim();
+  }
+  const genericMatch = normalized.match(
+    /([0-9]+(?:\.[0-9]+)?\s*(?:day|days|week|weeks|month|months|hour|hours|minute|minutes))/i
+  );
+  return genericMatch?.[1]?.trim() ?? "";
+}
+
+function renderListBlock(title, items) {
+  if (Array.isArray(items) ? items.length === 0 : !items?.trim()) {
+    return null;
+  }
+  const isList = Array.isArray(items);
   return (
-    <div className="rounded-[20px] border border-[#e7dfd6] bg-white/80 p-6 shadow-[0_12px_26px_rgba(0,0,0,0.08)]">
+    <div className="rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8 shadow-[0_16px_34px_rgba(0,0,0,0.1)]">
       <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
         {title}
       </p>
-      <ul className="mt-4 grid gap-2 text-[14px] text-[#6b625a]">
+      {isList ? (
+      <ul className="mt-4 grid gap-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
         {items.map((item) => (
           <li
             key={item}
-            className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2"
+            className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-3"
           >
             {item}
           </li>
         ))}
       </ul>
+    ) : (
+      <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
+        {items}
+      </p>
+    )}
     </div>
   );
 }
@@ -54,6 +99,18 @@ export default async function CourseDetailPage({ params }) {
   if (!course) {
     notFound();
   }
+
+  const derivedPrice = extractLowestPrice(course.feesDetails, course.currency);
+  const durationText =
+    extractDurationText(course.certificationDetails) ||
+    formatDuration(course.durationMonths, course.format, course.durationWeeks);
+  const priceText = derivedPrice
+    ? formatPrice(derivedPrice.amount, derivedPrice.currency ?? course.currency)
+    : course.priceTiers?.length
+      ? `${course.priceTiers.length} price options`
+      : course.price
+        ? formatPrice(course.price, course.currency)
+        : "Custom pricing";
 
   return (
     <div className="min-h-screen bg-[#D0BFA9] pt-28 pb-16 px-6 lg:px-12">
@@ -74,23 +131,15 @@ export default async function CourseDetailPage({ params }) {
             <h1 className="text-[32px] sm:text-[42px] font-semibold leading-[1.15] text-[#6b625a]">
               {course.title}
             </h1>
-            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#7a736c]">
+            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#7a736c] preserve-format">
               {course.summary || course.headline || course.description}
             </p>
             <div className="flex flex-wrap gap-3 text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
               <span className="rounded-full border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2">
-                {formatDuration(
-                  course.durationMonths,
-                  course.format,
-                  course.durationWeeks
-                ) || "Custom duration"}
+                {durationText || "Custom duration"}
               </span>
               <span className="rounded-full border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2">
-                {course.priceTiers?.length
-                  ? `${course.priceTiers.length} price options`
-                  : course.price
-                    ? formatPrice(course.price, course.currency)
-                    : "Custom pricing"}
+                {priceText}
               </span>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -123,7 +172,7 @@ export default async function CourseDetailPage({ params }) {
               <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
                 Course Overview
               </p>
-              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
+              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
                 {course.description}
               </p>
             </div>
@@ -135,21 +184,22 @@ export default async function CourseDetailPage({ params }) {
                 <div className="flex items-center justify-between">
                   <dt>Price</dt>
                   <dd>
-                    {course.priceTiers?.length
-                      ? "Multiple options"
-                      : course.price
-                        ? formatPrice(course.price, course.currency)
-                        : "Custom"}
+                    {derivedPrice
+                      ? formatPrice(
+                          derivedPrice.amount,
+                          derivedPrice.currency ?? course.currency
+                        )
+                      : course.priceTiers?.length
+                        ? "Multiple options"
+                        : course.price
+                          ? formatPrice(course.price, course.currency)
+                          : "Custom"}
                   </dd>
                 </div>
                 <div className="flex items-center justify-between">
                   <dt>Duration</dt>
                   <dd>
-                    {formatDuration(
-                      course.durationMonths,
-                      course.format,
-                      course.durationWeeks
-                    ) || "Custom"}
+                    {durationText || "Custom"}
                   </dd>
                 </div>
                 <div className="flex items-center justify-between">
@@ -161,20 +211,20 @@ export default async function CourseDetailPage({ params }) {
           </div>
         </section>
 
-        <section className="mt-12 grid gap-6 lg:grid-cols-2">
+        <section className="mt-12 space-y-6">
+          {renderListBlock("What this course covers", course.courseCovers)}
           {renderListBlock("Modules", course.modules)}
           {renderListBlock("Outcomes", course.outcomes)}
-          {renderListBlock("What this course covers", course.courseCovers)}
           {renderListBlock("Energy & intuition development", course.intuitionTraining)}
           {renderListBlock("Real-world reading skills", course.realWorldSkills)}
           {renderListBlock("Tarot spreads covered", course.tarotSpreads)}
           {renderListBlock("Hands-on training", course.handsOnTraining)}
-          {renderListBlock("Course format", course.formatDetails)}
-          {renderListBlock("Who can join", course.whoCanJoin)}
-          {renderListBlock("Duration details", course.durationDetails)}
           {renderListBlock("Certification", course.certificationDetails)}
-          {renderListBlock("Why students love this course", course.whyStudentsLove)}
           {renderListBlock("Fees & enrollment", course.feesDetails)}
+          {renderListBlock("Who can join", course.whoCanJoin)}
+          {renderListBlock("Course format", course.formatDetails)}
+          {renderListBlock("Duration details", course.durationDetails)}
+          {renderListBlock("Why students love this course", course.whyStudentsLove)}
         </section>
 
         {course.priceTiers?.length ? (
@@ -202,22 +252,35 @@ export default async function CourseDetailPage({ params }) {
           </section>
         ) : null}
 
-        {course.faqs?.length ? (
+        {Array.isArray(course.faqs) ? (
+          course.faqs.length ? (
+            <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8">
+              <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
+                FAQ
+              </p>
+              <div className="mt-4 space-y-4">
+                {course.faqs.map((faq) => (
+                  <div
+                    key={`${faq.question}-${faq.answer}`}
+                    className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-3"
+                  >
+                    <p className="font-semibold text-[#6b625a]">{faq.question}</p>
+                  <p className="mt-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
+                    {faq.answer}
+                  </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null
+        ) : course.faqs?.trim() ? (
           <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8">
             <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
               FAQ
             </p>
-            <div className="mt-4 space-y-4">
-              {course.faqs.map((faq) => (
-                <div
-                  key={`${faq.question}-${faq.answer}`}
-                  className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-3"
-                >
-                  <p className="font-semibold text-[#6b625a]">{faq.question}</p>
-                  <p className="mt-2 text-[#7a736c]">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
+            <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
+              {course.faqs}
+            </p>
           </section>
         ) : null}
 

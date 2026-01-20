@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { fetchWorkshops } from "@/lib/services/workshopService";
+import { deleteWorkshop } from "@/app/admin/actions";
 
 export const runtime = "nodejs";
 
@@ -84,12 +85,27 @@ export default async function AdminWorkshopsPage() {
                     <div>{workshop.startTime ?? ""}</div>
                   </td>
                   <td className="px-6 py-4 text-xs">
-                    <Link
-                      href={`/admin/workshops/${workshop.id ?? workshop._id}`}
-                      className="text-[#6b625a] underline"
-                    >
-                      Edit
-                    </Link>
+                    <div className="flex items-center gap-3">
+                      <Link
+                        href={`/admin/workshops/${workshop.id ?? workshop._id}`}
+                        className="text-[#6b625a] underline"
+                      >
+                        Edit
+                      </Link>
+                      <form action={deleteWorkshop}>
+                        <input
+                          type="hidden"
+                          name="id"
+                          value={workshop.id ?? workshop._id ?? ""}
+                        />
+                        <button
+                          type="submit"
+                          className="text-red-600 underline"
+                        >
+                          Delete
+                        </button>
+                      </form>
+                    </div>
                   </td>
                 </tr>
               ))}

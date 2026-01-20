@@ -126,7 +126,7 @@ export default async function WorkshopLandingPage({ params }) {
                   {workshop.subtitle}
                 </p>
               ) : null}
-              <p className="text-[15px] sm:text-[18px] leading-[1.75] text-[#7a736c] max-w-[600px]">
+              <p className="text-[15px] sm:text-[18px] leading-[1.75] text-[#7a736c] max-w-[600px] preserve-format">
                 {workshop.teaser ||
                   "A sacred, time-bound immersion designed to elevate your spiritual practice."}
               </p>
@@ -233,7 +233,7 @@ export default async function WorkshopLandingPage({ params }) {
               <h2 className="text-[24px] sm:text-[34px] font-semibold tracking-[0.1em] text-[#5f5750]">
                 Offer Window Closes Soon
               </h2>
-              <p className="text-[14px] sm:text-[16px] leading-[1.7] text-[#7a736c]">
+              <p className="text-[14px] sm:text-[16px] leading-[1.7] text-[#7a736c] preserve-format">
                 {workshop.offerDescription ||
                   workshop.description ||
                   "Step into a structured, high-frequency learning container that blends ritual, practice, and guidance."}
@@ -279,7 +279,7 @@ export default async function WorkshopLandingPage({ params }) {
                 <div className="text-[12px] uppercase tracking-[0.24em] text-white/70">
                   {workshop.seats ? `${workshop.seats} seats only` : "Limited seats"}
                 </div>
-                <p className="text-[14px] leading-[1.7] text-white/80">
+                <p className="text-[14px] leading-[1.7] text-white/80 preserve-format">
                   {workshop.offerDescription ||
                     "Early confirmation includes preparatory materials and rituals to align your energy."}
                 </p>
@@ -509,7 +509,7 @@ export default async function WorkshopLandingPage({ params }) {
               <div className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
                 {workshop.hostTitle || "Occult Science Practitioner"}
               </div>
-              <p className="text-[14px] sm:text-[16px] leading-[1.7] text-[#7a736c]">
+              <p className="text-[14px] sm:text-[16px] leading-[1.7] text-[#7a736c] preserve-format">
                 {workshop.hostBio ||
                   "Guiding seekers through astrology, ritual work, and deep energetic alignment."}
               </p>

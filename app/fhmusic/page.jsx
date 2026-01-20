@@ -7,9 +7,7 @@ export default async function FHMusicPage() {
 
   return (
     <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
-      <section id="hero" className="w-full">
-        <FHMusicHero />
-      </section>
+      
 
       <section id="library" className="w-full">
         <FHMusicLibrary tracks={tracks} />

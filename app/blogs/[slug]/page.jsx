@@ -5,43 +5,11 @@ function renderContent(content) {
   if (!content) {
     return null;
   }
-  const lines = content.split("\n");
-  const blocks = [];
-  let currentList = [];
-
-  const flushList = () => {
-    if (currentList.length) {
-      blocks.push(
-        <ul key={`list-${blocks.length}`} className="list-disc pl-6 space-y-2">
-          {currentList.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      );
-      currentList = [];
-    }
-  };
-
-  lines.forEach((line) => {
-    const trimmed = line.trim();
-    if (!trimmed) {
-      flushList();
-      return;
-    }
-    if (trimmed.startsWith("-")) {
-      currentList.push(trimmed.replace(/^-+\s*/, ""));
-      return;
-    }
-    flushList();
-    blocks.push(
-      <p key={`p-${blocks.length}`} className="leading-[1.8] text-[#7a736c]">
-        {trimmed}
-      </p>
-    );
-  });
-
-  flushList();
-  return blocks;
+  return (
+    <p className="leading-[1.8] text-[#7a736c] preserve-format">
+      {content}
+    </p>
+  );
 }
 
 export default async function BlogDetailPage({ params }) {

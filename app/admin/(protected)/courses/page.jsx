@@ -66,7 +66,7 @@ export default async function AdminCoursesPage() {
                   <h2 className="text-xl font-semibold text-[#6b625a]">
                     {item.title ?? "Untitled course"}
                   </h2>
-                  <p className="text-sm text-[#7a736c]">
+                  <p className="text-sm text-[#7a736c] preserve-format">
                     {item.headline ?? item.description ?? "No summary yet."}
                   </p>
                   <p className="text-sm font-semibold text-[#6b625a]">

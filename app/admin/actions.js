@@ -48,6 +48,16 @@ function normalizeText(value) {
   return value?.toString().trim() || "";
 }
 
+function normalizeMultilineText(value) {
+  if (value === null || value === undefined) {
+    return "";
+  }
+  return value
+    .toString()
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n");
+}
+
 function normalizeCurrency(value) {
   const normalized = normalizeText(value);
   return normalized ? normalized.toUpperCase() : "USD";
@@ -94,41 +104,66 @@ function parseFaqs(value) {
   if (!value) {
     return [];
   }
-  return value
-    .toString()
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .map((line) => {
-      let question = "";
-      let answer = "";
-      if (line.includes("|")) {
-        const parts = line.split("|");
-        question = parts[0].trim();
-        answer = parts.slice(1).join("|").trim();
-      } else if (/\s[-–—]\s/.test(line)) {
-        const match = line.match(/\s[-–—]\s/);
-        const index = match ? line.indexOf(match[0]) : -1;
-        if (index >= 0) {
-          question = line.slice(0, index).trim();
-          answer = line.slice(index + match[0].length).trim();
-        }
-      } else if (line.includes(":")) {
-        const index = line.indexOf(":");
+  const lines = value.toString().split(/\r?\n/);
+  const faqs = [];
+  let current = null;
+
+  const pushCurrent = () => {
+    if (current?.question && current?.answer) {
+      faqs.push(current);
+    }
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) {
+      if (current?.answer) {
+        current.answer = `${current.answer}\n`;
+      }
+      continue;
+    }
+
+    let question = "";
+    let answer = "";
+
+    if (line.includes("|")) {
+      const parts = line.split("|");
+      question = parts[0].trim();
+      answer = parts.slice(1).join("|").trim();
+    } else if (/\s-\s/.test(line)) {
+      const match = line.match(/\s-\s/);
+      const index = match ? line.indexOf(match[0]) : -1;
+      if (index >= 0) {
         question = line.slice(0, index).trim();
-        answer = line.slice(index + 1).trim();
-      } else if (line.includes("?")) {
-        const index = line.indexOf("?");
-        question = line.slice(0, index + 1).trim();
-        answer = line.slice(index + 1).trim();
+        answer = line.slice(index + match[0].length).trim();
       }
-      if (!question || !answer) {
-        return null;
-      }
-      return { question, answer };
-    })
-    .filter(Boolean);
+    } else if (line.includes(":")) {
+      const index = line.indexOf(":");
+      question = line.slice(0, index).trim();
+      answer = line.slice(index + 1).trim();
+    } else if (line.includes("?")) {
+      const index = line.indexOf("?");
+      question = line.slice(0, index + 1).trim();
+      answer = line.slice(index + 1).trim();
+    }
+
+    if (question && answer) {
+      pushCurrent();
+      current = { question, answer };
+      continue;
+    }
+
+    if (current) {
+      current.answer = current.answer
+        ? `${current.answer}\n${line}`
+        : line;
+    }
+  }
+
+  pushCurrent();
+  return faqs;
 }
+
 
 async function storeUploadedImage(file) {
   if (!file || typeof file.arrayBuffer !== "function") {
@@ -308,7 +343,7 @@ export async function upsertConsultation(formData) {
     price: parseNumber(formData.get("price")),
     currency: normalizeCurrency(formData.get("currency")),
     durationMinutes: parseNumber(formData.get("durationMinutes")),
-    description: normalizeText(formData.get("description")),
+    description: normalizeMultilineText(formData.get("description")),
     modalities: parseList(formData.get("modalities")),
     image: imageUpload || normalizeText(formData.get("image")),
   };
@@ -329,25 +364,25 @@ export async function upsertCourse(formData) {
     format: normalizeText(formData.get("format")),
     price: parseNumber(formData.get("price")),
     currency,
-    description: normalizeText(formData.get("description")),
-    headline: normalizeText(formData.get("headline")),
-    modules: parseList(formData.get("modules")),
-    outcomes: parseList(formData.get("outcomes")),
-    summary: normalizeText(formData.get("summary")),
-    courseCovers: parseList(formData.get("courseCovers")),
-    intuitionTraining: parseList(formData.get("intuitionTraining")),
-    realWorldSkills: parseList(formData.get("realWorldSkills")),
-    tarotSpreads: parseList(formData.get("tarotSpreads")),
-    handsOnTraining: parseList(formData.get("handsOnTraining")),
-    certificationDetails: parseList(formData.get("certificationDetails")),
-    whyStudentsLove: parseList(formData.get("whyStudentsLove")),
-    formatDetails: parseList(formData.get("formatDetails")),
-    whoCanJoin: parseList(formData.get("whoCanJoin")),
-    durationDetails: parseList(formData.get("durationDetails")),
-    feesDetails: parseList(formData.get("feesDetails")),
+    description: normalizeMultilineText(formData.get("description")),
+    headline: normalizeMultilineText(formData.get("headline")),
+    modules: normalizeMultilineText(formData.get("modules")),
+    outcomes: normalizeMultilineText(formData.get("outcomes")),
+    summary: normalizeMultilineText(formData.get("summary")),
+    courseCovers: normalizeMultilineText(formData.get("courseCovers")),
+    intuitionTraining: normalizeMultilineText(formData.get("intuitionTraining")),
+    realWorldSkills: normalizeMultilineText(formData.get("realWorldSkills")),
+    tarotSpreads: normalizeMultilineText(formData.get("tarotSpreads")),
+    handsOnTraining: normalizeMultilineText(formData.get("handsOnTraining")),
+    certificationDetails: normalizeMultilineText(formData.get("certificationDetails")),
+    whyStudentsLove: normalizeMultilineText(formData.get("whyStudentsLove")),
+    formatDetails: normalizeMultilineText(formData.get("formatDetails")),
+    whoCanJoin: normalizeMultilineText(formData.get("whoCanJoin")),
+    durationDetails: normalizeMultilineText(formData.get("durationDetails")),
+    feesDetails: normalizeMultilineText(formData.get("feesDetails")),
     ctaText: normalizeText(formData.get("ctaText")),
     priceTiers: parsePriceTiers(formData.get("priceTiers"), currency),
-    faqs: parseFaqs(formData.get("faqs")),
+    faqs: normalizeMultilineText(formData.get("faqs")),
     image: imageUpload || normalizeText(formData.get("image")),
   };
 
@@ -364,7 +399,7 @@ export async function upsertHealing(formData) {
     investment: parseNumber(formData.get("investment")),
     currency: normalizeCurrency(formData.get("currency")),
     durationMinutes: parseNumber(formData.get("durationMinutes")),
-    description: normalizeText(formData.get("description")),
+    description: normalizeMultilineText(formData.get("description")),
     benefits: parseList(formData.get("benefits")),
     image: imageUpload || normalizeText(formData.get("image")),
   };
@@ -381,11 +416,11 @@ export async function upsertWorkshop(formData) {
   const payload = {
     subtitle: normalizeText(formData.get("subtitle")),
     heroImage: imageUpload || normalizeText(formData.get("heroImage")),
-    teaser: normalizeText(formData.get("teaser")),
-    description: normalizeText(formData.get("description")),
+    teaser: normalizeMultilineText(formData.get("teaser")),
+    description: normalizeMultilineText(formData.get("description")),
     offerBadge: normalizeText(formData.get("offerBadge")),
     offerTitle: normalizeText(formData.get("offerTitle")),
-    offerDescription: normalizeText(formData.get("offerDescription")),
+    offerDescription: normalizeMultilineText(formData.get("offerDescription")),
     price: parseNumber(formData.get("price")),
     currency: normalizeCurrency(formData.get("currency")),
     seats: parseNumber(formData.get("seats")),
@@ -402,7 +437,7 @@ export async function upsertWorkshop(formData) {
     whoItsFor: parseList(formData.get("whoItsFor")),
     hostName: normalizeText(formData.get("hostName")),
     hostTitle: normalizeText(formData.get("hostTitle")),
-    hostBio: normalizeText(formData.get("hostBio")),
+    hostBio: normalizeMultilineText(formData.get("hostBio")),
     hostImage: normalizeText(formData.get("hostImage")),
     active: parseBoolean(formData.get("active")),
   };
@@ -419,7 +454,7 @@ export async function upsertMusicTrack(formData) {
   const coverUpload = await storeUploadedImage(formData.get("coverImageFile"));
   const payload = {
     artist: normalizeText(formData.get("artist")),
-    description: normalizeText(formData.get("description")),
+    description: normalizeMultilineText(formData.get("description")),
     audioUrl: audioUpload || normalizeText(formData.get("audioUrl")),
     coverImage: coverUpload || normalizeText(formData.get("coverImage")),
     active: parseBoolean(formData.get("active")),
@@ -443,8 +478,8 @@ export async function upsertSpinWheelSettings(formData) {
 export async function upsertBlog(formData) {
   const imageUpload = await storeUploadedImage(formData.get("imageFile"));
   const payload = {
-    excerpt: normalizeText(formData.get("excerpt")),
-    content: normalizeText(formData.get("content")),
+    excerpt: normalizeMultilineText(formData.get("excerpt")),
+    content: normalizeMultilineText(formData.get("content")),
     author: normalizeText(formData.get("author")),
     publishDate: normalizeText(formData.get("publishDate")),
     image: imageUpload || normalizeText(formData.get("image")),

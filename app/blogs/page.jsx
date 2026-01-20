@@ -49,7 +49,7 @@ export default async function BlogsPage() {
                   <h2 className="text-[20px] font-semibold text-[#6b625a] leading-snug">
                     {blog.title}
                   </h2>
-                  <p className="text-[14px] text-[#7a736c] leading-[1.7]">
+                  <p className="text-[14px] text-[#7a736c] leading-[1.7] preserve-format">
                     {blog.excerpt || blog.content?.slice(0, 140) || ""}
                   </p>
                   <div className="mt-auto">
