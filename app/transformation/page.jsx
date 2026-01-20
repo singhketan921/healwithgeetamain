@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Reveal from "@/components/Reveal";
 
 const journeyMoments = [
@@ -8,28 +9,28 @@ const journeyMoments = [
     title: "Roots of Devotion",
     chapter: "Chapter 1",
     description:
-      "A devoted homemaker, caring for family by day and quietly nurturing a spiritual pull by night.",
+      "She poured love into her home by day, and by night listened to a quiet inner pull. In the stillness, devotion turned inward and the first whispers of healing began to feel real.",
     image: "/assets/images/lady.png",
   },
   {
     title: "First Awakenings",
     chapter: "Chapter 2",
     description:
-      "The first spark came through astrology and intuition, turning doubt into a gentle inner voice.",
+      "Astrology and intuition opened the first door. Doubt softened into trust, and the spark of guidance became a steady voice she could finally follow.",
     image: "/assets/images/astrology.jpg",
   },
   {
     title: "Sacred Study",
     chapter: "Chapter 3",
     description:
-      "She committed to study: occult science, energy healing, and guidance from trusted mentors.",
+      "She committed to study with discipline: occult science, energy healing, and sacred practice under trusted mentors. What began as curiosity became a path.",
     image: "/assets/images/divine learning image.png",
   },
   {
     title: "Practitioner of Light",
     chapter: "Chapter 4",
     description:
-      "She became a practitioner, helping women step into clarity, strength, and spiritual mastery.",
+      "She stepped into service as a practitioner, guiding women toward clarity, strength, and spiritual mastery. Her gift became a living practice.",
     image: "/assets/images/spiritual guide img.jpg",
   },
 ];
@@ -53,20 +54,26 @@ const approachSteps = [
   },
 ];
 
-const courseModules = [
-  { title: "Foundations of Occult Science", image: "/assets/images/modality1.png" },
-  { title: "Astrology and Birth Charts", image: "/assets/images/modality2.png" },
-  { title: "Tarot and Symbol Reading", image: "/assets/images/modality3.png" },
-  { title: "Numerology and Vibrations", image: "/assets/images/modality4.png" },
-  { title: "Reiki and Energy Healing", image: "/assets/images/modality5.png" },
-  { title: "Crystal and Elemental Work", image: "/assets/images/modality6.png" },
-  { title: "Aura and Chakra Balancing", image: "/assets/images/modality7.png" },
-  { title: "Protection Rituals", image: "/assets/images/modality8.png" },
-  { title: "Intuition and Psychic Development", image: "/assets/images/modality9.png" },
-  { title: "Practitioner Mastery", image: "/assets/images/modality10.png" },
-];
-
 export default function TransformationPage() {
+  const [courseModules, setCourseModules] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch("/api/courses")
+      .then((response) => response.json())
+      .then((payload) => {
+        if (!isMounted) return;
+        setCourseModules(payload?.data ?? []);
+      })
+      .catch(() => {
+        if (!isMounted) return;
+        setCourseModules([]);
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="flex flex-col items-center overflow-x-hidden scroll-smooth text-[#6b625a]">
       <section
@@ -179,8 +186,11 @@ export default function TransformationPage() {
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {journeyMoments.map((moment) => (
-              <Reveal key={moment.title} className="rounded-[18px] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] overflow-hidden border border-[#e9e2da]">
-                <div className="h-[220px] overflow-hidden">
+              <Reveal
+                key={moment.title}
+                className="rounded-[20px] bg-white shadow-[0_16px_34px_rgba(0,0,0,0.12)] overflow-hidden border border-[#e9e2da] transition duration-300 hover:-translate-y-1"
+              >
+                <div className="h-[230px] overflow-hidden">
                   <img
                     src={moment.image}
                     alt={moment.title}
@@ -188,14 +198,15 @@ export default function TransformationPage() {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-5">
-                  <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
+                <div className="p-6 space-y-3">
+                  <p className="text-[11px] uppercase tracking-[0.34em] text-[#9a938c]">
                     {moment.chapter}
                   </p>
-                  <h3 className="mt-2 text-[18px] font-semibold text-[#6b625a]">
+                  <div className="h-[2px] w-10 rounded-full bg-[#e2d7cc]" />
+                  <h3 className="text-[19px] font-semibold text-[#6b625a]">
                     {moment.title}
                   </h3>
-                  <p className="mt-2 text-[13px] leading-[1.6] text-[#7a736c]">
+                  <p className="text-[14px] leading-[1.7] text-[#7a736c]">
                     {moment.description}
                   </p>
                 </div>
@@ -306,23 +317,34 @@ export default function TransformationPage() {
             </Reveal>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {courseModules.map((module) => (
-              <Reveal key={module.title} className="rounded-[18px] bg-white border border-[#e8e1d9] overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.1)]">
-                <div className="h-[200px] overflow-hidden">
-                  <img
-                    src={module.image}
-                    alt={module.title}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-[16px] font-semibold text-[#6b625a]">{module.title}</h3>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          {courseModules.length ? (
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {courseModules.map((module) => (
+                <Reveal
+                  key={module.id ?? module._id ?? module.title}
+                  className="rounded-[18px] bg-white border border-[#e8e1d9] overflow-hidden shadow-[0_12px_28px_rgba(0,0,0,0.1)]"
+                >
+                  <div className="h-[200px] overflow-hidden">
+                    <img
+                      src={module.image || "/assets/images/astrology.jpg"}
+                      alt={module.title}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-[16px] font-semibold text-[#6b625a]">
+                      {module.title}
+                    </h3>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-10 rounded-[18px] border border-[#e5ded6] bg-white/80 p-6 text-center text-[14px] text-[#7a736c]">
+              Courses will appear here once they are added in the admin panel.
+            </div>
+          )}
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
