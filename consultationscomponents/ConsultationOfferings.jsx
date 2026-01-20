@@ -64,15 +64,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
                       {item.title}
                     </h3>
                   </Link>
-                  <p
-                    className="text-[14px] text-[#7a736c] flex-1 leading-[1.7]"
-                    style={{
-                      display: "-webkit-box",
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
-                    }}
-                  >
+                  <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7] preserve-format">
                     {item.description}
                   </p>
                   <div className="flex flex-col gap-3">

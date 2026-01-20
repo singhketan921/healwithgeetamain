@@ -18,7 +18,10 @@ const MARQUEE_ITEMS = [
 export default function Hero() {
   return (
     <section className="hero-section hero-bg w-full">
-      <span className="hero-bg-slide hero-bg-slide-3 hero-bg-slide-4" aria-hidden="true" />
+      <span className="hero-bg-slide hero-bg-slide-1" aria-hidden="true" />
+      <span className="hero-bg-slide hero-bg-slide-2" aria-hidden="true" />
+      <span className="hero-bg-slide hero-bg-slide-3" aria-hidden="true" />
+      <span className="hero-bg-slide hero-bg-slide-4" aria-hidden="true" />
       <Marquee direction="left" />
 
       <div className="hero-main w-full">

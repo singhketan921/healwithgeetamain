@@ -103,15 +103,7 @@ export default function FHMusicLibrary({ tracks = [] }) {
                     {track.title}
                   </h3>
                   {track.description ? (
-                    <p
-                      className="text-[14px] text-[#7a736c] leading-[1.7]"
-                      style={{
-                        display: "-webkit-box",
-                        WebkitLineClamp: 3,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                      }}
-                    >
+                    <p className="text-[14px] text-[#7a736c] leading-[1.7] preserve-format">
                       {track.description}
                     </p>
                   ) : null}

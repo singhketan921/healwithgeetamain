@@ -44,7 +44,7 @@ export default async function HealingDetailPage({ params }) {
             <h1 className="text-[32px] sm:text-[42px] font-semibold leading-[1.15] text-[#6b625a]">
               {modality.title}
             </h1>
-            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#7a736c]">
+            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#7a736c] preserve-format">
               {modality.description}
             </p>
             <div className="flex flex-wrap gap-3 text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
@@ -88,7 +88,7 @@ export default async function HealingDetailPage({ params }) {
               <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
                 Healing Overview
               </p>
-              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
+              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
                 {modality.description}
               </p>
             </div>

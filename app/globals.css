@@ -41,6 +41,8 @@ body {
 .site-shell {
   position: relative;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   overflow-y: hidden;
   background: #f9f4e8;
@@ -49,6 +51,7 @@ body {
 .site-content {
   position: relative;
   z-index: 2;
+  flex: 1;
   background: transparent;
   border-radius: 0;
   padding: 0;
@@ -257,29 +260,7 @@ a {
   background-position: left center;
   background-repeat: no-repeat;
   overflow: hidden;
-}
-
-.hero-bg::before,
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: left center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  animation: hero-swap 24s infinite steps(1, end);
-  z-index: 0;
-}
-
-.hero-bg::before {
-  background-image: url("/assets/images/hero 1 final.png");
-  animation-delay: 0s;
-}
-
-.hero-bg::after {
-  background-image: url("/assets/images/hero 2.png");
-  animation-delay: 6s;
+  --hero-rotation: 24s;
 }
 
 .hero-bg-slide {
@@ -289,9 +270,19 @@ a {
   background-position: left center;
   background-repeat: no-repeat;
   opacity: 0;
-  animation: hero-swap 24s infinite steps(1, end);
+  animation: hero-swap var(--hero-rotation) infinite steps(1, end);
   z-index: 0;
   pointer-events: none;
+}
+
+.hero-bg-slide-1 {
+  background-image: url("/assets/images/hero 1 final.png");
+  animation-delay: 0s;
+}
+
+.hero-bg-slide-2 {
+  background-image: url("/assets/images/hero 2.png");
+  animation-delay: 6s;
 }
 
 .hero-bg-slide-3 {
@@ -314,14 +305,16 @@ a {
     background-image: linear-gradient(90deg, #FFFFFF 0%, #F9F4E8 100%);
   }
 
-  .hero-bg::before,
-  .hero-bg::after,
   .hero-bg-slide {
     background-position: left center;
     background-image: url("/assets/images/hero 1 mobile.png");
   }
 
-  .hero-bg::after {
+  .hero-bg-slide-1 {
+    background-image: url("/assets/images/hero 1 mobile.png");
+  }
+
+  .hero-bg-slide-2 {
     background-image: url("/assets/images/hero 2 mobile.png");
   }
 
@@ -397,6 +390,10 @@ a {
 
 .marquee-right {
   animation: marquee-right 18s linear infinite;
+}
+
+.preserve-format {
+  white-space: break-spaces;
 }
 
 .audio-visualizer {

@@ -201,6 +201,19 @@ export default function SpinWheel({ winProbability = 0.1 }) {
                   transition: spinning ? "transform 4s cubic-bezier(0.2, 0.8, 0.2, 1)" : "none",
                 }}
               >
+                <div className="pointer-events-none absolute inset-2 rounded-full border-[3px] border-[#c79a62] shadow-[0_0_0_6px_rgba(208,191,169,0.35)]" />
+                <div
+                  className="pointer-events-none absolute inset-[28px] rounded-full border border-[#d9c8b0]"
+                  style={{
+                    background:
+                      "repeating-conic-gradient(from 0deg, rgba(208,191,169,0.28) 0deg 3deg, rgba(255,255,255,0) 3deg 18deg)",
+                  }}
+                />
+                <div className="pointer-events-none absolute inset-[70px] rounded-full border border-[#e4d6c5] bg-[radial-gradient(circle,_rgba(255,255,255,0.9),_rgba(248,244,232,0.35))]" />
+                <div className="pointer-events-none absolute inset-[86px] rounded-full border border-[#e4d6c5]" />
+                <div className="pointer-events-none absolute inset-[100px] rounded-full border border-[#eadfce]" />
+                <div className="pointer-events-none absolute inset-[120px] rounded-full border border-[#eadfce] bg-[conic-gradient(from_0deg,_rgba(199,154,98,0.12)_0deg,_rgba(255,255,255,0)_30deg,_rgba(199,154,98,0.12)_60deg,_rgba(255,255,255,0)_90deg)]" />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[64%] w-[64%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#e4d6c5]" />
                 {SEGMENTS.map((segment, index) => {
                   const centerAngle = index * segmentAngle + segmentAngle / 2;
                   return (
@@ -213,12 +226,12 @@ export default function SpinWheel({ winProbability = 0.1 }) {
                       }}
                     >
                       <div
-                        className="text-[6px] sm:text-[9px] lg:text-[10px] uppercase tracking-[0.04em] text-[#6b625a] text-center leading-[1.1]"
+                        className="text-[6px] sm:text-[9px] lg:text-[10px] uppercase tracking-[0.04em] text-[#4f463e] text-center leading-[1.1] drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]"
                         style={{
                           transform: `rotate(${-centerAngle}deg)`,
                         }}
                       >
-                        <span className="inline-block max-w-[56px] sm:max-w-[110px] lg:max-w-[120px] break-words">
+                        <span className="inline-block max-w-[56px] sm:max-w-[110px] lg:max-w-[120px] break-words rounded-[6px] bg-white/70 px-1.5 py-0.5">
                           {splitLabel(segment.label)[0]}
                           <span className="block">{splitLabel(segment.label)[1]}</span>
                         </span>
@@ -226,8 +239,22 @@ export default function SpinWheel({ winProbability = 0.1 }) {
                     </div>
                   );
                 })}
-                <div className="absolute left-1/2 top-1/2 h-12 w-12 sm:h-16 sm:w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_8px_20px_rgba(0,0,0,0.2)] flex items-center justify-center">
-                  <div className="h-3 w-3 sm:h-4 sm:w-4 rounded-full bg-[#6b625a]" />
+                <div className="pointer-events-none absolute left-1/2 top-1/2 h-[62%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-full">
+                  {[0, 1, 2, 3, 4, 5, 6, 7].map((badge) => {
+                    const badgeAngle = badge * 45;
+                    return (
+                      <div
+                        key={`badge-${badge}`}
+                        className="absolute left-1/2 top-1/2 h-10 w-10 sm:h-12 sm:w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-[2px] border-[#c79a62] bg-white shadow-[0_8px_16px_rgba(0,0,0,0.12)]"
+                        style={{
+                          transform: `rotate(${badgeAngle}deg) translateY(-120%) rotate(${-badgeAngle}deg)`,
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+                <div className="absolute left-1/2 top-1/2 h-14 w-14 sm:h-18 sm:w-18 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-[#c79a62] bg-white shadow-[0_8px_20px_rgba(0,0,0,0.2)] flex items-center justify-center">
+                  <div className="h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-[#6b625a]" />
                 </div>
               </div>
               <p className="mt-4 text-center text-[11px] uppercase tracking-[0.28em] text-[#9a938c]">
