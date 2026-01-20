@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { fetchBlogs } from "@/lib/services/blogService";
+import { deleteBlog } from "@/app/admin/actions";
 
 export const runtime = "nodejs";
 
@@ -83,12 +84,27 @@ export default async function AdminBlogsPage() {
                     {blog.publishDate || "-"}
                   </td>
                   <td className="px-6 py-4 text-xs">
-                    <Link
-                      href={`/admin/blogs/${blog.id ?? blog._id}`}
-                      className="text-[#6b625a] underline"
-                    >
-                      Edit
-                    </Link>
+                    <div className="flex items-center gap-3">
+                      <Link
+                        href={`/admin/blogs/${blog.id ?? blog._id}`}
+                        className="text-[#6b625a] underline"
+                      >
+                        Edit
+                      </Link>
+                      <form action={deleteBlog}>
+                        <input
+                          type="hidden"
+                          name="id"
+                          value={blog.id ?? blog._id ?? ""}
+                        />
+                        <button
+                          type="submit"
+                          className="text-red-600 underline"
+                        >
+                          Delete
+                        </button>
+                      </form>
+                    </div>
                   </td>
                 </tr>
               ))}
