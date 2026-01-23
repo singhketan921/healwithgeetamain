@@ -10,6 +10,7 @@ const links = [
   { name: "Consultations", href: "/consultations" },
   { name: "FH Music", href: "/fhmusic" },
   { name: "Courses", href: "/courses" },
+  { name: "Workshops", href: "/workshops" },
   { name: "Healings", href: "/healings" },
   { name: "Contact", href: "/contact" },
 ];
