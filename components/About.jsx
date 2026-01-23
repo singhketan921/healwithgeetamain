@@ -3,10 +3,10 @@
 export default function About() {
   return (
     <section
-      className="py-14 text-[#6b625a]"
+      className="py-14 text-[#6b625a] relative overflow-hidden"
       style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
     >
-      <div className="mx-auto max-w-[1200px] px-6">
+      <div className="mx-auto max-w-[1200px] px-6 relative">
         <h2 className="text-center text-[28px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.14em] text-[#6b625a]">
           MEET THE SPIRITUAL GUIDE
         </h2>
@@ -30,7 +30,7 @@ export default function About() {
 
           <div className="max-w-[420px]">
             <div className="flex items-center gap-2">
-              <img src="/assets/images/logo.png" alt="" className="h-5 w-5" />
+              <img src="/assets/images/logo.png" alt="" className="h-7 w-7" />
               <h3 className="text-[28px] sm:text-[32px] font-semibold tracking-[0.08em] text-[#6b625a]">
                 GEETA SHARMA
               </h3>

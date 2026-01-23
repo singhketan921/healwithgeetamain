@@ -2,7 +2,7 @@
 
 import { FaFacebookF, FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
 
-const logo = "/assets/images/logo.png";
+const logo = "/assets/images/logo 1.jpg";
 
 export default function Footer() {
   return (
