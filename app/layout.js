@@ -20,6 +20,9 @@ const lora = Lora({
 export const metadata = {
   title: "HealWithGeeta",
   description: "Holistic Vedic consultations, healing, and learning experiences.",
+  icons: {
+    icon: "/assets/images/logo%201.jpg",
+  },
 };
 
 export default function RootLayout({ children }) {
