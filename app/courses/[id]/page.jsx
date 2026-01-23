@@ -73,7 +73,7 @@ function renderListBlock(title, items) {
         {title}
       </p>
       {isList ? (
-      <ul className="mt-4 grid gap-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
+      <ul className="mt-4 grid gap-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48]">
         {items.map((item) => (
           <li
             key={item}
@@ -84,9 +84,9 @@ function renderListBlock(title, items) {
         ))}
       </ul>
     ) : (
-      <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
-        {items}
-      </p>
+        <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
+          {items}
+        </p>
     )}
     </div>
   );
@@ -128,11 +128,11 @@ export default async function CourseDetailPage({ params }) {
             <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
               {course.level ?? "Certificate Course"}
             </p>
-            <h1 className="text-[32px] sm:text-[42px] font-semibold leading-[1.15] text-[#6b625a]">
+            <h1 className="text-[32px] sm:text-[42px] font-semibold leading-[1.15] text-white">
               {course.title}
             </h1>
-            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#7a736c] preserve-format">
-              {course.summary || course.headline || course.description}
+            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#524e48] preserve-format">
+              {course.summary || ""}
             </p>
             <div className="flex flex-wrap gap-3 text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
               <span className="rounded-full border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2">
@@ -144,7 +144,7 @@ export default async function CourseDetailPage({ params }) {
             </div>
             <div className="flex flex-wrap gap-3">
               <a
-                href="/courses#form"
+                href={`/courses/${resolvedParams.id}/checkout`}
                 className="rounded-[12px] bg-[#6b625a] px-6 py-3 text-[13px] font-semibold !text-white text-center"
               >
                 {course.ctaText || "Enroll in this course"}
@@ -172,7 +172,7 @@ export default async function CourseDetailPage({ params }) {
               <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
                 Course Overview
               </p>
-              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
+              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
                 {course.description}
               </p>
             </div>
@@ -265,7 +265,7 @@ export default async function CourseDetailPage({ params }) {
                     className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-3"
                   >
                     <p className="font-semibold text-[#6b625a]">{faq.question}</p>
-                  <p className="mt-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
+                  <p className="mt-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
                     {faq.answer}
                   </p>
                   </div>
@@ -278,7 +278,7 @@ export default async function CourseDetailPage({ params }) {
             <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
               FAQ
             </p>
-            <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
+            <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
               {course.faqs}
             </p>
           </section>
@@ -288,11 +288,11 @@ export default async function CourseDetailPage({ params }) {
           <h2 className="text-[26px] sm:text-[32px] font-semibold !text-white">
             Ready to begin your learning journey?
           </h2>
-          <p className="mt-3 text-[14px] sm:text-[16px] text-white/80">
+          <p className="mt-3 text-[14px] sm:text-[16px] text-white/90">
             Secure your seat and receive the full course roadmap.
           </p>
           <a
-            href="/courses#form"
+            href={`/courses/${resolvedParams.id}/checkout`}
             className="mt-6 inline-flex rounded-[12px] bg-white px-8 py-3 text-[13px] font-semibold !text-[#6b625a]"
           >
             {course.ctaText || "Enroll now"}

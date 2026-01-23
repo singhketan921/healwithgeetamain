@@ -13,7 +13,7 @@ const initialState = {
   message: "",
 };
 
-export default function LearningForm({ onSubmit }) {
+export default function LearningForm({ courses = [], onSubmit }) {
   const [formData, setFormData] = useState(initialState);
   const [status, setStatus] = useState({ state: "idle", message: "" });
 
@@ -130,9 +130,11 @@ export default function LearningForm({ onSubmit }) {
               className="border border-[#e7dfd6] rounded-full px-5 py-3 bg-white text-[#7a736c] focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
             >
               <option value="">Select Course</option>
-              <option value="Vedic Astrology">Vedic Astrology</option>
-              <option value="Intuitive Tarot">Intuitive Tarot</option>
-              <option value="Energy Healing">Energy Healing</option>
+              {courses.map((course) => (
+                <option key={course.id ?? course._id ?? course.title} value={course.id ?? course.title}>
+                  {course.title}
+                </option>
+              ))}
             </select>
             <input
               type="date"

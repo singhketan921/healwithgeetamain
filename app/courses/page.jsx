@@ -42,7 +42,7 @@ export default async function CoursesPage() {
       </section>
 
       <section id="form" className="w-full">
-        <LearningForm />
+        <LearningForm courses={courses} />
       </section>
     </div>
   );

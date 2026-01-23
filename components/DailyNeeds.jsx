@@ -85,7 +85,7 @@ export default function DailyNeeds() {
                 Explore More
               </Link>
               <img
-                src="/assets/images/learnings new.png"
+                src="/assets/images/learnings.jpeg"
                 alt="Divine learning"
                 className="absolute left-1/2 -translate-x-1/2 -bottom-4 h-[58%] w-[100%] max-w-none object-cover sm:-bottom-6 sm:h-[70%] sm:w-[105%]"
                 loading="lazy"
