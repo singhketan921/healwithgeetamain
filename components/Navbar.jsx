@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
-const logo = "/assets/images/logo.png";
+const logo = "/assets/images/logo 1.jpg";
 
 const links = [
   { name: "Consultations", href: "/consultations" },
