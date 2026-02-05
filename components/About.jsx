@@ -2,46 +2,52 @@
 
 export default function About() {
   return (
-    <section
-      className="py-14 text-[#6b625a] relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
-    >
-      <div className="mx-auto max-w-[1200px] px-6 relative">
-        <h2 className="text-center text-[28px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.14em] text-[#6b625a]">
-          MEET THE SPIRITUAL GUIDE
-        </h2>
-
-        <div className="mt-10 grid items-center gap-10 lg:grid-cols-[0.58fr_0.42fr]">
-          <div className="relative">
-            <div className="overflow-hidden rounded-[16px] bg-black shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
-              <video
-                className="h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/assets/images/spiritual guide img.jpg"
-              >
-                <source src="/assets/images/CRYSTAL HEALING .mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-
-          <div className="max-w-[420px]">
-            <div className="flex items-center gap-2">
-              <img src="/assets/images/logo.png" alt="" className="h-7 w-7" />
-              <h3 className="text-[28px] sm:text-[32px] font-semibold tracking-[0.08em] text-[#6b625a]">
-                GEETA SHARMA
-              </h3>
-            </div>
-
-            <p className="mt-4 text-[17px] sm:text-[18px] leading-[1.7] text-[#7a736c]">
-              With Years Of Spiritual Practice And Divine Guidance, Geeta Has Helped Thousands Heal,
-              Align, And Find Clarity Through Sacred Sciences. Every Session Is Guided By Deep
-              Intuition, Ancient Wisdom, And A Genuine Desire To Bring Peace, Balance, And
-              Transformation Into People's Lives.
+    <section className="guide-section">
+      <div className="guide-inner">
+        <div className="guide-card">
+          <div className="guide-crest" aria-hidden="true" />
+          <div className="guide-copy">
+            <h2 className="guide-title">Where Healers Become Leaders</h2>
+            <p className="guide-lead">
+              I am not just a healer or a guide.
+              <br />
+              I am a coach who creates coaches.
             </p>
+            <p className="guide-paragraph">
+              Over the years, I have mentored, trained, and aligned souls who felt{" "}
+              <em>called</em> to heal, guide, teach, and serve — but didn’t know how to
+              step into it confidently.
+            </p>
+            <p className="guide-paragraph">Today, many of those souls are:</p>
+            <ul className="guide-list">
+              <li>Running their own independent healing practices</li>
+              <li>Working as self-employed coaches and guides</li>
+              <li>Trusting their intuition, wisdom, and energy</li>
+              <li>Creating income with purpose, not pressure</li>
+            </ul>
+            <p className="guide-paragraph">This is not about copying a formula.</p>
+            <p className="guide-paragraph">
+              This is about <em>awakening the coach within you</em> — emotionally,
+              energetically, and practically.
+            </p>
+            <p className="guide-paragraph">I walk with you until:</p>
+            <ul className="guide-list">
+              <li>Your self-doubt dissolves</li>
+              <li>Your clarity becomes strong</li>
+              <li>Your work feels aligned, not forced</li>
+              <li>And your journey as a self-employed guide truly begins.</li>
+            </ul>
+            <p className="guide-paragraph guide-final">
+              And your journey as a self-employed guide truly begins.
+            </p>
+          </div>
+          <div className="guide-figure">
+            <img
+              src="/assets/images/HeroImg.png"
+              alt="Geeta holding a glowing crystal"
+              width="1024"
+              height="878"
+            />
           </div>
         </div>
       </div>
