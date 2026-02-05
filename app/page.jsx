@@ -24,16 +24,16 @@ export default async function HomePage() {
         <Hero />
       </section>
 
+      <section id="services" className="w-full">
+        <Services />
+      </section>
+
       <section id="about" className="w-full">
         <About />
       </section>
 
       <section id="learnings" className="w-full">
         <Learnings />
-      </section>
-
-      <section id="services" className="w-full">
-        <Services />
       </section>
 
       <section id="spin-wheel" className="w-full">
@@ -43,16 +43,6 @@ export default async function HomePage() {
       <section id="daily-needs" className="w-full">
         <DailyNeeds />
       </section>
-
-      
-
-      
-
-      
-
-      
-
-      
 
       <section id="testimonials" className="w-full">
         <Testimonials testimonials={testimonials} />
