@@ -1,8 +1,22 @@
-'use client';
-
+import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaYoutube, FaXTwitter } from "react-icons/fa6";
 
 const logo = "/assets/images/logo 1.jpg";
+
+const footerSections = {
+  offerings: [
+    { label: "Consultations", href: "/consultations" },
+    { label: "Healings", href: "/healings" },
+    { label: "Courses", href: "/courses" },
+  ],
+  studio: [
+    { label: "Blogs", href: "/blogs" },
+    { label: "Contact", href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms-and-conditions" },
+    { label: "Refund Policy", href: "/refund-policy" },
+  ],
+};
 
 export default function Footer() {
   return (
@@ -13,7 +27,6 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <img src={logo} alt="HealWithGeeta" className="w-14 h-14 object-contain" />
               <div>
-                
                 <p className="font-serif text-xl">FaithHealers</p>
               </div>
             </div>
@@ -38,11 +51,11 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">Offerings</p>
             <ul className="space-y-2 text-sm">
-              {["Consultations", "Healings", "Courses"].map((item) => (
-                <li key={item}>
-                  <a className="hover:text-[#A59079] transition" href={`/${item.toLowerCase()}`}>
-                    {item}
-                  </a>
+              {footerSections.offerings.map((item) => (
+                <li key={item.label}>
+                  <Link className="hover:text-[#A59079] transition" href={item.href}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -51,11 +64,11 @@ export default function Footer() {
           <div className="space-y-3">
             <p className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0]">Studio</p>
             <ul className="space-y-2 text-sm">
-              {["Blogs", "Contact", "Privacy", "Terms"].map((item) => (
-                <li key={item}>
-                  <a className="hover:text-[#A59079] transition" href={`/${item.toLowerCase()}`}>
-                    {item}
-                  </a>
+              {footerSections.studio.map((item) => (
+                <li key={item.label}>
+                  <Link className="hover:text-[#A59079] transition" href={item.href}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -63,7 +76,7 @@ export default function Footer() {
         </div>
 
         <div className="text-xs uppercase tracking-[0.4em] text-[#B0AAA0] text-center">
-          © {new Date().getFullYear()} FaithHealers · Crafted with cosmic intention
+          (C) {new Date().getFullYear()} FaithHealers | Crafted with cosmic intention
         </div>
       </div>
     </footer>
