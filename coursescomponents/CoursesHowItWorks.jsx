@@ -28,21 +28,25 @@ const steps = [
 
 export default function CoursesHowItWorks() {
   return (
-    <section className="bg-[#F9F4E8] py-24 text-[#6b625a]">
-      <div className="mx-auto max-w-[1200px] px-6 space-y-10">
-        <div className="space-y-3">
-          <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
+    <section className="bg-[#f8f3ef] px-6 py-24 text-[#ad7f53] sm:py-28">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="mx-auto mb-16 max-w-[820px] text-center">
+          <p className="mb-5 flex items-center justify-center gap-3 text-[22px] font-normal text-[#ad7f53]">
+            <span className="text-[25px] leading-none">✽</span>
             Process
           </p>
-          <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
-            How each course unfolds
+          <h2 className="text-[48px] font-normal leading-[0.98] text-[#ad7f53] sm:text-[70px] md:text-[84px]">
+            How Each Course
+            <span className="mt-2 block font-serif text-[54px] italic leading-none sm:text-[76px] md:text-[88px]">
+              Unfolds
+            </span>
           </h2>
-          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
+          <p className="mx-auto mt-6 max-w-[680px] text-[18px] leading-[1.45] text-[#ad7f53]/85">
             A four-part rhythm that mirrors the cadence of a beautifully edited feature.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid border-l border-t border-[#ad7f53] md:grid-cols-2">
           {steps.map((step, i) => (
             <motion.article
               key={step.title}
@@ -50,20 +54,21 @@ export default function CoursesHowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="rounded-[16px] border border-[#e7dfd6] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.12)] p-6 flex gap-5"
+              className="group flex min-h-[300px] flex-col justify-center border-b border-r border-[#ad7f53] bg-[#f8f3ef] px-8 py-12 text-center transition-colors duration-300 hover:bg-[#ad7f53] sm:px-12 lg:min-h-[340px]"
             >
-              <div className="w-14 h-14 rounded-full bg-[#6d655d] flex items-center justify-center text-2xl text-white">
+              <div className="mx-auto mb-7 flex h-16 w-16 items-center justify-center border border-[#ad7f53] text-[28px] text-[#ad7f53] transition-colors duration-300 group-hover:border-white group-hover:text-white">
                 {step.icon}
               </div>
-              <div>
-                <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3 className="text-[18px] sm:text-[20px] font-semibold mt-1">{step.title}</h3>
-                <p className="text-[14px] text-[#7a736c] leading-[1.7] mt-2">
-                  {step.text}
-                </p>
-              </div>
+              <p className="mb-5 text-[14px] uppercase tracking-[0.28em] text-[#ad7f53]/80 transition-colors duration-300 group-hover:text-white/80">
+                {String(i + 1).padStart(2, "0")}
+              </p>
+              <h3 className="text-[30px] font-normal leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[36px]">
+                {step.title}
+              </h3>
+              <div className="mx-auto my-7 h-px w-full max-w-[420px] bg-[#ad7f53] transition-colors duration-300 group-hover:bg-white" />
+              <p className="mx-auto max-w-[420px] text-[18px] leading-[1.35] text-[#ad7f53] transition-colors duration-300 group-hover:text-white/90">
+                {step.text}
+              </p>
             </motion.article>
           ))}
         </div>
