@@ -19,23 +19,26 @@ export default function ConsultationOfferings({ offerings = [] }) {
   return (
     <section
       id="offerings"
-      className="py-24 text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
+      className="bg-[#f8f3ef] py-20 text-[#ad7f53] sm:py-24"
     >
-      <div className="mx-auto max-w-[1320px] px-6 space-y-12">
-        <div className="space-y-4 max-w-[720px] mx-auto text-center">
-          <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
+        <div className="mx-auto mb-14 max-w-[760px] text-center sm:mb-16">
+          <p className="mb-3 flex items-center justify-center gap-2 text-[14px] font-medium text-[#ad7f53] sm:text-[16px]">
+            <span className="text-[18px] leading-none">✽</span>
             Offerings
           </p>
-          <h2 className="text-[28px] sm:text-[36px] md:text-[40px] font-semibold tracking-[0.14em] text-[#6b625a]">
-            Consultations Crafted for Your Path
+          <h2 className="text-[40px] font-normal leading-[0.95] text-[#ad7f53] sm:text-[56px] md:text-[64px]">
+            Consultations Crafted
+            <span className="mt-2 block font-serif text-[44px] italic leading-none sm:text-[60px] md:text-[68px]">
+              for Your Path
+            </span>
           </h2>
-          <div className="mx-auto h-[2px] w-16 rounded-full bg-[#d8cfc6]" />
-          <p className="text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
+          <p className="mx-auto mt-6 max-w-[620px] text-[15px] leading-[1.7] text-[#ad7f53]/85 sm:text-[16px]">
             Choose the reading that brings clarity and calm. Each session blends sacred insight with practical next steps.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="grid grid-cols-1 border-l border-t border-[#c99b74] sm:grid-cols-2 lg:grid-cols-3">
           {safeOfferings.map((item, i) => {
             const itemId = item.id ?? item._id;
             return (
@@ -45,37 +48,49 @@ export default function ConsultationOfferings({ offerings = [] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="rounded-[18px] border border-[#e7dfd6] bg-[#fbf8f5] shadow-[0_16px_32px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col"
+                className="group relative min-h-[540px] overflow-hidden border-b border-r border-[#c99b74] bg-[#f8f3ef] p-8 sm:min-h-[600px] sm:p-10 lg:p-[72px]"
               >
-                <Link href={`/consultations/${itemId}`} className="block">
-                  <img
-                    src={item.image || "/assets/images/astrology.jpg"}
-                    alt={item.title}
-                    className="w-full h-52 object-cover"
-                  />
-                </Link>
-                <div className="flex flex-col h-full p-6 space-y-4">
-                  <div className="flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">
-                    <span>Session</span>
-                    <span>{formatPrice(item.price, item.currency)}</span>
-                  </div>
+                <div className="flex h-full flex-col items-start">
+                  <Link href={`/consultations/${itemId}`} className="mb-8 block w-full">
+                    <img
+                      src={item.image || "/assets/images/astrology.jpg"}
+                      alt={item.title}
+                      className="aspect-[1.45/1] w-full object-cover"
+                    />
+                  </Link>
                   <Link href={`/consultations/${itemId}`}>
-                    <h3 className="text-[20px] sm:text-[22px] font-semibold leading-snug">
+                    <h3 className="mb-3 text-[25px] font-normal leading-tight text-[#ad7f53] sm:text-[28px]">
                       {item.title}
                     </h3>
                   </Link>
-                  <p className="text-[14px] text-[#7a736c] flex-1 leading-[1.7] preserve-format">
+                  <span className="mb-6 inline-flex bg-[#ad7f53] px-3 py-2 text-[13px] leading-none !text-white">
+                    {formatPrice(item.price, item.currency)}
+                  </span>
+                  <p className="mb-8 max-w-[320px] text-[15px] leading-[1.35] text-[#ad7f53] preserve-format">
                     {item.description}
                   </p>
-                  <div className="flex flex-col gap-3">
-                    <Link
-                      href={`/consultations/${itemId}`}
-                      className="rounded-[12px] border border-[#8f857c] bg-transparent px-6 py-2 text-[13px] font-semibold text-[#6b625a] text-center"
-                    >
-                      View details
-                    </Link>
-                  </div>
+                  <Link
+                    href={`/consultations/${itemId}`}
+                    className="mt-auto inline-flex h-12 min-w-[168px] items-center justify-center gap-3 bg-[#ad7f53] px-7 text-[13px] font-medium uppercase tracking-[0.08em] !text-white transition-colors hover:bg-[#986d45]"
+                  >
+                    Read More <span aria-hidden="true">↗</span>
+                  </Link>
                 </div>
+
+                <Link
+                  href={`/consultations/${itemId}`}
+                  className="absolute inset-0 z-10 flex translate-y-4 flex-col items-center justify-center bg-[#ad7f53] px-8 text-center !text-white opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"
+                >
+                  <span className="mb-6 text-[27px] font-normal leading-tight sm:text-[30px]">
+                    {item.title}
+                  </span>
+                  <span className="mb-7 max-w-[250px] text-[15px] leading-[1.45] !text-white/90">
+                    {item.description}
+                  </span>
+                  <span className="inline-flex h-12 items-center justify-center gap-3 bg-[#f8f3ef] px-8 text-[13px] font-medium uppercase tracking-[0.08em] text-[#5e5147]">
+                    View Details <span aria-hidden="true">↗</span>
+                  </span>
+                </Link>
               </motion.article>
             );
           })}

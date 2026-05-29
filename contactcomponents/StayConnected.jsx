@@ -12,51 +12,46 @@ const SOCIALS = [
 
 export default function StayConnected() {
   return (
-    <section className="relative overflow-hidden border-t border-[#d9d2ca] bg-[#F9F4E8] px-6 py-24">
-      <div className="absolute inset-0 pointer-events-none">
-        <span className="absolute left-1/2 top-0 h-60 w-60 -translate-x-1/2 rounded-full bg-white blur-[140px]" />
-      </div>
-
-      <Reveal className="relative z-10 mx-auto max-w-[1200px] text-center text-[#6b625a]">
-        <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
+    <section className="bg-[#f8f3ef] px-6 py-24 text-[#ad7f53] sm:py-28">
+      <Reveal className="mx-auto max-w-[1440px] text-center">
+        <p className="mb-5 flex items-center justify-center gap-3 text-[22px] font-normal text-[#ad7f53]">
+          <span className="text-[25px] leading-none">✽</span>
           Dispatches
         </p>
-        <h2 className="mt-3 text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em] leading-tight">
-          Stay connected with HealWithGeeta
+        <h2 className="text-[48px] font-normal leading-[0.98] text-[#ad7f53] sm:text-[70px] md:text-[84px]">
+          Stay Connected
+          <span className="mt-2 block font-serif text-[54px] italic leading-none sm:text-[76px] md:text-[88px]">
+            With Us
+          </span>
         </h2>
-        <p className="mt-4 text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
+        <p className="mx-auto mt-6 max-w-[620px] text-[18px] leading-[1.45] text-[#ad7f53]/85">
           Follow the studio diary for daily rituals, astrology notes, and behind the
           scenes of new products.
         </p>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <div className="mt-16 grid border-l border-t border-[#ad7f53] sm:grid-cols-2 lg:grid-cols-4">
           {SOCIALS.map(({ icon: Icon, label, href }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-between rounded-[16px] border border-[#e7dfd6] bg-white/90 px-6 py-4 text-left shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+              className="group flex min-h-[300px] flex-col items-center justify-center border-b border-r border-[#ad7f53] bg-[#f8f3ef] px-8 py-12 text-center transition-colors duration-300 hover:bg-[#ad7f53]"
             >
-              <div>
-                <p className="text-[12px] uppercase tracking-[0.2em] text-[#9a938c]">{label}</p>
-                <p className="text-[18px] sm:text-[20px] font-semibold text-[#6b625a]">@healwithgeeta</p>
-              </div>
-              <span className="rounded-full bg-[#fbf8f5] p-3 text-[#6d655d]">
-                <Icon className="text-lg" />
+              <span className="mb-8 flex h-16 w-16 items-center justify-center border border-[#ad7f53] text-[#ad7f53] transition-colors duration-300 group-hover:border-white group-hover:text-white">
+                <Icon className="text-[28px]" />
               </span>
+              <h3 className="text-[30px] font-normal leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[34px]">
+                {label}
+              </h3>
+              <div className="my-7 h-px w-full bg-[#ad7f53] transition-colors duration-300 group-hover:bg-white" />
+              <p className="text-[18px] leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white">
+                @healwithgeeta
+              </p>
             </a>
           ))}
         </div>
 
-        <a
-          href="https://www.instagram.com/"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-10 rounded-[12px] bg-white px-10 py-3 text-[14px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)] text-center"
-        >
-          Follow us
-        </a>
       </Reveal>
     </section>
   );

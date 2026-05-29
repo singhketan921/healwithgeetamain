@@ -4,16 +4,25 @@ import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 
-const logo = "/assets/images/logo 1.jpg";
-
 const links = [
-  { name: "Consultations", href: "/consultations" },
-  { name: "FH Music", href: "/fhmusic" },
-  { name: "Courses", href: "/courses" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/#about" },
+  { name: "Programs", href: "/courses" },
+  { name: "Consultation", href: "/consultations" },
   { name: "Workshops", href: "/workshops" },
-  { name: "Healings", href: "/healings" },
+  { name: "FH music", href: "/fhmusic" },
   { name: "Contact", href: "/contact" },
 ];
+
+function HamburgerIcon({ className = "" }) {
+  return (
+    <span className={`flex flex-col items-center justify-center gap-[4px] ${className}`} aria-hidden="true">
+      <span className="h-[2px] w-5 rounded-full bg-current" />
+      <span className="h-[2px] w-5 rounded-full bg-current" />
+      <span className="h-[2px] w-5 rounded-full bg-current" />
+    </span>
+  );
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,132 +31,80 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 z-50 w-full border-b border-[#524E48] bg-[#FFFFFF]"
+      className="fixed left-0 top-0 z-50 w-full border-b border-[#d7c4ad] bg-white"
     >
-      <div className="flex h-16 items-center justify-between w-full px-4 py-3 gap-4 md:px-[19px] md:py-[18px] md:gap-[139px]">
+      <div className="relative flex h-[72px] w-full items-center justify-between px-6 sm:px-12 lg:h-[88px] lg:px-[72px]">
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ad7f53] text-white transition-transform duration-200 hover:scale-105 lg:h-12 lg:w-12"
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation"
+        >
+          <HamburgerIcon />
+        </button>
+
         <Link
           href="/"
-          className="flex items-center gap-3 text-[#4d4d4d] flex-shrink-0 md:min-w-[160px] lg:min-w-[220px]"
+          onClick={() => setIsOpen(false)}
+          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-3 text-[#4c4740]"
         >
           <img
-            src={logo}
-            alt="FaithHealers lotus logo"
-            className="h-7 w-7 md:h-8 md:w-8"
+            src="/assets/navicon.png"
+            alt=""
+            className="h-9 w-9 shrink-0 object-contain lg:h-12 lg:w-12"
           />
-          <span
-            className="text-[18px] md:text-xl font-semibold tracking-wide"
-          >
-            FaithHealers
+          <span className="hidden whitespace-nowrap font-serif text-[30px] italic leading-none sm:block lg:text-[42px]">
+            Faith Healers School Of Occult Science
+          </span>
+          <span className="whitespace-nowrap font-serif text-[22px] italic leading-none sm:hidden">
+            Faith Healers
           </span>
         </Link>
 
-        <nav className="hidden md:flex flex-grow justify-center gap-8 text-[15px] font-medium text-[#4d4d4d]">
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="transition-colors duration-200 hover:text-black focus-visible:text-black focus-visible:outline-none"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden md:flex items-center justify-end flex-shrink-0 gap-5 md:min-w-[220px]">
-          <button
-            type="button"
-            className="text-black transition-transform duration-150 hover:scale-105"
-            aria-label="Account"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="h-6 w-6"
-            >
-              <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" />
-              <path d="M4 20a8 8 0 0 1 16 0Z" />
-            </svg>
-          </button>
+        <div className="flex items-center justify-end">
           <button
             type="button"
             onClick={toggleCart}
-            className="text-black transition-transform duration-150 hover:scale-105"
-            aria-label="Cart"
+            className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#ad7f53] text-white transition-transform duration-200 hover:scale-105 lg:h-12 lg:w-12"
+            aria-label={`Open cart with ${itemCount} item${itemCount === 1 ? "" : "s"}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
+              viewBox="0 0 64 64"
               fill="currentColor"
-              className="h-6 w-6"
+              className="h-7 w-7 lg:h-9 lg:w-9"
             >
-              <path d="M7.5 18a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 7.5 18Zm9 0A1.5 1.5 0 1 0 18 19.5 1.5 1.5 0 0 0 16.5 18ZM6.2 6l-.8-2H2.5a.75.75 0 0 0 0 1.5h1.9l2.3 8.1a2.25 2.25 0 0 0 2.16 1.65h7.44a2.25 2.25 0 0 0 2.2-1.76l1.5-6A.75.75 0 0 0 19.3 6Zm12.05 1.5-1.22 4.88a.75.75 0 0 1-.73.62H8.86a.75.75 0 0 1-.72-.56L6.54 7.5Z" />
+              <circle cx="32" cy="25" r="13" />
+              <path d="M13 58c3-13 13-20 19-20s16 7 19 20Z" />
             </svg>
-          </button>
-        </div>
-
-        <div className="flex items-center gap-2 md:hidden ml-auto">
-          <button
-            onClick={toggleCart}
-            className="relative px-3 py-2 text-[13px] font-medium text-charcoal border border-gray-200 rounded-full hover:border-charcoal transition"
-            aria-label="Open cart"
-          >
-            Cart
-          </button>
-          <button
-            onClick={() => setIsOpen((prev) => !prev)}
-            className="inline-flex items-center justify-center p-2 transition-colors border border-gray-300 rounded-md text-charcoal hover:bg-gray-100"
-            aria-expanded={isOpen}
-            aria-label="Toggle navigation"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {itemCount > 0 ? (
+              <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-white px-1 text-[11px] font-semibold text-[#ad7f53]">
+                {itemCount}
+              </span>
+            ) : null}
           </button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="border-t border-gray-200 shadow-lg bg-white/90 backdrop-blur-lg md:hidden animate-fadeIn">
-          <nav className="flex flex-col px-4 py-4">
+        <div className="fixed left-0 top-[72px] z-40 h-[calc(100vh-72px)] w-[86vw] max-w-[520px] overflow-hidden border-x-2 border-b-2 border-[#ad7f53] bg-[#f8f3ef] animate-fadeIn lg:top-[88px] lg:h-[calc(100vh-88px)] lg:w-[520px]">
+          <nav className="flex h-full flex-col justify-center px-[18%] py-8">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="px-3 py-2 text-sm font-medium transition rounded-md text-charcoal hover:bg-olive/10 hover:text-olive"
+                className="group inline-flex items-center gap-3 py-3 font-serif text-[38px] leading-none text-[#4c4740] transition-colors hover:text-[#ad7f53] sm:text-[46px] lg:text-[52px]"
               >
-                {link.name}
+                <span>{link.name}</span>
+                {link.name === "Home" ? (
+                  <span className="text-[#ad7f53] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">
+                    ↗
+                  </span>
+                ) : null}
               </Link>
             ))}
           </nav>
-          <div className="px-4 pb-4 space-y-3">
-            <input
-              type="search"
-              placeholder="Search in site"
-              className="w-full h-10 px-4 text-sm placeholder-gray-400 bg-white border border-gray-200 rounded-full text-charcoal focus:border-olive focus:outline-none focus:ring-2 focus:ring-olive/20"
-            />
-            <button
-              onClick={() => {
-                toggleCart();
-                setIsOpen(false);
-              }}
-              className="w-full rounded-full border border-gray-200 py-2 text-sm font-medium text-charcoal hover:border-charcoal transition"
-            >
-              View Cart ({itemCount})
-            </button>
-          </div>
         </div>
       )}
     </header>

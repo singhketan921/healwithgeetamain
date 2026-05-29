@@ -1,7 +1,12 @@
 'use client';
 
-import { motion } from "framer-motion";
 import { useState } from "react";
+import FormSectionFrame, {
+  formBoxInputClass,
+  formInputClass,
+  formSubmitClass,
+  formTextareaClass,
+} from "@/components/FormSectionFrame";
 
 const initialForm = {
   fullName: "",
@@ -63,44 +68,27 @@ export default function BookHealingSession() {
   };
 
   return (
-    <section className="py-24 bg-[#F9F4E8] px-6 sm:px-10 text-[#6b625a]">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="space-y-6 mx-auto max-w-[1200px]"
-      >
-        <div className="space-y-3 text-center">
-          <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-            Booking
-          </p>
-          <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
-            Ready to receive?
-          </h2>
-          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
-            Tell us the sensation you seek-grounding, release, or energy boost-and we'll choreograph the healing.
-          </p>
-        </div>
-
-        <motion.form
+    <FormSectionFrame
+      eyebrow="Booking"
+      title="Ready To"
+      accentTitle="Receive?"
+      intro="Tell us the sensation you seek - grounding, release, or energy boost - and we'll choreograph the healing."
+      imageAlt="Astrology chart"
+    >
+        <form
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-[#fbf8f5] rounded-[28px] border border-[#e7dfd6] shadow-[0_14px_32px_rgba(0,0,0,0.08)] p-8 space-y-4"
+          className="space-y-8"
         >
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <input
-              type="text"
-              name="fullName"
-              placeholder="Full Name"
-              value={form.fullName}
-              onChange={handleChange}
-              required
-              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
-            />
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full Name"
+            value={form.fullName}
+            onChange={handleChange}
+            required
+            className={formInputClass}
+          />
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <input
               type="email"
               name="email"
@@ -108,7 +96,7 @@ export default function BookHealingSession() {
               value={form.email}
               onChange={handleChange}
               required
-              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
+              className={formBoxInputClass}
             />
             <input
               type="tel"
@@ -117,14 +105,16 @@ export default function BookHealingSession() {
               value={form.phone}
               onChange={handleChange}
               required
-              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
+              className={formInputClass}
             />
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <select
               name="service"
               value={form.service}
               onChange={handleChange}
               required
-              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none bg-white text-[#7a736c]"
+              className={formInputClass}
             >
               <option value="">Select Service</option>
               <option value="Energy Healing">Energy Healing</option>
@@ -138,17 +128,17 @@ export default function BookHealingSession() {
               value={form.date}
               onChange={handleChange}
               required
-              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
+              className={formInputClass}
             />
+          </div>
             <input
               type="time"
               name="time"
               value={form.time}
               onChange={handleChange}
               required
-              className="w-full border border-[#e7dfd6] rounded-full px-5 py-3 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
+              className={formInputClass}
             />
-          </div>
 
           <textarea
             name="message"
@@ -156,15 +146,15 @@ export default function BookHealingSession() {
             onChange={handleChange}
             rows="4"
             placeholder="Intentions, areas of imbalance, or sensations you're craving..."
-            className="w-full border border-[#e7dfd6] rounded-[22px] px-5 py-4 focus:ring-2 focus:ring-[#cbbdaf] outline-none"
+            className={formTextareaClass}
           ></textarea>
 
           <button
             type="submit"
-            className="w-full rounded-full bg-[#8a8176] px-6 py-3 text-[12px] uppercase tracking-[0.2em] text-white disabled:opacity-60"
+            className={formSubmitClass}
             disabled={status.state === "loading"}
           >
-            {status.state === "loading" ? "Submitting..." : "Book Healing"}
+            {status.state === "loading" ? "Submitting..." : "Book Healing ↗"}
           </button>
 
           {status.state === "error" && (
@@ -176,10 +166,9 @@ export default function BookHealingSession() {
             </p>
           )}
           <p className="text-[12px] text-center text-[#9a938c] uppercase tracking-[0.28em]">
-            Your information stays sacred � Privacy policy
+            Your information stays sacred - Privacy policy
           </p>
-        </motion.form>
-      </motion.div>
-    </section>
+        </form>
+    </FormSectionFrame>
   );
 }

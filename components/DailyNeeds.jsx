@@ -2,97 +2,92 @@
 
 import Link from "next/link";
 
+const items = [
+  {
+    title: "Spiritual Consultations",
+    description:
+      "Tarot, astrology, numerology, Vastu, and intuitive readings for refined spiritual guidance.",
+    href: "/consultations",
+    image: "/assets/images/consultations img.jpeg",
+  },
+  {
+    title: "Spiritual Healings",
+    description:
+      "A blend of energy and vibration to cleanse, align, and harmonize your mind, body, and spirit.",
+    href: "/healings",
+    image: "/assets/images/healings img .jpeg",
+  },
+  {
+    title: "Divine Learning",
+    description:
+      "A collection of spiritual courses designed to elevate your knowledge and inner growth.",
+    href: "/courses",
+    image: "/assets/images/learnings.jpeg",
+  },
+];
+
 export default function DailyNeeds() {
   return (
-    <section className="bg-[#F9F4E8] py-14 text-[#6b625a]">
-      <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
-        <div className="grid gap-6 lg:grid-cols-[681px_672px] lg:items-start lg:justify-center">
-          <div className="grid gap-6">
-            <div className="relative z-10 overflow-hidden rounded-[30px] bg-[#DFDCD6] shadow-[0_7px_20.4px_rgba(0,0,0,0.25)] w-full max-w-[681px] min-h-[200px] sm:h-[391px]">
-              <div className="flex h-full flex-col items-center gap-4 p-5 text-center sm:block sm:p-7">
-                <div className="relative z-10 sm:text-left">
-                  <h3 className="text-[20px] sm:text-[24px] font-semibold text-[#5f5750]">Spiritual Consultations</h3>
-                  <p className="mt-2 max-w-[260px] text-[14px] sm:text-[16px] leading-[1.6] text-[#7a736c] sm:max-w-[260px]">
-                    Tarot, astrology, numerology, Vastu, and intuitive readings for refined spiritual
-                    guidance.
-                  </p>
-                  <Link
-                    href="/consultations"
-                    className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-[#9b8872] px-6 sm:px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold !text-white sm:w-auto sm:justify-start"
-                  >
-                    Explore More
-                  </Link>
-                </div>
-                <div className="relative h-[240px] w-[calc(100%+40px)] -mx-5 -mb-5 overflow-hidden sm:hidden">
-                  <img
-                    src="/assets/images/consultations img.jpeg"
-                    alt="Spiritual consultations"
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <img
-                src="/assets/images/consultations img.jpeg"
-                alt="Spiritual consultations"
-                className="hidden sm:block absolute -right-8 bottom-0 h-[108%] w-[58%] object-cover"
-                loading="lazy"
-              />
-            </div>
+    <section className="bg-[#f8f3ef] px-6 py-16 text-[#ad7f53] sm:py-24">
+      <div className="mx-auto max-w-[1120px]">
+        <div className="grid gap-8 lg:grid-cols-[1fr_0.58fr] lg:items-end">
+          <div>
+            <p className="mb-3 flex items-center gap-2 text-[16px] text-[#ad7f53]">
+              <span className="text-[18px] leading-none">✽</span>
+              Daily needs
+            </p>
+            <h2 className="text-[48px] font-normal leading-[0.98] text-[#ad7f53] sm:text-[62px]">
+              Choose Your
+              <span className="block font-serif italic">Perfect Escape</span>
+            </h2>
+          </div>
+          <p className="max-w-[430px] text-[15px] leading-[1.35] text-[#ad7f53] lg:pb-2">
+            Explore everyday support for clarity, energetic balance, and sacred learning through
+            guided sessions, healing rituals, and courses.
+          </p>
+        </div>
 
-            <div className="relative z-10 overflow-hidden rounded-[30px] bg-[#F8FCFF] shadow-[0_7px_33px_rgba(0,0,0,0.25)] w-full max-w-[681px] min-h-[240px] sm:h-[391px]">
-              <img
-                src="/assets/images/healings img .jpeg"
-                alt="Spiritual healings"
-                className="sm:hidden h-[340px] w-full object-cover"
-                loading="lazy"
-              />
-              <div className="relative flex h-full flex-col items-center gap-4 p-6 text-center sm:flex-row sm:items-center sm:gap-0 sm:p-7 sm:pl-[45%] sm:text-left">
+        <div className="mt-14 space-y-6">
+          {items.map((item) => (
+            <article
+              key={item.title}
+              className="grid h-[520px] overflow-hidden border border-[#ad7f53] bg-[#f8f3ef] sm:h-[560px] lg:h-[430px] lg:grid-cols-[1.05fr_1fr]"
+            >
+              <div className="flex h-full min-h-0 flex-col p-5 sm:p-7">
+                <div className="flex items-center gap-6">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ad7f53] text-[18px] text-white">
+                    ✽
+                  </span>
+                  <h3 className="text-[28px] font-normal leading-tight text-[#ad7f53]">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="mt-auto max-w-[420px] text-[15px] leading-[1.35] text-[#ad7f53]">
+                  {item.description}
+                </p>
+              </div>
+              <Link
+                href={item.href}
+                className="group relative h-full min-h-0 overflow-hidden"
+                aria-label={`Explore ${item.title}`}
+              >
                 <img
-                  src="/assets/images/healings img .jpeg"
-                  alt="Spiritual healings"
-                  className="hidden sm:block absolute left-0 top-0 h-full w-[45%] object-cover"
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   loading="lazy"
                 />
-                <div className="relative z-10 max-w-[320px] sm:pl-6">
-                  <h3 className="text-[20px] sm:text-[24px] font-semibold text-[#5f5750]">Spiritual Healings</h3>
-                  <p className="mt-2 text-[14px] sm:text-[16px] leading-[1.6] text-[#7a736c]">
-                    A blend of energy and vibration to cleanse, align, and harmonize your mind, body,
-                    and spirit.
-                  </p>
-                  <Link
-                    href="/healings"
-                    className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-[#9b8872] px-6 sm:px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold !text-white sm:w-auto"
-                  >
-                    Explore More
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-6">
-            <div className="relative rounded-[30px] bg-[#FDFDFD] px-6 pt-8 text-center shadow-[0_7px_41.1px_rgba(0,0,0,0.25)] sm:px-10 w-full max-w-[672px] min-h-[520px] sm:h-[797px] flex flex-col overflow-hidden">
-              <h3 className="text-[24px] sm:text-[30px] font-semibold text-[#5f5750]">Divine Learning</h3>
-              <p className="mx-auto mt-2 max-w-[360px] text-[14px] sm:text-[16px] leading-[1.6] text-[#7a736c]">
-                A collection of spiritual courses designed to elevate your knowledge and inner
-                growth.
-              </p>
-              <Link
-                href="/courses"
-                className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#9b8872] px-7 py-2.5 text-[13px] sm:text-[15px] font-semibold !text-white"
-              >
-                Explore More
+                <span
+                  className="absolute inset-0 bg-[#ad7f53] opacity-0 transition-opacity duration-300 group-hover:opacity-25 group-focus-visible:opacity-25"
+                />
+                <span
+                  className="absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 bg-[#f8f3ef] px-7 py-4 text-[13px] uppercase tracking-[0.12em] !text-[#ad7f53] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+                >
+                  Read More ↗
+                </span>
               </Link>
-              <img
-                src="/assets/images/learnings.jpeg"
-                alt="Divine learning"
-                className="absolute left-1/2 -translate-x-1/2 -bottom-4 h-[58%] w-[100%] max-w-none object-cover sm:-bottom-6 sm:h-[70%] sm:w-[105%]"
-                loading="lazy"
-              />
-            </div>
-
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
