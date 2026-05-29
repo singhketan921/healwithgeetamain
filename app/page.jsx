@@ -1,8 +1,10 @@
 import Hero from "@/components/Hero";
+import HomeStats from "@/components/HomeStats";
 import DailyNeeds from "@/components/DailyNeeds";
 import About from "@/components/About";
 import Products from "@/components/Products";
 import Services from "@/components/Services";
+import ServiceProof from "@/components/ServiceProof";
 import Learnings from "@/components/Learnings";
 import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
@@ -24,20 +26,26 @@ export default async function HomePage() {
         <Hero />
       </section>
 
+      <section id="stats" className="w-full">
+        <HomeStats />
+      </section>
+
       <section id="services" className="w-full">
         <Services />
       </section>
 
-      <section id="about" className="w-full">
-        <About />
+      <section id="service-proof" className="w-full">
+        <ServiceProof />
+      </section>
+
+      
+
+      <section id="spin-wheel" className="w-full">
+        <SpinWheel winProbability={spinWheelSettings.winProbability} />
       </section>
 
       <section id="learnings" className="w-full">
         <Learnings />
-      </section>
-
-      <section id="spin-wheel" className="w-full">
-        <SpinWheel winProbability={spinWheelSettings.winProbability} />
       </section>
 
       <section id="daily-needs" className="w-full">

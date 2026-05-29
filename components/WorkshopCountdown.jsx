@@ -49,16 +49,16 @@ export default function WorkshopCountdown({ targetDateTime }) {
   ];
 
   return (
-    <div className="grid grid-cols-4 gap-3 sm:gap-4">
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
       {labels.map((item) => (
         <div
           key={item.label}
-          className="rounded-[16px] border border-[#e7dfd6] bg-white/80 px-3 py-4 text-center shadow-[0_10px_20px_rgba(0,0,0,0.08)]"
+          className="border border-[#c79a72] bg-[#f8f3ef] px-3 py-5 text-center"
         >
-          <div className="text-[18px] sm:text-[22px] font-semibold text-[#6b625a]">
+          <div className="text-[28px] font-semibold leading-none text-[#4c4740] sm:text-[34px]">
             {formatUnit(item.value)}
           </div>
-          <div className="mt-1 text-[10px] uppercase tracking-[0.2em] text-[#9a938c]">
+          <div className="mt-3 text-[11px] uppercase tracking-[0.24em] text-[#ad7f53]">
             {item.label}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import Testimonials from "@/components/Testimonials";
+import Link from "next/link";
+import FAQSection from "@/components/FAQSection";
 import { fetchCourseById } from "@/lib/services/courseService";
 
 function formatPrice(value, currency = "USD") {
@@ -68,28 +69,43 @@ function renderListBlock(title, items) {
   }
   const isList = Array.isArray(items);
   return (
-    <div className="rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8 shadow-[0_16px_34px_rgba(0,0,0,0.1)]">
-      <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
+    <section className="border-b border-[#ad7f53] py-9">
+      <h2 className="text-[28px] font-normal text-[#ad7f53]">
         {title}
-      </p>
+      </h2>
       {isList ? (
-      <ul className="mt-4 grid gap-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48]">
+      <ul className="mt-7 grid gap-3 text-[15px] leading-[1.45] text-[#ad7f53]">
         {items.map((item) => (
-          <li
-            key={item}
-            className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-3"
-          >
+          <li key={item} className="flex items-start gap-3">
+            <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">
+              ✓
+            </span>
             {item}
           </li>
         ))}
       </ul>
     ) : (
-        <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
+        <p className="preserve-format mt-7 text-[15px] leading-[1.45] text-[#ad7f53]">
           {items}
         </p>
     )}
-    </div>
+    </section>
   );
+}
+
+function sidebarSource(course) {
+  const candidates = [
+    course.modules,
+    course.courseCovers,
+    course.outcomes,
+    course.whoCanJoin,
+  ].find((items) => Array.isArray(items) && items.length);
+
+  if (candidates?.length) {
+    return candidates;
+  }
+
+  return ["Course overview", "Modules", "Certification", "Fees & enrollment", "Who can join"];
 }
 
 export default async function CourseDetailPage({ params }) {
@@ -113,105 +129,42 @@ export default async function CourseDetailPage({ params }) {
         : "Custom pricing";
 
   return (
-    <div className="min-h-screen bg-[#D0BFA9] pt-28 pb-16 px-6 lg:px-12">
-      <div className="mx-auto max-w-6xl">
-        <a
+    <div className="min-h-screen bg-[#f8f3ef] px-6 pb-16 pt-[calc(var(--navbar-height)+56px)] text-[#ad7f53] lg:px-12">
+      <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[1fr_320px]">
+        <main>
+        <Link
           href="/courses"
-          className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.32em] text-[#8f857c]"
+          className="mb-10 inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.26em] text-[#ad7f53]"
         >
-          <span>&lt;-</span>
-          Back to courses
-        </a>
+          ← Back to courses
+        </Link>
 
-        <section className="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
-          <div className="space-y-5">
-            <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-              {course.level ?? "Certificate Course"}
-            </p>
-            <h1 className="text-[32px] sm:text-[42px] font-semibold leading-[1.15] text-white">
+        <section>
+            <h1 className="max-w-[760px] text-[46px] font-normal leading-[0.98] text-[#ad7f53] sm:text-[60px]">
               {course.title}
             </h1>
-            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#524e48] preserve-format">
-              {course.summary || ""}
-            </p>
-            <div className="flex flex-wrap gap-3 text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-              <span className="rounded-full border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2">
-                {durationText || "Custom duration"}
+            <div className="mt-6 flex flex-wrap gap-3 text-[12px] text-white">
+              <span className="bg-[#ad7f53] px-4 py-2">
+                Price {priceText}
               </span>
-              <span className="rounded-full border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2">
-                {priceText}
+              <span className="bg-[#ad7f53] px-4 py-2">
+                Duration : {durationText || "Custom"}
               </span>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={`/courses/${resolvedParams.id}/checkout`}
-                className="rounded-[12px] bg-[#6b625a] px-6 py-3 text-[13px] font-semibold !text-white text-center"
-              >
-                {course.ctaText || "Enroll in this course"}
-              </a>
-              <a
-                href="/courses"
-                className="rounded-[12px] border border-[#8f857c] px-6 py-3 text-[13px] font-semibold text-[#6b625a] text-center"
-              >
-                View all courses
-              </a>
-            </div>
-          </div>
-          <div className="rounded-[26px] overflow-hidden border border-[#e7dfd6] shadow-[0_20px_40px_rgba(0,0,0,0.14)]">
-            <img
-              src={course.image || "/assets/images/astrology.jpg"}
-              alt={course.title}
-              className="w-full h-[360px] object-cover"
-            />
-          </div>
-        </section>
 
-        <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8 shadow-[0_16px_34px_rgba(0,0,0,0.1)]">
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-center">
-            <div>
-              <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-                Course Overview
-              </p>
-              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
+            <div className="mt-8 space-y-7 border-b border-[#ad7f53] pb-9">
+              {course.summary ? (
+                <p className="preserve-format text-[15px] leading-[1.45] text-[#ad7f53]">
+                  {course.summary}
+                </p>
+              ) : null}
+              <p className="preserve-format text-[15px] leading-[1.45] text-[#ad7f53]">
                 {course.description}
               </p>
             </div>
-            <div className="rounded-[20px] border border-[#e7dfd6] bg-[#F9F4E8] p-6">
-              <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-                Key Details
-              </p>
-              <dl className="mt-4 space-y-3 text-[14px] text-[#6b625a]">
-                <div className="flex items-center justify-between">
-                  <dt>Price</dt>
-                  <dd>
-                    {derivedPrice
-                      ? formatPrice(
-                          derivedPrice.amount,
-                          derivedPrice.currency ?? course.currency
-                        )
-                      : course.priceTiers?.length
-                        ? "Multiple options"
-                        : course.price
-                          ? formatPrice(course.price, course.currency)
-                          : "Custom"}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt>Duration</dt>
-                  <dd>
-                    {durationText || "Custom"}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt>Format</dt>
-                  <dd>{course.format ?? "Custom"}</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
         </section>
 
-        <section className="mt-12 space-y-6">
+        <section>
           {renderListBlock("What this course covers", course.courseCovers)}
           {renderListBlock("Modules", course.modules)}
           {renderListBlock("Outcomes", course.outcomes)}
@@ -228,19 +181,20 @@ export default async function CourseDetailPage({ params }) {
         </section>
 
         {course.priceTiers?.length ? (
-          <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8">
-            <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
+          <section className="border-b border-[#ad7f53] py-9">
+            <h2 className="text-[28px] font-normal text-[#ad7f53]">
               Price options
-            </p>
-            <ul className="mt-4 grid gap-3 text-[14px] text-[#6b625a]">
+            </h2>
+            <ul className="mt-7 grid gap-3 text-[15px] text-[#ad7f53]">
               {course.priceTiers.map((tier) => {
                 const label = tier.label ?? "Price";
                 const isOriginal = /original|mrp/i.test(label);
                 return (
                   <li
                     key={`${label}-${tier.amount}`}
-                    className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-3"
+                    className="flex items-center gap-3"
                   >
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
                     <span className="font-semibold">{label}:</span>{" "}
                     <span className={isOriginal ? "line-through text-[#9a938c]" : ""}>
                       {formatPrice(tier.amount, tier.currency ?? course.currency)}
@@ -252,56 +206,73 @@ export default async function CourseDetailPage({ params }) {
           </section>
         ) : null}
 
+        <section className="border-b border-[#ad7f53] py-9">
+          <h2 className="text-[28px] font-normal text-[#ad7f53]">
+            Key details
+          </h2>
+          <ul className="mt-7 grid gap-3 text-[15px] text-[#ad7f53]">
+            <li className="flex items-center gap-3">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
+              {priceText}
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
+              {durationText || "Custom duration"}
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
+              {course.format ?? course.level ?? "Certificate course"}
+            </li>
+          </ul>
+        </section>
+
+        <img
+          src={course.image || "/assets/images/astrology.jpg"}
+          alt={course.title}
+          className="mt-9 h-[360px] w-full object-cover"
+        />
+
         {Array.isArray(course.faqs) ? (
           course.faqs.length ? (
-            <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8">
-              <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-                FAQ
-              </p>
-              <div className="mt-4 space-y-4">
-                {course.faqs.map((faq) => (
-                  <div
-                    key={`${faq.question}-${faq.answer}`}
-                    className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-3"
-                  >
-                    <p className="font-semibold text-[#6b625a]">{faq.question}</p>
-                  <p className="mt-2 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
-                    {faq.answer}
-                  </p>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <FAQSection className="mt-12 -mx-6 lg:-mx-12" faqs={course.faqs} />
           ) : null
         ) : course.faqs?.trim() ? (
-          <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8">
-            <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-              FAQ
-            </p>
-            <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#524e48] preserve-format">
-              {course.faqs}
-            </p>
-          </section>
+          <FAQSection
+            className="mt-12 -mx-6 lg:-mx-12"
+            faqs={[{ question: "Course FAQs", answer: course.faqs }]}
+          />
         ) : null}
+        </main>
 
-        <section className="mt-12 rounded-[26px] bg-[#6b625a] px-8 py-10 text-center">
-          <h2 className="text-[26px] sm:text-[32px] font-semibold !text-white">
-            Ready to begin your learning journey?
-          </h2>
-          <p className="mt-3 text-[14px] sm:text-[16px] text-white/90">
-            Secure your seat and receive the full course roadmap.
-          </p>
-          <a
-            href={`/courses/${resolvedParams.id}/checkout`}
-            className="mt-6 inline-flex rounded-[12px] bg-white px-8 py-3 text-[13px] font-semibold !text-[#6b625a]"
-          >
-            {course.ctaText || "Enroll now"}
-          </a>
-        </section>
+        <aside className="space-y-6 lg:sticky lg:top-[calc(var(--navbar-height)+32px)] lg:self-start">
+          <div className="bg-[#ad7f53] p-7 text-white">
+            <h2 className="text-[25px] font-normal">{course.title}</h2>
+            <div className="mt-6 grid gap-3">
+              {sidebarSource(course).slice(0, 5).map((item, index) => (
+                <div
+                  key={`${item}-${index}`}
+                  className={index === 0 ? "bg-[#f8f3ef] px-4 py-3 text-[#ad7f53]" : "border border-[#f8f3ef] px-4 py-3 text-white"}
+                >
+                  → {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white px-8 py-9 text-center text-[#ad7f53]">
+            <h2 className="text-[28px] font-normal leading-tight">
+              Begin your learning journey
+            </h2>
+            <p className="mt-6 text-[14px]">Secure your seat and receive the course roadmap.</p>
+            <Link
+              href={`/courses/${resolvedParams.id}/checkout`}
+              className="mt-6 inline-flex bg-[#ad7f53] px-6 py-3 text-[13px] uppercase tracking-[0.12em] !text-white"
+            >
+              {course.ctaText || "Enroll Now"} ↗
+            </Link>
+          </div>
+        </aside>
       </div>
-      <section className="mt-16 -mx-6 lg:-mx-12">
-        <Testimonials showCtas={false} />
-      </section>
     </div>
   );
 }
