@@ -1,7 +1,12 @@
 'use client';
 
-import { motion } from "framer-motion";
 import { useState } from "react";
+import FormSectionFrame, {
+  formBoxInputClass,
+  formInputClass,
+  formSubmitClass,
+  formTextareaClass,
+} from "@/components/FormSectionFrame";
 
 const initialState = {
   name: "",
@@ -70,40 +75,28 @@ export default function LearningForm({ courses = [], onSubmit }) {
   };
 
   return (
-    <section className="px-6 py-24 bg-[#F9F4E8] text-[#6b625a]" id="form">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="mx-auto max-w-[1200px] space-y-8"
-      >
-        <div className="space-y-3">
-          <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-            Enrollment
-          </p>
-          <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
-            Begin your learning journey
-          </h2>
-          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
-            Tell us the course calling your name and we’ll curate schedules, payment plans, and prep materials.
-          </p>
-        </div>
-
+    <FormSectionFrame
+      id="form"
+      eyebrow="Enrollment"
+      title="Begin Your Learning"
+      accentTitle="Journey"
+      intro="Tell us the course calling your name and we'll curate schedules, payment plans, and prep materials."
+      imageAlt="Astrology chart"
+    >
         <form
           onSubmit={handleSubmit}
-          className="rounded-[28px] border border-[#e7dfd6] bg-[#fbf8f5] p-8 shadow-[0_14px_32px_rgba(0,0,0,0.08)] space-y-4"
+          className="space-y-8"
         >
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
-            />
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className={formInputClass}
+          />
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <input
               type="email"
               name="email"
@@ -111,7 +104,7 @@ export default function LearningForm({ courses = [], onSubmit }) {
               value={formData.email}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formBoxInputClass}
             />
             <input
               type="tel"
@@ -120,14 +113,16 @@ export default function LearningForm({ courses = [], onSubmit }) {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             />
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <select
               name="service"
               value={formData.service}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 bg-white text-[#7a736c] focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             >
               <option value="">Select Course</option>
               {courses.map((course) => (
@@ -142,17 +137,17 @@ export default function LearningForm({ courses = [], onSubmit }) {
               value={formData.date}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             />
+          </div>
             <input
               type="time"
               name="time"
               value={formData.time}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             />
-          </div>
 
           <textarea
             name="message"
@@ -160,16 +155,16 @@ export default function LearningForm({ courses = [], onSubmit }) {
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            className="w-full border border-[#e7dfd6] rounded-[22px] px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+            className={formTextareaClass}
           ></textarea>
 
           <div className="space-y-3 text-center">
             <button
               type="submit"
-              className="w-full rounded-full bg-[#8a8176] px-6 py-3 text-[12px] uppercase tracking-[0.2em] text-white disabled:opacity-60"
+              className={formSubmitClass}
               disabled={status.state === "loading"}
             >
-              {status.state === "loading" ? "Submitting..." : "Submit Request"}
+              {status.state === "loading" ? "Submitting..." : "Submit Request ↗"}
             </button>
             {status.state === "error" && (
               <p className="text-sm text-red-600">{status.message}</p>
@@ -178,11 +173,10 @@ export default function LearningForm({ courses = [], onSubmit }) {
               <p className="text-sm text-green-700">{status.message}</p>
             )}
             <p className="text-[12px] text-[#9a938c] uppercase tracking-[0.28em]">
-              Your information stays sacred · Privacy policy
+              Your information stays sacred - Privacy policy
             </p>
           </div>
         </form>
-      </motion.div>
-    </section>
+    </FormSectionFrame>
   );
 }

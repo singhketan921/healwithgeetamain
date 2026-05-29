@@ -1,4 +1,5 @@
 import ContactHero from "@/contactcomponents/ContactHero";
+import ContactInfoCards from "@/contactcomponents/ContactInfoCards";
 import ContactFormSection from "@/contactcomponents/ContactFormSection";
 import VisitOurSacredPlace from "@/contactcomponents/VisitOurSacredPlace";
 import CoursesFAQ from "@/coursescomponents/CoursesFAQ";
@@ -8,17 +9,17 @@ import BeginTransformationSection from "@/contactcomponents/BeginTransformationS
 export default function ContactPage() {
   return (
     <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
-      <section id="hero" className="w-full">
-        <ContactHero />
+      
+
+      <section id="contactinfo" className="w-full">
+        <ContactInfoCards />
       </section>
 
       <section id="consultationOfferings" className="w-full">
         <ContactFormSection />
       </section>
 
-      <section id="howitworks" className="w-full">
-        <VisitOurSacredPlace />
-      </section>
+      
 
       <section id="contactfaq" className="w-full">
         <CoursesFAQ />

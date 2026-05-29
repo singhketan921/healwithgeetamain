@@ -19,26 +19,32 @@ export default function HealingModalities({ modalities = [] }) {
   return (
     <section
       id="modalities"
-      className="py-24 text-[#6b625a]"
-      style={{ background: "linear-gradient(180deg, #F9F4E8 0%, #FFFFFF 100%)" }}
+      className="bg-[#f8f3ef] py-20 text-[#ad7f53] sm:py-24"
     >
-      <div className="mx-auto max-w-[1320px] px-6 space-y-12">
-        <div className="space-y-4 max-w-[720px] mx-auto text-center">
-          <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
+        <div className="mx-auto mb-14 max-w-[760px] text-center sm:mb-16">
+          <p className="mb-3 flex items-center justify-center gap-2 text-[14px] font-medium text-[#ad7f53] sm:text-[16px]">
+            <span className="text-[18px] leading-none">✽</span>
             Modalities
           </p>
-          <h2 className="text-[28px] sm:text-[36px] md:text-[40px] font-semibold tracking-[0.14em] text-[#6b625a]">
-            Healing Rituals and Therapies
+          <h2 className="text-[40px] font-normal leading-[0.95] text-[#ad7f53] sm:text-[56px] md:text-[64px]">
+            Healing Rituals
+            <span className="mt-2 block font-serif text-[44px] italic leading-none sm:text-[60px] md:text-[68px]">
+              and Therapies
+            </span>
           </h2>
-          <div className="mx-auto h-[2px] w-16 rounded-full bg-[#d8cfc6]" />
-          <p className="text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c]">
+          <p className="mx-auto mt-6 max-w-[620px] text-[15px] leading-[1.7] text-[#ad7f53]/85 sm:text-[16px]">
             Explore gentle, restorative sessions designed to balance energy, calm the mind, and renew the body.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 border-l border-t border-[#c99b74] sm:grid-cols-2 lg:grid-cols-3">
           {safeModalities.map((modality, i) => {
             const modalityId = modality.id ?? modality._id;
+            const investment = formatInvestment(
+              modality.investment ?? modality.price,
+              modality.currency
+            );
             return (
               <motion.article
                 key={modalityId ?? i}
@@ -46,57 +52,49 @@ export default function HealingModalities({ modalities = [] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 viewport={{ once: true }}
-                className="group relative min-h-[320px] overflow-hidden rounded-[22px] border border-[#e7dfd6] shadow-[0_18px_36px_rgba(0,0,0,0.14)]"
+                className="group relative min-h-[540px] overflow-hidden border-b border-r border-[#c99b74] bg-[#f8f3ef] p-8 sm:min-h-[600px] sm:p-10 lg:p-[72px]"
               >
-                <Link href={`/healings/${modalityId}`}>
-                  <img
-                    src={modality.image || "/assets/images/astrology.jpg"}
-                    alt={modality.title}
-                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-                  />
-                </Link>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                <div className="relative flex h-full flex-col justify-end p-6">
-                  <div className="rounded-[16px] border border-white/20 bg-white/90 p-5 shadow-[0_12px_24px_rgba(0,0,0,0.12)] backdrop-blur">
-                    <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-[#8f857c]">
-                      <span>Session</span>
-                      <span>
-                        {formatInvestment(
-                          modality.investment ?? modality.price,
-                          modality.currency
-                        )}
-                      </span>
-                    </div>
-                    <Link href={`/healings/${modalityId}`}>
-                      <h3 className="mt-3 text-[20px] sm:text-[22px] font-semibold leading-snug text-[#5f5750]">
-                        {modality.title}
-                      </h3>
-                    </Link>
-                    <p className="mt-2 text-[14px] text-[#7a736c] leading-[1.6] preserve-format">
-                      {modality.description}
-                    </p>
-                    {modality.benefits?.length ? (
-                      <div className="mt-3 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.2em] text-[#9a938c]">
-                        {modality.benefits.slice(0, 3).map((benefit) => (
-                          <span
-                            key={benefit}
-                            className="rounded-full border border-[#e7dfd6] bg-white px-3 py-1"
-                          >
-                            {benefit}
-                          </span>
-                        ))}
-                      </div>
-                    ) : null}
-                    <div className="mt-4 flex flex-col gap-3">
-                      <Link
-                        href={`/healings/${modalityId}`}
-                        className="inline-flex w-full items-center justify-center rounded-[12px] border border-[#8f857c] bg-transparent px-6 py-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#6b625a]"
-                      >
-                        View details
-                      </Link>
-                    </div>
-                  </div>
+                <div className="flex h-full flex-col items-start">
+                  <Link href={`/healings/${modalityId}`} className="mb-8 block w-full">
+                    <img
+                      src={modality.image || "/assets/images/astrology.jpg"}
+                      alt={modality.title}
+                      className="aspect-[1.45/1] w-full object-cover"
+                    />
+                  </Link>
+                  <Link href={`/healings/${modalityId}`}>
+                    <h3 className="mb-3 text-[25px] font-normal leading-tight text-[#ad7f53] sm:text-[28px]">
+                      {modality.title}
+                    </h3>
+                  </Link>
+                  <span className="mb-6 inline-flex bg-[#ad7f53] px-3 py-2 text-[13px] leading-none !text-white">
+                    {investment}
+                  </span>
+                  <p className="mb-8 max-w-[320px] text-[15px] leading-[1.35] text-[#ad7f53] preserve-format">
+                    {modality.description}
+                  </p>
+                  <Link
+                    href={`/healings/${modalityId}`}
+                    className="mt-auto inline-flex h-12 min-w-[168px] items-center justify-center gap-3 bg-[#ad7f53] px-7 text-[13px] font-medium uppercase tracking-[0.08em] !text-white transition-colors hover:bg-[#986d45]"
+                  >
+                    Read More <span aria-hidden="true">↗</span>
+                  </Link>
                 </div>
+
+                <Link
+                  href={`/healings/${modalityId}`}
+                  className="absolute inset-0 z-10 flex translate-y-4 flex-col items-center justify-center bg-[#ad7f53] px-8 text-center !text-white opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"
+                >
+                  <span className="mb-6 text-[27px] font-normal leading-tight sm:text-[30px]">
+                    {modality.title}
+                  </span>
+                  <span className="mb-7 max-w-[250px] text-[15px] leading-[1.45] !text-white/90">
+                    {modality.description}
+                  </span>
+                  <span className="inline-flex h-12 items-center justify-center gap-3 bg-[#f8f3ef] px-8 text-[13px] font-medium uppercase tracking-[0.08em] text-[#5e5147]">
+                    View Details <span aria-hidden="true">↗</span>
+                  </span>
+                </Link>
               </motion.article>
             );
           })}

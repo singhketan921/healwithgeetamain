@@ -1,7 +1,12 @@
 'use client';
 
-import { motion } from "framer-motion";
 import { useState } from "react";
+import FormSectionFrame, {
+  formBoxInputClass,
+  formInputClass,
+  formSubmitClass,
+  formTextareaClass,
+} from "@/components/FormSectionFrame";
 
 const initialForm = {
   fullName: "",
@@ -64,40 +69,28 @@ export default function BookConsultation({ offerings = [] }) {
   };
 
   return (
-    <section className="bg-[#F9F4E8] py-24 px-6 text-[#6b625a]">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="mx-auto max-w-[1200px] space-y-8"
-      >
-        <div className="text-left space-y-3">
-          <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-            Booking
-          </p>
-          <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em]">
-            Schedule your consultation
-          </h2>
-          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
-            Share your details and intention. We reply within 48 hours with available slots and ceremony notes.
-          </p>
-        </div>
-
+    <FormSectionFrame
+      id="bookconsultation"
+      eyebrow="Booking"
+      title="Schedule Your"
+      accentTitle="Consultation"
+      intro="Share your details and intention. We reply within 48 hours with available slots and ceremony notes."
+      imageAlt="Astrology chart"
+    >
         <form
           onSubmit={handleSubmit}
-          className="bg-[#fbf8f5] rounded-[28px] border border-[#e7dfd6] shadow-[0_14px_32px_rgba(0,0,0,0.08)] p-8 space-y-4"
+          className="space-y-8"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="fullName"
-              placeholder="Full Name"
-              value={form.fullName}
-              onChange={handleChange}
-              required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
-            />
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full Name"
+            value={form.fullName}
+            onChange={handleChange}
+            required
+            className={formInputClass}
+          />
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <input
               type="email"
               name="email"
@@ -105,7 +98,7 @@ export default function BookConsultation({ offerings = [] }) {
               value={form.email}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formBoxInputClass}
             />
             <input
               type="tel"
@@ -114,14 +107,16 @@ export default function BookConsultation({ offerings = [] }) {
               value={form.phone}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             />
+          </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <select
               name="service"
               value={form.service}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 bg-white text-[#7a736c] focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             >
               <option value="">Select Service</option>
               {offerings.map((offering) => {
@@ -142,21 +137,21 @@ export default function BookConsultation({ offerings = [] }) {
               value={form.date}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             />
+          </div>
             <select
               name="time"
               value={form.time}
               onChange={handleChange}
               required
-              className="border border-[#e7dfd6] rounded-full px-5 py-3 bg-white text-[#7a736c] focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+              className={formInputClass}
             >
               <option value="">Preferred Time</option>
               <option value="10:00 AM">10:00 AM</option>
               <option value="2:00 PM">2:00 PM</option>
               <option value="6:00 PM">6:00 PM</option>
             </select>
-          </div>
 
           <textarea
             name="message"
@@ -164,16 +159,16 @@ export default function BookConsultation({ offerings = [] }) {
             onChange={handleChange}
             placeholder="Intentions, themes, or questions you'd like us to focus on..."
             rows="4"
-            className="border border-[#e7dfd6] rounded-[22px] px-5 py-4 w-full focus:outline-none focus:ring-2 focus:ring-[#cbbdaf]"
+            className={formTextareaClass}
           />
 
           <div className="space-y-3 text-center">
             <button
               type="submit"
-              className="w-full rounded-full bg-[#8a8176] px-6 py-3 text-[12px] uppercase tracking-[0.2em] text-white"
+              className={formSubmitClass}
               disabled={status.state === "loading"}
             >
-              {status.state === "loading" ? "Submitting..." : "Book Consultation"}
+              {status.state === "loading" ? "Submitting..." : "Book Consultation ↗"}
             </button>
             {status.state === "error" && (
               <p className="text-sm text-red-600">{status.message}</p>
@@ -182,11 +177,10 @@ export default function BookConsultation({ offerings = [] }) {
               <p className="text-sm text-green-700">{status.message}</p>
             )}
             <p className="text-[12px] text-[#9a938c] uppercase tracking-[0.28em]">
-              Your information stays sacred · Privacy policy
+              Your information stays sacred - Privacy policy
             </p>
           </div>
         </form>
-      </motion.div>
-    </section>
+    </FormSectionFrame>
   );
 }

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Testimonials from "@/components/Testimonials";
+import Link from "next/link";
 import { fetchConsultationById } from "@/lib/services/consultationService";
 
 function formatPrice(value, currency = "USD") {
@@ -25,128 +25,117 @@ export default async function ConsultationDetailPage({ params }) {
     notFound();
   }
 
-  return (
-    <div className="min-h-screen bg-[#D0BFA9] pt-28 pb-16 px-6 lg:px-12">
-      <div className="mx-auto max-w-6xl">
-        <a
-          href="/consultations"
-          className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.32em] text-[#8f857c]"
-        >
-          <span>&lt;-</span>
-          Back to consultations
-        </a>
+  const sidebarItems = consultation.modalities?.length
+    ? consultation.modalities
+    : ["Session overview", "Preparation guidance", "Integration support"];
 
-        <section className="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
-          <div className="space-y-5">
-            <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-              Consultation
-            </p>
-            <h1 className="text-[32px] sm:text-[42px] font-semibold leading-[1.15] text-[#6b625a]">
+  return (
+    <div className="min-h-screen bg-[#f8f3ef] px-6 pb-16 pt-[calc(var(--navbar-height)+56px)] text-[#ad7f53] lg:px-12">
+      <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[1fr_320px]">
+        <main>
+          <Link
+            href="/consultations"
+            className="mb-10 inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.26em] text-[#ad7f53]"
+          >
+            ← Back to consultations
+          </Link>
+
+          <section>
+            <h1 className="max-w-[720px] text-[46px] font-normal leading-[0.98] text-[#ad7f53] sm:text-[60px]">
               {consultation.title}
             </h1>
-            <p className="text-[15px] sm:text-[18px] leading-[1.7] text-[#7a736c] preserve-format">
-              {consultation.description}
-            </p>
-            <div className="flex flex-wrap gap-3 text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
-              <span className="rounded-full border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2">
-                {formatDuration(consultation.durationMinutes) || "Custom duration"}
+            <div className="mt-6 flex flex-wrap gap-3 text-[12px] text-white">
+              <span className="bg-[#ad7f53] px-4 py-2">
+                Price {formatPrice(consultation.price, consultation.currency) || "on request"}
               </span>
-              <span className="rounded-full border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2">
-                {formatPrice(consultation.price, consultation.currency)}
+              <span className="bg-[#ad7f53] px-4 py-2">
+                Duration : {formatDuration(consultation.durationMinutes) || "Custom"}
               </span>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="/consultations#bookconsultation"
-                className="rounded-[12px] bg-[#6b625a] px-6 py-3 text-[13px] font-semibold text-white text-center"
-              >
-                Book this consultation
-              </a>
-              <a
-                href="/consultations"
-                className="rounded-[12px] border border-[#8f857c] px-6 py-3 text-[13px] font-semibold text-[#6b625a] text-center"
-              >
-                View all consultations
-              </a>
-            </div>
-          </div>
-          <div className="rounded-[26px] overflow-hidden border border-[#e7dfd6] shadow-[0_20px_40px_rgba(0,0,0,0.14)]">
-            <img
-              src={consultation.image || "/assets/images/astrology.jpg"}
-              alt={consultation.title}
-              className="w-full h-[360px] object-cover"
-            />
-          </div>
-        </section>
 
-        <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8 shadow-[0_16px_34px_rgba(0,0,0,0.1)]">
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-center">
-            <div>
-              <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-                Session Overview
-              </p>
-              <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.7] text-[#7a736c] preserve-format">
+            <div className="mt-8 space-y-7 border-b border-[#ad7f53] pb-9">
+              <p className="preserve-format text-[15px] leading-[1.45] text-[#ad7f53]">
                 {consultation.description}
+                {consultation.description ? "\n\n" : ""}
+                Every consultation is held as a focused, intentional session so the guidance stays practical, grounded, and easy to integrate after the call.
               </p>
             </div>
-            <div className="rounded-[20px] border border-[#e7dfd6] bg-[#F9F4E8] p-6">
-              <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-                Session Details
-              </p>
-              <dl className="mt-4 space-y-3 text-[14px] text-[#6b625a]">
-                <div className="flex items-center justify-between">
-                  <dt>Price</dt>
-                  <dd>{formatPrice(consultation.price, consultation.currency)}</dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt>Duration</dt>
-                  <dd>{formatDuration(consultation.durationMinutes) || "Custom"}</dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt>Currency</dt>
-                  <dd>{consultation.currency ?? "USD"}</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        {consultation.modalities?.length ? (
-          <section className="mt-12 rounded-[24px] border border-[#e7dfd6] bg-white/80 p-8">
-            <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
-              Modalities
-            </p>
-            <ul className="mt-4 grid gap-2 text-[14px] text-[#6b625a]">
-              {consultation.modalities.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-[12px] border border-[#e7dfd6] bg-[#F9F4E8] px-4 py-2"
-                >
-                  {item}
-                </li>
-              ))}
+          {consultation.modalities?.length ? (
+            <section className="border-b border-[#ad7f53] py-9">
+              <h2 className="text-[28px] font-normal text-[#ad7f53]">
+                What this session may include
+              </h2>
+              <ul className="mt-7 grid gap-3 text-[15px] text-[#ad7f53]">
+                {consultation.modalities.map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">
+                      ✓
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          <section className="py-9">
+            <h2 className="text-[28px] font-normal text-[#ad7f53]">
+              Session details
+            </h2>
+            <ul className="mt-7 grid gap-3 text-[15px] text-[#ad7f53]">
+              <li className="flex items-center gap-3">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
+                {formatDuration(consultation.durationMinutes) || "Custom duration"}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
+                {formatPrice(consultation.price, consultation.currency) || "Price on request"}
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
+                Preparation guidance shared after booking
+              </li>
             </ul>
           </section>
-        ) : null}
 
-        <section className="mt-12 rounded-[26px] bg-[#6b625a] px-8 py-10 text-center">
-          <h2 className="text-[26px] sm:text-[32px] font-semibold !text-white">
-            Ready to begin your session?
-          </h2>
-          <p className="mt-3 text-[14px] sm:text-[16px] text-white/80">
-            Reserve your consultation and receive your preparation guidance.
-          </p>
-          <a
-            href="/consultations#bookconsultation"
-            className="mt-6 inline-flex rounded-[12px] bg-white px-8 py-3 text-[13px] font-semibold !text-[#6b625a]"
-          >
-            Book your consultation
-          </a>
-        </section>
+          <img
+            src={consultation.image || "/assets/images/astrology.jpg"}
+            alt={consultation.title}
+            className="mt-4 h-[360px] w-full object-cover"
+          />
+        </main>
+
+        <aside className="space-y-6 lg:sticky lg:top-[calc(var(--navbar-height)+32px)] lg:self-start">
+          <div className="bg-[#ad7f53] p-7 text-white">
+            <h2 className="text-[25px] font-normal">{consultation.title}</h2>
+            <div className="mt-6 grid gap-3">
+              {sidebarItems.slice(0, 5).map((item, index) => (
+                <div
+                  key={`${item}-${index}`}
+                  className={index === 0 ? "bg-[#f8f3ef] px-4 py-3 text-[#ad7f53]" : "border border-[#f8f3ef] px-4 py-3 text-white"}
+                >
+                  → {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white px-8 py-9 text-center text-[#ad7f53]">
+            <h2 className="text-[28px] font-normal leading-tight">
+              Ready to begin?
+            </h2>
+            <p className="mt-6 text-[14px]">Reserve your consultation today.</p>
+            <Link
+              href="/consultations#bookconsultation"
+              className="mt-6 inline-flex bg-[#ad7f53] px-6 py-3 text-[13px] uppercase tracking-[0.12em] !text-white"
+            >
+              Book Now ↗
+            </Link>
+          </div>
+        </aside>
       </div>
-      <section className="mt-16 -mx-6 lg:-mx-12">
-        <Testimonials showCtas={false} />
-      </section>
     </div>
   );
 }

@@ -1,79 +1,136 @@
 "use client";
 
-import Link from "next/link";
+import { FaFacebookF, FaInstagram, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const VIDEO_TESTIMONIALS = [
   {
     src: "https://www.youtube.com/embed/8VdXcf7Dke4",
     title: "HealWithGeeta testimonial",
+    image: "/assets/images/spiritual guide img.jpg",
   },
   {
     src: "https://www.youtube.com/embed/qODcx8MckdM",
     title: "HealWithGeeta testimonial video 2",
+    image: "/assets/images/spiritual guide img.jpg",
   },
   {
     src: "https://www.youtube.com/embed/trNw4MSuNRg",
     title: "HealWithGeeta testimonial video 3",
+    image: "/assets/images/spiritual guide img.jpg",
   },
   {
     src: "https://www.youtube.com/embed/g7ZnJU-_iYE",
     title: "HealWithGeeta testimonial video 4",
+    image: "/assets/images/spiritual guide img.jpg",
   },
 ];
 
-export default function Testimonials({ showCtas = true } = {}) {
-  const videos = [...VIDEO_TESTIMONIALS, ...VIDEO_TESTIMONIALS];
+const FALLBACK_TESTIMONIALS = [
+  {
+    name: "Transformation Story",
+    quote:
+      "The guidance brought clarity, steadiness, and a deeper connection to my own intuition. Each session felt practical, sacred, and deeply personal.",
+  },
+  {
+    name: "Healing Journey",
+    quote:
+      "I arrived with questions and left with grounded next steps. The experience helped me understand my energy, patterns, and timing with more compassion.",
+  },
+  {
+    name: "Sacred Learning",
+    quote:
+      "The work felt both mystical and usable. I could take the insights into my daily life immediately, and that made the transformation last.",
+  },
+];
+
+const SOCIAL_LINKS = [
+  { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/" },
+  { icon: FaYoutube, label: "YouTube", href: "https://www.youtube.com/" },
+  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/" },
+  { icon: FaXTwitter, label: "Twitter", href: "https://twitter.com/" },
+];
+
+const EXPANDED_COPY =
+  " Through the session, the guidance unfolded with a calm rhythm: first naming the emotional pattern, then connecting it to timing, energy, and practical next steps. What stayed with me was how grounded it felt. The reading did not feel abstract or distant; it gave me language for what I was sensing, helped me understand the choices in front of me, and offered a clearer way to move through the next phase with trust, patience, and self-awareness.";
+
+function toWatchUrl(src) {
+  return src.replace("/embed/", "/watch?v=");
+}
+
+export default function Testimonials({ testimonials = [] } = {}) {
+  const stories = (testimonials.length ? testimonials : FALLBACK_TESTIMONIALS)
+    .slice(0, 3)
+    .map((item, index) => ({
+      ...item,
+      media: VIDEO_TESTIMONIALS[index % VIDEO_TESTIMONIALS.length],
+    }));
 
   return (
-    <section className="bg-[#F9F4E8] py-16 text-[#6b625a]">
-      <div className="w-full px-4 sm:px-6">
-        <div className="text-center">
-          <h2 className="text-[26px] sm:text-[36px] md:text-[40px] font-semibold tracking-[0.12em] text-[#6b625a]">
-            REAL TRANSFORMATION STORIES
-          </h2>
-          <p className="mx-auto mt-2 max-w-[720px] text-[14px] sm:text-[17px] leading-[1.6] text-[#7a736c]">
-            Authentic Stories From Those Who Have Experienced True
-            <br />
-            Spiritual Transformation.
-          </p>
+    <section className="relative overflow-hidden bg-[#f8f3ef] px-6 py-20 text-[#4c4740] sm:py-28">
+      <img
+        src="/assets/images/bgFlower.png"
+        alt=""
+        className="pointer-events-none absolute -left-12 top-0 w-[260px] opacity-25 sm:w-[360px]"
+      />
+      <img
+        src="/assets/images/bgFlower.png"
+        alt=""
+        className="pointer-events-none absolute -right-16 top-[28%] w-[260px] rotate-180 opacity-20 sm:w-[380px]"
+      />
+      <img
+        src="/assets/images/bgFlower.png"
+        alt=""
+        className="pointer-events-none absolute bottom-0 left-1/2 w-[260px] -translate-x-1/2 opacity-20 sm:w-[360px]"
+      />
 
-          {showCtas ? (
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-              <Link
-                href="/consultations"
-                className="min-w-[200px] sm:min-w-[230px] rounded-[12px] bg-white px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] shadow-[0_8px_18px_rgba(0,0,0,0.12)] text-center"
-              >
-                Explore Consultations
-              </Link>
-              <Link
-                href="/healings"
-                className="min-w-[200px] sm:min-w-[230px] rounded-[12px] border border-[#8f857c] bg-transparent px-7 sm:px-9 py-3 text-[14px] sm:text-[16px] font-semibold text-[#6b625a] text-center"
-              >
-                Explore Healings
-              </Link>
-            </div>
-          ) : null}
-        </div>
-
-        <div className="mt-8 -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:gap-6 sm:px-0 sm:pb-0 flex-nowrap">
-          {videos.map((video, index) => (
-            <div
-              key={`${video.src}-${index}`}
-              className="min-w-[240px] max-w-[260px] w-[70vw] rounded-[24px] overflow-hidden bg-[#d9d9d9] shadow-[0_14px_28px_rgba(0,0,0,0.12)] sm:w-full sm:max-w-[320px] sm:mx-auto"
+      <div className="relative z-10 mx-auto max-w-[1240px]">
+        <div className="space-y-14 sm:space-y-20">
+          {stories.map((story, index) => (
+            <article
+              key={story.id ?? `${story.name}-${index}`}
+              className="grid items-center gap-8 lg:grid-cols-[0.44fr_0.56fr] lg:gap-20 xl:-ml-16"
             >
-              <div className="aspect-[9/16] w-full">
-                <iframe
-                  src={video.src}
-                  title={video.title}
-                  className="h-full w-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
+              <a
+                href={toWatchUrl(story.media.src)}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative block overflow-hidden rounded-[18px] border border-[#c99b74] bg-[#f3e6dc]"
+                aria-label={`Play ${story.media.title}`}
+              >
+                <img
+                  src={story.image || story.media.image}
+                  alt={story.name || story.media.title}
+                  className="aspect-[0.84/1] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
+                <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#b77b3d] shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-transform duration-300 group-hover:scale-110">
+                  <span className="ml-1 h-0 w-0 border-y-[10px] border-l-[16px] border-y-transparent border-l-[#b77b3d]" />
+                </span>
+              </a>
+
+              <div className="text-left">
+                <h2 className="font-serif text-[48px] font-normal leading-none text-[#4c4740] sm:text-[62px]">
+                  {story.name || "Transformation Story"}
+                </h2>
+                <p className="mt-7 max-w-[820px] text-[16px] leading-[1.45] text-[#4c4740]">
+                  {story.quote || story.text}
+                  {EXPANDED_COPY}
+                </p>
+                <div className="mt-7 flex gap-3">
+                  {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={label}
+                      className="flex h-10 w-10 items-center justify-center rounded-[8px] border border-[#c99b74] bg-[#f8efe8] text-[#ad7f53] transition-colors hover:bg-[#ad7f53] hover:text-white"
+                    >
+                      <Icon />
+                    </a>
+                  ))}
+                </div>
               </div>
-              <div className="bg-white px-4 py-3 text-center text-xs uppercase tracking-[0.2em] text-[#8f857c]">
-                Video testimonial
-              </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 
 const fallbackTestimonials = [
   {
@@ -20,101 +19,123 @@ const fallbackTestimonials = [
   },
 ];
 
+const AVATAR_SRC = "/assets/images/lady.png";
+const COLUMN_HEIGHTS = [
+  ["min-h-[300px]", "min-h-[300px]", "min-h-[300px]", "min-h-[300px]"],
+  ["min-h-[270px]", "min-h-[300px]", "min-h-[270px]", "min-h-[300px]"],
+  ["min-h-[300px]", "min-h-[300px]", "min-h-[300px]", "min-h-[300px]"],
+];
+
+function buildMasonryColumns(items) {
+  const expanded = items.map((item, index) => ({
+    ...item,
+    _key: `${item.id ?? item.name ?? "testimonial"}-${index}`,
+  }));
+
+  return [0, 1, 2].map((columnIndex) =>
+    expanded.filter((_, index) => index % 3 === columnIndex)
+  );
+}
+
+function TestimonialCard({ testimonial, className = "", index = 0 }) {
+  const quote = testimonial.text ?? testimonial.quote;
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: index * 0.04 }}
+      viewport={{ once: true }}
+      className={`group flex flex-col justify-center border border-[#ad7f53] bg-[#f8f3ef] px-8 py-10 text-left transition-colors duration-300 hover:bg-[#ad7f53] ${className}`}
+    >
+      <div className="mb-10 flex items-start justify-between gap-6">
+        <div className="flex items-center gap-5">
+          <img
+            src={testimonial.avatar || AVATAR_SRC}
+            alt={testimonial.name}
+            className="h-[52px] w-[52px] rounded-full object-cover"
+          />
+          <div>
+            <h3
+              className="text-[20px] font-normal leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[22px]"
+            >
+              {testimonial.name}
+            </h3>
+            <p
+              className="mt-1 text-[17px] leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[18px]"
+            >
+              {testimonial.role || "HealWithGeeta Client"}
+            </p>
+          </div>
+        </div>
+        <span
+          className="font-serif text-[70px] leading-[0.65] text-[#ad7f53] transition-colors duration-300 group-hover:text-white"
+          aria-hidden="true"
+        >
+          ”
+        </span>
+      </div>
+
+      <p
+        className="max-w-[400px] text-[20px] leading-[1.15] text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[22px]"
+      >
+        {quote}
+      </p>
+    </motion.article>
+  );
+}
+
 export default function ConsultTestimonials({
   testimonials = [],
   title = "Sacred Transformations",
   subtitle = "Stories of healing and spiritual awakening",
 }) {
   const safeTestimonials = testimonials.length ? testimonials : fallbackTestimonials;
+  const columns = buildMasonryColumns(safeTestimonials);
 
   return (
-    <section className="px-6 py-20 overflow-hidden text-center bg-[#F9F4E8] sm:px-10">
-      {/* Heading */}
-      <div className="mx-auto mb-14 max-w-[1200px]">
-        <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em] text-[#6b625a] mb-3">
+    <section className="overflow-hidden bg-[#f8f3ef] px-6 py-24 text-center sm:px-10 sm:py-28">
+      <div className="mx-auto mb-16 max-w-[1200px]">
+        <p className="mb-4 flex items-center justify-center gap-2 text-[16px] text-[#ad7f53]">
+          <span className="text-[18px] leading-none">✽</span>
+          Testimonials
+        </p>
+        <h2 className="text-[46px] font-normal leading-none text-[#ad7f53] sm:text-[66px] md:text-[76px]">
           {title}
         </h2>
-        <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">{subtitle}</p>
+        <p className="mx-auto mt-4 max-w-[640px] text-[18px] leading-[1.45] text-[#ad7f53]">
+          {subtitle}
+        </p>
       </div>
 
-      {/* Desktop & Tablet Grid */}
-      <div className="hidden mx-auto max-w-[1200px] gap-8 sm:grid sm:grid-cols-2">
-        {safeTestimonials.map((t, i) => (
-          <motion.div
-            key={t.id ?? i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            className="flex flex-col justify-between p-6 text-left transition-all bg-white shadow-[0_12px_30px_rgba(0,0,0,0.12)] rounded-[16px]"
-          >
-            <div className="flex items-start gap-4 mb-4">
-              {/* Avatar */}
-              <div className="h-12 w-12 rounded-full bg-[#6b625a] flex items-center justify-center text-white text-2xl">
-                <span>*</span>
-              </div>
-
-              {/* Info */}
-              <div>
-                <h4 className="text-[16px] font-semibold text-[#6b625a]">{t.name}</h4>
-                <p className="text-[14px] text-[#7a736c]">{t.role}</p>
-                <div className="flex items-center gap-1 text-[#8f857c] mt-1">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStarHalfStroke />
-                  <span className="ml-1 text-[12px] text-[#7a736c]">{t.rating}/5</span>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-[14px] italic leading-[1.7] text-[#7a736c]">
-              &ldquo;{t.text ?? t.quote}&rdquo;
-            </p>
-          </motion.div>
+      <div className="mx-auto hidden max-w-[1320px] grid-cols-3 gap-7 lg:grid">
+        {columns.map((column, columnIndex) => (
+          <div key={columnIndex} className="flex flex-col gap-7">
+            {column.map((testimonial, index) => (
+              <TestimonialCard
+                key={testimonial._key}
+                testimonial={testimonial}
+                index={columnIndex * 4 + index}
+                className={COLUMN_HEIGHTS[columnIndex][index % COLUMN_HEIGHTS[columnIndex].length]}
+              />
+            ))}
+          </div>
         ))}
       </div>
 
-      {/* Mobile Carousel */}
-      <div className="relative mt-6 sm:hidden">
+      <div className="relative mt-6 lg:hidden">
         <motion.div
-          className="flex gap-6 px-2 cursor-grab active:cursor-grabbing"
-          drag="x"
-          dragConstraints={{ left: -400, right: 0 }}
+          className="flex cursor-grab gap-6 overflow-x-auto px-2 pb-3 active:cursor-grabbing"
           whileTap={{ cursor: "grabbing" }}
         >
-          {safeTestimonials.map((t, i) => (
-            <motion.div
-              key={t.id ?? i}
-              className="min-w-[100%] bg-white rounded-[16px] shadow-[0_12px_30px_rgba(0,0,0,0.12)] p-6 flex flex-col justify-between"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="h-10 w-10 rounded-full bg-[#6b625a] flex items-center justify-center text-white text-xl">
-                  <span>*</span>
-                </div>
-                <div>
-                  <h4 className="text-[14px] font-semibold text-[#6b625a]">{t.name}</h4>
-                  <p className="text-[12px] text-[#7a736c]">{t.role}</p>
-                  <div className="flex items-center gap-1 text-[#8f857c] mt-1 text-[12px]">
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStar />
-                    <FaStarHalfStroke />
-                    <span className="ml-1 text-[12px] text-[#7a736c]">{t.rating}/5</span>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-[14px] italic leading-[1.7] text-[#7a736c]">
-                &ldquo;{t.text ?? t.quote}&rdquo;
-              </p>
-            </motion.div>
+          {safeTestimonials.map((testimonial, index) => (
+            <div key={testimonial.id ?? index} className="min-w-[88vw] sm:min-w-[420px]">
+              <TestimonialCard
+                testimonial={testimonial}
+                index={index}
+                className="min-h-[300px]"
+              />
+            </div>
           ))}
         </motion.div>
       </div>
