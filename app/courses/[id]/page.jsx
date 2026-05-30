@@ -69,12 +69,12 @@ function renderListBlock(title, items) {
   }
   const isList = Array.isArray(items);
   return (
-    <section className="border-b border-[#ad7f53] py-9">
+    <section className="border-b border-[#ad7f53] py-6">
       <h2 className="text-[28px] font-normal text-[#ad7f53]">
         {title}
       </h2>
       {isList ? (
-      <ul className="mt-7 grid gap-3 text-[15px] leading-[1.45] text-[#ad7f53]">
+      <ul className="mt-5 grid gap-3 text-[15px] leading-[1.45] text-[#ad7f53]">
         {items.map((item) => (
           <li key={item} className="flex items-start gap-3">
             <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">
@@ -85,7 +85,7 @@ function renderListBlock(title, items) {
         ))}
       </ul>
     ) : (
-        <p className="preserve-format mt-7 text-[15px] leading-[1.45] text-[#ad7f53]">
+        <p className="preserve-format mt-5 text-[15px] leading-[1.45] text-[#ad7f53]">
           {items}
         </p>
     )}
@@ -129,7 +129,7 @@ export default async function CourseDetailPage({ params }) {
         : "Custom pricing";
 
   return (
-    <div className="min-h-screen bg-[#f8f3ef] px-6 pb-16 pt-[calc(var(--navbar-height)+56px)] text-[#ad7f53] lg:px-12">
+    <div className="min-h-screen bg-[#f8f3ef] px-6 pb-12 pt-[calc(var(--navbar-height)+36px)] text-[#ad7f53] lg:px-12">
       <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[1fr_320px]">
         <main>
         <Link
@@ -140,7 +140,7 @@ export default async function CourseDetailPage({ params }) {
         </Link>
 
         <section>
-            <h1 className="max-w-[760px] text-[46px] font-normal leading-[0.98] text-[#ad7f53] sm:text-[60px]">
+            <h1 className="max-w-[760px] text-[42px] font-normal leading-[0.98] text-[#ad7f53] sm:text-[54px]">
               {course.title}
             </h1>
             <div className="mt-6 flex flex-wrap gap-3 text-[12px] text-white">
@@ -181,11 +181,11 @@ export default async function CourseDetailPage({ params }) {
         </section>
 
         {course.priceTiers?.length ? (
-          <section className="border-b border-[#ad7f53] py-9">
+          <section className="border-b border-[#ad7f53] py-6">
             <h2 className="text-[28px] font-normal text-[#ad7f53]">
               Price options
             </h2>
-            <ul className="mt-7 grid gap-3 text-[15px] text-[#ad7f53]">
+            <ul className="mt-5 grid gap-3 text-[15px] text-[#ad7f53]">
               {course.priceTiers.map((tier) => {
                 const label = tier.label ?? "Price";
                 const isOriginal = /original|mrp/i.test(label);
@@ -206,11 +206,11 @@ export default async function CourseDetailPage({ params }) {
           </section>
         ) : null}
 
-        <section className="border-b border-[#ad7f53] py-9">
+        <section className="border-b border-[#ad7f53] py-6">
           <h2 className="text-[28px] font-normal text-[#ad7f53]">
             Key details
           </h2>
-          <ul className="mt-7 grid gap-3 text-[15px] text-[#ad7f53]">
+          <ul className="mt-5 grid gap-3 text-[15px] text-[#ad7f53]">
             <li className="flex items-center gap-3">
               <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#ad7f53] text-[10px]">✓</span>
               {priceText}
@@ -229,7 +229,7 @@ export default async function CourseDetailPage({ params }) {
         <img
           src={course.image || "/assets/images/astrology.jpg"}
           alt={course.title}
-          className="mt-9 h-[360px] w-full object-cover"
+          className="mt-7 h-[280px] w-full object-cover sm:h-[320px]"
         />
 
         {Array.isArray(course.faqs) ? (
@@ -245,9 +245,9 @@ export default async function CourseDetailPage({ params }) {
         </main>
 
         <aside className="space-y-6 lg:sticky lg:top-[calc(var(--navbar-height)+32px)] lg:self-start">
-          <div className="bg-[#ad7f53] p-7 text-white">
+          <div className="bg-[#ad7f53] p-6 text-white">
             <h2 className="text-[25px] font-normal">{course.title}</h2>
-            <div className="mt-6 grid gap-3">
+            <div className="mt-5 grid gap-2.5">
               {sidebarSource(course).slice(0, 5).map((item, index) => (
                 <div
                   key={`${item}-${index}`}
@@ -259,14 +259,14 @@ export default async function CourseDetailPage({ params }) {
             </div>
           </div>
 
-          <div className="bg-white px-8 py-9 text-center text-[#ad7f53]">
-            <h2 className="text-[28px] font-normal leading-tight">
+          <div className="bg-white px-7 py-7 text-center text-[#ad7f53]">
+            <h2 className="text-[25px] font-normal leading-tight">
               Begin your learning journey
             </h2>
-            <p className="mt-6 text-[14px]">Secure your seat and receive the course roadmap.</p>
+            <p className="mt-4 text-[14px]">Secure your seat and receive the course roadmap.</p>
             <Link
               href={`/courses/${resolvedParams.id}/checkout`}
-              className="mt-6 inline-flex bg-[#ad7f53] px-6 py-3 text-[13px] uppercase tracking-[0.12em] !text-white"
+              className="mt-5 inline-flex bg-[#ad7f53] px-6 py-3 text-[13px] uppercase tracking-[0.12em] !text-white"
             >
               {course.ctaText || "Enroll Now"} ↗
             </Link>

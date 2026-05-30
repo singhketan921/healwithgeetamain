@@ -70,28 +70,28 @@ export default function ProductsGrid({ products = [] }) {
           </div>
         </Reveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 text-[#524E48]">
+        <div className="grid grid-cols-2 gap-4 text-[#524E48] sm:gap-6">
           {collection.map((product, index) => (
             <Reveal
               key={product.id}
               delay={0.08 * index}
-              className="rounded-[28px] border border-[#D0BFA9] bg-white/90 shadow-[0_18px_50px_rgba(82,78,72,0.07)] p-6 flex flex-col gap-4 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(82,78,72,0.12)]"
+              className="rounded-[20px] border border-[#D0BFA9] bg-white/90 p-4 shadow-[0_18px_50px_rgba(82,78,72,0.07)] flex flex-col gap-3 transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(82,78,72,0.12)] sm:rounded-[28px] sm:p-6 sm:gap-4"
             >
-              <p className="text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#B0AAA0] sm:text-xs sm:tracking-[0.35em]">
                 {product.type || "Edition"}
               </p>
-              <h4 className="font-serif text-xl leading-snug">
+              <h4 className="font-serif text-[18px] leading-snug sm:text-xl">
                 {product.title}
               </h4>
-              <p className="text-sm text-[#524E48]/70 flex-1 leading-relaxed">
+              <p className="max-h-[4.5em] overflow-hidden text-[12px] text-[#524E48]/70 flex-1 leading-[1.5] sm:max-h-none sm:text-sm sm:leading-relaxed">
                 {product.description || "Energetic support for modern rituals."}
               </p>
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-[#B0AAA0]">
+              <div className="flex flex-col items-start gap-2 text-[10px] uppercase tracking-[0.18em] text-[#B0AAA0] sm:flex-row sm:items-center sm:justify-between sm:text-xs sm:tracking-[0.35em]">
                 <span>{product.priceText ?? "Sold Out"}</span>
                 {product.variantId ? (
                   <button
                     onClick={() => handleAdd(product)}
-                    className="px-4 py-2 border border-[#524E48] rounded-full text-[#524E48] hover:bg-[#524E48] hover:text-[#D0BFA9] transition"
+                    className="px-3 py-2 border border-[#524E48] rounded-full text-[#524E48] hover:bg-[#524E48] hover:text-[#D0BFA9] transition sm:px-4"
                   >
                     Add
                   </button>
@@ -100,7 +100,7 @@ export default function ProductsGrid({ products = [] }) {
                     href={product.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 border border-[#B0AAA0] rounded-full hover:border-[#524E48]"
+                    className="px-3 py-2 border border-[#B0AAA0] rounded-full hover:border-[#524E48] sm:px-4"
                   >
                     View
                   </a>

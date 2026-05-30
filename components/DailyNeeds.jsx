@@ -28,7 +28,7 @@ const items = [
 
 export default function DailyNeeds() {
   return (
-    <section className="bg-[#f8f3ef] px-6 py-16 text-[#ad7f53] sm:py-24">
+    <section className="bg-[#f8f3ef] px-6 py-12 text-[#ad7f53] sm:py-16">
       <div className="mx-auto max-w-[1120px]">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.58fr] lg:items-end">
           <div>
@@ -47,18 +47,18 @@ export default function DailyNeeds() {
           </p>
         </div>
 
-        <div className="mt-14 space-y-6">
+        <div className="mt-10 space-y-5">
           {items.map((item) => (
             <article
               key={item.title}
-              className="grid h-[520px] overflow-hidden border border-[#ad7f53] bg-[#f8f3ef] sm:h-[560px] lg:h-[430px] lg:grid-cols-[1.05fr_1fr]"
+              className="grid h-[380px] overflow-hidden border border-[#ad7f53] bg-[#f8f3ef] sm:h-[420px] lg:h-[330px] lg:grid-cols-[1.05fr_1fr]"
             >
-              <div className="flex h-full min-h-0 flex-col p-5 sm:p-7">
-                <div className="flex items-center gap-6">
+              <div className="flex h-full min-h-0 flex-col p-5 sm:p-6">
+                <div className="flex items-center gap-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ad7f53] text-[18px] text-white">
                     ✽
                   </span>
-                  <h3 className="text-[28px] font-normal leading-tight text-[#ad7f53]">
+                  <h3 className="text-[25px] font-normal leading-tight text-[#ad7f53]">
                     {item.title}
                   </h3>
                 </div>

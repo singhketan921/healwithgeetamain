@@ -67,7 +67,7 @@ export default function FHMusicLibrary({ tracks = [] }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 border-l border-t border-[#c99b74] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 border-l border-t border-[#c99b74] lg:grid-cols-3">
           {activeTracks.map((track) => {
             const trackId = track.id ?? track._id ?? track.title;
             const isActive = activeId === trackId;
@@ -75,9 +75,9 @@ export default function FHMusicLibrary({ tracks = [] }) {
             return (
               <article
                 key={trackId}
-                className="group relative min-h-[540px] overflow-hidden border-b border-r border-[#c99b74] bg-[#f8f3ef] p-8 transition-colors duration-300 hover:bg-[#ad7f53] sm:min-h-[600px] sm:p-10 lg:p-[72px]"
+                className="group relative min-h-[380px] overflow-hidden border-b border-r border-[#c99b74] bg-[#f8f3ef] p-4 transition-colors duration-300 hover:bg-[#ad7f53] sm:min-h-[600px] sm:p-10 lg:p-[72px]"
               >
-                <div className="relative mb-8 w-full">
+                <div className="relative mb-4 w-full sm:mb-8">
                   <img
                     src={track.coverImage || "/assets/images/hero 2.png"}
                     alt={track.title || "FH Music track"}
@@ -98,18 +98,18 @@ export default function FHMusicLibrary({ tracks = [] }) {
                   )}
                 </div>
                 <div className="flex h-full flex-col items-start">
-                  <div className="mb-3 text-[12px] uppercase tracking-[0.14em] text-[#ad7f53]/80 transition-colors duration-300 group-hover:text-white/80">
+                  <div className="mb-2 text-[10px] uppercase tracking-[0.12em] text-[#ad7f53]/80 transition-colors duration-300 group-hover:text-white/80 sm:mb-3 sm:text-[12px] sm:tracking-[0.14em]">
                     {track.artist || "FH Music"}
                   </div>
-                  <h3 className="mb-6 text-[25px] font-normal leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[28px]">
+                  <h3 className="mb-4 text-[18px] font-normal leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:mb-6 sm:text-[28px]">
                     {track.title}
                   </h3>
                   {track.description ? (
-                    <p className="mb-8 max-w-[320px] text-[15px] leading-[1.35] text-[#ad7f53] transition-colors duration-300 preserve-format group-hover:text-white/90">
+                    <p className="mb-4 max-h-[4.1em] max-w-[320px] overflow-hidden text-[12px] leading-[1.35] text-[#ad7f53] transition-colors duration-300 preserve-format group-hover:text-white/90 sm:mb-8 sm:max-h-none sm:text-[15px]">
                       {track.description}
                     </p>
                   ) : null}
-                  <div className="mt-auto w-full space-y-3">
+                  <div className="mt-auto w-full space-y-2 sm:space-y-3">
                     <audio
                       ref={(node) => {
                         if (node) {

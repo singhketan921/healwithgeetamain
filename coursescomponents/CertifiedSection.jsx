@@ -7,22 +7,22 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function CertifiedSection() {
   return (
-    <section className="px-6 py-24 bg-[#F9F4E8] text-[#6b625a] sm:px-10">
+    <section className="px-6 py-12 bg-[#F9F4E8] text-[#6b625a] sm:px-10 sm:py-16">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="grid items-center max-w-[1200px] grid-cols-1 gap-12 mx-auto md:grid-cols-2"
+        className="grid items-center max-w-[1200px] grid-cols-1 gap-8 mx-auto md:grid-cols-2"
       >
-        <div className="space-y-4">
+        <div className="space-y-3">
           <p className="text-[12px] uppercase tracking-[0.28em] text-[#9a938c]">
             Flagship Program
           </p>
           <h2 className="text-[26px] sm:text-[34px] md:text-[38px] font-semibold tracking-[0.12em] leading-tight">
             Certified Master in Vedic Sciences
           </h2>
-          <p className="text-[15px] sm:text-[17px] text-[#7a736c] leading-[1.7]">
+          <p className="text-[15px] sm:text-[16px] text-[#7a736c] leading-[1.55]">
             A six-month atelier blending astrology, intuitive coaching, and energy healing. Graduates receive an official accreditation and join our private guild.
           </p>
           <ul className="space-y-2">
