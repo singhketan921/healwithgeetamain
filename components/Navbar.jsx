@@ -16,10 +16,10 @@ const links = [
 
 function HamburgerIcon({ className = "" }) {
   return (
-    <span className={`flex flex-col items-center justify-center gap-[4px] ${className}`} aria-hidden="true">
-      <span className="h-[2px] w-5 rounded-full bg-current" />
-      <span className="h-[2px] w-5 rounded-full bg-current" />
-      <span className="h-[2px] w-5 rounded-full bg-current" />
+    <span className={`flex flex-col items-center justify-center gap-[3px] ${className}`} aria-hidden="true">
+      <span className="h-[2px] w-4 rounded-full bg-current lg:w-5" />
+      <span className="h-[2px] w-4 rounded-full bg-current lg:w-5" />
+      <span className="h-[2px] w-4 rounded-full bg-current lg:w-5" />
     </span>
   );
 }
@@ -33,10 +33,10 @@ export default function Navbar() {
     <header
       className="fixed left-0 top-0 z-50 w-full border-b border-[#d7c4ad] bg-white"
     >
-      <div className="relative flex h-[72px] w-full items-center justify-between px-6 sm:px-12 lg:h-[88px] lg:px-[72px]">
+      <div className="relative flex h-[60px] w-full items-center justify-between px-5 sm:px-10 lg:h-[74px] lg:px-[60px]">
         <button
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex h-9 w-9 items-center justify-center rounded-full bg-[#ad7f53] text-white transition-transform duration-200 hover:scale-105 lg:h-12 lg:w-12"
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-[#ad7f53] text-white transition-transform duration-200 hover:scale-105 lg:h-10 lg:w-10"
           aria-expanded={isOpen}
           aria-label="Toggle navigation"
         >
@@ -46,17 +46,17 @@ export default function Navbar() {
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
-          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-3 text-[#4c4740]"
+          className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5 text-[#4c4740] lg:gap-3"
         >
           <img
             src="/assets/navicon.png"
             alt=""
-            className="h-9 w-9 shrink-0 object-contain lg:h-12 lg:w-12"
+            className="h-8 w-8 shrink-0 object-contain lg:h-10 lg:w-10"
           />
-          <span className="hidden whitespace-nowrap font-serif text-[30px] italic leading-none sm:block lg:text-[42px]">
+          <span className="hidden whitespace-nowrap font-serif text-[27px] italic leading-none sm:block lg:text-[36px]">
             Faith Healers School Of Occult Science
           </span>
-          <span className="whitespace-nowrap font-serif text-[22px] italic leading-none sm:hidden">
+          <span className="whitespace-nowrap font-serif text-[20px] italic leading-none sm:hidden">
             Faith Healers
           </span>
         </Link>
@@ -65,14 +65,14 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleCart}
-            className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#ad7f53] text-white transition-transform duration-200 hover:scale-105 lg:h-12 lg:w-12"
+            className="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#ad7f53] text-white transition-transform duration-200 hover:scale-105 lg:h-10 lg:w-10"
             aria-label={`Open cart with ${itemCount} item${itemCount === 1 ? "" : "s"}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 64 64"
               fill="currentColor"
-              className="h-7 w-7 lg:h-9 lg:w-9"
+              className="h-6 w-6 lg:h-8 lg:w-8"
             >
               <circle cx="32" cy="25" r="13" />
               <path d="M13 58c3-13 13-20 19-20s16 7 19 20Z" />
@@ -87,14 +87,14 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="fixed left-0 top-[72px] z-40 h-[calc(100vh-72px)] w-[86vw] max-w-[520px] overflow-hidden border-x-2 border-b-2 border-[#ad7f53] bg-[#f8f3ef] animate-fadeIn lg:top-[88px] lg:h-[calc(100vh-88px)] lg:w-[520px]">
-          <nav className="flex h-full flex-col justify-center px-[18%] py-8">
+        <div className="fixed left-0 top-[60px] z-40 h-[calc(100vh-60px)] w-screen overflow-hidden border-x-2 border-b-2 border-[#ad7f53] bg-[#f8f3ef] animate-fadeIn sm:w-[86vw] sm:max-w-[500px] lg:top-[74px] lg:h-[calc(100vh-74px)] lg:w-[500px]">
+          <nav className="flex h-full flex-col justify-center px-[18%] py-6">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="group inline-flex items-center gap-3 py-3 font-serif text-[38px] leading-none text-[#4c4740] transition-colors hover:text-[#ad7f53] sm:text-[46px] lg:text-[52px]"
+                className="group inline-flex items-center gap-3 py-2.5 font-serif text-[36px] leading-none text-[#4c4740] transition-colors hover:text-[#ad7f53] sm:text-[42px] lg:text-[48px]"
               >
                 <span>{link.name}</span>
                 {link.name === "Home" ? (

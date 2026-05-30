@@ -66,7 +66,7 @@ export default function Testimonials({ testimonials = [] } = {}) {
     }));
 
   return (
-    <section className="relative overflow-hidden bg-[#f8f3ef] px-6 py-20 text-[#4c4740] sm:py-28">
+    <section className="relative overflow-hidden bg-[#f8f3ef] px-6 py-12 text-[#4c4740] sm:py-16">
       <img
         src="/assets/images/bgFlower.png"
         alt=""
@@ -84,11 +84,11 @@ export default function Testimonials({ testimonials = [] } = {}) {
       />
 
       <div className="relative z-10 mx-auto max-w-[1240px]">
-        <div className="space-y-14 sm:space-y-20">
+        <div className="space-y-10 sm:space-y-14">
           {stories.map((story, index) => (
             <article
               key={story.id ?? `${story.name}-${index}`}
-              className="grid items-center gap-8 lg:grid-cols-[0.44fr_0.56fr] lg:gap-20 xl:-ml-16"
+              className="grid items-center gap-6 lg:grid-cols-[0.38fr_0.62fr] lg:gap-14 xl:-ml-10"
             >
               <a
                 href={toWatchUrl(story.media.src)}
@@ -100,7 +100,7 @@ export default function Testimonials({ testimonials = [] } = {}) {
                 <img
                   src={story.image || story.media.image}
                   alt={story.name || story.media.title}
-                  className="aspect-[0.84/1] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="aspect-[0.95/1] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#b77b3d] shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-transform duration-300 group-hover:scale-110">
                   <span className="ml-1 h-0 w-0 border-y-[10px] border-l-[16px] border-y-transparent border-l-[#b77b3d]" />
@@ -108,14 +108,14 @@ export default function Testimonials({ testimonials = [] } = {}) {
               </a>
 
               <div className="text-left">
-                <h2 className="font-serif text-[48px] font-normal leading-none text-[#4c4740] sm:text-[62px]">
+                <h2 className="font-serif text-[40px] font-normal leading-none text-[#4c4740] sm:text-[52px]">
                   {story.name || "Transformation Story"}
                 </h2>
-                <p className="mt-7 max-w-[820px] text-[16px] leading-[1.45] text-[#4c4740]">
+                <p className="mt-5 max-w-[820px] text-[15px] leading-[1.4] text-[#4c4740]">
                   {story.quote || story.text}
                   {EXPANDED_COPY}
                 </p>
-                <div className="mt-7 flex gap-3">
+                <div className="mt-5 flex gap-3">
                   {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
                     <a
                       key={label}

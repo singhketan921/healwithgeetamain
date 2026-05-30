@@ -51,13 +51,13 @@ const programs = [
 
 export default function Learnings() {
   return (
-    <section className="relative overflow-hidden bg-[#f8f3ef] py-14 text-[#4c4740] sm:py-16">
+    <section className="relative overflow-hidden bg-[#f8f3ef] py-10 text-[#4c4740] sm:py-12">
       <img
         src="/assets/images/bgFlower.png"
         alt=""
         className="pointer-events-none absolute -bottom-24 -left-24 w-[300px] opacity-15"
       />
-      <div className="relative mx-auto h-[430px] max-w-[1780px] px-5 sm:h-[470px]">
+      <div className="relative mx-auto h-[360px] max-w-[1780px] px-5 sm:h-[410px]">
         <svg
           className="absolute left-1/2 top-0 hidden h-full w-[calc(100%+120px)] -translate-x-1/2 overflow-visible md:block"
           viewBox="0 0 1780 470"
@@ -90,13 +90,13 @@ export default function Learnings() {
             <Link
               key={program.number}
               href={program.href}
-              className="grid grid-cols-[70px_1fr] items-center gap-4 border border-[#ad7f53] bg-[#f8f3ef] p-4"
+              className="grid grid-cols-[58px_1fr] items-center gap-4 border border-[#ad7f53] bg-[#f8f3ef] p-3"
             >
-              <span className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-white font-serif text-[30px] shadow-[0_12px_22px_rgba(173,127,83,0.18)]">
+              <span className="flex h-[54px] w-[54px] items-center justify-center rounded-full bg-white font-serif text-[26px] shadow-[0_12px_22px_rgba(173,127,83,0.18)]">
                 {program.number}
               </span>
               <span>
-                <span className="block font-serif text-[26px] leading-none">{program.title}</span>
+                <span className="block font-serif text-[23px] leading-none">{program.title}</span>
                 <span className="mt-2 block text-[13px] leading-[1.35]">{program.text}</span>
               </span>
             </Link>

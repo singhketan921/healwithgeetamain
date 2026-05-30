@@ -50,7 +50,7 @@ export default function CoursesLearnings({ courses = [] }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 border-l border-t border-[#c99b74] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 border-l border-t border-[#c99b74] lg:grid-cols-3">
           {safeCourses.map((course, index) => {
             const courseId = course.id ?? course._id;
             const priceLabel = course.priceTiers?.length
@@ -66,10 +66,10 @@ export default function CoursesLearnings({ courses = [] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="group relative min-h-[540px] overflow-hidden border-b border-r border-[#c99b74] bg-[#f8f3ef] p-8 sm:min-h-[600px] sm:p-10 lg:p-[72px]"
+                className="group relative min-h-[390px] overflow-hidden border-b border-r border-[#c99b74] bg-[#f8f3ef] p-4 sm:min-h-[600px] sm:p-10 lg:p-[72px]"
               >
                 <div className="flex h-full flex-col items-start">
-                  <Link href={`/courses/${courseId}`} className="mb-8 block w-full">
+                  <Link href={`/courses/${courseId}`} className="mb-4 block w-full sm:mb-8">
                     <img
                       src={course.image || "/assets/images/astrology.jpg"}
                       alt={course.title}
@@ -77,17 +77,17 @@ export default function CoursesLearnings({ courses = [] }) {
                     />
                   </Link>
                   <Link href={`/courses/${courseId}`}>
-                    <h3 className="mb-3 text-[25px] font-normal leading-tight text-[#ad7f53] sm:text-[28px]">
+                    <h3 className="mb-2 text-[18px] font-normal leading-tight text-[#ad7f53] sm:mb-3 sm:text-[28px]">
                       {course.title}
                     </h3>
                   </Link>
-                  <span className="mb-6 inline-flex bg-[#ad7f53] px-3 py-2 text-[13px] leading-none !text-white">
+                  <span className="mb-4 inline-flex bg-[#ad7f53] px-2.5 py-1.5 text-[11px] leading-none !text-white sm:mb-6 sm:px-3 sm:py-2 sm:text-[13px]">
                     {priceLabel}
                   </span>
-                  <p className="mb-8 max-w-[320px] text-[15px] leading-[1.35] text-[#ad7f53] preserve-format">
+                  <p className="mb-4 max-h-[4.1em] max-w-[320px] overflow-hidden text-[12px] leading-[1.35] text-[#ad7f53] preserve-format sm:mb-8 sm:max-h-none sm:text-[15px]">
                     {description}
                   </p>
-                  <div className="mb-6 text-[12px] uppercase tracking-[0.14em] text-[#ad7f53]/80">
+                  <div className="mb-4 text-[10px] uppercase tracking-[0.12em] text-[#ad7f53]/80 sm:mb-6 sm:text-[12px] sm:tracking-[0.14em]">
                     {formatDuration(
                       course.durationMonths,
                       course.format,
@@ -96,7 +96,7 @@ export default function CoursesLearnings({ courses = [] }) {
                   </div>
                   <Link
                     href={`/courses/${courseId}`}
-                    className="mt-auto inline-flex h-12 min-w-[168px] items-center justify-center gap-3 bg-[#ad7f53] px-7 text-[13px] font-medium uppercase tracking-[0.08em] !text-white transition-colors hover:bg-[#986d45]"
+                    className="mt-auto inline-flex h-9 w-full items-center justify-center gap-2 bg-[#ad7f53] px-3 text-[10px] font-medium uppercase tracking-[0.08em] !text-white transition-colors hover:bg-[#986d45] sm:h-12 sm:min-w-[168px] sm:w-auto sm:gap-3 sm:px-7 sm:text-[13px]"
                   >
                     Read More <span aria-hidden="true">↗</span>
                   </Link>
@@ -106,13 +106,13 @@ export default function CoursesLearnings({ courses = [] }) {
                   href={`/courses/${courseId}`}
                   className="absolute inset-0 z-10 flex translate-y-4 flex-col items-center justify-center bg-[#ad7f53] px-8 text-center !text-white opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"
                 >
-                  <span className="mb-6 text-[27px] font-normal leading-tight sm:text-[30px]">
+                  <span className="mb-4 text-[20px] font-normal leading-tight sm:mb-6 sm:text-[30px]">
                     {course.title}
                   </span>
-                  <span className="mb-7 max-w-[250px] text-[15px] leading-[1.45] !text-white/90">
+                  <span className="mb-5 max-w-[250px] text-[12px] leading-[1.35] !text-white/90 sm:mb-7 sm:text-[15px]">
                     {description}
                   </span>
-                  <span className="inline-flex h-12 items-center justify-center gap-3 bg-[#f8f3ef] px-8 text-[13px] font-medium uppercase tracking-[0.08em] text-[#5e5147]">
+                  <span className="inline-flex h-10 items-center justify-center gap-2 bg-[#f8f3ef] px-4 text-[10px] font-medium uppercase tracking-[0.08em] text-[#5e5147] sm:h-12 sm:gap-3 sm:px-8 sm:text-[13px]">
                     View Details <span aria-hidden="true">↗</span>
                   </span>
                 </Link>

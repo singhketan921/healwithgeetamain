@@ -140,9 +140,9 @@ export default function SpinWheel({ winProbability = 0.1 }) {
   };
 
   return (
-    <section className="bg-[#f8f3ef] px-5 py-16 text-[#ad7f53] sm:py-20">
+    <section className="bg-[#f8f3ef] px-5 py-10 text-[#ad7f53] sm:py-12">
       <div className="mx-auto flex max-w-[1160px] flex-col items-center">
-        <div className="relative w-full max-w-[540px] pt-18 sm:pt-24 lg:max-w-[680px] xl:max-w-[740px]">
+        <div className="relative w-full max-w-[500px] pt-16 sm:pt-20 lg:max-w-[620px] xl:max-w-[680px]">
           <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2">
             <div
               className="h-[48px] w-[52px] rounded-t-[8px] bg-[#ad7f53] drop-shadow-[0_9px_9px_rgba(76,71,64,0.26)] sm:h-[66px] sm:w-[70px]"
