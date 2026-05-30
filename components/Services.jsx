@@ -4,9 +4,9 @@ const chips = ["Growth", "Harmony", "Resilience"];
 
 export default function Services() {
   return (
-    <section className="bg-[#f8f3ef] px-5 py-16 text-white sm:px-8 sm:py-20">
+    <section className="bg-[#f8f3ef] px-5 py-10 text-white sm:px-8 sm:py-12">
       <div className="relative mx-auto max-w-[1500px]">
-        <div className="absolute -top-16 left-[7%] z-20 hidden h-[154px] w-[154px] items-center justify-center rounded-full bg-[#f8f3ef] md:flex">
+        <div className="absolute -top-10 left-[7%] z-20 hidden h-[118px] w-[118px] items-center justify-center rounded-full bg-[#f8f3ef] md:flex">
           <svg className="absolute inset-0 h-full w-full" viewBox="0 0 154 154" aria-hidden="true">
             <defs>
               <path
@@ -20,12 +20,12 @@ export default function Services() {
               </textPath>
             </text>
           </svg>
-          <span className="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[#f3eadf] text-[32px] leading-none text-[#4c4740]">
+          <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f3eadf] text-[24px] leading-none text-[#4c4740]">
             ↓
           </span>
         </div>
 
-        <div className="relative min-h-[520px] overflow-hidden bg-[#ad7f53] sm:min-h-[620px] lg:min-h-[690px]">
+        <div className="relative min-h-[390px] overflow-hidden bg-[#ad7f53] sm:min-h-[480px] lg:min-h-[560px]">
           <video
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay
@@ -40,7 +40,7 @@ export default function Services() {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,243,239,0.08)_0%,rgba(173,127,83,0.22)_40%,rgba(130,72,28,0.92)_100%)]" />
           <div className="absolute inset-0 bg-[#ad7f53]/18" />
 
-          <div className="relative z-10 flex min-h-[520px] flex-col justify-end px-6 pb-8 sm:min-h-[620px] sm:px-12 sm:pb-12 lg:min-h-[690px]">
+          <div className="relative z-10 flex min-h-[390px] flex-col justify-end px-6 pb-7 sm:min-h-[480px] sm:px-10 sm:pb-10 lg:min-h-[560px]">
             <div className="flex flex-wrap gap-2">
               {chips.map((chip) => (
                 <span
@@ -53,7 +53,7 @@ export default function Services() {
             </div>
 
             <div className="mt-8">
-              <h2 className="max-w-[940px] text-[44px] font-normal leading-[1.02] tracking-[-0.01em] text-white sm:text-[64px] lg:text-[76px]">
+              <h2 className="max-w-[940px] text-[38px] font-normal leading-[1.02] tracking-[-0.01em] text-white sm:text-[54px] lg:text-[66px]">
                 Spiritual guidance that brings balance and clarity.
               </h2>
             </div>

@@ -23,8 +23,8 @@ const columns = [
 
 export default function BenefitsOfHealing() {
   return (
-    <section className="py-24 bg-[#F9F4E8] text-[#6b625a] px-6 sm:px-10">
-      <div className="mx-auto max-w-[1200px] space-y-10">
+    <section className="py-12 bg-[#F9F4E8] text-[#6b625a] px-6 sm:px-10 sm:py-16">
+      <div className="mx-auto max-w-[1200px] space-y-7">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,9 +51,9 @@ export default function BenefitsOfHealing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="rounded-[16px] border border-[#e7dfd6] bg-white p-6 flex flex-col gap-4 shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+            className="rounded-[16px] border border-[#e7dfd6] bg-white p-5 flex flex-col gap-3 shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
             >
-              <div className="w-16 h-16 rounded-full bg-[#e2dbd2] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-[#e2dbd2] flex items-center justify-center">
                 {column.icon}
               </div>
               <h3 className="text-[18px] sm:text-[20px] font-semibold">{column.title}</h3>

@@ -21,9 +21,9 @@ const fallbackTestimonials = [
 
 const AVATAR_SRC = "/assets/images/lady.png";
 const COLUMN_HEIGHTS = [
-  ["min-h-[300px]", "min-h-[300px]", "min-h-[300px]", "min-h-[300px]"],
-  ["min-h-[270px]", "min-h-[300px]", "min-h-[270px]", "min-h-[300px]"],
-  ["min-h-[300px]", "min-h-[300px]", "min-h-[300px]", "min-h-[300px]"],
+  ["min-h-[240px]", "min-h-[240px]", "min-h-[240px]", "min-h-[240px]"],
+  ["min-h-[220px]", "min-h-[240px]", "min-h-[220px]", "min-h-[240px]"],
+  ["min-h-[240px]", "min-h-[240px]", "min-h-[240px]", "min-h-[240px]"],
 ];
 
 function buildMasonryColumns(items) {
@@ -46,30 +46,30 @@ function TestimonialCard({ testimonial, className = "", index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay: index * 0.04 }}
       viewport={{ once: true }}
-      className={`group flex flex-col justify-center border border-[#ad7f53] bg-[#f8f3ef] px-8 py-10 text-left transition-colors duration-300 hover:bg-[#ad7f53] ${className}`}
+      className={`group flex flex-col justify-center border border-[#ad7f53] bg-[#f8f3ef] px-6 py-7 text-left transition-colors duration-300 hover:bg-[#ad7f53] ${className}`}
     >
-      <div className="mb-10 flex items-start justify-between gap-6">
-        <div className="flex items-center gap-5">
+      <div className="mb-6 flex items-start justify-between gap-4">
+        <div className="flex items-center gap-4">
           <img
             src={testimonial.avatar || AVATAR_SRC}
             alt={testimonial.name}
-            className="h-[52px] w-[52px] rounded-full object-cover"
+            className="h-11 w-11 rounded-full object-cover"
           />
           <div>
             <h3
-              className="text-[20px] font-normal leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[22px]"
+              className="text-[18px] font-normal leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[20px]"
             >
               {testimonial.name}
             </h3>
             <p
-              className="mt-1 text-[17px] leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[18px]"
+              className="mt-1 text-[15px] leading-tight text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[16px]"
             >
               {testimonial.role || "HealWithGeeta Client"}
             </p>
           </div>
         </div>
         <span
-          className="font-serif text-[70px] leading-[0.65] text-[#ad7f53] transition-colors duration-300 group-hover:text-white"
+          className="font-serif text-[52px] leading-[0.65] text-[#ad7f53] transition-colors duration-300 group-hover:text-white"
           aria-hidden="true"
         >
           ”
@@ -77,7 +77,7 @@ function TestimonialCard({ testimonial, className = "", index = 0 }) {
       </div>
 
       <p
-        className="max-w-[400px] text-[20px] leading-[1.15] text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[22px]"
+        className="max-w-[400px] text-[17px] leading-[1.18] text-[#ad7f53] transition-colors duration-300 group-hover:text-white sm:text-[19px]"
       >
         {quote}
       </p>
@@ -94,23 +94,23 @@ export default function ConsultTestimonials({
   const columns = buildMasonryColumns(safeTestimonials);
 
   return (
-    <section className="overflow-hidden bg-[#f8f3ef] px-6 py-24 text-center sm:px-10 sm:py-28">
-      <div className="mx-auto mb-16 max-w-[1200px]">
+    <section className="overflow-hidden bg-[#f8f3ef] px-6 py-12 text-center sm:px-10 sm:py-16">
+      <div className="mx-auto mb-10 max-w-[1200px]">
         <p className="mb-4 flex items-center justify-center gap-2 text-[16px] text-[#ad7f53]">
           <span className="text-[18px] leading-none">✽</span>
           Testimonials
         </p>
-        <h2 className="text-[46px] font-normal leading-none text-[#ad7f53] sm:text-[66px] md:text-[76px]">
+        <h2 className="text-[40px] font-normal leading-none text-[#ad7f53] sm:text-[56px] md:text-[66px]">
           {title}
         </h2>
-        <p className="mx-auto mt-4 max-w-[640px] text-[18px] leading-[1.45] text-[#ad7f53]">
+        <p className="mx-auto mt-4 max-w-[640px] text-[16px] leading-[1.45] text-[#ad7f53]">
           {subtitle}
         </p>
       </div>
 
-      <div className="mx-auto hidden max-w-[1320px] grid-cols-3 gap-7 lg:grid">
+      <div className="mx-auto hidden max-w-[1320px] grid-cols-3 gap-5 lg:grid">
         {columns.map((column, columnIndex) => (
-          <div key={columnIndex} className="flex flex-col gap-7">
+          <div key={columnIndex} className="flex flex-col gap-5">
             {column.map((testimonial, index) => (
               <TestimonialCard
                 key={testimonial._key}
@@ -133,7 +133,7 @@ export default function ConsultTestimonials({
               <TestimonialCard
                 testimonial={testimonial}
                 index={index}
-                className="min-h-[300px]"
+                className="min-h-[240px]"
               />
             </div>
           ))}
