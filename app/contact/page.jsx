@@ -8,7 +8,7 @@ import BeginTransformationSection from "@/contactcomponents/BeginTransformationS
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
+    <div className="flex flex-col items-center overflow-x-hidden scroll-smooth pt-[var(--navbar-height)]">
       
 
       <section id="contactinfo" className="w-full">

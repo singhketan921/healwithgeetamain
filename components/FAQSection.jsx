@@ -20,7 +20,7 @@ export default function FAQSection({
   return (
     <section
       id={id}
-      className={`w-full bg-[#f8f3ef] px-6 py-24 text-[#ad7f53] sm:py-28 ${className}`}
+      className={`w-full bg-[#f8f3ef] px-6 py-12 text-[#ad7f53] sm:py-16 ${className}`}
     >
       <div className="mx-auto max-w-[920px]">
         <motion.div
@@ -28,15 +28,15 @@ export default function FAQSection({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
           <p className="mb-4 flex items-center justify-center gap-2 text-[15px] font-medium text-[#ad7f53]">
             <span className="text-[18px] leading-none">✽</span>
             {eyebrow}
           </p>
-          <h2 className="text-[42px] font-normal leading-[0.95] text-[#ad7f53] sm:text-[58px] md:text-[64px]">
+          <h2 className="text-[38px] font-normal leading-[0.95] text-[#ad7f53] sm:text-[50px] md:text-[58px]">
             {title}
-            <span className="mt-2 block font-serif text-[48px] italic leading-none sm:text-[64px] md:text-[70px]">
+            <span className="mt-2 block font-serif text-[42px] italic leading-none sm:text-[56px] md:text-[62px]">
               {accentTitle}
             </span>
           </h2>
@@ -57,13 +57,13 @@ export default function FAQSection({
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-start justify-between gap-6 py-7 text-left text-[#ad7f53]"
+                  className="flex w-full items-start justify-between gap-6 py-5 text-left text-[#ad7f53]"
                 >
-                  <span className="text-[24px] font-normal leading-[1.2] sm:text-[30px]">
+                  <span className="text-[21px] font-normal leading-[1.2] sm:text-[26px]">
                     {faq.question}
                   </span>
                   <span
-                    className={`mt-1 flex h-[38px] w-[38px] shrink-0 items-center justify-center border border-[#ad7f53] text-[20px] leading-none transition-colors ${
+                    className={`mt-1 flex h-8 w-8 shrink-0 items-center justify-center border border-[#ad7f53] text-[18px] leading-none transition-colors ${
                       isOpen ? "bg-[#ad7f53] text-white" : "bg-transparent text-[#ad7f53]"
                     }`}
                     aria-hidden="true"
@@ -78,7 +78,7 @@ export default function FAQSection({
                   transition={{ duration: 0.28 }}
                   className="overflow-hidden"
                 >
-                  <p className="max-w-[760px] pb-7 text-[15px] leading-[1.7] text-[#ad7f53] preserve-format sm:text-[16px]">
+                  <p className="max-w-[760px] pb-5 text-[15px] leading-[1.6] text-[#ad7f53] preserve-format sm:text-[16px]">
                     {faq.answer}
                   </p>
                 </motion.div>
