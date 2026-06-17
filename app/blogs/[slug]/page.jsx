@@ -21,7 +21,7 @@ export default async function BlogDetailPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#F9F4E8] pt-28 pb-16 px-6 lg:px-12 text-[#6b625a]">
+    <div className="min-h-screen bg-[#F9F4E8] pt-[calc(var(--navbar-height)+32px)] pb-16 px-6 lg:px-12 text-[#6b625a]">
       <div className="mx-auto max-w-5xl space-y-10">
         <div className="space-y-3">
           <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">
