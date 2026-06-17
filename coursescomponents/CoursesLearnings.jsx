@@ -30,7 +30,7 @@ export default function CoursesLearnings({ courses = [] }) {
 
   return (
     <section
-      className="bg-[#f8f3ef] py-20 text-[#ad7f53] sm:py-24"
+      className="bg-[#f8f3ef] pb-20 pt-[calc(var(--navbar-height)+32px)] text-[#ad7f53] sm:pb-24"
       id="learnings"
     >
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">

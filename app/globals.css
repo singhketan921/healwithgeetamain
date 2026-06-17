@@ -43,15 +43,15 @@
   font-weight: 400;
   color: #524e48;
   background-color: #f9f4e8;
-  --navbar-height: 60px;
+  --navbar-height: 84px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   :root {
-    --navbar-height: 74px;
+    --navbar-height: 126px;
   }
 }
 
@@ -304,199 +304,248 @@ a {
 
 .home-hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   padding-top: var(--navbar-height);
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0) 66%, #f8f3ef 100%),
-    radial-gradient(circle at 62% 3%, rgba(255, 255, 255, 0.88) 0 0, rgba(255, 255, 255, 0.62) 8%, rgba(255, 255, 255, 0) 18%),
-    radial-gradient(circle at 83% 7%, rgba(255, 255, 255, 0.82) 0 0, rgba(255, 255, 255, 0.54) 7%, rgba(255, 255, 255, 0) 16%),
-    url("/assets/images/HeroBG.png");
-  background-size: cover, auto, auto, cover;
-  background-position: center bottom, center top, center top, center;
-  color: #6c4a2a;
-}
-
-.home-hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 4;
-  height: 320px;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(248, 243, 239, 0) 0%,
-    rgba(248, 243, 239, 0.72) 46%,
-    #f8f3ef 100%
-  );
-}
-
-.home-hero__glow {
-  position: absolute;
-  inset: var(--navbar-height) 0 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 3% 8%, rgba(255, 255, 255, 0.85) 0 1px, transparent 2px),
-    radial-gradient(circle at 18% 3%, rgba(255, 255, 255, 0.75) 0 2px, transparent 3px),
-    radial-gradient(circle at 35% 10%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
-    radial-gradient(circle at 44% 4%, rgba(255, 255, 255, 0.85) 0 3px, transparent 4px),
-    radial-gradient(circle at 61% 13%, rgba(255, 255, 255, 0.75) 0 2px, transparent 3px),
-    radial-gradient(circle at 88% 11%, rgba(255, 255, 255, 0.85) 0 2px, transparent 3px);
-  opacity: 0.9;
+    linear-gradient(180deg, rgba(250, 234, 211, 0.12) 0%, rgba(255, 248, 235, 0.2) 68%, #f8f3ef 100%),
+    url("/assets/WhatsApp Image 2026-06-17 at 11.32.48.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: #25261a;
 }
 
 .home-hero__content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   min-height: calc(100vh - var(--navbar-height));
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 8.5vh 6.2vw 0 5vw;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1vh 7.5vw 8vh;
 }
 
 .home-hero__copy {
-  width: 58%;
-  min-width: 780px;
-  text-align: right;
+  width: min(46vw, 620px);
+  text-align: left;
 }
 
 .home-hero__title {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  font-family: var(--font-sans-primary);
-  font-size: clamp(82px, 6.1vw, 124px);
-  font-weight: 400;
-  line-height: 0.88;
+  gap: 0;
+  margin: 0;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(58px, 5vw, 86px);
+  font-weight: 700;
+  line-height: 0.98;
   letter-spacing: 0;
-  color: #6c4a2a;
+  color: #25261a;
 }
 
 .home-hero__title span {
   display: block;
-  white-space: nowrap;
 }
 
-.home-hero__title em {
-  font-family: var(--font-serif-primary);
-  font-style: italic;
-  font-weight: 400;
-  margin-left: 0.08em;
+.home-hero__title strong {
+  display: block;
+  color: #687035;
+  font: inherit;
 }
 
 .home-hero__figure {
   position: absolute;
-  z-index: 1;
-  left: -2.5%;
-  bottom: 88px;
-  width: 70%;
-  max-width: 1300px;
+  z-index: 2;
+  right: -5.5vw;
+  bottom: 0;
+  width: min(66vw, 1020px);
   height: auto;
   pointer-events: none;
 }
 
-.home-hero__flower {
-  position: absolute;
-  z-index: 0;
-  right: -80px;
-  bottom: 82px;
-  width: 360px;
-  height: auto;
-  opacity: 0.16;
-  pointer-events: none;
+.home-hero__eyebrow {
+  margin: 22px 0 0;
+  max-width: 560px;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(19px, 1.4vw, 23px);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #25261a;
+}
+
+.home-hero__eyebrow::first-letter {
+  font-family: var(--font-sans-primary);
+}
+
+.home-hero__divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: min(285px, 82vw);
+  margin: 35px 0 28px;
+  color: #b07a24;
+}
+
+.home-hero__divider span {
+  height: 1px;
+  flex: 1;
+  background: #b07a24;
+}
+
+.home-hero__divider img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.home-hero__description {
+  margin: 0;
+  max-width: 470px;
+  font-size: clamp(18px, 1.5vw, 23px);
+  font-weight: 500;
+  line-height: 1.55;
+  color: #25261a;
+}
+
+.home-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 325px;
+  min-height: 72px;
+  margin-top: 34px;
+  border-radius: 8px;
+  background: #667030;
+  box-shadow: 0 13px 25px rgba(59, 55, 21, 0.2);
+  padding: 18px 24px;
+  color: #fff9ef;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.home-hero__cta:hover {
+  transform: translateY(-2px);
+  background: #596226;
+  box-shadow: 0 16px 30px rgba(59, 55, 21, 0.24);
+}
+
+.home-hero__cta img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.home-hero__cta-arrow {
+  margin-left: 10px;
+  font-size: 25px;
+  line-height: 1;
 }
 
 @media (max-width: 1279px) {
   .home-hero__content {
-    padding: 9vh 5vw 0;
+    padding-inline: 5vw;
   }
 
   .home-hero__copy {
-    min-width: 640px;
+    width: 50vw;
   }
 
   .home-hero__title {
-    font-size: 76px;
-    gap: 14px;
+    font-size: 58px;
   }
 
   .home-hero__figure {
-    left: -10%;
-    bottom: 72px;
-    width: 78%;
+    right: -11vw;
+    width: 76vw;
   }
 }
 
 @media (max-width: 900px) {
   .home-hero {
-    min-height: 760px;
+    min-height: 860px;
+    background-position: 60% center;
   }
 
   .home-hero__content {
-    min-height: 720px;
-    justify-content: center;
+    min-height: calc(860px - var(--navbar-height));
+    align-items: flex-start;
     padding: 64px 24px 0;
   }
 
   .home-hero__copy {
     width: 100%;
-    min-width: 0;
-    text-align: center;
+    max-width: 620px;
   }
 
   .home-hero__title {
     font-size: 50px;
-    gap: 12px;
   }
 
   .home-hero__figure {
-    left: 50%;
-    bottom: 60px;
-    width: 110%;
-    max-width: 760px;
-    transform: translateX(-56%);
-  }
-
-  .home-hero__flower {
-    right: -120px;
-    bottom: 160px;
-    width: 300px;
+    right: -190px;
+    width: min(122vw, 900px);
   }
 
   .home-stats {
-    margin-top: -130px;
-    padding-top: 88px;
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
 @media (max-width: 520px) {
   .home-hero {
-    min-height: 660px;
+    min-height: 820px;
+    background-position: 59% center;
   }
 
   .home-hero__content {
-    min-height: 620px;
-    padding: 48px 18px 0;
+    min-height: calc(820px - var(--navbar-height));
+    padding: 42px 18px 0;
   }
 
   .home-hero__title {
-    font-size: 36px;
-    gap: 10px;
+    font-size: 39px;
+  }
+
+  .home-hero__eyebrow {
+    margin-top: 16px;
+    font-size: 17px;
+  }
+
+  .home-hero__divider {
+    margin: 24px 0 18px;
+  }
+
+  .home-hero__description {
+    max-width: 315px;
+    font-size: 16px;
+  }
+
+  .home-hero__cta {
+    min-width: 0;
+    width: 100%;
+    max-width: 310px;
+    min-height: 62px;
+    gap: 12px;
+    margin-top: 24px;
+    font-size: 15px;
   }
 
   .home-hero__figure {
-    width: 145%;
-    bottom: 46px;
-    transform: translateX(-55%);
+    right: -178px;
+    width: 158vw;
   }
 
   .home-stats {
-    margin-top: -105px;
-    padding-top: 72px;
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -504,13 +553,11 @@ a {
   position: relative;
   z-index: 6;
   width: 100%;
-  margin-top: -170px;
-  padding-top: 110px;
+  margin-top: 0;
+  padding-top: 0;
   background: linear-gradient(
     180deg,
-    rgba(248, 243, 239, 0) 0%,
-    rgba(248, 243, 239, 0.88) 34%,
-    #f8f3ef 58%,
+    #f8f3ef 0%,
     #f8f3ef 100%
   );
   color: #4c4740;
