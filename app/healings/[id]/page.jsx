@@ -26,7 +26,7 @@ export default async function HealingDetailPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#D0BFA9] pt-28 pb-16 px-6 lg:px-12">
+    <div className="min-h-screen bg-[#D0BFA9] pt-[calc(var(--navbar-height)+32px)] pb-16 px-6 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <a
           href="/healings"

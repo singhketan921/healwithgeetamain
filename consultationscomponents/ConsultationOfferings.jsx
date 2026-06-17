@@ -19,7 +19,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
   return (
     <section
       id="offerings"
-      className="bg-[#f8f3ef] py-20 text-[#ad7f53] sm:py-24"
+      className="bg-[#f8f3ef] pb-20 pt-[calc(var(--navbar-height)+32px)] text-[#ad7f53] sm:pb-24"
     >
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <div className="mx-auto mb-14 max-w-[760px] text-center sm:mb-16">
