@@ -1,6 +1,6 @@
 export default function LegalPolicyPage({ title, subtitle, effectiveDate, sections }) {
   return (
-    <div className="w-full px-6 py-16 md:py-20">
+    <div className="w-full px-6 pb-16 pt-[calc(var(--navbar-height)+32px)] md:pb-20">
       <article className="max-w-4xl mx-auto rounded-3xl border border-[#D0BFA9] bg-white/90 p-6 md:p-10 shadow-[0_10px_40px_rgba(82,78,72,0.08)]">
         <header className="border-b border-[#E6D9C9] pb-6">
           <p className="text-xs uppercase tracking-[0.3em] text-[#A59079]">Legal</p>

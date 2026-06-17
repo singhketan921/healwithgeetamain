@@ -29,7 +29,7 @@ export default async function WorkshopsPage() {
 
   return (
     <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
-      <section className="w-full bg-[#f8f3ef] py-20 text-[#ad7f53] sm:py-24">
+      <section className="w-full bg-[#f8f3ef] pb-20 pt-[calc(var(--navbar-height)+32px)] text-[#ad7f53] sm:pb-24">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
           <div className="mx-auto mb-14 max-w-[760px] text-center sm:mb-16">
             <p className="mb-3 flex items-center justify-center gap-2 text-[14px] font-medium text-[#ad7f53] sm:text-[16px]">

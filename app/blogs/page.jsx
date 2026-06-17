@@ -6,7 +6,7 @@ export default async function BlogsPage() {
   const visibleBlogs = blogs.filter((blog) => blog?.active !== false);
 
   return (
-    <div className="min-h-screen bg-[#F9F4E8] pt-28 pb-16 px-6 lg:px-12 text-[#6b625a]">
+    <div className="min-h-screen bg-[#F9F4E8] pt-[calc(var(--navbar-height)+32px)] pb-16 px-6 lg:px-12 text-[#6b625a]">
       <div className="mx-auto max-w-6xl space-y-10">
         <header className="text-center space-y-3">
           <p className="text-[12px] uppercase tracking-[0.32em] text-[#9a938c]">

@@ -74,7 +74,7 @@ export default async function CourseCheckoutPage({ params }) {
     extractDurationText(course.certificationDetails) || "Custom duration";
 
   return (
-    <div className="min-h-screen bg-[#d2c2ad] pt-24 pb-16 px-6 lg:px-12">
+    <div className="min-h-screen bg-[#d2c2ad] pt-[calc(var(--navbar-height)+32px)] pb-16 px-6 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <a
           href={`/courses/${course.id ?? course._id}`}

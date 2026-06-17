@@ -26,7 +26,7 @@ export default function AdminShell({ children, session, onLogout }) {
   return (
     <div className="min-h-screen bg-[#D0BFA9]">
       <div className="flex min-h-screen">
-        <aside className="w-64 border-r border-[#e1d8ce] bg-[#fbf8f5] px-5 pb-10 pt-24">
+        <aside className="w-64 border-r border-[#e1d8ce] bg-[#fbf8f5] px-5 pb-10 pt-[calc(var(--navbar-height)+24px)]">
           <div className="space-y-1">
             <p className="text-xs uppercase tracking-[0.32em] text-[#9a938c]">
               Admin Panel
@@ -76,7 +76,7 @@ export default function AdminShell({ children, session, onLogout }) {
             </div>
           ) : null}
         </aside>
-        <main className="flex-1 px-6 pb-12 pt-24 lg:px-12">{children}</main>
+        <main className="flex-1 px-6 pb-12 pt-[calc(var(--navbar-height)+24px)] lg:px-12">{children}</main>
       </div>
     </div>
   );
