@@ -318,7 +318,7 @@ a {
 .home-hero__content {
   position: relative;
   z-index: 3;
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100svh - var(--navbar-height));
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -359,7 +359,9 @@ a {
   right: -5.5vw;
   bottom: 0;
   width: min(66vw, 1020px);
+  max-height: calc(100svh - var(--navbar-height) - 18px);
   height: auto;
+  object-fit: contain;
   pointer-events: none;
 }
 
@@ -491,6 +493,7 @@ a {
   .home-hero__figure {
     right: -190px;
     width: min(122vw, 900px);
+    max-height: none;
   }
 
   .home-stats {
