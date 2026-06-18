@@ -356,11 +356,11 @@ a {
 .home-hero__figure {
   position: absolute;
   z-index: 2;
-  right: -5.5vw;
-  bottom: 0;
-  width: min(66vw, 1020px);
-  max-height: calc(100svh - var(--navbar-height) - 18px);
-  height: auto;
+  right: -7vw;
+  bottom: -72px;
+  width: auto;
+  height: calc(100svh - var(--navbar-height) + 72px);
+  max-height: none;
   object-fit: contain;
   pointer-events: none;
 }
@@ -465,7 +465,9 @@ a {
 
   .home-hero__figure {
     right: -11vw;
-    width: 76vw;
+    bottom: -60px;
+    width: auto;
+    height: calc(100svh - var(--navbar-height) + 60px);
   }
 }
 
@@ -492,7 +494,9 @@ a {
 
   .home-hero__figure {
     right: -190px;
+    bottom: 0;
     width: min(122vw, 900px);
+    height: auto;
     max-height: none;
   }
 
