@@ -305,14 +305,58 @@ a {
 .home-hero {
   position: relative;
   min-height: 100svh;
-  padding-top: var(--navbar-height);
   overflow: hidden;
+  isolation: isolate;
   background:
     linear-gradient(180deg, rgba(250, 234, 211, 0.12) 0%, rgba(255, 248, 235, 0.2) 68%, #f8f3ef 100%),
     url("/assets/WhatsApp Image 2026-06-17 at 11.32.48.jpeg");
   background-size: cover;
   background-position: center;
   color: #25261a;
+}
+
+.home-hero__slide {
+  position: absolute;
+  inset: 0;
+  padding-top: var(--navbar-height);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 700ms ease,
+    visibility 700ms ease;
+}
+
+.home-hero__slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.home-hero__slide--guidance {
+  background:
+    linear-gradient(180deg, rgba(250, 234, 211, 0.12) 0%, rgba(255, 248, 235, 0.2) 68%, #f8f3ef 100%),
+    url("/assets/WhatsApp Image 2026-06-17 at 11.32.48.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+.home-hero__slide--healing {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 239, 0.06), rgba(255, 248, 235, 0.12)),
+    url("/assets/geeta/WhatsApp Image 2026-06-23 at 12.01.30.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+.home-hero__slide--learning {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 239, 0.06), rgba(255, 248, 235, 0.1)),
+    url("/assets/geeta/WhatsApp Image 2026-06-23 at 12.09.51.jpeg");
+  background-position: center;
+  background-size: cover;
 }
 
 .home-hero__content {
@@ -353,6 +397,32 @@ a {
   font: inherit;
 }
 
+.home-hero__title--healing {
+  gap: 3px;
+}
+
+.home-hero__title--healing strong {
+  margin-bottom: 10px;
+  font-size: clamp(72px, 6.3vw, 108px);
+  font-weight: 500;
+  line-height: 0.78;
+  text-transform: uppercase;
+}
+
+.home-hero__title--healing span {
+  font-size: clamp(34px, 3.05vw, 52px);
+  font-weight: 500;
+  line-height: 1.02;
+}
+
+.home-hero__title--learning {
+  gap: 8px;
+  color: #59612f;
+  font-size: clamp(48px, 4.25vw, 73px);
+  font-weight: 600;
+  line-height: 0.94;
+}
+
 .home-hero__figure {
   position: absolute;
   z-index: 2;
@@ -363,6 +433,18 @@ a {
   max-height: none;
   object-fit: contain;
   pointer-events: none;
+}
+
+.home-hero__figure--healing {
+  right: -2.5vw;
+  bottom: -8px;
+  height: calc(100svh - var(--navbar-height) + 8px);
+}
+
+.home-hero__figure--learning {
+  right: -1vw;
+  bottom: 0;
+  height: calc(100svh - var(--navbar-height));
 }
 
 .home-hero__eyebrow {
@@ -450,6 +532,68 @@ a {
   line-height: 1;
 }
 
+.home-hero__learning-card {
+  width: min(340px, 100%);
+  margin-top: 28px;
+  border: 1px solid rgba(129, 104, 63, 0.32);
+  border-radius: 18px;
+  background: rgba(255, 251, 244, 0.82);
+  box-shadow: 0 18px 38px rgba(94, 68, 37, 0.12);
+  padding: 20px 22px 22px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.home-hero__learning-card > img {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 2px;
+  object-fit: contain;
+}
+
+.home-hero__learning-card p {
+  margin: 0;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(34px, 2.7vw, 46px);
+  font-weight: 600;
+  line-height: 1;
+  color: #59612f;
+}
+
+.home-hero__learning-card .home-hero__cta {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 16px;
+}
+
+.home-hero__pagination {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  bottom: 24px;
+  display: flex;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+
+.home-hero__pagination button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid rgba(102, 112, 48, 0.8);
+  border-radius: 999px;
+  background: rgba(255, 249, 239, 0.8);
+  cursor: pointer;
+  transition:
+    width 180ms ease,
+    background 180ms ease;
+}
+
+.home-hero__pagination button.is-active {
+  width: 28px;
+  background: #667030;
+}
+
 @media (max-width: 1279px) {
   .home-hero__content {
     padding-inline: 5vw;
@@ -468,6 +612,14 @@ a {
     bottom: -60px;
     width: auto;
     height: calc(100svh - var(--navbar-height) + 60px);
+  }
+
+  .home-hero__figure--healing {
+    right: -8vw;
+  }
+
+  .home-hero__figure--learning {
+    right: -7vw;
   }
 }
 
@@ -500,6 +652,36 @@ a {
     max-height: none;
   }
 
+  .home-hero__figure--healing {
+    right: -220px;
+    bottom: 0;
+    width: min(130vw, 920px);
+    height: auto;
+  }
+
+  .home-hero__figure--learning {
+    right: -235px;
+    bottom: 0;
+    width: min(142vw, 940px);
+    height: auto;
+  }
+
+  .home-hero__title--healing strong {
+    font-size: 68px;
+  }
+
+  .home-hero__title--healing span {
+    font-size: 34px;
+  }
+
+  .home-hero__title--learning {
+    font-size: 42px;
+  }
+
+  .home-hero__copy--learning {
+    max-width: 560px;
+  }
+
   .home-stats {
     margin-top: 0;
     padding-top: 0;
@@ -519,6 +701,20 @@ a {
 
   .home-hero__title {
     font-size: 31px;
+  }
+
+  .home-hero__title--healing strong {
+    margin-bottom: 6px;
+    font-size: 50px;
+  }
+
+  .home-hero__title--healing span {
+    font-size: 27px;
+  }
+
+  .home-hero__title--learning {
+    gap: 4px;
+    font-size: 32px;
   }
 
   .home-hero__eyebrow {
@@ -548,6 +744,40 @@ a {
   .home-hero__figure {
     right: -178px;
     width: 158vw;
+  }
+
+  .home-hero__figure--healing {
+    right: -205px;
+    width: 172vw;
+  }
+
+  .home-hero__figure--learning {
+    right: -230px;
+    width: 185vw;
+  }
+
+  .home-hero__learning-card {
+    width: min(280px, 100%);
+    margin-top: 20px;
+    padding: 14px 16px 16px;
+  }
+
+  .home-hero__learning-card > img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .home-hero__learning-card p {
+    font-size: 32px;
+  }
+
+  .home-hero__learning-card .home-hero__cta {
+    min-height: 50px;
+    margin-top: 12px;
+  }
+
+  .home-hero__pagination {
+    bottom: 16px;
   }
 
   .home-stats {
