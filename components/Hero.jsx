@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+const SLIDE_DURATION = 4500;
+
 const slides = [
   {
     id: "guidance",
@@ -16,18 +18,22 @@ const slides = [
     id: "learning",
     label: "Learning and growth",
   },
+  {
+    id: "destiny",
+    label: "Master your destiny",
+  },
 ];
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
+    const timeout = window.setTimeout(() => {
       setActiveSlide((current) => (current + 1) % slides.length);
-    }, 6500);
+    }, SLIDE_DURATION);
 
-    return () => window.clearInterval(interval);
-  }, []);
+    return () => window.clearTimeout(timeout);
+  }, [activeSlide]);
 
   return (
     <section className="home-hero" aria-label="Geeta Sharma introduction">
@@ -146,6 +152,51 @@ export default function Hero() {
                 <span className="home-hero__cta-arrow" aria-hidden="true">-&gt;</span>
               </Link>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`home-hero__slide home-hero__slide--destiny ${
+          activeSlide === 3 ? "is-active" : ""
+        }`}
+        aria-hidden={activeSlide !== 3}
+      >
+        <img
+          src="/assets/geeta/destiny-session-cutout.png"
+          alt=""
+          width="1536"
+          height="1024"
+          className="home-hero__figure home-hero__figure--destiny"
+        />
+        <div className="home-hero__content">
+          <div className="home-hero__copy home-hero__copy--destiny">
+            <h2 className="home-hero__title home-hero__title--destiny">
+              <span>Learn How to Become</span>
+              <span>The Master of</span>
+              <span>Your Destiny</span>
+            </h2>
+            <div className="home-hero__divider" aria-hidden="true">
+              <span />
+              <img src="/assets/navicon.png" alt="" />
+              <span />
+            </div>
+            <p className="home-hero__modalities">
+              Face Reading <i /> Astrology <i /> Numerology <i /> Tarot <i /> Reiki <i /> Energy Healing
+            </p>
+            <div className="home-hero__mini-divider" aria-hidden="true">
+              <span />
+              <img src="/assets/navicon.png" alt="" />
+              <span />
+            </div>
+            <p className="home-hero__description">
+              Discover the deeper patterns shaping your life and unlock your highest potential.
+            </p>
+            <Link href="/consultations" className="home-hero__cta">
+              <img src="/assets/navicon.png" alt="" />
+              <span>Begin Your Journey</span>
+              <span className="home-hero__cta-arrow" aria-hidden="true">-&gt;</span>
+            </Link>
           </div>
         </div>
       </div>
