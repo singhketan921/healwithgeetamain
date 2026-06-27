@@ -359,6 +359,27 @@ a {
   background-size: cover;
 }
 
+.home-hero__slide--destiny {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 239, 0.04), rgba(255, 248, 235, 0.1)),
+    url("/assets/geeta/WhatsApp Image 2026-06-27 at 13.01.56.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+.home-hero__slide--destiny::after {
+  position: absolute;
+  z-index: 1;
+  top: calc(var(--navbar-height) + 3vh);
+  right: 18vw;
+  width: min(37vw, 570px);
+  aspect-ratio: 1;
+  background: url("/assets/hero-mandala.svg") center / contain no-repeat;
+  content: "";
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .home-hero__content {
   position: relative;
   z-index: 3;
@@ -423,6 +444,19 @@ a {
   line-height: 0.94;
 }
 
+.home-hero__title--destiny {
+  gap: 4px;
+  color: #263d20;
+  font-size: clamp(43px, 3.75vw, 64px);
+  font-weight: 700;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.home-hero__copy--destiny {
+  width: min(55vw, 760px);
+}
+
 .home-hero__figure {
   position: absolute;
   z-index: 2;
@@ -445,6 +479,12 @@ a {
   right: -1vw;
   bottom: 0;
   height: calc(100svh - var(--navbar-height));
+}
+
+.home-hero__figure--destiny {
+  right: -9vw;
+  bottom: -2px;
+  height: calc(100svh - var(--navbar-height) - 120px);
 }
 
 .home-hero__eyebrow {
@@ -489,6 +529,49 @@ a {
   font-weight: 500;
   line-height: 1.55;
   color: #25261a;
+}
+
+.home-hero__modalities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 10px;
+  margin: 0;
+  max-width: 540px;
+  font-size: clamp(15px, 1.18vw, 20px);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.home-hero__modalities i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c38c31;
+}
+
+.home-hero__mini-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(270px, 75vw);
+  margin: 22px 0 18px;
+}
+
+.home-hero__mini-divider span {
+  height: 1px;
+  flex: 1;
+  background: #b07a24;
+}
+
+.home-hero__mini-divider img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.home-hero__copy--destiny .home-hero__cta {
+  min-width: 410px;
 }
 
 .home-hero__cta {
@@ -577,8 +660,8 @@ a {
 }
 
 .home-hero__pagination button {
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   padding: 0;
   border: 1px solid rgba(102, 112, 48, 0.8);
   border-radius: 999px;
@@ -590,7 +673,7 @@ a {
 }
 
 .home-hero__pagination button.is-active {
-  width: 28px;
+  width: 32px;
   background: #667030;
 }
 
@@ -620,6 +703,15 @@ a {
 
   .home-hero__figure--learning {
     right: -7vw;
+  }
+
+  .home-hero__figure--destiny {
+    right: -14vw;
+    height: calc(100svh - var(--navbar-height) - 70px);
+  }
+
+  .home-hero__slide--destiny::after {
+    right: 12vw;
   }
 }
 
@@ -666,6 +758,13 @@ a {
     height: auto;
   }
 
+  .home-hero__figure--destiny {
+    right: -210px;
+    bottom: 0;
+    width: min(130vw, 900px);
+    height: auto;
+  }
+
   .home-hero__title--healing strong {
     font-size: 68px;
   }
@@ -678,8 +777,24 @@ a {
     font-size: 42px;
   }
 
+  .home-hero__title--destiny {
+    font-size: 37px;
+  }
+
   .home-hero__copy--learning {
     max-width: 560px;
+  }
+
+  .home-hero__copy--destiny {
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .home-hero__slide--destiny::after {
+    top: auto;
+    right: -70px;
+    bottom: 100px;
+    width: 470px;
   }
 
   .home-stats {
@@ -715,6 +830,10 @@ a {
   .home-hero__title--learning {
     gap: 4px;
     font-size: 32px;
+  }
+
+  .home-hero__title--destiny {
+    font-size: 29px;
   }
 
   .home-hero__eyebrow {
@@ -754,6 +873,36 @@ a {
   .home-hero__figure--learning {
     right: -230px;
     width: 185vw;
+  }
+
+  .home-hero__figure--destiny {
+    right: -220px;
+    width: 175vw;
+  }
+
+  .home-hero__modalities {
+    gap: 3px 7px;
+    max-width: 330px;
+    font-size: 14px;
+  }
+
+  .home-hero__copy--destiny .home-hero__cta {
+    min-width: 0;
+  }
+
+  .home-hero__modalities i {
+    width: 5px;
+    height: 5px;
+  }
+
+  .home-hero__mini-divider {
+    margin: 16px 0 14px;
+  }
+
+  .home-hero__slide--destiny::after {
+    right: -120px;
+    bottom: 90px;
+    width: 390px;
   }
 
   .home-hero__learning-card {
