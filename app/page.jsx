@@ -1,63 +1,55 @@
 import Hero from "@/components/Hero";
-import HomeStats from "@/components/HomeStats";
-import DailyNeeds from "@/components/DailyNeeds";
-import About from "@/components/About";
-import Products from "@/components/Products";
-import Services from "@/components/Services";
-import ServiceProof from "@/components/ServiceProof";
-import Learnings from "@/components/Learnings";
-import Testimonials from "@/components/Testimonials";
-import ContactForm from "@/components/ContactForm";
-import SpinWheel from "@/components/SpinWheel";
-import { fetchTestimonials } from "@/lib/services/testimonialService";
-import { fetchShopifyProducts } from "@/lib/services/shopifyProductService";
-import { fetchSpinWheelSettings } from "@/lib/services/spinWheelService";
+import TrustMarquee from "@/components/TrustMarquee";
+import OurServices from "@/components/OurServices";
+import GuidancePanel from "@/components/GuidancePanel";
+import SpiritualGuide from "@/components/SpiritualGuide";
+import BestSellingCourses from "@/components/BestSellingCourses";
+import TransformLearning from "@/components/TransformLearning";
+import YouTubeCommunity from "@/components/YouTubeCommunity";
+import SuccessStories from "@/components/SuccessStories";
+import ContactUs from "@/components/ContactUs";
 
-export default async function HomePage() {
-  const [testimonials, shopify, spinWheelSettings] = await Promise.all([
-    fetchTestimonials(),
-    fetchShopifyProducts(6),
-    fetchSpinWheelSettings(),
-  ]);
-
+export default function HomePage() {
   return (
     <div className="flex flex-col items-center scroll-smooth">
       <section id="hero" className="w-full">
         <Hero />
       </section>
 
-      <section id="stats" className="w-full">
-        <HomeStats />
+      <section id="trust-marquee" className="w-full">
+        <TrustMarquee />
       </section>
 
-      <section id="services" className="w-full">
-        <Services />
+      <section id="guidance-panel" className="w-full">
+        <GuidancePanel />
       </section>
 
-      <section id="service-proof" className="w-full">
-        <ServiceProof />
+      <section id="spiritual-guide" className="w-full">
+        <SpiritualGuide />
       </section>
 
-      
-
-      <section id="spin-wheel" className="w-full">
-        <SpinWheel winProbability={spinWheelSettings.winProbability} />
+      <section id="best-selling-courses" className="w-full">
+        <BestSellingCourses />
       </section>
 
-      <section id="learnings" className="w-full">
-        <Learnings />
+      <section id="transform-learning" className="w-full">
+        <TransformLearning />
       </section>
 
-      <section id="daily-needs" className="w-full">
-        <DailyNeeds />
+      <section id="our-services" className="w-full">
+        <OurServices />
       </section>
 
-      <section id="testimonials" className="w-full">
-        <Testimonials testimonials={testimonials} />
+      <section id="youtube-community" className="w-full">
+        <YouTubeCommunity />
       </section>
 
-      <section id="contact" className="w-full">
-        <ContactForm />
+      <section id="success-stories" className="w-full">
+        <SuccessStories />
+      </section>
+
+      <section id="contact-us" className="w-full">
+        <ContactUs />
       </section>
     </div>
   );
