@@ -1,0 +1,78 @@
+"use client";
+
+import {
+  GiCompass,
+  GiLotus,
+  GiMeditation,
+  GiOpenBook,
+  GiSparkles,
+} from "react-icons/gi";
+
+const guideServices = [
+  { label: "Divine Learning", icon: GiOpenBook },
+  { label: "Spiritual Analysis", icon: GiLotus },
+  { label: "Consultations", icon: GiSparkles },
+  { label: "Healing & Guidance", icon: GiMeditation },
+  { label: "Life Alignment", icon: GiCompass },
+];
+
+export default function SpiritualGuide() {
+  return (
+    <section className="spiritual-guide" aria-label="Meet the spiritual guide">
+      <div className="spiritual-guide__lotus-mark" aria-hidden="true">
+        <span />
+        <img src="/assets/navicon.png" alt="" />
+        <span />
+      </div>
+
+      <div className="spiritual-guide__main">
+        <div className="spiritual-guide__copy">
+          <p className="spiritual-guide__eyebrow">Meet The</p>
+          <h2>
+            Spiritual
+            <br />
+            Guide
+          </h2>
+
+          <div className="spiritual-guide__divider" aria-hidden="true">
+            <span />
+            <img src="/assets/navicon.png" alt="" />
+            <span />
+          </div>
+
+          <p className="spiritual-guide__body">
+            A seeker, a guide, and a lifelong student of wisdom, our spiritual guide
+            has dedicated her life to helping souls reconnect with their inner truth.
+            With deep intuition, timeless teachings, and a compassionate heart, she
+            creates a safe space for transformation, healing, and spiritual growth.
+          </p>
+        </div>
+
+        <div className="spiritual-guide__portrait-wrap" aria-hidden="true">
+          <div className="spiritual-guide__portrait-frame">
+            <img
+              src="/assets/images/spiritual-guide-portrait.png"
+              alt=""
+              className="spiritual-guide__portrait"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="spiritual-guide__services">
+        {guideServices.map((service) => {
+          const Icon = service.icon;
+
+          return (
+            <div className="spiritual-guide__service" key={service.label}>
+              <span className="spiritual-guide__service-icon">
+                <Icon aria-hidden="true" />
+              </span>
+              <span>{service.label}</span>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
