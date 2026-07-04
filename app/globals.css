@@ -3660,7 +3660,6 @@ a {
   bottom: 38px;
   width: min(430px, 54%);
   pointer-events: none;
-  mix-blend-mode: multiply;
   filter: saturate(0.92) contrast(1.02);
 }
 
@@ -4898,5 +4897,2092 @@ a {
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 900px) {
+  html,
+  body,
+  .site-shell,
+  .site-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .home-hero {
+    min-height: 720px;
+  }
+
+  .home-hero__content {
+    min-height: calc(720px - var(--navbar-height));
+    padding: 44px 22px 0;
+  }
+
+  .home-hero__copy,
+  .home-hero__copy--learning,
+  .home-hero__copy--destiny {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .home-hero__title {
+    max-width: 92vw;
+    font-size: clamp(30px, 7vw, 42px);
+  }
+
+  .home-hero__title--healing strong {
+    font-size: clamp(48px, 12vw, 68px);
+  }
+
+  .home-hero__title--healing span,
+  .home-hero__title--learning,
+  .home-hero__title--destiny {
+    font-size: clamp(28px, 7.2vw, 40px);
+  }
+
+  .home-hero__description,
+  .home-hero__eyebrow,
+  .home-hero__modalities {
+    max-width: min(88vw, 390px);
+  }
+
+  .home-hero__cta,
+  .home-hero__copy--destiny .home-hero__cta {
+    width: min(100%, 330px);
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .home-hero__figure {
+    right: -118px;
+    bottom: 0;
+    width: min(108vw, 620px);
+  }
+
+  .home-hero__figure--healing,
+  .home-hero__figure--learning,
+  .home-hero__figure--destiny {
+    right: -136px;
+    width: min(116vw, 650px);
+  }
+
+  .home-hero__learning-card {
+    width: min(100%, 310px);
+    padding: 16px 18px 18px;
+  }
+
+  .home-hero__learning-card p {
+    font-size: 30px;
+  }
+
+  .trust-marquee__track {
+    min-height: 68px;
+  }
+
+  .trust-marquee__icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+  .trust-marquee__text {
+    min-width: 140px;
+    font-size: 13px;
+  }
+
+  .spiritual-guide__main,
+  .best-courses__grid,
+  .our-services__grid,
+  .success-stories__grid,
+  .success-stories__cards,
+  .contact-us__inner {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-hero {
+    min-height: 690px;
+    background-position: 58% center;
+  }
+
+  .home-hero__content {
+    min-height: calc(690px - var(--navbar-height));
+    padding: 34px 18px 0;
+  }
+
+  .home-hero__divider,
+  .home-hero__mini-divider {
+    width: min(250px, 72vw);
+    margin: 18px 0 14px;
+  }
+
+  .home-hero__description,
+  .home-hero__eyebrow,
+  .home-hero__modalities {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .home-hero__cta {
+    min-height: 54px;
+    padding: 13px 16px;
+    font-size: 13px;
+  }
+
+  .home-hero__cta img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .home-hero__figure {
+    right: -102px;
+    width: min(112vw, 520px);
+  }
+
+  .home-hero__figure--healing,
+  .home-hero__figure--learning,
+  .home-hero__figure--destiny {
+    right: -118px;
+    width: min(122vw, 545px);
+  }
+
+  .home-hero__pagination {
+    bottom: 14px;
+  }
+
+  .guidance-panel,
+  .guidance-panel__content {
+    min-height: 610px;
+  }
+
+  .guidance-panel {
+    background-position: 58% center;
+  }
+
+  .guidance-panel__content {
+    padding: 26px 18px 210px;
+  }
+
+  .guidance-panel__explore {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 20px;
+  }
+
+  .guidance-panel__explore span {
+    font-size: 28px;
+  }
+
+  .guidance-panel__explore img {
+    bottom: 9px;
+    width: 20px;
+  }
+
+  .guidance-panel__chips {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .guidance-panel__chips span {
+    min-width: auto;
+    min-height: 34px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
+  .guidance-panel h2 {
+    font-size: clamp(38px, 12vw, 54px);
+    line-height: 1.05;
+  }
+
+  .guidance-panel p {
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  .guidance-panel__lotus {
+    opacity: 0.13;
+  }
+
+  .spiritual-guide::after,
+  .best-courses__ornament,
+  .our-services__bg-lotus,
+  .success-stories__bg,
+  .contact-us::before,
+  .contact-us::after {
+    opacity: 0.06;
+  }
+
+  .spiritual-guide__lotus-mark {
+    top: 30px;
+    width: 190px;
+    gap: 14px;
+  }
+
+  .spiritual-guide__main {
+    padding: 82px 16px 26px;
+    gap: 22px;
+  }
+
+  .spiritual-guide__eyebrow {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+  }
+
+  .spiritual-guide h2 {
+    font-size: clamp(43px, 13vw, 58px);
+    line-height: 0.96;
+  }
+
+  .spiritual-guide__divider {
+    width: 68%;
+    margin-block: 18px;
+  }
+
+  .spiritual-guide__body {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .spiritual-guide__portrait-wrap {
+    padding: 10px 0 0;
+  }
+
+  .spiritual-guide__portrait-frame {
+    min-height: 330px;
+    border-width: 1px 1px 3px;
+  }
+
+  .spiritual-guide__portrait {
+    top: 10px;
+    right: auto;
+    bottom: auto;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    object-position: 54% 50%;
+  }
+
+  .spiritual-guide__services {
+    gap: 14px;
+    padding: 18px 16px 22px;
+  }
+
+  .spiritual-guide__service {
+    gap: 14px;
+    font-size: 16px;
+  }
+
+  .spiritual-guide__service-icon {
+    width: 56px;
+    height: 56px;
+    flex-basis: 56px;
+  }
+
+  .transform-learning,
+  .transform-learning__content,
+  .youtube-community,
+  .youtube-community__content {
+    min-height: 660px;
+  }
+
+  .transform-learning {
+    background:
+      linear-gradient(180deg, rgba(3, 42, 29, 0.95) 0%, rgba(5, 48, 33, 0.78) 48%, rgba(4, 38, 26, 0.62) 100%),
+      url("/assets/images/transform-learning-bg.png") 64% bottom / auto 92% no-repeat,
+      #03291d;
+  }
+
+  .transform-learning__content {
+    padding: 30px 18px 245px;
+  }
+
+  .transform-learning__lotus {
+    width: 52px;
+    margin-bottom: 18px;
+  }
+
+  .transform-learning__eyebrow {
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  .transform-learning h2 {
+    font-size: clamp(40px, 12.5vw, 56px);
+    line-height: 1.02;
+  }
+
+  .transform-learning__divider {
+    width: min(100%, 290px);
+    margin: 20px 0 18px;
+  }
+
+  .transform-learning__copy {
+    margin-bottom: 26px;
+    font-size: 16px;
+    line-height: 1.48;
+  }
+
+  .transform-learning__cta {
+    min-height: 56px;
+    gap: 14px;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+  }
+
+  .transform-learning__cta img {
+    width: 30px;
+  }
+
+  .our-services {
+    padding: 38px 14px 42px;
+  }
+
+  .our-services__top-mark,
+  .our-services__bottom-mark {
+    width: min(220px, 66vw);
+    gap: 16px;
+  }
+
+  .our-services h2,
+  .success-stories h2,
+  .contact-us h2 {
+    font-size: clamp(38px, 12.2vw, 50px);
+    line-height: 0.98;
+  }
+
+  .our-services__header p {
+    max-width: 330px;
+    font-size: 15px;
+  }
+
+  .our-services__grid {
+    gap: 58px;
+    margin-top: 58px;
+  }
+
+  .service-offer-card {
+    border-radius: 18px;
+    padding: 14px;
+  }
+
+  .service-offer-card__icon {
+    top: -38px;
+    width: 76px;
+    height: 76px;
+  }
+
+  .service-offer-card__image {
+    height: 180px;
+    border-radius: 16px;
+  }
+
+  .service-offer-card__body {
+    padding: 22px 6px 0;
+  }
+
+  .service-offer-card h3 {
+    font-size: 29px;
+  }
+
+  .service-offer-card p {
+    margin-bottom: 22px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .service-offer-card__cta {
+    min-height: 50px;
+    gap: 18px;
+    font-size: 17px;
+  }
+
+  .youtube-community {
+    background:
+      linear-gradient(180deg, rgba(4, 37, 27, 0.97) 0%, rgba(5, 42, 30, 0.82) 50%, rgba(4, 32, 23, 0.68) 100%),
+      url("/assets/images/youtube-community-bg.png") 66% bottom / auto 88% no-repeat,
+      #05291d;
+  }
+
+  .youtube-community__content {
+    padding: 30px 18px 245px;
+  }
+
+  .youtube-community__top-mark {
+    width: 64px;
+    margin-bottom: 18px;
+  }
+
+  .youtube-community__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.13em;
+  }
+
+  .youtube-community__small-divider,
+  .youtube-community__divider {
+    width: min(100%, 280px);
+    margin-top: 16px;
+    margin-bottom: 20px;
+  }
+
+  .youtube-community h2 {
+    font-size: clamp(38px, 12.2vw, 54px);
+    line-height: 1.02;
+  }
+
+  .youtube-community__copy,
+  .youtube-community__note {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .youtube-community__cta {
+    min-height: 58px;
+    gap: 10px;
+    padding-inline: 12px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  .youtube-community__cta img {
+    width: 30px;
+  }
+
+  .youtube-community__cta span:last-child {
+    padding-right: 0;
+    font-size: 28px;
+  }
+
+  .youtube-community__topics {
+    gap: 10px;
+  }
+
+  .youtube-community__topics span {
+    min-height: 58px;
+    justify-content: flex-start;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  .best-courses {
+    padding: 40px 14px 44px;
+  }
+
+  .best-courses__header > p:first-of-type {
+    gap: 8px;
+    font-size: 18px;
+  }
+
+  .best-courses__header > p:first-of-type span {
+    width: 36px;
+  }
+
+  .best-courses h2 {
+    font-size: clamp(38px, 12vw, 52px);
+    line-height: 0.95;
+  }
+
+  .best-courses__intro {
+    font-size: 16px;
+  }
+
+  .best-courses__grid {
+    gap: 22px;
+    margin-top: 34px;
+  }
+
+  .course-card {
+    border-width: 1px;
+    border-radius: 18px;
+  }
+
+  .course-card__image-wrap {
+    height: 190px;
+    border-radius: 18px 18px 44% 44% / 18px 18px 16% 16%;
+  }
+
+  .course-card__lotus {
+    width: 76px;
+    height: 68px;
+    margin-top: -34px;
+  }
+
+  .course-card__body {
+    padding: 16px 14px 22px;
+  }
+
+  .course-card h3 {
+    font-size: 28px;
+  }
+
+  .course-card__mini-divider {
+    margin: 16px auto;
+  }
+
+  .course-card p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .course-card__offer {
+    min-width: 178px;
+    min-height: 34px;
+    margin-top: 18px;
+    font-size: 14px;
+  }
+
+  .course-card__price-box {
+    min-height: 0;
+    padding: 22px 12px 18px;
+  }
+
+  .course-card__old-price {
+    font-size: 22px;
+  }
+
+  .course-card__price {
+    font-size: 36px;
+  }
+
+  .course-card__discount {
+    width: 72px;
+    height: 84px;
+    border-width: 4px;
+  }
+
+  .course-card__discount strong {
+    font-size: 24px;
+  }
+
+  .course-card__discount span {
+    font-size: 13px;
+  }
+
+  .success-stories {
+    padding: 38px 14px 42px;
+  }
+
+  .success-stories__header p:first-child,
+  .success-stories__header p:last-child {
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .success-stories__header p:first-child::before,
+  .success-stories__header p:first-child::after {
+    margin: 0 8px;
+  }
+
+  .success-stories__divider {
+    width: min(260px, 72vw);
+    margin: 16px auto;
+  }
+
+  .success-stories__grid {
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .story-feature {
+    border-width: 1px;
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  .story-feature__badge {
+    left: 22px;
+    width: 74px;
+    height: 100px;
+    font-size: 11px;
+  }
+
+  .story-feature__badge img {
+    width: 30px;
+  }
+
+  .story-feature__media {
+    height: 210px;
+  }
+
+  .success-stories__play {
+    width: 58px;
+    height: 58px;
+    border-width: 3px;
+  }
+
+  .success-stories__play span {
+    margin-left: 5px;
+    border-top-width: 11px;
+    border-bottom-width: 11px;
+    border-left-width: 17px;
+  }
+
+  .story-feature__copy {
+    padding: 24px 4px 0;
+  }
+
+  .story-feature__quote-mark,
+  .story-card__quote {
+    font-size: 42px;
+  }
+
+  .story-feature h3 {
+    margin-left: 14px;
+    margin-bottom: 18px;
+    font-size: 25px;
+  }
+
+  .story-feature__copy > p,
+  .story-card p {
+    font-size: 16px;
+  }
+
+  .story-feature__footer {
+    gap: 18px;
+    padding-top: 22px;
+  }
+
+  .story-person img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .story-person strong {
+    font-size: 22px;
+  }
+
+  .story-person em,
+  .story-stars em {
+    font-size: 16px;
+  }
+
+  .story-card__media {
+    height: 160px;
+    margin: 12px 12px 0;
+  }
+
+  .story-card__body {
+    padding: 16px;
+  }
+
+  .story-impact {
+    padding: 20px;
+  }
+
+  .story-impact > strong {
+    font-size: 40px;
+  }
+
+  .story-impact p,
+  .story-impact small {
+    font-size: 16px;
+  }
+
+  .success-stories__proof {
+    min-height: 0;
+    border-width: 1px;
+  }
+
+  .success-stories__proof-item {
+    min-height: 82px;
+    gap: 16px;
+    padding: 14px;
+  }
+
+  .success-stories__proof-item svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .success-stories__proof-item strong {
+    font-size: 17px;
+  }
+
+  .contact-us {
+    padding: 38px 12px 46px;
+  }
+
+  .contact-us__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 0;
+  }
+
+  .contact-us__form-card {
+    padding: 22px 14px 28px;
+    border-radius: 20px;
+  }
+
+  .contact-us__form-card::before {
+    inset: 8px;
+    border-radius: 15px;
+  }
+
+  .contact-us__lotus-large {
+    width: 82px;
+    height: 58px;
+  }
+
+  .contact-us__eyebrow {
+    gap: 12px;
+    font-size: 20px;
+  }
+
+  .contact-us__intro {
+    margin-bottom: 22px;
+    font-size: 17px;
+  }
+
+  .contact-us__field {
+    height: 54px;
+    gap: 12px;
+    padding: 0 14px;
+  }
+
+  .contact-us__field input,
+  .contact-us__field select,
+  .contact-us__field textarea {
+    min-width: 0;
+    font-size: 17px;
+  }
+
+  .contact-us__field--message {
+    height: 124px;
+  }
+
+  .contact-us__submit {
+    height: 58px;
+    gap: 18px;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+  }
+
+  .contact-us__side {
+    min-height: 0;
+  }
+
+  .contact-us__note-card {
+    padding: 22px 16px;
+  }
+
+  .contact-us__note-mark img {
+    width: 78px;
+    height: 64px;
+  }
+
+  .contact-us__note-card p {
+    font-size: 21px;
+  }
+
+  .contact-us__details {
+    gap: 12px;
+  }
+
+  .contact-us__detail-card {
+    grid-template-columns: 62px 1fr;
+    min-height: 96px;
+    padding: 14px;
+  }
+
+  .contact-us__detail-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-us__detail-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .contact-us__detail-copy {
+    min-height: 52px;
+    padding-left: 18px;
+  }
+
+  .contact-us__detail-copy h3 {
+    font-size: 21px;
+  }
+
+  .contact-us__detail-copy p {
+    font-size: 17px;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-us__still-life {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: block;
+    width: min(300px, 88%);
+    margin: 10px auto 0;
+  }
+
+  .contact-us__bottom-ornament {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    grid-template-columns: 1fr auto 1fr;
+    margin-top: 10px;
+  }
+
+  .contact-us__bottom-ornament i {
+    display: none;
+  }
+
+  .contact-us__bottom-ornament img {
+    width: 58px;
+    height: 52px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-hero {
+    min-height: 650px;
+  }
+
+  .home-hero__content {
+    min-height: calc(650px - var(--navbar-height));
+    padding-top: 28px;
+  }
+
+  .home-hero__title {
+    font-size: 28px;
+  }
+
+  .home-hero__title--healing strong {
+    font-size: 43px;
+  }
+
+  .home-hero__title--healing span,
+  .home-hero__title--learning,
+  .home-hero__title--destiny {
+    font-size: 25px;
+  }
+
+  .home-hero__description,
+  .home-hero__eyebrow,
+  .home-hero__modalities {
+    max-width: 286px;
+    font-size: 13px;
+  }
+
+  .home-hero__figure {
+    right: -95px;
+    width: 118vw;
+  }
+
+  .home-hero__figure--healing,
+  .home-hero__figure--learning,
+  .home-hero__figure--destiny {
+    right: -112px;
+    width: 128vw;
+  }
+
+  .home-hero__learning-card {
+    width: min(100%, 276px);
+    margin-top: 18px;
+  }
+
+  .guidance-panel,
+  .guidance-panel__content {
+    min-height: 570px;
+  }
+
+  .guidance-panel__content {
+    padding-bottom: 185px;
+  }
+
+  .guidance-panel h2,
+  .transform-learning h2,
+  .youtube-community h2,
+  .best-courses h2,
+  .our-services h2,
+  .success-stories h2,
+  .contact-us h2 {
+    font-size: 36px;
+  }
+
+  .guidance-panel p,
+  .transform-learning__copy,
+  .youtube-community__copy,
+  .youtube-community__note {
+    font-size: 15px;
+  }
+
+  .spiritual-guide h2 {
+    font-size: 39px;
+  }
+
+  .spiritual-guide__portrait-frame {
+    min-height: 292px;
+  }
+
+  .transform-learning,
+  .transform-learning__content,
+  .youtube-community,
+  .youtube-community__content {
+    min-height: 610px;
+  }
+
+  .transform-learning__content,
+  .youtube-community__content {
+    padding-bottom: 205px;
+  }
+
+  .service-offer-card__image,
+  .course-card__image-wrap,
+  .story-feature__media {
+    height: 170px;
+  }
+
+  .course-card h3,
+  .service-offer-card h3 {
+    font-size: 26px;
+  }
+
+  .course-card__price {
+    font-size: 32px;
+  }
+
+  .story-card__media {
+    height: 145px;
+  }
+
+  .contact-us__detail-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .contact-us__detail-copy {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .contact-us__detail-copy::before {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    min-height: 680px;
+    background-position: center top;
+  }
+
+  .home-hero__slide {
+    overflow: hidden;
+  }
+
+  .home-hero__slide::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 249, 238, 0.9) 0%, rgba(255, 249, 238, 0.62) 42%, rgba(255, 249, 238, 0.1) 70%),
+      linear-gradient(90deg, rgba(255, 249, 238, 0.8) 0%, rgba(255, 249, 238, 0.48) 54%, rgba(255, 249, 238, 0.04) 100%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .home-hero__content {
+    min-height: calc(680px - var(--navbar-height));
+    align-items: flex-start;
+    padding: 30px 18px 0;
+  }
+
+  .home-hero__copy,
+  .home-hero__copy--learning,
+  .home-hero__copy--destiny {
+    width: 100%;
+    max-width: 355px;
+  }
+
+  .home-hero__title {
+    max-width: 100%;
+    font-size: clamp(28px, 7.6vw, 38px);
+    line-height: 1.02;
+  }
+
+  .home-hero__title--healing {
+    gap: 2px;
+  }
+
+  .home-hero__title--healing strong {
+    margin-bottom: 4px;
+    font-size: clamp(42px, 11.2vw, 58px);
+    line-height: 0.85;
+  }
+
+  .home-hero__title--healing span,
+  .home-hero__title--learning,
+  .home-hero__title--destiny {
+    font-size: clamp(25px, 6.8vw, 34px);
+    line-height: 1.04;
+  }
+
+  .home-hero__eyebrow {
+    margin-top: 10px;
+  }
+
+  .home-hero__description,
+  .home-hero__eyebrow,
+  .home-hero__modalities {
+    max-width: 285px;
+    font-size: 13px;
+    line-height: 1.42;
+  }
+
+  .home-hero__divider,
+  .home-hero__mini-divider {
+    width: min(220px, 62vw);
+    gap: 10px;
+    margin: 14px 0 12px;
+  }
+
+  .home-hero__divider img,
+  .home-hero__mini-divider img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .home-hero__modalities {
+    gap: 4px 7px;
+  }
+
+  .home-hero__modalities i {
+    width: 5px;
+    height: 5px;
+  }
+
+  .home-hero__cta,
+  .home-hero__copy--destiny .home-hero__cta {
+    width: auto;
+    min-width: 0;
+    max-width: min(100%, 260px);
+    min-height: 48px;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 11px 14px;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
+  .home-hero__cta img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .home-hero__cta-arrow {
+    margin-left: 2px;
+    font-size: 18px;
+  }
+
+  .home-hero__figure {
+    right: -48px;
+    bottom: 0;
+    width: min(78vw, 360px);
+    height: auto;
+    max-height: 46%;
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
+  .home-hero__figure--healing {
+    right: -72px;
+    width: min(92vw, 410px);
+    max-height: 47%;
+  }
+
+  .home-hero__figure--learning {
+    right: -78px;
+    width: min(96vw, 430px);
+    max-height: 45%;
+  }
+
+  .home-hero__figure--destiny {
+    right: -78px;
+    width: min(92vw, 410px);
+    max-height: 43%;
+  }
+
+  .home-hero__slide--guidance {
+    background-position: 58% center;
+  }
+
+  .home-hero__slide--healing {
+    background-position: 55% center;
+  }
+
+  .home-hero__slide--learning {
+    background-position: 56% center;
+  }
+
+  .home-hero__slide--destiny {
+    background-position: 58% center;
+  }
+
+  .home-hero__slide--destiny::after {
+    right: -92px;
+    bottom: 96px;
+    width: 300px;
+    opacity: 0.12;
+  }
+
+  .home-hero__learning-card {
+    width: min(100%, 240px);
+    margin-top: 14px;
+    padding: 12px 14px 14px;
+    border-radius: 14px;
+  }
+
+  .home-hero__learning-card > img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .home-hero__learning-card p {
+    font-size: 25px;
+  }
+
+  .home-hero__learning-card .home-hero__cta {
+    min-height: 46px;
+    margin-top: 12px;
+  }
+
+  .home-hero__pagination {
+    bottom: 12px;
+    gap: 8px;
+  }
+
+  .home-hero__pagination button {
+    width: 9px;
+    height: 9px;
+  }
+
+  .home-hero__pagination button.is-active {
+    width: 26px;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-hero {
+    min-height: 625px;
+  }
+
+  .home-hero__content {
+    min-height: calc(625px - var(--navbar-height));
+    padding-top: 24px;
+  }
+
+  .home-hero__copy,
+  .home-hero__copy--learning,
+  .home-hero__copy--destiny {
+    max-width: 305px;
+  }
+
+  .home-hero__title {
+    font-size: 26px;
+  }
+
+  .home-hero__title--healing strong {
+    font-size: 38px;
+  }
+
+  .home-hero__title--healing span,
+  .home-hero__title--learning,
+  .home-hero__title--destiny {
+    font-size: 23px;
+  }
+
+  .home-hero__description,
+  .home-hero__eyebrow,
+  .home-hero__modalities {
+    max-width: 258px;
+    font-size: 12px;
+  }
+
+  .home-hero__cta,
+  .home-hero__copy--destiny .home-hero__cta {
+    max-width: min(100%, 230px);
+    min-height: 44px;
+    margin-top: 13px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+
+  .home-hero__figure {
+    right: -42px;
+    width: min(82vw, 320px);
+    max-height: 43%;
+  }
+
+  .home-hero__figure--healing {
+    right: -62px;
+    width: min(96vw, 360px);
+  }
+
+  .home-hero__figure--learning {
+    right: -70px;
+    width: min(102vw, 375px);
+  }
+
+  .home-hero__figure--destiny {
+    right: -68px;
+    width: min(96vw, 360px);
+  }
+
+  .home-hero__learning-card {
+    width: min(100%, 216px);
+  }
+}
+
+@media (max-width: 900px) {
+  .best-courses {
+    padding: 42px 16px 46px;
+  }
+
+  .best-courses__ornament {
+    display: none;
+  }
+
+  .best-courses__lotus {
+    width: 48px;
+    margin-bottom: 8px;
+  }
+
+  .best-courses__header > p:first-of-type {
+    gap: 10px;
+    font-size: clamp(18px, 4.7vw, 24px);
+    line-height: 1.15;
+  }
+
+  .best-courses__header > p:first-of-type span {
+    width: min(42px, 11vw);
+  }
+
+  .best-courses__header > p:first-of-type span::before {
+    width: 12px;
+    height: 12px;
+  }
+
+  .best-courses h2 {
+    max-width: 620px;
+    margin: 16px auto 14px;
+    font-size: clamp(38px, 10vw, 62px);
+    line-height: 0.98;
+    letter-spacing: 0.015em;
+  }
+
+  .best-courses__divider {
+    width: min(240px, 62vw);
+    margin-bottom: 16px;
+  }
+
+  .best-courses__intro {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: clamp(16px, 4vw, 20px);
+    line-height: 1.35;
+  }
+
+  .best-courses__grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    width: min(100%, 430px);
+    max-width: 430px;
+    margin-top: 30px;
+  }
+
+  .course-card {
+    border-width: 1px;
+    border-radius: 18px;
+    box-shadow: 0 10px 22px rgba(95, 71, 37, 0.14);
+  }
+
+  .course-card__image-wrap {
+    height: clamp(158px, 43vw, 210px);
+    border-radius: 17px 17px 36% 36% / 17px 17px 13% 13%;
+    border-bottom-width: 2px;
+  }
+
+  .course-card__image-wrap::after {
+    bottom: -35px;
+    height: 64px;
+  }
+
+  .course-card__image {
+    object-position: center;
+  }
+
+  .course-card__lotus {
+    width: 64px;
+    height: 56px;
+    margin-top: -28px;
+    border-width: 1px;
+  }
+
+  .course-card__body {
+    padding: 13px 14px 18px;
+  }
+
+  .course-card h3 {
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.04;
+  }
+
+  .course-card__mini-divider {
+    width: min(210px, 70%);
+    margin: 13px auto;
+  }
+
+  .course-card__mini-divider i {
+    width: 14px;
+    height: 14px;
+  }
+
+  .course-card p {
+    min-height: 0;
+    max-width: 310px;
+    font-size: 15px;
+    line-height: 1.42;
+  }
+
+  .course-card__offer {
+    min-width: 156px;
+    min-height: 32px;
+    margin: 16px auto -12px;
+    padding: 0 16px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+
+  .course-card__offer::before,
+  .course-card__offer::after {
+    margin: 0 6px;
+    font-size: 9px;
+  }
+
+  .course-card__price-box {
+    display: grid;
+    min-height: 0;
+    grid-template-columns: 0.85fr 1.15fr auto;
+    gap: 8px;
+    padding: 18px 10px 14px;
+    border-width: 1px;
+  }
+
+  .course-card__price-box::before,
+  .course-card__price-box::after {
+    width: 58px;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .course-card__price-box::before {
+    top: -7px;
+  }
+
+  .course-card__price-box::after {
+    bottom: -7px;
+  }
+
+  .course-card__old-price {
+    font-size: clamp(17px, 4.5vw, 22px);
+    white-space: nowrap;
+  }
+
+  .course-card__price {
+    border-left: 1px solid rgba(193, 141, 61, 0.28);
+    font-size: clamp(26px, 7.8vw, 36px);
+    white-space: nowrap;
+  }
+
+  .course-card__discount {
+    width: 54px;
+    height: 66px;
+    border-width: 3px;
+  }
+
+  .course-card__discount strong {
+    font-size: 19px;
+  }
+
+  .course-card__discount span {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 430px) {
+  .best-courses {
+    padding: 34px 12px 38px;
+  }
+
+  .best-courses__lotus {
+    width: 42px;
+  }
+
+  .best-courses__header > p:first-of-type {
+    gap: 7px;
+    font-size: 16px;
+  }
+
+  .best-courses__header > p:first-of-type span {
+    width: 28px;
+  }
+
+  .best-courses h2 {
+    font-size: 34px;
+    letter-spacing: 0.01em;
+  }
+
+  .best-courses__intro {
+    font-size: 15px;
+  }
+
+  .best-courses__grid {
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .course-card__image-wrap {
+    height: 148px;
+  }
+
+  .course-card__lotus {
+    width: 56px;
+    height: 48px;
+    margin-top: -24px;
+  }
+
+  .course-card__body {
+    padding: 12px 11px 16px;
+  }
+
+  .course-card h3 {
+    font-size: 24px;
+  }
+
+  .course-card p {
+    font-size: 14px;
+  }
+
+  .course-card__offer {
+    min-width: 140px;
+    min-height: 30px;
+    font-size: 12px;
+  }
+
+  .course-card__price-box {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 6px;
+    padding: 18px 9px 13px;
+  }
+
+  .course-card__old-price {
+    align-self: center;
+    font-size: 17px;
+  }
+
+  .course-card__price {
+    align-self: center;
+    border-left: 1px solid rgba(193, 141, 61, 0.28);
+    font-size: 28px;
+  }
+
+  .course-card__discount {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 58px;
+    height: 68px;
+  }
+}
+
+@media (max-width: 680px) {
+  .trust-marquee__track {
+    min-height: 56px;
+    gap: 16px;
+  }
+
+  .trust-marquee__group {
+    gap: 16px;
+  }
+
+  .trust-marquee__item {
+    gap: 8px;
+  }
+
+  .trust-marquee__icon {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  .trust-marquee__icon svg,
+  .trust-marquee__icon--google svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .trust-marquee__text {
+    min-width: 118px;
+    font-size: 11px;
+  }
+
+  .trust-marquee__spark {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
+
+  .home-hero {
+    min-height: 590px;
+  }
+
+  .home-hero__content {
+    min-height: calc(590px - var(--navbar-height));
+    padding-top: 20px;
+  }
+
+  .home-hero__copy,
+  .home-hero__copy--learning,
+  .home-hero__copy--destiny {
+    max-width: 300px;
+  }
+
+  .home-hero__title {
+    font-size: clamp(24px, 6.8vw, 32px);
+  }
+
+  .home-hero__title--healing strong {
+    font-size: clamp(34px, 9vw, 46px);
+  }
+
+  .home-hero__title--healing span,
+  .home-hero__title--learning,
+  .home-hero__title--destiny {
+    font-size: clamp(21px, 5.9vw, 28px);
+  }
+
+  .home-hero__description,
+  .home-hero__eyebrow,
+  .home-hero__modalities {
+    max-width: 250px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .home-hero__divider,
+  .home-hero__mini-divider {
+    width: min(180px, 54vw);
+    margin: 10px 0 9px;
+  }
+
+  .home-hero__divider img,
+  .home-hero__mini-divider img,
+  .home-hero__cta img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .home-hero__cta,
+  .home-hero__copy--destiny .home-hero__cta {
+    min-height: 40px;
+    max-width: min(100%, 210px);
+    margin-top: 10px;
+    padding: 8px 11px;
+    font-size: 10px;
+  }
+
+  .home-hero__learning-card {
+    width: min(100%, 190px);
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .home-hero__learning-card p {
+    font-size: 20px;
+  }
+
+  .home-hero__figure {
+    width: min(72vw, 290px);
+    max-height: 40%;
+  }
+
+  .home-hero__figure--healing,
+  .home-hero__figure--learning,
+  .home-hero__figure--destiny {
+    width: min(86vw, 340px);
+    max-height: 41%;
+  }
+
+  .guidance-panel,
+  .guidance-panel__content {
+    min-height: 500px;
+  }
+
+  .guidance-panel__content {
+    padding: 20px 14px 150px;
+  }
+
+  .guidance-panel__explore {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 14px;
+  }
+
+  .guidance-panel__chips {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .guidance-panel__chips span {
+    min-height: 29px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .guidance-panel h2,
+  .transform-learning h2,
+  .youtube-community h2,
+  .best-courses h2,
+  .our-services h2,
+  .success-stories h2,
+  .contact-us h2 {
+    font-size: clamp(30px, 9.2vw, 42px);
+  }
+
+  .guidance-panel p,
+  .transform-learning__copy,
+  .youtube-community__copy,
+  .youtube-community__note,
+  .our-services__header p,
+  .best-courses__intro,
+  .success-stories__header p:last-child,
+  .contact-us__intro {
+    font-size: 14px;
+  }
+
+  .spiritual-guide__main {
+    padding: 68px 14px 22px;
+  }
+
+  .spiritual-guide__lotus-mark {
+    top: 22px;
+    width: 158px;
+  }
+
+  .spiritual-guide h2 {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  .spiritual-guide__eyebrow {
+    font-size: 12px;
+  }
+
+  .spiritual-guide__body {
+    font-size: 14px;
+  }
+
+  .spiritual-guide__portrait-frame {
+    min-height: 250px;
+  }
+
+  .spiritual-guide__service {
+    font-size: 14px;
+  }
+
+  .spiritual-guide__service-icon {
+    width: 46px;
+    height: 46px;
+    flex-basis: 46px;
+  }
+
+  .transform-learning,
+  .transform-learning__content,
+  .youtube-community,
+  .youtube-community__content {
+    min-height: 540px;
+  }
+
+  .transform-learning__content,
+  .youtube-community__content {
+    padding: 24px 14px 170px;
+  }
+
+  .transform-learning__lotus,
+  .youtube-community__top-mark {
+    width: 42px;
+    margin-bottom: 12px;
+  }
+
+  .transform-learning__eyebrow,
+  .youtube-community__eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .transform-learning__divider,
+  .youtube-community__divider,
+  .youtube-community__small-divider {
+    width: min(220px, 72vw);
+    margin: 13px 0;
+  }
+
+  .transform-learning__cta,
+  .youtube-community__cta,
+  .service-offer-card__cta {
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .transform-learning__cta img,
+  .youtube-community__cta img {
+    width: 24px;
+  }
+
+  .youtube-community__topics span {
+    min-height: 46px;
+    font-size: 11px;
+  }
+
+  .best-courses,
+  .our-services,
+  .success-stories,
+  .contact-us {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+
+  .best-courses__lotus,
+  .our-services__top-mark img,
+  .our-services__bottom-mark img {
+    width: 34px;
+  }
+
+  .best-courses__header > p:first-of-type,
+  .success-stories__header p:first-child {
+    font-size: 14px;
+  }
+
+  .best-courses__grid,
+  .our-services__grid,
+  .success-stories__grid {
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .course-card__image-wrap,
+  .service-offer-card__image,
+  .story-feature__media {
+    height: 132px;
+  }
+
+  .course-card__lotus {
+    width: 46px;
+    height: 40px;
+    margin-top: -20px;
+  }
+
+  .course-card__body,
+  .story-card__body {
+    padding: 10px 10px 14px;
+  }
+
+  .course-card h3,
+  .service-offer-card h3,
+  .story-feature h3 {
+    font-size: 22px;
+  }
+
+  .course-card p,
+  .service-offer-card p,
+  .story-card p,
+  .story-feature__copy > p {
+    font-size: 13px;
+  }
+
+  .course-card__offer {
+    min-width: 122px;
+    min-height: 26px;
+    margin-top: 12px;
+    font-size: 10px;
+  }
+
+  .course-card__price-box {
+    padding: 15px 8px 11px;
+  }
+
+  .course-card__old-price {
+    font-size: 14px;
+  }
+
+  .course-card__price {
+    font-size: 24px;
+  }
+
+  .course-card__discount {
+    width: 46px;
+    height: 54px;
+  }
+
+  .course-card__discount strong {
+    font-size: 16px;
+  }
+
+  .service-offer-card {
+    padding: 12px;
+  }
+
+  .service-offer-card__icon {
+    top: -30px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .story-feature__badge {
+    width: 58px;
+    height: 76px;
+    font-size: 9px;
+  }
+
+  .story-card__media {
+    height: 118px;
+  }
+
+  .success-stories__play {
+    width: 44px;
+    height: 44px;
+  }
+
+  .success-stories__proof-item {
+    min-height: 66px;
+  }
+
+  .contact-us__form-card,
+  .contact-us__note-card,
+  .contact-us__detail-card {
+    border-radius: 14px;
+  }
+
+  .contact-us__form-card {
+    padding: 18px 12px 22px;
+  }
+
+  .contact-us__lotus-large {
+    width: 60px;
+    height: 42px;
+  }
+
+  .contact-us__eyebrow {
+    font-size: 16px;
+  }
+
+  .contact-us__field {
+    height: 44px;
+    margin-bottom: 10px;
+  }
+
+  .contact-us__field input,
+  .contact-us__field select,
+  .contact-us__field textarea {
+    font-size: 14px;
+  }
+
+  .contact-us__field--message {
+    height: 96px;
+  }
+
+  .contact-us__submit {
+    height: 46px;
+    font-size: 14px;
+  }
+
+  .contact-us__note-card p {
+    font-size: 17px;
+  }
+
+  .contact-us__detail-card {
+    min-height: 78px;
+  }
+
+  .contact-us__detail-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-us__detail-copy h3 {
+    font-size: 17px;
+  }
+
+  .contact-us__detail-copy p {
+    font-size: 14px;
+  }
+
+  .contact-us__still-life {
+    width: min(230px, 82%);
+  }
+}
+
+@media (max-width: 430px) {
+  .home-hero {
+    min-height: 560px;
+  }
+
+  .home-hero__content {
+    min-height: calc(560px - var(--navbar-height));
+  }
+
+  .home-hero__copy,
+  .home-hero__copy--learning,
+  .home-hero__copy--destiny {
+    max-width: 270px;
+  }
+
+  .home-hero__title {
+    font-size: 23px;
+  }
+
+  .home-hero__title--healing strong {
+    font-size: 32px;
+  }
+
+  .home-hero__title--healing span,
+  .home-hero__title--learning,
+  .home-hero__title--destiny {
+    font-size: 20px;
+  }
+
+  .guidance-panel,
+  .guidance-panel__content {
+    min-height: 470px;
+  }
+
+  .transform-learning,
+  .transform-learning__content,
+  .youtube-community,
+  .youtube-community__content {
+    min-height: 500px;
+  }
+
+  .guidance-panel h2,
+  .transform-learning h2,
+  .youtube-community h2,
+  .best-courses h2,
+  .our-services h2,
+  .success-stories h2,
+  .contact-us h2 {
+    font-size: 30px;
+  }
+
+  .course-card__image-wrap,
+  .service-offer-card__image,
+  .story-feature__media {
+    height: 120px;
+  }
+
+  .story-card__media {
+    height: 108px;
+  }
+}
+
+@media (max-width: 900px) {
+  .best-courses__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 680px);
+    max-width: 680px;
+    gap: 14px;
+  }
+
+  .course-card {
+    border-radius: 14px;
+  }
+
+  .course-card__image-wrap {
+    height: clamp(116px, 24vw, 165px);
+    border-radius: 14px 14px 30% 30% / 14px 14px 11% 11%;
+  }
+
+  .course-card__lotus {
+    width: 42px;
+    height: 36px;
+    margin-top: -18px;
+  }
+
+  .course-card__body {
+    padding: 9px 8px 12px;
+  }
+
+  .course-card h3 {
+    font-size: clamp(18px, 4.8vw, 26px);
+    line-height: 1.05;
+  }
+
+  .course-card__mini-divider {
+    width: 74%;
+    margin: 9px auto;
+  }
+
+  .course-card__mini-divider i {
+    width: 10px;
+    height: 10px;
+  }
+
+  .course-card p {
+    max-width: 100%;
+    font-size: 12px;
+    line-height: 1.32;
+  }
+
+  .course-card__offer {
+    min-width: 0;
+    min-height: 24px;
+    margin: 10px auto -9px;
+    padding: 0 9px;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+
+  .course-card__offer::before,
+  .course-card__offer::after {
+    margin: 0 4px;
+    font-size: 7px;
+  }
+
+  .course-card__price-box {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 7px 10px;
+  }
+
+  .course-card__old-price {
+    font-size: 12px;
+  }
+
+  .course-card__price {
+    border-left: 0;
+    font-size: clamp(20px, 5.8vw, 28px);
+  }
+
+  .course-card__discount {
+    justify-self: center;
+    width: 40px;
+    height: 48px;
+    border-width: 2px;
+  }
+
+  .course-card__discount strong {
+    font-size: 14px;
+  }
+
+  .course-card__discount span {
+    font-size: 9px;
   }
 }

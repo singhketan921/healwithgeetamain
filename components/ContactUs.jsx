@@ -191,7 +191,7 @@ export default function ContactUs() {
 
           <img
             className="contact-us__still-life"
-            src="/assets/images/contact-still-life.png"
+            src="/assets/images/contact-still-life-transparent.png"
             alt=""
             aria-hidden="true"
           />
