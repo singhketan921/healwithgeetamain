@@ -51,7 +51,7 @@ export default function SpiritualGuide() {
         <div className="spiritual-guide__portrait-wrap" aria-hidden="true">
           <div className="spiritual-guide__portrait-frame">
             <img
-              src="/assets/images/spiritual-guide-portrait.png"
+              src="/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08.jpeg"
               alt=""
               className="spiritual-guide__portrait"
             />
