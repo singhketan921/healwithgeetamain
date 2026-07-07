@@ -10,6 +10,8 @@ import {
 import FAQSection from "@/components/FAQSection";
 import { fetchCourseById } from "@/lib/services/courseService";
 
+export const dynamic = "force-dynamic";
+
 function extractLowestPrice(text, fallbackCurrency = "INR") {
   if (!text) return null;
   const normalized = text.toString();

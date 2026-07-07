@@ -11,6 +11,8 @@ import {
 import { PiBookOpenText, PiFlowerLotus, PiSparkle, PiStarFour } from "react-icons/pi";
 import { fetchBlogs } from "@/lib/services/blogService";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogsPage() {
   const blogs = await fetchBlogs();
   const visibleBlogs = (blogs || []).filter((blog) => blog?.active !== false);

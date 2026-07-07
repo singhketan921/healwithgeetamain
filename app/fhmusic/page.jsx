@@ -10,6 +10,8 @@ import FHMusicLibrary from "@/musiccomponents/FHMusicLibrary";
 import { PiHeartbeat, PiMusicNotes, PiSparkle, PiWaveform } from "react-icons/pi";
 import { fetchMusicTracks } from "@/lib/services/musicService";
 
+export const dynamic = "force-dynamic";
+
 export default async function FHMusicPage() {
   const tracks = await fetchMusicTracks();
 

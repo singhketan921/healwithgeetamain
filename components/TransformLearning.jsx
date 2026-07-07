@@ -5,6 +5,10 @@ import Link from "next/link";
 export default function TransformLearning() {
   return (
     <section className="transform-learning" aria-label="Transform through learning">
+      <div className="transform-learning__visual" aria-hidden="true">
+        <img src="/assets/images/HeroSection Image faithhealers.png" alt="" />
+      </div>
+
       <div className="transform-learning__content">
         <img src="/assets/navicon.png" alt="" className="transform-learning__lotus" />
 

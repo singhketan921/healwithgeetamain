@@ -13,6 +13,8 @@ import {
 import { PiFlowerLotus, PiHandsPraying, PiHeart, PiSparkle } from "react-icons/pi";
 import { fetchHealingModalities } from "@/lib/services/healingService";
 
+export const dynamic = "force-dynamic";
+
 export default async function HealingsPage() {
   const modalities = await fetchHealingModalities();
 

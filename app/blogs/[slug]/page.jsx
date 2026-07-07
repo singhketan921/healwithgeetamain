@@ -5,6 +5,8 @@ import {
 } from "@/components/PublicPageUI";
 import { fetchBlogById } from "@/lib/services/blogService";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogDetailPage({ params }) {
   const resolvedParams = await params;
   const blog = await fetchBlogById(resolvedParams.slug);
