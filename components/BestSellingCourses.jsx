@@ -4,7 +4,7 @@ const courses = [
   {
     title: "Tarot Foundations",
     description: "Uncover the timeless wisdom of the cards and connect deeply with your intuition.",
-    image: "/assets/images/course-tarot-foundations.png",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.09.jpeg",
     oldPrice: "₹6,999",
     price: "₹4,999",
     discount: "29%",
@@ -12,7 +12,7 @@ const courses = [
   {
     title: "Astrology & Life Path",
     description: "Decode the stars to understand your destiny and align with your life purpose.",
-    image: "/assets/images/course-astrology-life-path.png",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (2).jpeg",
     oldPrice: "₹8,499",
     price: "₹6,499",
     discount: "24%",
@@ -20,7 +20,7 @@ const courses = [
   {
     title: "Reiki Healing Essentials",
     description: "Learn the art of energy healing and restore harmony within and around you.",
-    image: "/assets/images/course-reiki-healing.png",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.06.jpeg",
     oldPrice: "₹7,499",
     price: "₹5,499",
     discount: "27%",
