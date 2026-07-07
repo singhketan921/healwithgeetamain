@@ -6,7 +6,7 @@ function normalizeTracks(tracks) {
   return (tracks || []).filter((track) => track?.active !== false);
 }
 
-export default function FHMusicLibrary({ tracks = [] }) {
+export default function FHMusicLibrary({ tracks = [], compact = false }) {
   const activeTracks = useMemo(() => normalizeTracks(tracks), [tracks]);
   const audioRefs = useRef({});
   const [activeId, setActiveId] = useState(null);
@@ -28,19 +28,54 @@ export default function FHMusicLibrary({ tracks = [] }) {
 
   if (activeTracks.length === 0) {
     return (
-      <section className="w-full bg-[#f8f3ef] pb-20 pt-[calc(var(--navbar-height)+32px)]">
-        <div className="mx-auto max-w-[900px] px-6 text-center text-[#ad7f53]">
-          <p className="text-[12px] uppercase tracking-[0.32em]">
-            FH Music
-          </p>
-          <h2 className="mt-3 text-[28px] font-normal sm:text-[36px]">
-            No tracks available
-          </h2>
-          <p className="mt-4 text-[14px] leading-[1.7] sm:text-[16px]">
-            New sound journeys will appear here soon. Check back for the next release.
-          </p>
-        </div>
-      </section>
+      <div className={compact ? "public-info-card" : "w-full bg-[#f8f3ef] pb-20 pt-[calc(var(--navbar-height)+32px)] text-center text-[#ad7f53]"}>
+        <h2>No tracks available</h2>
+        <p>New sound journeys will appear here soon. Check back for the next release.</p>
+      </div>
+    );
+  }
+
+  if (compact) {
+    return (
+      <div className="public-card-grid">
+        {activeTracks.map((track) => {
+          const trackId = track.id ?? track._id ?? track.title;
+          const isActive = activeId === trackId;
+
+          return (
+            <article className="public-catalog-card" key={trackId}>
+              <div className="public-catalog-card__image">
+                <span>{track.artist || "FH Music"}</span>
+                <img src={track.coverImage || "/assets/images/hero 2.png"} alt="" />
+              </div>
+              <div className="public-catalog-card__body">
+                <h2>{track.title}</h2>
+                {track.description ? <p className="preserve-format">{track.description}</p> : null}
+                <div className="mt-auto w-full space-y-3">
+                  <audio
+                    ref={(node) => {
+                      if (node) audioRefs.current[trackId] = node;
+                    }}
+                    controls
+                    onPlay={() => handlePlay(trackId)}
+                    onPause={() => handleStop(trackId)}
+                    onEnded={() => handleStop(trackId)}
+                    className="w-full"
+                  >
+                    <source src={track.audioUrl} />
+                    Your browser does not support the audio element.
+                  </audio>
+                  <div className={`audio-visualizer ${isActive ? "is-active" : ""}`}>
+                    {Array.from({ length: 12 }).map((_, idx) => (
+                      <span key={idx} className="audio-bar" style={{ animationDelay: `${idx * 0.08}s` }} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
     );
   }
 
