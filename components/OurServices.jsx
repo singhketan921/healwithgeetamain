@@ -10,7 +10,7 @@ const services = [
       "Transformative courses crafted to help you learn, grow, and evolve at your own pace from the comfort of your home.",
     href: "/courses",
     cta: "Explore Courses",
-    image: "/assets/images/service-online-courses.png",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.06 (2).jpeg",
     icon: PiBookOpenText,
   },
   {
@@ -19,7 +19,7 @@ const services = [
       "One-on-one sessions tailored to provide clarity, direction, and practical guidance for your unique journey.",
     href: "/consultations",
     cta: "Explore Consultations",
-    image: "/assets/images/service-consultations.png",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.09 (2).jpeg",
     icon: PiChatsCircle,
   },
   {
@@ -28,7 +28,7 @@ const services = [
       "Energy healing sessions designed to release blockages, restore balance, and promote inner peace and well-being.",
     href: "/healings",
     cta: "Explore Healings",
-    image: "/assets/images/service-healings.png",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.07 (1).jpeg",
     icon: PiHandsPraying,
   },
 ];

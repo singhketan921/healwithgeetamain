@@ -15,7 +15,7 @@ import { GiFlowerPot, GiLotus, GiSprout } from "react-icons/gi";
 const links = [
   { name: "Home", href: "/", icon: GiLotus },
   { name: "About", href: "/#about", icon: FaRegUser },
-  { name: "Services", href: "/#services", icon: GiFlowerPot, hasMenu: true },
+  { name: "Services", href: "/courses", icon: GiFlowerPot, hasMenu: true },
   { name: "Consultation", href: "/consultations", icon: FaRegComment },
   { name: "Workshops", href: "/workshops", icon: FaRegCalendarAlt },
   { name: "Blog", href: "/blogs", icon: GiSprout },

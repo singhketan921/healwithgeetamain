@@ -1,50 +1,76 @@
-import ProductsHero from "@/productscomponents/ProductsHero";
-import ProductsSection from "@/productscomponents/ProductsSection";
-import IntentionsSection from "@/productscomponents/IntentionsSection";
-import EnergeticBlessingSection from "@/productscomponents/EnergeticBlessingSection";
-import ConsultTestimonials from "@/consultationscomponents/ConsultTestimonials";
-import CoursesFAQ from "@/coursescomponents/CoursesFAQ";
-import BeginTransformationSection from "@/contactcomponents/BeginTransformationSection";
-import { fetchTestimonials } from "@/lib/services/testimonialService";
+import {
+  CatalogToolbar,
+  FeatureStrip,
+  PublicCardGrid,
+  PublicCatalogCard,
+  PublicHero,
+  PublicPageShell,
+  SubscribeBand,
+  WhyLearnBand,
+  derivePublicPrice,
+} from "@/components/PublicPageUI";
+import { PiFlowerLotus, PiGift, PiShieldCheck, PiSparkle } from "react-icons/pi";
+import { fetchProducts } from "@/lib/services/productService";
 
 export const metadata = {
   title: "Products - HealWithGeeta",
-  description:
-    "Browse curated crystals, ritual kits, and spiritual tools sourced directly from our Shopify storefront.",
+  description: "Browse curated crystals, ritual kits, and spiritual tools.",
 };
 
 export default async function ProductsPage() {
-  const testimonials = await fetchTestimonials();
+  const products = await fetchProducts();
 
   return (
-    <div className="flex flex-col items-center overflow-x-hidden scroll-smooth">
-      <section id="hero" className="w-full">
-        <ProductsHero />
+    <PublicPageShell>
+      <PublicHero
+        breadcrumb={[{ label: "Home", href: "/" }, { label: "Products" }]}
+        title="Sacred Tools for Ritual, Healing & Protection"
+        description="Curated crystals, oils and ritual kits selected to support your altar, practice and daily energetic care."
+        image="/assets/images/moonstone.jpg"
+      />
+      <FeatureStrip
+        items={[
+          { title: "Curated Tools", text: "Chosen for intention and energetic quality", icon: PiSparkle },
+          { title: "Blessed Objects", text: "Prepared with care before dispatch", icon: PiFlowerLotus },
+          { title: "Ritual Ready", text: "Easy to use in your daily practice", icon: PiGift },
+          { title: "Safe Support", text: "Simple guidance for each object", icon: PiShieldCheck },
+        ]}
+      />
+      <section className="public-section">
+        <CatalogToolbar filters={["All Products", "Crystals", "Ritual Kits", "Oils", "Protection", "Meditation"]} />
+        <PublicCardGrid>
+          {(products || []).map((product) => {
+            const id = product.id ?? product._id;
+            const price = derivePublicPrice(product);
+            return (
+              <PublicCatalogCard
+                key={id}
+                title={product.title}
+                description={product.subtitle || product.description}
+                image={product.image}
+                price={price.price}
+                oldPrice={price.oldPrice}
+                meta={[
+                  { label: product.type || "Ritual Tool" },
+                  { label: "Blessed" },
+                  { label: "Limited" },
+                ]}
+                cta="View Product"
+              />
+            );
+          })}
+        </PublicCardGrid>
       </section>
-
-      <section id="products-grid" className="w-full">
-        <ProductsSection />
-      </section>
-
-      <section id="intentions" className="w-full">
-        <IntentionsSection />
-      </section>
-
-      <section id="energetic-blessing" className="w-full">
-        <EnergeticBlessingSection />
-      </section>
-
-      <section id="testimonials" className="w-full">
-        <ConsultTestimonials testimonials={testimonials} />
-      </section>
-
-      <section id="faq" className="w-full">
-        <CoursesFAQ />
-      </section>
-
-      <section id="cta" className="w-full">
-        <BeginTransformationSection />
-      </section>
-    </div>
+      <WhyLearnBand
+        title="Why Choose Our Sacred Tools?"
+        items={[
+          { title: "Intention-led", text: "Each piece supports a clear ritual purpose" },
+          { title: "Simple Practice", text: "Easy to integrate into daily life" },
+          { title: "Energetic Care", text: "Selected for grounding and alignment" },
+          { title: "Beautiful Objects", text: "Designed to live naturally in your space" },
+        ]}
+      />
+      <SubscribeBand title="Stay updated on new drops" text="Receive product launches, ritual notes and seasonal recommendations." />
+    </PublicPageShell>
   );
 }

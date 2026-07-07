@@ -189,12 +189,6 @@ export default function ContactUs() {
             ))}
           </div>
 
-          <img
-            className="contact-us__still-life"
-            src="/assets/images/contact-still-life-transparent.png"
-            alt=""
-            aria-hidden="true"
-          />
         </aside>
 
         <div className="contact-us__bottom-ornament" aria-hidden="true">
