@@ -9,6 +9,8 @@ import {
 } from "@/components/PublicPageUI";
 import { fetchHealingModalityById } from "@/lib/services/healingService";
 
+export const dynamic = "force-dynamic";
+
 export default async function HealingDetailPage({ params }) {
   const resolvedParams = await params;
   const modality = await fetchHealingModalityById(resolvedParams.id);

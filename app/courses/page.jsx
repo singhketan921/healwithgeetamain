@@ -14,6 +14,8 @@ import {
 import { PiCertificate, PiHeart, PiMonitorPlay, PiUsersThree } from "react-icons/pi";
 import { fetchCourses } from "@/lib/services/courseService";
 
+export const dynamic = "force-dynamic";
+
 const featureItems = [
   { title: "Expert Guidance", text: "Learn from experienced healers and teachers", icon: PiUsersThree },
   { title: "Lifetime Access", text: "Access your courses anytime, anywhere", icon: PiMonitorPlay },
@@ -137,16 +139,17 @@ export default async function CoursesPage() {
               <PublicCatalogCard
                 key={id}
                 href={`/courses/${id}`}
-                title={display?.title || course.title}
-                description={display?.description || course.headline || course.description}
-                image={display?.image || course.image}
-                price={display?.price || price.price}
-                oldPrice={display?.oldPrice || price.oldPrice}
-                meta={display ? [
-                  { label: display.duration },
-                  { label: display.lessons },
-                  { label: display.level },
-                ] : courseMeta(course)}
+                title={course.title || display?.title}
+                description={course.headline || course.description || display?.description}
+                image={course.image || display?.image}
+                price={price.price !== "On request" ? price.price : display?.price}
+                oldPrice={price.oldPrice || display?.oldPrice}
+                meta={courseMeta(course).map((item, metaIndex) => ({
+                  label:
+                    item.label === "Self paced" || item.label === "10 Lessons" || item.label === "Beginner"
+                      ? [display?.duration, display?.lessons, display?.level][metaIndex] || item.label
+                      : item.label,
+                }))}
                 cta="View Course"
               />
             );

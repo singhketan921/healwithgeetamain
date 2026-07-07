@@ -7,6 +7,8 @@ import {
 } from "@/components/PublicPageUI";
 import { fetchWorkshopById } from "@/lib/services/workshopService";
 
+export const dynamic = "force-dynamic";
+
 function formatWorkshopPrice(workshop) {
   if (!workshop.price) return "Price on request";
   return `${workshop.currency || "INR"} ${workshop.price}`;
