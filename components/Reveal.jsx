@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const directionOffsets = {
   up: { axis: "y", value: 32 },
@@ -17,7 +17,9 @@ export default function Reveal({
   duration = 0.8,
   direction = "up",
   offset = 32,
+  ...props
 }) {
+  const shouldReduceMotion = useReducedMotion();
   const config = directionOffsets[direction] ?? directionOffsets.up;
   const axis = config.axis;
   const value = config.value === 0 ? 0 : Math.sign(config.value) * offset;
@@ -25,8 +27,9 @@ export default function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, [axis]: value }}
-      whileInView={{ opacity: 1, [axis]: 0 }}
+      {...props}
+      initial={shouldReduceMotion ? false : { opacity: 0, [axis]: value }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, [axis]: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ delay, duration, ease: [0.21, 0.47, 0.32, 0.98] }}
     >

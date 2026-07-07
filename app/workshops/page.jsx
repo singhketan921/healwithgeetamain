@@ -11,6 +11,8 @@ import {
 import { PiCalendarCheck, PiMonitorPlay, PiSparkle, PiUsersThree } from "react-icons/pi";
 import { fetchWorkshops } from "@/lib/services/workshopService";
 
+export const dynamic = "force-dynamic";
+
 function formatWorkshopSchedule(workshop) {
   if (!workshop.startDate) return "Dates TBA";
   return [workshop.startDate, workshop.startTime, workshop.timezone].filter(Boolean).join(" ");

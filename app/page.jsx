@@ -8,49 +8,81 @@ import TransformLearning from "@/components/TransformLearning";
 import YouTubeCommunity from "@/components/YouTubeCommunity";
 import SuccessStories from "@/components/SuccessStories";
 import ContactUs from "@/components/ContactUs";
+import Reveal from "@/components/Reveal";
+import { fetchConsultations } from "@/lib/services/consultationService";
+import { fetchCourses } from "@/lib/services/courseService";
+import { fetchHealingModalities } from "@/lib/services/healingService";
+import { fetchTestimonials } from "@/lib/services/testimonialService";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const [courses, consultations, healings, testimonials] = await Promise.all([
+    fetchCourses(),
+    fetchConsultations(),
+    fetchHealingModalities(),
+    fetchTestimonials(),
+  ]);
+
   return (
-    <div className="flex flex-col items-center scroll-smooth">
+    <div className="home-motion flex flex-col items-center scroll-smooth">
       <section id="hero" className="w-full">
         <Hero />
       </section>
 
-      <section id="trust-marquee" className="w-full">
-        <TrustMarquee />
-      </section>
+      <Reveal className="w-full" direction="up" offset={18} delay={0.08}>
+        <section id="trust-marquee" className="w-full">
+          <TrustMarquee />
+        </section>
+      </Reveal>
 
-      <section id="guidance-panel" className="w-full">
-        <GuidancePanel />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="guidance-panel" className="w-full">
+          <GuidancePanel />
+        </section>
+      </Reveal>
 
-      <section id="spiritual-guide" className="w-full">
-        <SpiritualGuide />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="spiritual-guide" className="w-full">
+          <SpiritualGuide />
+        </section>
+      </Reveal>
 
-      <section id="best-selling-courses" className="w-full">
-        <BestSellingCourses />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="best-selling-courses" className="w-full">
+          <BestSellingCourses courses={courses} />
+        </section>
+      </Reveal>
 
-      <section id="transform-learning" className="w-full">
-        <TransformLearning />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="transform-learning" className="w-full">
+          <TransformLearning />
+        </section>
+      </Reveal>
 
-      <section id="our-services" className="w-full">
-        <OurServices />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="our-services" className="w-full">
+          <OurServices courses={courses} consultations={consultations} healings={healings} />
+        </section>
+      </Reveal>
 
-      <section id="youtube-community" className="w-full">
-        <YouTubeCommunity />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="youtube-community" className="w-full">
+          <YouTubeCommunity />
+        </section>
+      </Reveal>
 
-      <section id="success-stories" className="w-full">
-        <SuccessStories />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="success-stories" className="w-full">
+          <SuccessStories testimonials={testimonials} />
+        </section>
+      </Reveal>
 
-      <section id="contact-us" className="w-full">
-        <ContactUs />
-      </section>
+      <Reveal className="w-full" direction="up" offset={30}>
+        <section id="contact-us" className="w-full">
+          <ContactUs />
+        </section>
+      </Reveal>
     </div>
   );
 }

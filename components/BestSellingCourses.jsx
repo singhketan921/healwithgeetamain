@@ -1,6 +1,4 @@
-"use client";
-
-const courses = [
+const fallbackCourses = [
   {
     title: "Tarot Foundations",
     description: "Uncover the timeless wisdom of the cards and connect deeply with your intuition.",
@@ -27,7 +25,70 @@ const courses = [
   },
 ];
 
-export default function BestSellingCourses() {
+function formatCoursePrice(value, currency = "INR") {
+  if (typeof value === "number") {
+    return new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
+      style: "currency",
+      currency,
+      maximumFractionDigits: 0,
+    }).format(value);
+  }
+  return value || null;
+}
+
+function getPriceDisplay(course, fallback) {
+  if (course?.priceTiers?.length) {
+    const sale =
+      course.priceTiers.find((tier) => /sale|offer|discount|final/i.test(tier.label || "")) ||
+      course.priceTiers.find((tier) => !/original|mrp/i.test(tier.label || "")) ||
+      course.priceTiers[0];
+    const original = course.priceTiers.find((tier) => /original|mrp/i.test(tier.label || ""));
+    return {
+      price: formatCoursePrice(sale?.amount, sale?.currency || course.currency) || fallback.price,
+      oldPrice: original
+        ? formatCoursePrice(original.amount, original.currency || course.currency)
+        : fallback.oldPrice,
+    };
+  }
+
+  return {
+    price: formatCoursePrice(course?.price ?? course?.investment, course?.currency) || fallback.price,
+    oldPrice: formatCoursePrice(course?.oldPrice ?? course?.mrp, course?.currency) || fallback.oldPrice,
+  };
+}
+
+function getDiscount(oldPrice, price, fallbackDiscount) {
+  const original = Number(String(oldPrice || "").replace(/[^\d.]/g, ""));
+  const current = Number(String(price || "").replace(/[^\d.]/g, ""));
+  if (original > 0 && current > 0 && current < original) {
+    return `${Math.round(((original - current) / original) * 100)}%`;
+  }
+  return fallbackDiscount;
+}
+
+function toDisplayCourses(items = []) {
+  const sourceItems = items.length
+    ? [...items.slice(0, 3), ...fallbackCourses].slice(0, 3)
+    : fallbackCourses;
+
+  return sourceItems.map((course, index) => {
+    const fallback = fallbackCourses[index % fallbackCourses.length];
+    const prices = getPriceDisplay(course, fallback);
+
+    return {
+      title: course?.title || fallback.title,
+      description: course?.headline || course?.description || fallback.description,
+      image: course?.image || fallback.image,
+      oldPrice: prices.oldPrice,
+      price: prices.price,
+      discount: getDiscount(prices.oldPrice, prices.price, fallback.discount),
+    };
+  });
+}
+
+export default function BestSellingCourses({ courses = [] }) {
+  const displayCourses = toDisplayCourses(courses);
+
   return (
     <section className="best-courses" aria-label="Best selling courses">
       <div className="best-courses__ornament best-courses__ornament--left" aria-hidden="true" />
@@ -54,7 +115,7 @@ export default function BestSellingCourses() {
       </div>
 
       <div className="best-courses__grid">
-        {courses.map((course) => (
+        {displayCourses.map((course) => (
           <article className="course-card" key={course.title}>
             <div className="course-card__image-wrap">
               <img src={course.image} alt="" className="course-card__image" />

@@ -22,6 +22,8 @@ import {
 } from "react-icons/pi";
 import { fetchConsultations } from "@/lib/services/consultationService";
 
+export const dynamic = "force-dynamic";
+
 const featureItems = [
   { title: "Experienced Healers", text: "Trusted by thousands", icon: PiUsersThree },
   { title: "Private & Confidential", text: "Your journey is safe", icon: PiShieldCheck },
@@ -104,8 +106,8 @@ function ConsultationCard({ item, display, index }) {
     <Link className="consultation-card-link" href={`/consultations/${id}`}>
       <article className="consultation-card">
         <div className="consultation-card__image">
-          {display.label ? <span>{display.label}</span> : null}
-          <img src={display.image || item?.image} alt="" />
+          {item?.label || item?.badge || display.label ? <span>{item?.label || item?.badge || display.label}</span> : null}
+          <img src={item?.image || display.image} alt="" />
         </div>
         <img
           className="consultation-card__avatar"
@@ -114,8 +116,8 @@ function ConsultationCard({ item, display, index }) {
           aria-hidden="true"
         />
         <div className="consultation-card__body">
-          <h2>{display.title || item?.title}</h2>
-          <p>{display.description || item?.description}</p>
+          <h2>{item?.title || display.title}</h2>
+          <p>{item?.headline || item?.description || display.description}</p>
           <div className="consultation-card__meta">
             <span>
               <PiClock aria-hidden="true" />
@@ -127,7 +129,7 @@ function ConsultationCard({ item, display, index }) {
             </span>
           </div>
           <div className="consultation-card__footer">
-            <strong>{display.price || price.price}</strong>
+            <strong>{price.price !== "On request" ? price.price : display.price}</strong>
             <span>View Details</span>
           </div>
         </div>

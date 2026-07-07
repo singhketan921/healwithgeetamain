@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import {
   PiBookOpenText,
   PiCaretDown,
@@ -66,7 +67,11 @@ export function PublicPageShell({ children, className = "" }) {
 }
 
 export function PublicSection({ children, className = "" }) {
-  return <section className={`public-section ${className}`}>{children}</section>;
+  return (
+    <Reveal className="public-motion-wrap" direction="up" offset={28}>
+      <section className={`public-section ${className}`}>{children}</section>
+    </Reveal>
+  );
 }
 
 export function PublicHero({
@@ -78,7 +83,7 @@ export function PublicHero({
 }) {
   return (
     <section className="public-hero">
-      <div className="public-hero__copy">
+      <Reveal className="public-hero__copy" direction="right" offset={34}>
         {breadcrumb.length ? (
           <nav className="public-breadcrumb" aria-label="Breadcrumb">
             {breadcrumb.map((item, index) => (
@@ -96,10 +101,10 @@ export function PublicHero({
           <img src={PUBLIC_ASSETS.lotus} alt="" />
         </div>
         {description ? <p className="public-hero__description">{description}</p> : null}
-      </div>
-      <div className="public-hero__image" aria-hidden="true">
+      </Reveal>
+      <Reveal className="public-hero__image" direction="left" offset={34} delay={0.12} aria-hidden="true">
         <img src={image} alt="" />
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -111,15 +116,17 @@ export function FeatureStrip({ items = [] }) {
       {items.map((item, index) => {
         const Icon = item.icon || fallbackIcons[index % fallbackIcons.length];
         return (
-          <article className="public-feature" key={item.title}>
-            <span className="public-feature__icon">
-              <Icon aria-hidden="true" />
-            </span>
-            <span>
-              <strong>{item.title}</strong>
-              <small>{item.text}</small>
-            </span>
-          </article>
+          <Reveal key={item.title} className="public-feature-motion" delay={index * 0.06} offset={18}>
+            <article className="public-feature">
+              <span className="public-feature__icon">
+                <Icon aria-hidden="true" />
+              </span>
+              <span>
+                <strong>{item.title}</strong>
+                <small>{item.text}</small>
+              </span>
+            </article>
+          </Reveal>
         );
       })}
     </section>
@@ -157,7 +164,11 @@ export function PublicCardGrid({ children, className = "" }) {
 }
 
 export function PublicCatalogPanel({ children, className = "" }) {
-  return <section className={`public-catalog-panel ${className}`}>{children}</section>;
+  return (
+    <Reveal className="public-motion-wrap" direction="up" offset={30}>
+      <section className={`public-catalog-panel ${className}`}>{children}</section>
+    </Reveal>
+  );
 }
 
 export function PublicCatalogCard({
@@ -207,32 +218,38 @@ export function PublicCatalogCard({
     </article>
   );
 
-  return href ? <Link className="public-catalog-link" href={href}>{content}</Link> : content;
+  return (
+    <Reveal className="public-card-motion" offset={24}>
+      {href ? <Link className="public-catalog-link" href={href}>{content}</Link> : content}
+    </Reveal>
+  );
 }
 
 export function WhyLearnBand({ title = "Why Learn with Faith Healers?", items = [] }) {
   const fallbackIcons = [PiFlowerLotus, PiShieldCheck, PiSparkle, PiUsersThree];
   return (
-    <section className="public-why-band">
-      <div className="public-why-band__title">
-        <PiFlowerLotus aria-hidden="true" />
-        <h2>{title}</h2>
-      </div>
-      <div className="public-why-band__items">
-        {items.map((item, index) => {
-          const Icon = item.icon || fallbackIcons[index % fallbackIcons.length];
-          return (
-            <article key={item.title}>
-              <Icon aria-hidden="true" />
-              <span>
-                <strong>{item.title}</strong>
-                <small>{item.text}</small>
-              </span>
-            </article>
-          );
-        })}
-      </div>
-    </section>
+    <Reveal className="public-motion-wrap" offset={30}>
+      <section className="public-why-band">
+        <div className="public-why-band__title">
+          <PiFlowerLotus aria-hidden="true" />
+          <h2>{title}</h2>
+        </div>
+        <div className="public-why-band__items">
+          {items.map((item, index) => {
+            const Icon = item.icon || fallbackIcons[index % fallbackIcons.length];
+            return (
+              <article key={item.title}>
+                <Icon aria-hidden="true" />
+                <span>
+                  <strong>{item.title}</strong>
+                  <small>{item.text}</small>
+                </span>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    </Reveal>
   );
 }
 
@@ -241,66 +258,74 @@ export function SubscribeBand({
   text = "Get updates on new courses, offers and spiritual insights.",
 }) {
   return (
-    <section className="public-subscribe-band">
-      <span className="public-subscribe-band__icon">
-        <PiEnvelopeSimple aria-hidden="true" />
-      </span>
-      <div>
-        <h2>{title}</h2>
-        <p>{text}</p>
-      </div>
-      <form>
-        <input type="email" placeholder="Enter your email" aria-label="Email address" />
-        <button type="submit">Subscribe</button>
-      </form>
-    </section>
+    <Reveal className="public-motion-wrap" offset={26}>
+      <section className="public-subscribe-band">
+        <span className="public-subscribe-band__icon">
+          <PiEnvelopeSimple aria-hidden="true" />
+        </span>
+        <div>
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </div>
+        <form>
+          <input type="email" placeholder="Enter your email" aria-label="Email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </section>
+    </Reveal>
   );
 }
 
 export function PublicDetailLayout({ backHref, backLabel, title, description, image, badges = [], children, aside }) {
   return (
     <PublicPageShell>
-      <section className="public-detail">
-        <main>
-          <Link className="public-detail__back" href={backHref}>{backLabel}</Link>
-          <div className="public-detail__hero-card">
-            <div>
-              <h1>{title}</h1>
-              {badges.length ? (
-                <div className="public-detail__badges">
-                  {badges.map((badge) => <span key={badge}>{badge}</span>)}
-                </div>
-              ) : null}
-              {description ? <p className="preserve-format">{description}</p> : null}
+      <Reveal className="public-motion-wrap" offset={28}>
+        <section className="public-detail">
+          <main>
+            <Link className="public-detail__back" href={backHref}>{backLabel}</Link>
+            <div className="public-detail__hero-card">
+              <div>
+                <h1>{title}</h1>
+                {badges.length ? (
+                  <div className="public-detail__badges">
+                    {badges.map((badge) => <span key={badge}>{badge}</span>)}
+                  </div>
+                ) : null}
+                {description ? <p className="preserve-format">{description}</p> : null}
+              </div>
+              <img src={image || PUBLIC_ASSETS.fallbackImage} alt="" />
             </div>
-            <img src={image || PUBLIC_ASSETS.fallbackImage} alt="" />
-          </div>
-          <div className="public-detail__content">{children}</div>
-        </main>
-        {aside ? <aside>{aside}</aside> : null}
-      </section>
+            <div className="public-detail__content">{children}</div>
+          </main>
+          {aside ? <aside>{aside}</aside> : null}
+        </section>
+      </Reveal>
     </PublicPageShell>
   );
 }
 
 export function PublicInfoCard({ title, children }) {
   return (
-    <section className="public-info-card">
-      <h2>{title}</h2>
-      {children}
-    </section>
+    <Reveal className="public-motion-wrap" offset={22}>
+      <section className="public-info-card">
+        <h2>{title}</h2>
+        {children}
+      </section>
+    </Reveal>
   );
 }
 
 export function PublicChecklist({ items = [] }) {
   return (
-    <ul className="public-checklist">
-      {items.map((item) => (
-        <li key={item}>
-          <PiStarFour aria-hidden="true" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
+    <Reveal className="public-motion-wrap" offset={18}>
+      <ul className="public-checklist">
+        {items.map((item) => (
+          <li key={item}>
+            <PiStarFour aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </Reveal>
   );
 }

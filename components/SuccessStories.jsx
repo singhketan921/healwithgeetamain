@@ -1,33 +1,48 @@
-"use client";
-
 import { PiHandsPraying, PiHeart, PiShieldCheck, PiSparkle } from "react-icons/pi";
 
-const smallStories = [
+const fallbackStoryImages = [
+  "/assets/images/story-arjun.png",
+  "/assets/images/story-meera.png",
+  "/assets/images/story-ritika.png",
+  "/assets/images/story-nikhil.png",
+];
+
+const fallbackSmallStories = [
   {
-    image: "/assets/images/story-arjun.png",
+    image: fallbackStoryImages[0],
     quote: "I found clarity in my purpose and direction in life.",
     name: "Arjun K.",
     role: "Entrepreneur",
   },
   {
-    image: "/assets/images/story-meera.png",
+    image: fallbackStoryImages[1],
     quote: "The meditations brought me back to myself.",
     name: "Pooja M.",
     role: "Seeker",
   },
   {
-    image: "/assets/images/story-ritika.png",
+    image: fallbackStoryImages[2],
     quote: "A journey that healed my heart and transformed my life.",
     name: "Ritika A.",
     role: "Student",
   },
   {
-    image: "/assets/images/story-nikhil.png",
+    image: fallbackStoryImages[3],
     quote: "I now handle challenges with calm and confidence.",
     name: "Nikhil R.",
     role: "Student",
   },
 ];
+
+const fallbackFeaturedStory = {
+  image: "/assets/images/story-meera.png",
+  title: "From Anxiety to Inner Peace\nA New Way of Living",
+  quote:
+    "The practices and guidance I received helped me release years of fear and self-doubt. Today, I live with clarity, gratitude, and a deep sense of purpose.",
+  name: "Meera S.",
+  role: "Student",
+  ratingLabel: "Life-changing experience",
+};
 
 const proofItems = [
   { label: "Real People\nReal Experiences", icon: PiHandsPraying },
@@ -44,7 +59,32 @@ function PlayButton() {
   );
 }
 
-export default function SuccessStories() {
+function safeStoryImage(item, index) {
+  if (item?.image && !item.image.includes("/newImages/")) {
+    return item.image;
+  }
+  return fallbackStoryImages[index % fallbackStoryImages.length];
+}
+
+function normalizeStories(testimonials = []) {
+  return testimonials.map((item, index) => ({
+    image: safeStoryImage(item, index),
+    title: item.title || item.headline || fallbackFeaturedStory.title,
+    quote: item.quote || item.description || fallbackSmallStories[index % fallbackSmallStories.length].quote,
+    name: item.name || fallbackSmallStories[index % fallbackSmallStories.length].name,
+    role: item.role || item.category || fallbackSmallStories[index % fallbackSmallStories.length].role,
+    ratingLabel: item.rating ? `${item.rating}/5 experience` : fallbackFeaturedStory.ratingLabel,
+  }));
+}
+
+export default function SuccessStories({ testimonials = [] }) {
+  const dynamicStories = normalizeStories(testimonials);
+  const featuredStory = dynamicStories[0] || fallbackFeaturedStory;
+  const cardStories = [
+    ...dynamicStories.slice(1, 5),
+    ...fallbackSmallStories,
+  ].slice(0, 4);
+
   return (
     <section className="success-stories" aria-label="Success stories">
       <div className="success-stories__bg success-stories__bg--left" aria-hidden="true" />
@@ -68,39 +108,38 @@ export default function SuccessStories() {
             <span>Featured<br />Story</span>
           </div>
           <div className="story-feature__media">
-            <img src="/assets/images/story-meera.png" alt="" />
+            <img src={featuredStory.image} alt="" />
             <PlayButton />
           </div>
           <div className="story-feature__copy">
             <div className="story-feature__quote-mark">“</div>
             <h3>
-              From Anxiety to Inner Peace
-              <br />
-              A New Way of Living
+              {featuredStory.title.split("\n").map((line, index) => (
+                <span key={`${line}-${index}`}>
+                  {line}
+                  <br />
+                </span>
+              ))}
             </h3>
-            <p>
-              “The practices and guidance I received helped me release years of fear
-              and self-doubt. Today, I live with clarity, gratitude, and a deep sense of
-              purpose.”
-            </p>
+            <p>“{featuredStory.quote}”</p>
             <div className="story-feature__footer">
               <span className="story-person">
-                <img src="/assets/images/story-meera.png" alt="" />
+                <img src={featuredStory.image} alt="" />
                 <span>
-                  <strong>Meera S.</strong>
-                  <em>Student</em>
+                  <strong>{featuredStory.name}</strong>
+                  <em>{featuredStory.role}</em>
                 </span>
               </span>
               <span className="story-stars">
                 <strong>★★★★★</strong>
-                <em>Life-changing experience</em>
+                <em>{featuredStory.ratingLabel}</em>
               </span>
             </div>
           </div>
         </article>
 
         <div className="success-stories__cards">
-          {smallStories.map((story) => (
+          {cardStories.map((story) => (
             <article className="story-card" key={`${story.name}-${story.quote}`}>
               <div className="story-card__media">
                 <img src={story.image} alt="" />

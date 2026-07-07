@@ -1,9 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import { PiBookOpenText, PiChatsCircle, PiHandsPraying } from "react-icons/pi";
 
-const services = [
+const fallbackServices = [
   {
     title: "Online Courses",
     description:
@@ -19,7 +17,7 @@ const services = [
       "One-on-one sessions tailored to provide clarity, direction, and practical guidance for your unique journey.",
     href: "/consultations",
     cta: "Explore Consultations",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.09 (2).jpeg",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (1).jpeg",
     icon: PiChatsCircle,
   },
   {
@@ -33,7 +31,30 @@ const services = [
   },
 ];
 
-export default function OurServices() {
+function shortDescription(item, fallback) {
+  const text = item?.headline || item?.description;
+  if (!text) return fallback;
+  return text.length > 145 ? `${text.slice(0, 142).trim()}...` : text;
+}
+
+function buildServices({ courses = [], consultations = [], healings = [] }) {
+  const [course] = courses;
+  const [consultation] = consultations;
+  const [healing] = healings;
+  const sources = [course, consultation, healing];
+
+  return fallbackServices.map((service, index) => {
+    const source = sources[index] || {};
+    return {
+      ...service,
+      description: shortDescription(source, service.description),
+    };
+  });
+}
+
+export default function OurServices({ courses = [], consultations = [], healings = [] }) {
+  const services = buildServices({ courses, consultations, healings });
+
   return (
     <section className="our-services" aria-label="Our services">
       <div className="our-services__bg-lotus our-services__bg-lotus--top" aria-hidden="true" />

@@ -9,6 +9,8 @@ import {
 } from "@/components/PublicPageUI";
 import { fetchConsultationById } from "@/lib/services/consultationService";
 
+export const dynamic = "force-dynamic";
+
 export default async function ConsultationDetailPage({ params }) {
   const resolvedParams = await params;
   const consultation = await fetchConsultationById(resolvedParams.id);
