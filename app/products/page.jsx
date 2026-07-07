@@ -12,6 +12,8 @@ import {
 import { PiFlowerLotus, PiGift, PiShieldCheck, PiSparkle } from "react-icons/pi";
 import { fetchProducts } from "@/lib/services/productService";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Products - HealWithGeeta",
   description: "Browse curated crystals, ritual kits, and spiritual tools.",
