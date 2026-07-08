@@ -2,14 +2,11 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import {
   PiBookOpenText,
-  PiCaretDown,
   PiCertificate,
   PiClock,
   PiEnvelopeSimple,
   PiFlowerLotus,
-  PiGridFour,
   PiHeart,
-  PiListBullets,
   PiMonitorPlay,
   PiPlay,
   PiShieldCheck,
@@ -133,7 +130,7 @@ export function FeatureStrip({ items = [] }) {
   );
 }
 
-export function CatalogToolbar({ filters = [], sortLabel = "Sort by Popularity" }) {
+export function CatalogToolbar({ filters = [] }) {
   return (
     <div className="public-toolbar">
       <div className="public-toolbar__filters">
@@ -142,18 +139,6 @@ export function CatalogToolbar({ filters = [], sortLabel = "Sort by Popularity" 
             {filter}
           </button>
         ))}
-      </div>
-      <div className="public-toolbar__actions">
-        <button type="button">
-          {sortLabel}
-          <PiCaretDown aria-hidden="true" />
-        </button>
-        <span aria-hidden="true">
-          <PiGridFour />
-        </span>
-        <span aria-hidden="true">
-          <PiListBullets />
-        </span>
       </div>
     </div>
   );
