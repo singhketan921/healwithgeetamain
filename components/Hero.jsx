@@ -59,9 +59,6 @@ export default function Hero() {
               <strong>Let Guidance</strong>
               <strong>Light the Way.</strong>
             </h1>
-            <p className="home-hero__eyebrow">
-              Through Astrology, Face Reading, Tarot, Numerology.
-            </p>
             <div className="home-hero__divider" aria-hidden="true">
               <span />
               <img src="/assets/navicon.png" alt="" />
@@ -189,9 +186,6 @@ export default function Hero() {
               <img src="/assets/navicon.png" alt="" />
               <span />
             </div>
-            <p className="home-hero__description">
-              Discover the deeper patterns shaping your life and unlock your highest potential.
-            </p>
             <Link href="/consultations" className="home-hero__cta">
               <img src="/assets/navicon.png" alt="" />
               <span>Begin Your Journey</span>
