@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import {
   FaAngleDown,
@@ -14,13 +15,26 @@ import { GiFlowerPot, GiLotus, GiSprout } from "react-icons/gi";
 
 const links = [
   { name: "Home", href: "/", icon: GiLotus },
-  { name: "About", href: "/#about", icon: FaRegUser },
+  { name: "About", href: "/about", icon: FaRegUser },
   { name: "Services", href: "/courses", icon: GiFlowerPot, hasMenu: true },
   { name: "Consultation", href: "/consultations", icon: FaRegComment },
   { name: "Workshops", href: "/workshops", icon: FaRegCalendarAlt },
   { name: "Blog", href: "/blogs", icon: GiSprout },
   { name: "Contact", href: "/contact", icon: FaRegEnvelope },
 ];
+
+function getActiveHref(pathname) {
+  if (pathname === "/") return "/";
+
+  const exactMatch = links.find((link) => link.href === pathname);
+  if (exactMatch) return exactMatch.href;
+
+  if (pathname.startsWith("/courses") || pathname.startsWith("/products") || pathname.startsWith("/healings")) {
+    return "/courses";
+  }
+
+  return links.find((link) => link.href !== "/" && pathname.startsWith(link.href))?.href || "";
+}
 
 function HamburgerIcon({ className = "" }) {
   return (
@@ -34,8 +48,16 @@ function HamburgerIcon({ className = "" }) {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [clickedHref, setClickedHref] = useState("");
+  const pathname = usePathname();
   const { toggleCart, items } = useCart();
   const itemCount = items.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  const activeHref = clickedHref.startsWith("/#") && pathname === "/" ? clickedHref : getActiveHref(pathname);
+
+  const handleNavClick = (href) => {
+    setClickedHref(href);
+    setIsOpen(false);
+  };
 
   return (
     <header
@@ -53,7 +75,7 @@ export default function Navbar() {
 
         <Link
           href="/"
-          onClick={() => setIsOpen(false)}
+          onClick={() => handleNavClick("/")}
           className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5 text-[#475028] xl:static xl:translate-x-0 xl:gap-3 xl:border-r xl:border-[#ead2ae] xl:pr-8"
         >
           <img
@@ -74,22 +96,37 @@ export default function Navbar() {
         <nav className="hidden flex-1 items-stretch justify-center xl:flex">
           {links.map((link, index) => {
             const Icon = link.icon;
+            const isActive = activeHref === link.href;
 
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`group relative flex min-w-[104px] flex-col items-center justify-center gap-1.5 px-5 text-[14px] font-medium text-[#28291c] transition-colors hover:text-[#667030] ${
+                onClick={() => handleNavClick(link.href)}
+                aria-current={isActive ? "page" : undefined}
+                className={`group relative flex min-w-[104px] flex-col items-center justify-center gap-1.5 px-5 text-[14px] font-medium transition-colors hover:text-[#667030] ${
+                  isActive ? "bg-[#f6e3bd]/52 text-[#667030]" : "text-[#28291c]"
+                } ${
                   index > 0 ? "border-l border-[#ead2ae]" : ""
                 }`}
               >
-                <Icon className="h-6 w-6 text-[#a77629] transition-colors group-hover:text-[#667030]" aria-hidden="true" />
+                <Icon
+                  className={`h-6 w-6 transition-colors group-hover:text-[#667030] ${
+                    isActive ? "text-[#667030]" : "text-[#a77629]"
+                  }`}
+                  aria-hidden="true"
+                />
                 <span className="flex items-center gap-1">
                   {link.name}
-                  {link.hasMenu ? <FaAngleDown className="h-3 w-3 text-[#a77629]" aria-hidden="true" /> : null}
+                  {link.hasMenu ? (
+                    <FaAngleDown
+                      className={`h-3 w-3 ${isActive ? "text-[#667030]" : "text-[#a77629]"}`}
+                      aria-hidden="true"
+                    />
+                  ) : null}
                 </span>
                 <span className="h-1.5 w-1.5 rounded-full bg-[#a77629]" aria-hidden="true" />
-                {link.name === "Home" ? (
+                {isActive ? (
                   <span className="absolute bottom-2 h-[2px] w-10 rounded-full bg-[#667030]" aria-hidden="true" />
                 ) : null}
               </Link>
@@ -125,21 +162,28 @@ export default function Navbar() {
       {isOpen && (
         <div className="fixed left-4 right-4 top-[84px] z-40 h-[calc(100vh-100px)] overflow-hidden rounded-[18px] border border-[#d8b680] bg-[#fff1da] shadow-2xl animate-fadeIn sm:left-6 sm:right-auto sm:w-[86vw] sm:max-w-[500px] xl:hidden">
           <nav className="flex h-full flex-col justify-center px-[18%] py-6">
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="group inline-flex items-center gap-3 py-2.5 font-serif text-[36px] leading-none text-[#28291c] transition-colors hover:text-[#667030] sm:text-[42px]"
-              >
-                <span>{link.name}</span>
-                {link.name === "Home" ? (
-                  <span className="text-[#ad7f53] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">
-                    ↗
-                  </span>
-                ) : null}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isActive = activeHref === link.href;
+
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`group inline-flex items-center gap-3 py-2.5 font-serif text-[36px] leading-none transition-colors hover:text-[#667030] sm:text-[42px] ${
+                    isActive ? "text-[#667030]" : "text-[#28291c]"
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  {isActive ? (
+                    <span className="text-[#ad7f53] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">
+                      ↗
+                    </span>
+                  ) : null}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       )}
