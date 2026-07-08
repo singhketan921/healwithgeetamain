@@ -19,14 +19,14 @@ const guideServices = [
 export default function SpiritualGuide() {
   return (
     <section className="spiritual-guide" aria-label="Meet the spiritual guide">
-      <div className="spiritual-guide__lotus-mark" aria-hidden="true">
-        <span />
-        <img src="/assets/navicon.png" alt="" />
-        <span />
-      </div>
-
       <div className="spiritual-guide__main">
         <div className="spiritual-guide__copy">
+          <div className="spiritual-guide__lotus-mark" aria-hidden="true">
+            <span />
+            <img src="/assets/navicon.png" alt="" />
+            <span />
+          </div>
+
           <p className="spiritual-guide__eyebrow">Meet The</p>
           <h2>
             Spiritual
