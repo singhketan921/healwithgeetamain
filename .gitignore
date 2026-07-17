@@ -39,3 +39,86 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Google Drive source archive. Keep only assets that are referenced by the app.
+public/assets/drive/**
+!public/assets/drive/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/COUNSELLLING/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/COUNSELLLING/COUNSELLING.JPG
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/NUMEROLOGY\ CONSULTATION/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/NUMEROLOGY\ CONSULTATION/NUMO\ CONSULTATION.jpeg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/GRAND\ MASTER\ BATCH\ .jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/GROUP\ CLASSES.jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/MEDITATION\ SESSION\ 2.jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/TAROT\ BATCH.jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/HEALINGS/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/HEALINGS/REIKI\ HEALING/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/HEALINGS/REIKI\ HEALING/DSC_0607.JPG
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/LOGO/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/LOGO/logo-transparent-cropped.png
+
+# Unused local asset files kept on disk but out of Git.
+public/assets/WhatsApp\ Image\ 2026-06-17\ at\ 11.33.55.jpeg
+public/assets/geeta/WhatsApp\ Image\ 2026-06-23\ at\ 12.04.05.jpeg
+public/assets/geeta/WhatsApp\ Image\ 2026-06-23\ at\ 12.12.53.jpeg
+public/assets/geeta/WhatsApp\ Image\ 2026-06-27\ at\ 13.03.01.jpeg
+public/assets/geeta/healing-session-chroma.png
+public/assets/geeta/learning-session-chroma.png
+public/assets/hero-illustration.svg
+public/assets/images/10354.jpg
+public/assets/images/75291.jpg
+public/assets/images/AboutCard.png
+public/assets/images/CRYSTAL\ HEALING\ .mp4
+public/assets/images/FAITHHEALERS\ JOURNEY\ \ home\ videp.mp4
+public/assets/images/FinalImageHero.png
+public/assets/images/HeroBottomBox1.png
+public/assets/images/HeroBottomBox2.png
+public/assets/images/SOUND\ HEALING_with\ Sound.mp4
+public/assets/images/consultation.png
+public/assets/images/consultations\ img.jpeg
+public/assets/images/contact-still-life.png
+public/assets/images/course-astrology-life-path.png
+public/assets/images/course-reiki-healing.png
+public/assets/images/course-tarot-foundations.png
+public/assets/images/drive-course-astrology.png
+public/assets/images/drive-course-reiki.png
+public/assets/images/drive-course-tarot.jpg
+public/assets/images/drive-service-consultations.png
+public/assets/images/drive-service-courses.jpg
+public/assets/images/drive-service-healings.jpg
+public/assets/images/healing\ path\ ways.JPG
+public/assets/images/healwithgeeta\ hero\ 1.png
+public/assets/images/healwithgeeta\ hero\ 2.png
+public/assets/images/hero\ 1\ final.png
+public/assets/images/hero\ 1\ mobile.png
+public/assets/images/hero\ 1\ new.png
+public/assets/images/hero\ 1.png
+public/assets/images/hero\ 2\ mobile.png
+public/assets/images/hero\ 3\ mobile.png
+public/assets/images/hero\ 3.png
+public/assets/images/hero\ 4\ final\ 4.png
+public/assets/images/hero\ 4\ final.png
+public/assets/images/hero\ 4\ mobile.png
+public/assets/images/learnings\ new.png
+public/assets/images/logo\ 1.png
+public/assets/images/logo.png
+public/assets/images/service-consultations.png
+public/assets/images/service-healings.png
+public/assets/images/service-online-courses.png
+public/assets/images/spiritual\ consultations\ img.png
+public/assets/images/spiritual\ healings\ img.png
+public/assets/logo.svg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.05\ (1).jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.05.jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.06\ (1).jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.06\ (2).jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.06.jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.07\ (1).jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.07.jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.08.jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.09\ (1).jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.09.jpeg
+public/assets/newImages/WhatsApp\ Image\ 2026-07-06\ at\ 15.41.10.jpeg

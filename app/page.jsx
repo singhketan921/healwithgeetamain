@@ -12,6 +12,7 @@ import Reveal from "@/components/Reveal";
 import { fetchConsultations } from "@/lib/services/consultationService";
 import { fetchCourses } from "@/lib/services/courseService";
 import { fetchHealingModalities } from "@/lib/services/healingService";
+import { resolveHomeCourses } from "@/lib/services/homepageSettingsService";
 import { fetchTestimonials } from "@/lib/services/testimonialService";
 
 export const dynamic = "force-dynamic";
@@ -23,6 +24,8 @@ export default async function HomePage() {
     fetchHealingModalities(),
     fetchTestimonials(),
   ]);
+  const { courses: homeCourses, hasCustomHomeCourseSelection } =
+    await resolveHomeCourses(courses);
 
   return (
     <div className="home-motion flex flex-col items-center scroll-smooth">
@@ -50,7 +53,10 @@ export default async function HomePage() {
 
       <Reveal className="w-full" direction="up" offset={30}>
         <section id="best-selling-courses" className="w-full">
-          <BestSellingCourses courses={courses} />
+          <BestSellingCourses
+            courses={homeCourses}
+            useExactCourses={hasCustomHomeCourseSelection}
+          />
         </section>
       </Reveal>
 

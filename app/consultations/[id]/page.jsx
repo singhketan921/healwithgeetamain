@@ -34,7 +34,7 @@ export default async function ConsultationDetailPage({ params }) {
       aside={
         <div>
           <h2>Ready to begin?</h2>
-          <p>Reserve your consultation and receive preparation guidance.</p>
+          <p>Reserve your consultation and receive preparation guidance so your questions are clear before the session begins.</p>
           <PublicChecklist items={[price, duration, "Personal integration notes"]} />
           <Link className="public-detail__side-cta" href="/consultations#bookconsultation">Book Now</Link>
         </div>
