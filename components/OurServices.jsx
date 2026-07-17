@@ -5,28 +5,28 @@ const fallbackServices = [
   {
     title: "Online Courses",
     description:
-      "Structured learning in Reiki, tarot, numerology, chakra work and remedies, with practical tools you can use for yourself and others.",
+      "Transformative courses crafted to help you learn, grow, and evolve at your own pace from the comfort of your home.",
     href: "/courses",
     cta: "Explore Courses",
-    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/COURSES/GROUP%20CLASSES.jpg",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.06 (2).jpeg",
     icon: PiBookOpenText,
   },
   {
     title: "Consultations",
     description:
-      "Private one-on-one readings for career, relationships, money, health, timing and life direction, with grounded remedies where needed.",
+      "One-on-one sessions tailored to provide clarity, direction, and practical guidance for your unique journey.",
     href: "/consultations",
     cta: "Explore Consultations",
-    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/CONSULTATION/COUNSELLLING/COUNSELLING.JPG",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (1).jpeg",
     icon: PiChatsCircle,
   },
   {
     title: "Healings",
     description:
-      "Energy support for stress, emotional heaviness, strained relationships and energetic blocks, held with care and after-session guidance.",
+      "Energy healing sessions designed to release blockages, restore balance, and promote inner peace and well-being.",
     href: "/healings",
     cta: "Explore Healings",
-    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/HEALINGS/REIKI%20HEALING/DSC_0607.JPG",
+    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.07 (1).jpeg",
     icon: PiHandsPraying,
   },
 ];
@@ -73,9 +73,9 @@ export default function OurServices({ courses = [], consultations = [], healings
           <span />
         </div>
         <p>
-          Courses, consultations and healing sessions crafted to support your spiritual growth, clarity, and
+          Holistic offerings crafted to support your spiritual growth, healing, and
           <br />
-          transformation with practical guidance.
+          transformation journey.
         </p>
       </div>
 

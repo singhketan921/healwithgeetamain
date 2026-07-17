@@ -23,15 +23,15 @@ export default async function HealingsPage() {
       <PublicHero
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Healings" }]}
         title="Healing Sessions for Balance, Release & Renewal"
-        description="Begin with compassionate counselling, then receive energy support for emotional stress, relationship strain, energetic blocks and the patterns that feel heavy to carry alone."
+        description="Gentle energetic offerings designed to calm the nervous system, clear blocks and restore inner harmony."
         image="/assets/images/healings img .jpeg"
       />
       <FeatureStrip
         items={[
-          { title: "Energy Balance", text: "Clear blocks and restore flow through subtle energy work", icon: PiFlowerLotus },
-          { title: "Emotional Calm", text: "Support anxiety, heaviness and nervous-system reset", icon: PiHeart },
-          { title: "Guided Integration", text: "Receive simple aftercare practices for daily life", icon: PiHandsPraying },
-          { title: "Held with Care", text: "A private, intentional space for mind, body and soul", icon: PiSparkle },
+          { title: "Energy Balance", text: "Restore flow through subtle energy work", icon: PiFlowerLotus },
+          { title: "Emotional Calm", text: "Support release and nervous reset", icon: PiHeart },
+          { title: "Guided Integration", text: "Aftercare practices for daily life", icon: PiHandsPraying },
+          { title: "Sacred Space", text: "Held gently with care and intention", icon: PiSparkle },
         ]}
       />
       <section className="public-section">
@@ -63,13 +63,13 @@ export default async function HealingsPage() {
       <WhyLearnBand
         title="Why Choose Healing?"
         items={[
-          { title: "Release Blocks", text: "Work gently with stagnant emotional and energetic patterns" },
-          { title: "Restore Balance", text: "Support mind, body, aura and subtle energy flow" },
-          { title: "Deep Rest", text: "Create space for the nervous system to soften" },
-          { title: "Grounded Aftercare", text: "Leave with practical steps instead of vague advice" },
+          { title: "Release Blocks", text: "Clear stagnant emotional and energetic patterns" },
+          { title: "Restore Balance", text: "Support mind, body and subtle energy" },
+          { title: "Deep Rest", text: "Create space for nervous-system calm" },
+          { title: "Gentle Guidance", text: "Receive grounded aftercare practices" },
         ]}
       />
-      <SubscribeBand title="Receive healing notes" text="Get gentle practices, session updates and grounded reminders for energetic balance." />
+      <SubscribeBand title="Receive healing notes" text="Get gentle practices, session updates and sacred reminders." />
     </PublicPageShell>
   );
 }

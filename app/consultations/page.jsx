@@ -8,7 +8,6 @@ import {
   SubscribeBand,
   derivePublicPrice,
 } from "@/components/PublicPageUI";
-import ConsultationSpinWheel from "@/components/ConsultationSpinWheel";
 import Link from "next/link";
 import {
   PiArrowRight,
@@ -22,15 +21,14 @@ import {
   PiVideoCamera,
 } from "react-icons/pi";
 import { fetchConsultations } from "@/lib/services/consultationService";
-import { fetchSpinWheelSettings } from "@/lib/services/spinWheelService";
 
 export const dynamic = "force-dynamic";
 
 const featureItems = [
-  { title: "Experienced Guidance", text: "Sessions shaped by occult diagnosis and practical insight", icon: PiUsersThree },
-  { title: "Private & Confidential", text: "Your questions are held with respect and care", icon: PiShieldCheck },
-  { title: "Flexible Sessions", text: "Online and selected offline consultations", icon: PiCalendarBlank },
-  { title: "Holistic Approach", text: "Mind, body, energy and real-life decisions", icon: PiHeart },
+  { title: "Experienced Healers", text: "Trusted by thousands", icon: PiUsersThree },
+  { title: "Private & Confidential", text: "Your journey is safe", icon: PiShieldCheck },
+  { title: "Flexible Sessions", text: "Online & Offline", icon: PiCalendarBlank },
+  { title: "Holistic Approach", text: "Mind • Body • Soul", icon: PiHeart },
 ];
 
 const consultationPresentation = [
@@ -81,22 +79,22 @@ const consultationPresentation = [
 const processItems = [
   {
     title: "1. Book Your Session",
-    text: "Choose the reading or healing guidance that matches your current concern.",
+    text: "Choose a session that resonates with you.",
     icon: PiCalendarBlank,
   },
   {
     title: "2. Connect",
-    text: "Share your question, background and intention in a private space.",
+    text: "Share your concerns in a safe space.",
     icon: PiChatsCircle,
   },
   {
     title: "3. Receive Guidance",
-    text: "Receive focused insight, remedies where relevant and grounded next steps.",
+    text: "Get personalized guidance and practical insights.",
     icon: PiFlowerLotus,
   },
   {
     title: "4. Transform",
-    text: "Integrate the guidance with more clarity, steadiness and self-trust.",
+    text: "Embark on your journey towards a better you.",
     icon: PiHeart,
   },
 ];
@@ -119,8 +117,7 @@ function ConsultationCard({ item, display, index }) {
         />
         <div className="consultation-card__body">
           <h2>{item?.title || display.title}</h2>
-          <p className="public-card-description">{item?.headline || item?.description || display.description}</p>
-          <span className="public-card-read-more">Read more</span>
+          <p>{item?.headline || item?.description || display.description}</p>
           <div className="consultation-card__meta">
             <span>
               <PiClock aria-hidden="true" />
@@ -167,21 +164,14 @@ function ConsultationProcess() {
 }
 
 export default async function ConsultationsPage() {
-  const [consultations, spinWheelSettings] = await Promise.all([
-    fetchConsultations(),
-    fetchSpinWheelSettings(),
-  ]);
-  const winProbability =
-    typeof spinWheelSettings?.winProbability === "number"
-      ? spinWheelSettings.winProbability
-      : 0.1;
+  const consultations = await fetchConsultations();
 
   return (
     <PublicPageShell>
       <PublicHero
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Consultations" }]}
         title="Consultations for Every Journey"
-        description="Receive focused guidance through tarot, astrology, numerology, face reading, Vastu and healing insight so your next step feels clearer and more grounded."
+        description="Personalized spiritual guidance to help you find clarity, healing and alignment in life."
         image="/assets/images/consultations-hero-still-life.png"
       />
       <FeatureStrip items={featureItems} />
@@ -205,9 +195,8 @@ export default async function ConsultationsPage() {
           })}
         </PublicCardGrid>
       </PublicCatalogPanel>
-      <ConsultationSpinWheel winProbability={winProbability} />
       <ConsultationProcess />
-      <SubscribeBand title="Stay inspired on your journey" text="Get spiritual notes, session updates and practical guidance for clearer everyday choices." />
+      <SubscribeBand title="Stay inspired on your journey" text="Get updates, insights and exclusive offers." />
     </PublicPageShell>
   );
 }

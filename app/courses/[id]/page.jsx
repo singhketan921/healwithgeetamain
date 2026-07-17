@@ -81,7 +81,7 @@ export default async function CourseDetailPage({ params }) {
       aside={
         <div>
           <h2>Begin your learning journey</h2>
-          <p>Secure your seat and receive the course roadmap, practice notes, material guidance and next steps for your batch.</p>
+          <p>Secure your seat and receive the course roadmap, materials and next steps.</p>
           <PublicChecklist items={detailItems} />
           <Link className="public-detail__side-cta" href={`/courses/${resolvedParams.id}/checkout`}>
             {course.ctaText || "Enroll Now"}
