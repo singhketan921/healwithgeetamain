@@ -44,7 +44,7 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#fff8ec] px-5 py-12 text-[#3d403a] sm:px-8 lg:px-[5vw]">
+    <footer className="relative overflow-hidden bg-[#fff8ec] px-4 py-10 text-[#3d403a] sm:px-8 sm:py-12 lg:px-[5vw]">
       <img
         src={mandala}
         alt=""
@@ -63,53 +63,56 @@ export default function Footer() {
           <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#d8b680] to-[#d8b680]/70" />
         </div>
 
-        <div className="grid gap-10 py-10 lg:grid-cols-[1.05fr_1.4fr_0.95fr] lg:gap-14 lg:py-12">
-          <div>
-            <Link href="/" className="inline-flex items-center gap-3 text-[#475028]">
+        <div className="grid gap-9 py-9 sm:py-10 lg:grid-cols-[1.05fr_1.4fr_0.95fr] lg:gap-14 lg:py-12">
+          <div className="text-center sm:text-left">
+            <Link
+              href="/"
+              className="mx-auto inline-flex max-w-full flex-col items-center gap-2 text-[#475028] sm:mx-0 sm:flex-row sm:items-center sm:gap-3"
+            >
               <img
                 src={logo}
                 alt="Faith Healers"
-                className="h-16 w-[104px] object-contain sepia-[0.28] saturate-[0.82] hue-rotate-[352deg] contrast-[0.96]"
+                className="h-14 w-[94px] shrink-0 object-contain sepia-[0.28] saturate-[0.82] hue-rotate-[352deg] contrast-[0.96] sm:h-16 sm:w-[104px]"
               />
-              <span className="flex flex-col leading-none">
-                <span className="font-serif text-[24px] font-bold uppercase sm:text-[28px]">
+              <span className="flex min-w-0 flex-col leading-none">
+                <span className="font-serif text-[22px] font-bold uppercase sm:text-[28px]">
                   Geeta Sharma
                 </span>
-                <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#6d5d34]">
+                <span className="mt-1 max-w-[230px] text-center text-[9px] font-semibold uppercase tracking-[0.08em] text-[#6d5d34] sm:max-w-none sm:text-left sm:text-[10px] sm:tracking-[0.12em]">
                   Occult Diagnosis &amp; Healing Expert
                 </span>
               </span>
             </Link>
 
-            <p className="mt-6 max-w-sm font-serif text-[26px] font-semibold leading-[1.08] text-[#667030] sm:text-[31px]">
+            <p className="mx-auto mt-6 max-w-sm font-serif text-[24px] font-semibold leading-[1.12] text-[#667030] sm:mx-0 sm:text-[31px] sm:leading-[1.08]">
               A quieter path into guidance, healing, and inner clarity.
             </p>
-            <p className="mt-4 max-w-sm text-[14px] leading-[1.75] text-[#6e6b63]">
+            <p className="mx-auto mt-4 max-w-sm text-[14px] leading-[1.7] text-[#6e6b63] sm:mx-0 sm:leading-[1.75]">
               Consultations, energy healing, workshops, and learning spaces for
               seekers moving with intention.
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-7 text-center sm:grid-cols-3 sm:text-left">
             {[
               ["Offerings", footerSections.offerings],
               ["Studio", footerSections.studio],
               ["Legal", footerSections.legal],
             ].map(([title, items]) => (
-              <div key={title}>
-                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#a77629]">
+              <div key={title} className={title === "Legal" ? "col-span-2 sm:col-span-1" : undefined}>
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a77629] sm:mb-4 sm:text-[11px] sm:tracking-[0.24em]">
                   {title}
                 </p>
-                <ul className="space-y-2.5 text-[14px] text-[#4f4c3f]">
+                <ul className="space-y-2.5 text-[14px] leading-snug text-[#4f4c3f]">
                   {items.map((item) => (
                     <li key={item.label}>
                       <Link
-                        className="group inline-flex items-center gap-2 transition hover:text-[#667030]"
+                        className="group inline-flex max-w-full items-center justify-center gap-1.5 transition hover:text-[#667030] sm:justify-start sm:gap-2"
                         href={item.href}
                       >
-                        <span>{item.label}</span>
+                        <span className="min-w-0 break-words">{item.label}</span>
                         <PiArrowUpRight
-                          className="text-[13px] text-[#a77629] opacity-0 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                          className="hidden shrink-0 text-[13px] text-[#a77629] opacity-0 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100 sm:block"
                           aria-hidden="true"
                         />
                       </Link>
@@ -120,26 +123,26 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className="lg:justify-self-end">
-            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#a77629]">
+          <div className="text-center sm:text-left lg:justify-self-end">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a77629] sm:text-[11px] sm:tracking-[0.24em]">
               Connect
             </p>
-            <div className="space-y-3 text-[14px] text-[#4f4c3f]">
+            <div className="mx-auto max-w-sm space-y-3 text-[14px] text-[#4f4c3f] sm:mx-0">
               {contactItems.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
                   href={href}
-                  className="group flex items-center gap-3 transition hover:text-[#667030]"
+                  className="group flex min-w-0 items-center justify-center gap-3 transition hover:text-[#667030] sm:justify-start"
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noreferrer" : undefined}
                 >
-                  <Icon className="text-[16px] text-[#a77629]" aria-hidden="true" />
-                  <span>{label}</span>
+                  <Icon className="shrink-0 text-[16px] text-[#a77629]" aria-hidden="true" />
+                  <span className="min-w-0 break-words">{label}</span>
                 </a>
               ))}
             </div>
 
-            <div className="mt-6 flex gap-2.5">
+            <div className="mt-6 flex justify-center gap-2.5 sm:justify-start">
               {socials.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
@@ -156,10 +159,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 pt-6 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#6d5d34] sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col items-center gap-3 border-t border-[#e8d5b4] pt-5 text-center text-[10px] font-semibold uppercase leading-relaxed tracking-[0.08em] text-[#6d5d34] sm:flex-row sm:justify-between sm:pt-6 sm:text-left sm:text-[11px] sm:tracking-[0.16em]">
           <p>(C) {new Date().getFullYear()} HealWithGeeta. All rights reserved.</p>
-          <p className="inline-flex items-center gap-2">
-            <PiSparkle className="text-[#a77629]" aria-hidden="true" />
+          <p className="inline-flex items-center justify-center gap-2">
+            <PiSparkle className="shrink-0 text-[#a77629]" aria-hidden="true" />
             Crafted with cosmic intention
           </p>
         </div>
