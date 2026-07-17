@@ -17,17 +17,17 @@ import { fetchCourses } from "@/lib/services/courseService";
 export const dynamic = "force-dynamic";
 
 const featureItems = [
-  { title: "Expert Guidance", text: "Learn from experienced healers and teachers", icon: PiUsersThree },
-  { title: "Lifetime Access", text: "Access your courses anytime, anywhere", icon: PiMonitorPlay },
-  { title: "Certificate of Completion", text: "Earn a certificate to celebrate your journey", icon: PiCertificate },
-  { title: "Transform Your Life", text: "Practical tools for real and lasting change", icon: PiHeart },
+  { title: "Guided Learning", text: "Study with structured practices, examples and clear next steps", icon: PiUsersThree },
+  { title: "Live & Online Batches", text: "Learn through Zoom or selected in-person learning spaces", icon: PiMonitorPlay },
+  { title: "Certificate Pathways", text: "Build confidence through practice, integration and completion guidance", icon: PiCertificate },
+  { title: "Practical Transformation", text: "Use the tools for self-healing, guidance and daily life decisions", icon: PiHeart },
 ];
 
 const whyItems = [
-  { title: "Authentic Teachings", text: "Rooted in ancient wisdom and spiritual practices" },
-  { title: "Practical & Effective", text: "Simple techniques you can use in daily life" },
-  { title: "Supportive Community", text: "Learn and grow with like-minded souls" },
-  { title: "Safe & Sacred Space", text: "A nurturing space for your healing and growth" },
+  { title: "Rooted Teachings", text: "Reiki, tarot, numerology and energy practices taught with context" },
+  { title: "Hands-on Practice", text: "Examples, remedies and exercises that make the learning usable" },
+  { title: "Responsible Guidance", text: "A grounded approach to intuition, healing and client support" },
+  { title: "Spiritual Confidence", text: "Learn how to trust your tools without fear or dependency" },
 ];
 
 const coursePresentation = [
@@ -112,7 +112,7 @@ export default async function CoursesPage() {
           { label: "Courses" },
         ]}
         title="Courses for Growth, Healing & Transformation"
-        description="Learn timeless wisdom and practical tools to elevate your mind, body and soul from the comfort of your space."
+        description="Learn Reiki, tarot, numerology, chakra work and spiritual remedies through guided courses designed for real practice, inner growth and confident service."
         image="/assets/images/public-courses-hero-still-life.png"
       />
 

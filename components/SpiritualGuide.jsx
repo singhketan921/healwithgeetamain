@@ -41,17 +41,18 @@ export default function SpiritualGuide() {
           </div>
 
           <p className="spiritual-guide__body">
-            A seeker, a guide, and a lifelong student of wisdom, our spiritual guide
-            has dedicated her life to helping souls reconnect with their inner truth.
-            With deep intuition, timeless teachings, and a compassionate heart, she
-            creates a safe space for transformation, healing, and spiritual growth.
+            Geeta Sharma brings together occult diagnosis, Reiki, tarot, numerology,
+            Vastu, face reading and practical remedies to help seekers understand the
+            patterns behind their questions. Her work is intuitive, but grounded:
+            every session is held with compassion, clarity and steps you can carry
+            into real life.
           </p>
         </div>
 
         <div className="spiritual-guide__portrait-wrap" aria-hidden="true">
           <div className="spiritual-guide__portrait-frame">
             <img
-              src="/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08.jpeg"
+              src="/assets/images/spiritual-guide-geeta-sharma.jpg"
               alt=""
               className="spiritual-guide__portrait"
             />

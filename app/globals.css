@@ -1179,21 +1179,19 @@ a {
   position: absolute;
   z-index: 1;
   inset: 0;
-  background:
-    linear-gradient(90deg, rgba(105, 82, 48, 0.68) 0%, rgba(142, 111, 66, 0.52) 30%, rgba(209, 165, 95, 0.14) 50%, rgba(96, 58, 31, 0.04) 100%);
+  background: #b8935f;
   pointer-events: none;
 }
 
-.guidance-panel__media::before {
+.guidance-panel__media video {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 18% 42%, rgba(122, 94, 52, 0.24), transparent 30%),
-    radial-gradient(ellipse at 37% 75%, rgba(86, 62, 35, 0.32), transparent 31%),
-    linear-gradient(180deg, rgba(255, 245, 217, 0.06), rgba(127, 83, 36, 0.26));
-  content: "";
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+.guidance-panel__media::before,
 .guidance-panel__media::after {
   position: absolute;
   inset: 0;
@@ -2885,6 +2883,7 @@ a {
 .story-feature__media,
 .story-card__media {
   position: relative;
+  display: block;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 8px 18px rgba(83, 56, 24, 0.16);
@@ -10836,6 +10835,32 @@ a {
   line-height: 1.42;
 }
 
+.public-catalog-card .public-card-description,
+.consultation-card .public-card-description {
+  display: -webkit-box;
+  min-height: calc(1.48em * 4);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.public-card-read-more {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  margin: -6px 0 18px;
+  color: var(--public-green);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.public-card-read-more::after {
+  margin-left: 6px;
+  color: var(--public-gold);
+  content: "→";
+}
+
 .public-card-meta {
   display: flex;
   flex-wrap: wrap;
@@ -11747,6 +11772,299 @@ a {
   padding: 18px 28px 22px;
 }
 
+.consultation-spin {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(260px, 360px) minmax(320px, 0.9fr);
+  gap: clamp(22px, 2.4vw, 42px);
+  align-items: center;
+  width: min(calc(100% - clamp(48px, 7.5vw, 148px)), 1650px);
+  margin: 24px auto 0;
+  border: 1px solid var(--public-border);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 22% 16%, rgba(228, 179, 95, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 252, 245, 0.94), rgba(255, 244, 226, 0.84));
+  box-shadow: var(--public-shadow);
+  padding: clamp(24px, 3vw, 42px);
+}
+
+.consultation-spin__copy {
+  min-width: 0;
+}
+
+.consultation-spin__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  color: var(--public-gold);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.consultation-spin__eyebrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.consultation-spin h2 {
+  margin: 0;
+  color: var(--public-green);
+  font-family: var(--font-serif-primary);
+  font-size: clamp(32px, 2.8vw, 54px);
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+.consultation-spin__copy p:last-child {
+  margin: 18px 0 0;
+  color: var(--public-muted);
+  font-size: clamp(15px, 1vw, 18px);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.consultation-spin__wheel-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 390px;
+}
+
+.consultation-spin__pointer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 3;
+  width: 42px;
+  height: 58px;
+  border: 2px solid rgba(201, 148, 65, 0.72);
+  border-radius: 8px 8px 16px 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 236, 0.92) 0 28%, rgba(233, 182, 107, 0.5) 28% 54%, rgba(255, 245, 220, 0.92) 54% 100%);
+  clip-path: polygon(50% 0, 100% 46%, 62% 100%, 38% 100%, 0 46%);
+  transform: translateX(-50%);
+  filter: drop-shadow(0 8px 12px rgba(150, 103, 38, 0.2));
+}
+
+.consultation-spin__wheel {
+  position: relative;
+  width: min(365px, 78vw);
+  aspect-ratio: 1;
+  border: 10px solid #fffaf0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, transparent 0 21%, rgba(214, 166, 82, 0.38) 21.2% 21.9%, transparent 22.2%),
+    repeating-conic-gradient(from -22.5deg, rgba(211, 164, 89, 0.95) 0deg 0.8deg, transparent 0.8deg 45deg),
+    conic-gradient(
+      from -22.5deg,
+      #fff9eb 0deg 45deg,
+      #f6b06f 45deg 90deg,
+      #fff8ea 90deg 135deg,
+      #f7ecd4 135deg 180deg,
+      #fff8ea 180deg 225deg,
+      #f7ecd4 225deg 270deg,
+      #fff3df 270deg 315deg,
+      #d9b184 315deg 360deg
+    );
+  box-shadow:
+    inset 0 0 0 2px rgba(222, 184, 116, 0.88),
+    inset 0 0 0 13px rgba(255, 252, 243, 0.64),
+    inset 0 0 42px rgba(172, 116, 51, 0.16),
+    0 22px 46px rgba(91, 66, 37, 0.16);
+  transition: transform 1.2s cubic-bezier(0.16, 0.84, 0.24, 1);
+}
+
+.consultation-spin__wheel::before {
+  position: absolute;
+  inset: 10px;
+  border: 2px solid rgba(224, 181, 108, 0.58);
+  border-radius: inherit;
+  content: "";
+}
+
+.consultation-spin__wheel::after {
+  position: absolute;
+  inset: 26px;
+  border: 1px solid rgba(224, 181, 108, 0.36);
+  border-radius: inherit;
+  content: "";
+}
+
+.consultation-spin__wheel span {
+  position: absolute;
+  z-index: 1;
+  top: var(--spin-label-y);
+  left: var(--spin-label-x);
+  display: flex;
+  width: var(--spin-label-width);
+  min-height: 58px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: #2f2b25;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(7px, 0.68vw, 9px);
+  font-weight: 900;
+  gap: 3px;
+  letter-spacing: 0;
+  line-height: 0.98;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 252, 243, 0.72);
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+}
+
+.consultation-spin__wheel span svg {
+  width: clamp(17px, 1.55vw, 22px);
+  height: clamp(17px, 1.55vw, 22px);
+  flex: 0 0 auto;
+  color: #c8923f;
+  filter: drop-shadow(0 2px 2px rgba(124, 76, 19, 0.12));
+  stroke-width: 1.35;
+}
+
+.consultation-spin__wheel span b {
+  display: block;
+  font: inherit;
+  max-width: 100%;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+.consultation-spin__wheel span em {
+  display: block;
+  font: inherit;
+  white-space: nowrap;
+}
+
+.consultation-spin__wheel i {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  display: grid;
+  z-index: 2;
+  width: 84px;
+  height: 84px;
+  place-items: center;
+  border: 4px solid #fffaf0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #fffdf7 0 54%, #f4dfba 55% 100%);
+  box-shadow:
+    inset 0 0 0 2px rgba(213, 162, 74, 0.58),
+    0 10px 24px rgba(113, 76, 34, 0.2);
+  font-style: normal;
+  transform: translate(-50%, -50%);
+}
+
+.consultation-spin__wheel i img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  opacity: 0.8;
+  filter: sepia(1) saturate(1.5) hue-rotate(350deg);
+}
+
+.consultation-spin__form {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.consultation-spin__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.consultation-spin__form label {
+  display: grid;
+  gap: 7px;
+  color: var(--public-text);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.consultation-spin__form input,
+.consultation-spin__form select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(208, 174, 124, 0.46);
+  border-radius: 9px;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--public-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 13px;
+  outline: 0;
+}
+
+.consultation-spin__form input:focus,
+.consultation-spin__form select:focus {
+  border-color: var(--public-green);
+  box-shadow: 0 0 0 3px rgba(33, 76, 46, 0.12);
+}
+
+.consultation-spin__form button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--public-green);
+  color: #fff8ec;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.consultation-spin__form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.consultation-spin__form button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.consultation-spin__form button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.consultation-spin__error,
+.consultation-spin__result {
+  margin: 0;
+  border-radius: 9px;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.consultation-spin__error {
+  background: rgba(188, 69, 54, 0.1);
+  color: #9b2f24;
+}
+
+.consultation-spin__result {
+  background: rgba(33, 76, 46, 0.1);
+  color: var(--public-green);
+}
+
+.consultation-spin__result strong {
+  font-weight: 950;
+}
+
 .consultation-process h2 {
   margin: 0 0 16px;
   color: var(--public-green);
@@ -11813,6 +12131,15 @@ a {
 }
 
 @media (max-width: 980px) {
+  .consultation-spin {
+    grid-template-columns: 1fr;
+    width: min(calc(100% - 28px), 760px);
+  }
+
+  .consultation-spin__wheel-wrap {
+    min-height: 330px;
+  }
+
   .consultation-process {
     width: min(calc(100% - 28px), 760px);
   }
@@ -11862,6 +12189,43 @@ a {
 }
 
 @media (max-width: 640px) {
+  .consultation-spin {
+    padding: 22px 16px;
+  }
+
+  .consultation-spin h2 {
+    font-size: 34px;
+  }
+
+  .consultation-spin__wheel-wrap {
+    min-height: 292px;
+  }
+
+  .consultation-spin__wheel {
+    width: min(280px, 82vw);
+  }
+
+  .consultation-spin__wheel span {
+    min-height: 50px;
+    font-size: 7px;
+    gap: 2px;
+  }
+
+  .consultation-spin__wheel span svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .consultation-spin__wheel i {
+    width: 76px;
+    height: 76px;
+    font-size: 19px;
+  }
+
+  .consultation-spin__fields {
+    grid-template-columns: 1fr;
+  }
+
   .consultation-card__image {
     height: 190px;
   }
@@ -12338,7 +12702,6 @@ a {
 .guidance-panel {
   background:
     linear-gradient(90deg, rgba(131, 94, 48, 0.68) 0%, rgba(140, 100, 50, 0.48) 40%, rgba(132, 93, 47, 0.18) 100%),
-    url("/assets/images/guidance-ceremony-panel.png") center center / cover no-repeat,
     #b8935f;
 }
 
@@ -13056,19 +13419,18 @@ a {
   background:
     linear-gradient(90deg, rgba(126, 90, 45, 0.82) 0%, rgba(132, 93, 47, 0.6) 33%, rgba(131, 94, 48, 0.26) 55%, rgba(131, 94, 48, 0.06) 100%),
     radial-gradient(ellipse at 70% 42%, rgba(255, 241, 202, 0.28), transparent 36%),
-    url("/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.09 (2).jpeg") center 43% / cover no-repeat,
     linear-gradient(135deg, #b8945c 0%, #d5ad70 52%, #f3dfb4 100%) !important;
 }
 
 .guidance-panel__media {
-  background:
-    linear-gradient(90deg, rgba(90, 62, 31, 0.36) 0%, rgba(130, 92, 45, 0.28) 42%, rgba(255, 234, 190, 0.06) 68%, transparent 100%) !important;
+  background: #b8945c !important;
 }
 
 .guidance-panel__wash {
   background:
-    radial-gradient(ellipse at 21% 41%, rgba(104, 80, 48, 0.34), transparent 34%),
-    linear-gradient(90deg, rgba(113, 78, 38, 0.54) 0%, rgba(143, 105, 55, 0.28) 39%, rgba(184, 138, 78, 0.04) 64%, transparent 100%) !important;
+    radial-gradient(ellipse at 21% 41%, rgba(104, 80, 48, 0.48), transparent 36%),
+    radial-gradient(ellipse at 19% 86%, rgba(86, 62, 38, 0.56), transparent 40%),
+    linear-gradient(90deg, rgba(113, 78, 38, 0.72) 0%, rgba(143, 105, 55, 0.46) 40%, rgba(184, 138, 78, 0.14) 66%, rgba(105, 68, 37, 0.08) 100%) !important;
 }
 
 @media (max-width: 900px) {
@@ -13076,7 +13438,6 @@ a {
     background:
       linear-gradient(180deg, rgba(129, 91, 44, 0.7) 0%, rgba(132, 94, 47, 0.54) 44%, rgba(110, 72, 34, 0.26) 100%),
       radial-gradient(ellipse at 50% 55%, rgba(255, 241, 202, 0.24), transparent 42%),
-      url("/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.09 (2).jpeg") 38% center / auto 100% no-repeat,
       linear-gradient(145deg, #b8945c 0%, #d5ad70 54%, #f3dfb4 100%) !important;
   }
 
@@ -13091,7 +13452,6 @@ a {
     background:
       linear-gradient(180deg, rgba(129, 91, 44, 0.72) 0%, rgba(132, 94, 47, 0.48) 45%, rgba(110, 72, 34, 0.18) 100%),
       radial-gradient(ellipse at 50% 54%, rgba(255, 241, 202, 0.22), transparent 44%),
-      url("/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.09 (2).jpeg") 38% center / auto 100% no-repeat,
       linear-gradient(145deg, #b8945c 0%, #d5ad70 54%, #f3dfb4 100%) !important;
   }
 }
@@ -13183,6 +13543,18 @@ body canvas {
 .service-offer-card__image {
   object-fit: cover !important;
   object-position: center 35% !important;
+}
+
+.service-offer-card:nth-child(1) .service-offer-card__image {
+  object-position: center 45% !important;
+}
+
+.service-offer-card:nth-child(2) .service-offer-card__image {
+  object-position: 48% 50% !important;
+}
+
+.service-offer-card:nth-child(3) .service-offer-card__image {
+  object-position: center 44% !important;
 }
 
 .course-card__body,
@@ -13395,6 +13767,21 @@ body canvas {
   line-height: 1.42 !important;
 }
 
+.public-catalog-card .public-card-description,
+.consultation-card .public-card-description {
+  display: -webkit-box !important;
+  min-height: calc(1.42em * 4) !important;
+  max-height: calc(1.42em * 4) !important;
+  overflow: hidden !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 4 !important;
+}
+
+.public-catalog-card .public-card-read-more,
+.consultation-card .public-card-read-more {
+  margin-bottom: 16px !important;
+}
+
 .public-card-footer,
 .consultation-card__footer {
   margin-top: auto !important;
@@ -13437,9 +13824,11 @@ body canvas {
 .youtube-community {
   height: auto !important;
   background:
-    linear-gradient(90deg, rgba(4, 37, 27, 0.98) 0%, rgba(5, 42, 30, 0.9) 35%, rgba(8, 46, 33, 0.22) 58%, rgba(4, 32, 23, 0.04) 100%),
+    linear-gradient(90deg, rgba(4, 39, 28, 0.96) 0%, rgba(19, 61, 39, 0.9) 24%, rgba(88, 70, 36, 0.7) 48%, rgba(155, 111, 52, 0.28) 72%, rgba(74, 55, 29, 0.08) 100%),
+    radial-gradient(ellipse at 19% 52%, rgba(13, 83, 54, 0.34), transparent 35%),
+    radial-gradient(ellipse at 62% 44%, rgba(193, 143, 65, 0.28), transparent 38%),
     url("/assets/images/youtube-community-bg.png") center center / cover no-repeat,
-    #05291d !important;
+    #123321 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -13617,9 +14006,11 @@ body canvas {
 
   .youtube-community {
     background:
-      linear-gradient(180deg, rgba(4, 37, 27, 0.98) 0%, rgba(5, 42, 30, 0.84) 56%, rgba(5, 42, 30, 0.58) 100%),
+      linear-gradient(180deg, rgba(4, 39, 28, 0.96) 0%, rgba(19, 61, 39, 0.86) 42%, rgba(92, 72, 38, 0.68) 72%, rgba(120, 86, 42, 0.48) 100%),
+      radial-gradient(ellipse at 50% 28%, rgba(13, 83, 54, 0.32), transparent 42%),
+      radial-gradient(ellipse at 58% 72%, rgba(193, 143, 65, 0.24), transparent 46%),
       url("/assets/images/youtube-community-bg.png") 74% bottom / auto 100% no-repeat,
-      #05291d !important;
+      #123321 !important;
   }
 
   .transform-learning__content,
@@ -14005,15 +14396,19 @@ body canvas {
 
 .best-courses .course-card__image {
   object-fit: cover !important;
-  object-position: center 0% !important;
+  object-position: center 43% !important;
+}
+
+.best-courses .course-card:nth-child(1) .course-card__image {
+  object-position: center 43% !important;
 }
 
 .best-courses .course-card:nth-child(2) .course-card__image {
-  object-position: center 4% !important;
+  object-position: center 40% !important;
 }
 
 .best-courses .course-card:nth-child(3) .course-card__image {
-  object-position: center 0% !important;
+  object-position: 42% 52% !important;
 }
 
 @media (max-width: 900px) {
@@ -15439,15 +15834,15 @@ body header > div {
 }
 
 .our-services .service-offer-card:nth-child(1) .service-offer-card__image {
-  object-position: 72% 34% !important;
+  object-position: center center !important;
 }
 
 .our-services .service-offer-card:nth-child(2) .service-offer-card__image {
-  object-position: 18% 34% !important;
+  object-position: center center !important;
 }
 
 .our-services .service-offer-card:nth-child(3) .service-offer-card__image {
-  object-position: center top !important;
+  object-position: center center !important;
 }
 
 @media (max-width: 900px) {
@@ -15935,17 +16330,16 @@ body header > div {
   transform: translate3d(0, -3px, 0);
 }
 
-.home-motion :is(.service-offer-card__icon, .success-stories__play, .contact-us__detail-icon) {
+.home-motion :is(.service-offer-card__icon, .contact-us__detail-icon) {
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease;
 }
 
-.home-motion :is(.service-offer-card:hover .service-offer-card__icon, .story-card:hover .success-stories__play, .contact-us__detail-card:hover .contact-us__detail-icon) {
+.home-motion :is(.service-offer-card:hover .service-offer-card__icon, .contact-us__detail-card:hover .contact-us__detail-icon) {
   transform: translate3d(-50%, -4px, 0) scale(1.04);
 }
 
-.home-motion .story-card:hover .success-stories__play,
 .home-motion .contact-us__detail-card:hover .contact-us__detail-icon {
   transform: translate3d(0, -4px, 0) scale(1.04);
 }

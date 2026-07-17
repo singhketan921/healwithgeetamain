@@ -5,28 +5,28 @@ const fallbackServices = [
   {
     title: "Online Courses",
     description:
-      "Transformative courses crafted to help you learn, grow, and evolve at your own pace from the comfort of your home.",
+      "Structured learning in Reiki, tarot, numerology, chakra work and remedies, with practical tools you can use for yourself and others.",
     href: "/courses",
     cta: "Explore Courses",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.06 (2).jpeg",
+    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/COURSES/GROUP%20CLASSES.jpg",
     icon: PiBookOpenText,
   },
   {
     title: "Consultations",
     description:
-      "One-on-one sessions tailored to provide clarity, direction, and practical guidance for your unique journey.",
+      "Private one-on-one readings for career, relationships, money, health, timing and life direction, with grounded remedies where needed.",
     href: "/consultations",
     cta: "Explore Consultations",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (1).jpeg",
+    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/CONSULTATION/COUNSELLLING/COUNSELLING.JPG",
     icon: PiChatsCircle,
   },
   {
     title: "Healings",
     description:
-      "Energy healing sessions designed to release blockages, restore balance, and promote inner peace and well-being.",
+      "Energy support for stress, emotional heaviness, strained relationships and energetic blocks, held with care and after-session guidance.",
     href: "/healings",
     cta: "Explore Healings",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.07 (1).jpeg",
+    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/HEALINGS/REIKI%20HEALING/DSC_0607.JPG",
     icon: PiHandsPraying,
   },
 ];
@@ -73,9 +73,9 @@ export default function OurServices({ courses = [], consultations = [], healings
           <span />
         </div>
         <p>
-          Holistic offerings crafted to support your spiritual growth, healing, and
+          Courses, consultations and healing sessions crafted to support your spiritual growth, clarity, and
           <br />
-          transformation journey.
+          transformation with practical guidance.
         </p>
       </div>
 

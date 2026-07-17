@@ -1,8 +1,20 @@
+const driveBase = "/assets/drive/HEALWITHGEETA%20WEBSITE";
+
+const courseImages = {
+  moneyReiki: `${driveBase}/COURSES/MEDITATION%20SESSION%202.jpg`,
+  reiki: `${driveBase}/HEALINGS/REIKI%20HEALING/DSC_0607.JPG`,
+  learning: `${driveBase}/COURSES/GRAND%20MASTER%20BATCH%20.jpg`,
+  tarot: `${driveBase}/COURSES/TAROT%20BATCH.jpg`,
+  vastu: `${driveBase}/CONSULTATION/COUNSELLLING/COUNSELLING.JPG`,
+  numerology: `${driveBase}/CONSULTATION/NUMEROLOGY%20CONSULTATION/NUMO%20CONSULTATION.jpeg`,
+};
+
 const fallbackCourses = [
   {
     title: "Tarot Foundations",
     description: "Uncover the timeless wisdom of the cards and connect deeply with your intuition.",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.09.jpeg",
+    image: courseImages.tarot,
+    imagePosition: "50% 58%",
     oldPrice: "₹6,999",
     price: "₹4,999",
     discount: "29%",
@@ -10,7 +22,8 @@ const fallbackCourses = [
   {
     title: "Astrology & Life Path",
     description: "Decode the stars to understand your destiny and align with your life purpose.",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (2).jpeg",
+    image: courseImages.learning,
+    imagePosition: "50% 42%",
     oldPrice: "₹8,499",
     price: "₹6,499",
     discount: "24%",
@@ -18,11 +31,28 @@ const fallbackCourses = [
   {
     title: "Reiki Healing Essentials",
     description: "Learn the art of energy healing and restore harmony within and around you.",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.06.jpeg",
+    image: courseImages.reiki,
+    imagePosition: "56% 48%",
     oldPrice: "₹7,499",
     price: "₹5,499",
     discount: "27%",
   },
+];
+
+const featuredCourseImages = {
+  "reiki-all-levels": { image: courseImages.reiki, imagePosition: "56% 48%" },
+  "money-reiki": { image: courseImages.moneyReiki, imagePosition: "50% 43%" },
+  "chakra-balancing": { image: courseImages.reiki, imagePosition: "56% 48%" },
+  numerology: { image: courseImages.numerology, imagePosition: "50% 48%" },
+  "mobile-numerology": { image: courseImages.numerology, imagePosition: "50% 48%" },
+  "tarot-card-reading": { image: courseImages.tarot, imagePosition: "50% 58%" },
+  vaastu: { image: courseImages.vastu, imagePosition: "42% 52%" },
+};
+
+const featuredImageFallbacks = [
+  { image: courseImages.moneyReiki, imagePosition: "50% 43%" },
+  { image: courseImages.learning, imagePosition: "50% 42%" },
+  { image: courseImages.tarot, imagePosition: "50% 58%" },
 ];
 
 function formatCoursePrice(value, currency = "INR") {
@@ -66,19 +96,54 @@ function getDiscount(oldPrice, price, fallbackDiscount) {
   return fallbackDiscount;
 }
 
-function toDisplayCourses(items = []) {
-  const sourceItems = items.length
-    ? [...items.slice(0, 3), ...fallbackCourses].slice(0, 3)
-    : fallbackCourses;
+function getFeaturedCourseImage(course, fallback, index) {
+  const title = course?.title?.toLowerCase() || "";
+
+  if (course?.id && featuredCourseImages[course.id]) {
+    return featuredCourseImages[course.id];
+  }
+  if (/money\s*reiki/.test(title)) {
+    return { image: courseImages.moneyReiki, imagePosition: "50% 43%" };
+  }
+  if (/reiki|healing|chakra/.test(title)) {
+    return { image: courseImages.reiki, imagePosition: "56% 48%" };
+  }
+  if (/switchword|learning|mastery|class/.test(title)) {
+    return { image: courseImages.learning, imagePosition: "50% 42%" };
+  }
+  if (/vastu|vaastu/.test(title)) {
+    return { image: courseImages.vastu, imagePosition: "42% 52%" };
+  }
+  if (/astrology|numerology|life path/.test(title)) {
+    return { image: courseImages.numerology, imagePosition: "50% 48%" };
+  }
+  if (/tarot/.test(title)) {
+    return { image: courseImages.tarot, imagePosition: "50% 58%" };
+  }
+
+  return featuredImageFallbacks[index % featuredImageFallbacks.length] || {
+    image: course?.image || fallback.image,
+    imagePosition: fallback.imagePosition,
+  };
+}
+
+function toDisplayCourses(items = [], { useExactCourses = false } = {}) {
+  const sourceItems = useExactCourses
+    ? items.slice(0, 3)
+    : items.length
+      ? [...items.slice(0, 3), ...fallbackCourses].slice(0, 3)
+      : fallbackCourses;
 
   return sourceItems.map((course, index) => {
     const fallback = fallbackCourses[index % fallbackCourses.length];
     const prices = getPriceDisplay(course, fallback);
+    const courseImage = getFeaturedCourseImage(course, fallback, index);
 
     return {
       title: course?.title || fallback.title,
       description: course?.headline || course?.description || fallback.description,
-      image: course?.image || fallback.image,
+      image: courseImage.image || fallback.image,
+      imagePosition: courseImage.imagePosition || fallback.imagePosition,
       oldPrice: prices.oldPrice,
       price: prices.price,
       discount: getDiscount(prices.oldPrice, prices.price, fallback.discount),
@@ -86,8 +151,12 @@ function toDisplayCourses(items = []) {
   });
 }
 
-export default function BestSellingCourses({ courses = [] }) {
-  const displayCourses = toDisplayCourses(courses);
+export default function BestSellingCourses({ courses = [], useExactCourses = false }) {
+  const displayCourses = toDisplayCourses(courses, { useExactCourses });
+
+  if (useExactCourses && displayCourses.length === 0) {
+    return null;
+  }
 
   return (
     <section className="best-courses" aria-label="Best selling courses">
@@ -118,7 +187,12 @@ export default function BestSellingCourses({ courses = [] }) {
         {displayCourses.map((course) => (
           <article className="course-card" key={course.title}>
             <div className="course-card__image-wrap">
-              <img src={course.image} alt="" className="course-card__image" />
+              <img
+                src={course.image}
+                alt=""
+                className="course-card__image"
+                style={course.imagePosition ? { objectPosition: course.imagePosition } : undefined}
+              />
             </div>
 
             <div className="course-card__lotus" aria-hidden="true">

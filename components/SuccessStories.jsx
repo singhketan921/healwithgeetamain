@@ -34,6 +34,13 @@ const fallbackSmallStories = [
   },
 ];
 
+const fallbackStoryVideos = [
+  "https://www.youtube.com/watch?v=8VdXcf7Dke4",
+  "https://www.youtube.com/watch?v=qODcx8MckdM",
+  "https://www.youtube.com/watch?v=trNw4MSuNRg",
+  "https://www.youtube.com/watch?v=g7ZnJU-_iYE",
+];
+
 const fallbackFeaturedStory = {
   image: "/assets/images/story-meera.png",
   title: "From Anxiety to Inner Peace\nA New Way of Living",
@@ -42,6 +49,7 @@ const fallbackFeaturedStory = {
   name: "Meera S.",
   role: "Student",
   ratingLabel: "Life-changing experience",
+  videoUrl: fallbackStoryVideos[0],
 };
 
 const proofItems = [
@@ -74,6 +82,12 @@ function normalizeStories(testimonials = []) {
     name: item.name || fallbackSmallStories[index % fallbackSmallStories.length].name,
     role: item.role || item.category || fallbackSmallStories[index % fallbackSmallStories.length].role,
     ratingLabel: item.rating ? `${item.rating}/5 experience` : fallbackFeaturedStory.ratingLabel,
+    videoUrl:
+      item.youtubeUrl ||
+      item.videoUrl ||
+      item.mediaUrl ||
+      item.url ||
+      fallbackStoryVideos[index % fallbackStoryVideos.length],
   }));
 }
 
@@ -107,10 +121,16 @@ export default function SuccessStories({ testimonials = [] }) {
             <img src="/assets/navicon.png" alt="" />
             <span>Featured<br />Story</span>
           </div>
-          <div className="story-feature__media">
+          <a
+            className="story-feature__media"
+            href={featuredStory.videoUrl || fallbackStoryVideos[0]}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Open ${featuredStory.name || "featured story"} on YouTube`}
+          >
             <img src={featuredStory.image} alt="" />
             <PlayButton />
-          </div>
+          </a>
           <div className="story-feature__copy">
             <div className="story-feature__quote-mark">“</div>
             <h3>
@@ -141,10 +161,16 @@ export default function SuccessStories({ testimonials = [] }) {
         <div className="success-stories__cards">
           {cardStories.map((story) => (
             <article className="story-card" key={`${story.name}-${story.quote}`}>
-              <div className="story-card__media">
+              <a
+                className="story-card__media"
+                href={story.videoUrl || fallbackStoryVideos[0]}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${story.name || "success story"} on YouTube`}
+              >
                 <img src={story.image} alt="" />
                 <PlayButton />
-              </div>
+              </a>
               <div className="story-card__body">
                 <span className="story-card__quote">“</span>
                 <p>“{story.quote}”</p>

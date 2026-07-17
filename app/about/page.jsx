@@ -23,32 +23,32 @@ export const metadata = {
 };
 
 const featureItems = [
-  { title: "Intuitive Guidance", text: "Clarity for real life decisions", icon: PiCompass },
-  { title: "Healing First", text: "Gentle work for mind, body and spirit", icon: PiHandsPraying },
-  { title: "Rooted Wisdom", text: "Ancient practices with grounded care", icon: PiFlowerLotus },
-  { title: "Growth Pathways", text: "Courses, sessions and mentorship", icon: PiUsersThree },
+  { title: "Occult Diagnosis", text: "Clarity for patterns, timing and real-life decisions", icon: PiCompass },
+  { title: "Healing First", text: "Gentle work for mind, body, emotions and energy", icon: PiHandsPraying },
+  { title: "Rooted Wisdom", text: "Reiki, tarot, numerology, Vastu and practical remedies", icon: PiFlowerLotus },
+  { title: "Growth Pathways", text: "Courses, consultations and guided learning spaces", icon: PiUsersThree },
 ];
 
 const values = [
   {
     title: "A safe space for truth",
-    text: "Every session begins with listening. The work is held with privacy, patience, and respect for where you are in your journey.",
+    text: "Every session begins with listening. Your concerns are held with privacy, patience and respect, whether the question is emotional, practical or spiritual.",
   },
   {
     title: "Guidance you can live with",
-    text: "Spiritual insight is translated into practical next steps, so clarity does not remain abstract after the session ends.",
+    text: "Readings and healing insights are translated into remedies, practices and next steps, so the guidance remains useful after the session ends.",
   },
   {
     title: "Healing with responsibility",
-    text: "The intention is to support emotional balance, energetic alignment, and self-trust without fear, pressure, or dependency.",
+    text: "The intention is to support balance and self-trust without fear, pressure or dependency. The work guides, it does not replace your own wisdom.",
   },
 ];
 
 const journey = [
-  "Helping seekers understand repeating emotional, relationship, and life patterns.",
-  "Creating learning spaces for people who feel called to heal, guide, teach, and serve.",
-  "Blending occult diagnosis, intuitive insight, and energy work into clear spiritual direction.",
-  "Supporting students as they step into confidence, purpose, and self-led growth.",
+  "Helping seekers understand repeating emotional, relationship, money and life patterns.",
+  "Creating learning spaces for people called to heal, read, guide, teach and serve.",
+  "Blending occult diagnosis, intuitive insight, Reiki and practical remedies into clear direction.",
+  "Supporting students as they practice tools, build confidence and step into self-led growth.",
 ];
 
 export default function AboutPage() {
@@ -58,7 +58,7 @@ export default function AboutPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "About" }]}
         eyebrow="Meet the guide"
         title="A Sacred Space for Clarity, Healing & Inner Alignment"
-        description="HealWithGeeta is built around compassionate guidance, practical spiritual learning, and the belief that every seeker can reconnect with their own wisdom."
+        description="HealWithGeeta is built around compassionate guidance, practical spiritual learning, Reiki healing and the belief that every seeker can reconnect with their own wisdom."
         image="/assets/images/HeroImg.png"
       />
 
@@ -79,12 +79,12 @@ export default function AboutPage() {
             <p>
               Geeta Sharma is an occult diagnosis and healing expert who helps seekers
               understand the deeper patterns behind their questions, emotions, relationships,
-              and life direction.
+              money blocks and life direction.
             </p>
             <p>
-              Her work brings together intuitive guidance, energy healing, spiritual analysis,
-              and soulful teaching. The intention is simple: help people feel clear, steady,
-              and connected to their own inner knowing.
+              Her work brings together Reiki, tarot, numerology, Vastu, face reading,
+              switch words, energy healing and soulful teaching. The intention is simple:
+              help people feel clear, steady and connected to their own inner knowing.
             </p>
           </div>
         </div>
@@ -108,8 +108,9 @@ export default function AboutPage() {
             <p className="about-page__eyebrow">The work</p>
             <h2>Where healing becomes confidence.</h2>
             <p>
-              HealWithGeeta is not only about receiving answers. It is about learning how to
-              trust your own energy, make aligned choices, and move forward with steadiness.
+              HealWithGeeta is not only about receiving answers. It is about understanding
+              the pattern, learning the practice, making aligned choices and moving forward
+              with steadiness.
             </p>
           </div>
           <ul>
@@ -126,10 +127,10 @@ export default function AboutPage() {
       <WhyLearnBand
         title="Why People Come Here"
         items={[
-          { title: "Clarity", text: "Understand what feels confusing or repeated", icon: PiSparkle },
-          { title: "Healing", text: "Release emotional heaviness with care", icon: PiHeart },
-          { title: "Learning", text: "Grow through structured spiritual tools", icon: PiUsersThree },
-          { title: "Alignment", text: "Make choices from inner steadiness", icon: PiCompass },
+          { title: "Clarity", text: "Understand what feels confusing, blocked or repeated", icon: PiSparkle },
+          { title: "Healing", text: "Release emotional and energetic heaviness with care", icon: PiHeart },
+          { title: "Learning", text: "Grow through structured spiritual tools and practice", icon: PiUsersThree },
+          { title: "Alignment", text: "Make choices from inner steadiness and practical insight", icon: PiCompass },
         ]}
       />
 
