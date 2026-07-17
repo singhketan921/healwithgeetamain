@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa6";
 import { PiArrowUpRight, PiFlowerLotus, PiMapPinArea, PiSparkle } from "react-icons/pi";
 
-const logo = "/assets/drive/HEALWITHGEETA%20WEBSITE/LOGO/logo-transparent-cropped.png";
+const logo = "/assets/navicon.png";
 const mandala = "/assets/hero-mandala.svg";
 
 const footerSections = {
@@ -44,7 +44,7 @@ const contactItems = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#fff8ec] px-5 py-12 text-[#3d403a] sm:px-8 lg:px-[5vw]">
+    <footer className="relative overflow-hidden border-t border-[#e4cfaa] bg-[#f8f3ef] px-5 py-12 text-[#3d403a] sm:px-8 lg:px-[5vw]">
       <img
         src={mandala}
         alt=""
@@ -58,19 +58,15 @@ export default function Footer() {
 
       <div className="relative mx-auto max-w-[1380px]">
         <div className="flex items-center gap-4 text-[#a77629]" aria-hidden="true">
-          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#d8b680] to-[#d8b680]/70" />
+          <span className="h-px flex-1 bg-[#d8b680]" />
           <PiFlowerLotus className="text-[24px]" />
-          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#d8b680] to-[#d8b680]/70" />
+          <span className="h-px flex-1 bg-[#d8b680]" />
         </div>
 
         <div className="grid gap-10 py-10 lg:grid-cols-[1.05fr_1.4fr_0.95fr] lg:gap-14 lg:py-12">
           <div>
             <Link href="/" className="inline-flex items-center gap-3 text-[#475028]">
-              <img
-                src={logo}
-                alt="Faith Healers"
-                className="h-16 w-[104px] object-contain sepia-[0.28] saturate-[0.82] hue-rotate-[352deg] contrast-[0.96]"
-              />
+              <img src={logo} alt="" className="h-12 w-12 object-contain" />
               <span className="flex flex-col leading-none">
                 <span className="font-serif text-[24px] font-bold uppercase sm:text-[28px]">
                   Geeta Sharma
@@ -156,7 +152,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 pt-6 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#6d5d34] sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 border-t border-[#e4cfaa] pt-6 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#6d5d34] sm:flex-row sm:items-center sm:justify-between">
           <p>(C) {new Date().getFullYear()} HealWithGeeta. All rights reserved.</p>
           <p className="inline-flex items-center gap-2">
             <PiSparkle className="text-[#a77629]" aria-hidden="true" />

@@ -31,7 +31,7 @@ export default async function HealingDetailPage({ params }) {
       aside={
         <div>
           <h2>Book this healing</h2>
-          <p>Receive preparation guidance, a calm healing space and practical aftercare for the issue you want to support.</p>
+          <p>Receive preparation guidance and a calm space for energetic support.</p>
           <PublicChecklist items={[price, duration, "Aftercare guidance"]} />
           <Link className="public-detail__side-cta" href="/healings#bookconsultation">Book Healing</Link>
         </div>

@@ -7,20 +7,20 @@ const SLIDE_DURATION = 4500;
 
 const slides = [
   {
-    id: "destiny",
-    label: "Master your destiny",
-  },
-  {
-    id: "learning",
-    label: "Learning and growth",
+    id: "guidance",
+    label: "Spiritual guidance",
   },
   {
     id: "healing",
     label: "Healing and alignment",
   },
   {
-    id: "guidance",
-    label: "Spiritual guidance",
+    id: "learning",
+    label: "Learning and growth",
+  },
+  {
+    id: "destiny",
+    label: "Master your destiny",
   },
 ];
 
@@ -39,9 +39,9 @@ export default function Hero() {
     <section className="home-hero" aria-label="Geeta Sharma introduction">
       <div
         className={`home-hero__slide home-hero__slide--guidance ${
-          activeSlide === 3 ? "is-active" : ""
+          activeSlide === 0 ? "is-active" : ""
         }`}
-        aria-hidden={activeSlide !== 3}
+        aria-hidden={activeSlide !== 0}
       >
         <img
           src="/assets/geeta-hero-cutout.png"
@@ -78,9 +78,9 @@ export default function Hero() {
 
       <div
         className={`home-hero__slide home-hero__slide--healing ${
-          activeSlide === 2 ? "is-active" : ""
+          activeSlide === 1 ? "is-active" : ""
         }`}
-        aria-hidden={activeSlide !== 2}
+        aria-hidden={activeSlide !== 1}
       >
         <img
           src="/assets/geeta/healing-session-cutout.png"
@@ -116,9 +116,9 @@ export default function Hero() {
 
       <div
         className={`home-hero__slide home-hero__slide--learning ${
-          activeSlide === 1 ? "is-active" : ""
+          activeSlide === 2 ? "is-active" : ""
         }`}
-        aria-hidden={activeSlide !== 1}
+        aria-hidden={activeSlide !== 2}
       >
         <img
           src="/assets/geeta/learning-session-cutout.png"
@@ -155,9 +155,9 @@ export default function Hero() {
 
       <div
         className={`home-hero__slide home-hero__slide--destiny ${
-          activeSlide === 0 ? "is-active" : ""
+          activeSlide === 3 ? "is-active" : ""
         }`}
-        aria-hidden={activeSlide !== 0}
+        aria-hidden={activeSlide !== 3}
       >
         <img
           src="/assets/geeta/destiny-session-cutout.png"

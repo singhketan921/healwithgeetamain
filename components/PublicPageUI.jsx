@@ -178,8 +178,7 @@ export function PublicCatalogCard({
       </div>
       <div className="public-catalog-card__body">
         <h2>{title}</h2>
-        <p className="public-card-description">{description}</p>
-        <span className="public-card-read-more">Read more</span>
+        <p>{description}</p>
         {meta.length ? (
           <div className="public-card-meta">
             {meta.map((item, index) => {

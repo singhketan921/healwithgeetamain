@@ -5,16 +5,7 @@ const chips = ["Growth", "Harmony", "Resilience"];
 export default function GuidancePanel() {
   return (
     <section className="guidance-panel" aria-label="Spiritual guidance">
-      <div className="guidance-panel__media" aria-hidden="true">
-        <video
-          src="/assets/geeta/Final%20Journey.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-      </div>
+      <div className="guidance-panel__media" aria-hidden="true" />
       <div className="guidance-panel__wash" aria-hidden="true" />
       <div className="guidance-panel__grain" aria-hidden="true" />
       <div className="guidance-panel__lotus guidance-panel__lotus--left" aria-hidden="true" />

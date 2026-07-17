@@ -4,8 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/context/CartContext";
-import { getAllCourses } from "@/lib/data/courses";
-import { getAllHealingModalities } from "@/lib/data/healings";
 import {
   FaAngleDown,
   FaRegCalendarAlt,
@@ -24,29 +22,6 @@ const links = [
   { name: "Blog", href: "/blogs", icon: GiSprout },
   { name: "Contact", href: "/contact", icon: FaRegEnvelope },
 ];
-
-const serviceMenu = [
-  {
-    title: "Courses",
-    href: "/courses",
-    eyebrow: "Learning paths",
-    items: getAllCourses().map((course) => ({
-      title: course.title,
-      href: `/courses/${course.id}`,
-    })),
-  },
-  {
-    title: "Healings",
-    href: "/healings",
-    eyebrow: "Healing sessions",
-    items: getAllHealingModalities().map((healing) => ({
-      title: healing.title,
-      href: `/healings/${healing.id}`,
-    })),
-  },
-];
-
-const brandLogo = "/assets/drive/HEALWITHGEETA%20WEBSITE/LOGO/logo-transparent-cropped.png";
 
 function getActiveHref(pathname) {
   if (pathname === "/") return "/";
@@ -74,7 +49,6 @@ function HamburgerIcon({ className = "" }) {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [clickedHref, setClickedHref] = useState("");
-  const [dismissedServicesMenu, setDismissedServicesMenu] = useState(false);
   const pathname = usePathname();
   const { toggleCart, items } = useCart();
   const itemCount = items.reduce((sum, item) => sum + (item.quantity || 0), 0);
@@ -83,12 +57,6 @@ export default function Navbar() {
   const handleNavClick = (href) => {
     setClickedHref(href);
     setIsOpen(false);
-  };
-
-  const handleDropdownClick = (href) => {
-    handleNavClick(href);
-    setDismissedServicesMenu(true);
-    document.activeElement?.blur?.();
   };
 
   return (
@@ -111,9 +79,9 @@ export default function Navbar() {
           className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5 text-[#475028] xl:static xl:translate-x-0 xl:gap-3 xl:border-r xl:border-[#ead2ae] xl:pr-8"
         >
           <img
-            src={brandLogo}
-            alt="Faith Healers"
-            className="h-10 w-[64px] shrink-0 object-contain sepia-[0.28] saturate-[0.82] hue-rotate-[352deg] contrast-[0.96] xl:h-16 xl:w-[104px]"
+            src="/assets/navicon.png"
+            alt=""
+            className="h-8 w-8 shrink-0 object-contain xl:h-14 xl:w-14"
           />
           <span className="flex flex-col leading-none">
             <span className="whitespace-nowrap font-serif text-[20px] font-bold uppercase sm:text-[24px] xl:text-[25px]">
@@ -129,96 +97,6 @@ export default function Navbar() {
           {links.map((link, index) => {
             const Icon = link.icon;
             const isActive = activeHref === link.href;
-
-            if (link.hasMenu) {
-              return (
-                <div
-                  key={link.name}
-                  onMouseEnter={() => setDismissedServicesMenu(false)}
-                  onMouseLeave={() => setDismissedServicesMenu(false)}
-                  className={`group relative flex min-w-[104px] flex-col items-center justify-center border-l border-[#ead2ae] ${
-                    isActive ? "bg-[#f6e3bd]/52" : ""
-                  }`}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => handleNavClick(link.href)}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`flex h-full w-full flex-col items-center justify-center gap-1.5 px-5 text-[14px] font-medium transition-colors hover:text-[#667030] ${
-                      isActive ? "text-[#667030]" : "text-[#28291c]"
-                    }`}
-                  >
-                    <Icon
-                      className={`h-6 w-6 transition-colors group-hover:text-[#667030] ${
-                        isActive ? "text-[#667030]" : "text-[#a77629]"
-                      }`}
-                      aria-hidden="true"
-                    />
-                    <span className="flex items-center gap-1">
-                      {link.name}
-                      <FaAngleDown
-                        className={`h-3 w-3 transition-transform group-hover:rotate-180 ${
-                          isActive ? "text-[#667030]" : "text-[#a77629]"
-                        }`}
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#a77629]" aria-hidden="true" />
-                    {isActive ? (
-                      <span className="absolute bottom-2 h-[2px] w-10 rounded-full bg-[#667030]" aria-hidden="true" />
-                    ) : null}
-                  </Link>
-
-                  {!dismissedServicesMenu ? (
-                    <div className="invisible absolute left-1/2 top-full z-50 mt-3 w-[760px] -translate-x-1/2 translate-y-2 rounded-[22px] border border-[#ead2ae] bg-[#fff8ed] p-3 text-left text-[#28291c] opacity-0 shadow-[0_28px_70px_rgba(104,74,39,0.22)] transition-all duration-200 before:absolute before:-top-3 before:left-0 before:h-3 before:w-full group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                      <span className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-[#ead2ae] bg-[#fff8ed]" aria-hidden="true" />
-                      <div className="grid grid-cols-[1.35fr_0.9fr] gap-3">
-                        {serviceMenu.map((section) => (
-                          <div
-                            key={section.title}
-                            className="min-w-0 rounded-[16px] border border-[#f0ddbe] bg-white/52 p-4"
-                          >
-                            <div className="mb-3 flex items-start justify-between gap-3 border-b border-[#ead2ae] pb-3">
-                              <div>
-                                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#a77629]">
-                                  {section.eyebrow}
-                                </p>
-                                <Link
-                                  href={section.href}
-                                  onClick={() => handleDropdownClick(section.href)}
-                                  className="mt-1 inline-flex items-center gap-2 font-serif text-[23px] font-semibold leading-none text-[#475028] transition-colors hover:text-[#667030]"
-                                >
-                                  <span>{section.title}</span>
-                                  <span className="text-[16px]" aria-hidden="true">-&gt;</span>
-                                </Link>
-                              </div>
-                              <span className="rounded-full border border-[#d9bd8c] bg-[#fff1da] px-2.5 py-1 text-[11px] font-semibold text-[#7d642f]">
-                                {section.items.length}
-                              </span>
-                            </div>
-                            <div className={section.title === "Courses" ? "grid grid-cols-2 gap-1.5" : "grid gap-1.5"}>
-                              {section.items.map((item) => (
-                                <Link
-                                  key={item.href}
-                                  href={item.href}
-                                  onClick={() => handleDropdownClick(item.href)}
-                                  className={`group/item flex min-h-[40px] items-center justify-between gap-2 rounded-[10px] px-3 py-2 text-[13px] font-medium leading-snug transition-colors hover:bg-[#f3e2c5] ${
-                                    pathname === item.href ? "bg-[#f3e2c5] text-[#667030]" : "text-[#5d4b2c]"
-                                  }`}
-                                >
-                                  <span>{item.title}</span>
-                                  <span className="text-[#a77629] opacity-0 transition-opacity group-hover/item:opacity-100" aria-hidden="true">-&gt;</span>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-              );
-            }
 
             return (
               <Link
@@ -283,66 +161,9 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="fixed left-4 right-4 top-[84px] z-40 h-[calc(100vh-100px)] overflow-hidden rounded-[18px] border border-[#d8b680] bg-[#fff1da] shadow-2xl animate-fadeIn sm:left-6 sm:right-auto sm:w-[86vw] sm:max-w-[500px] xl:hidden">
-          <nav className="flex h-full flex-col overflow-y-auto px-[12%] py-7">
+          <nav className="flex h-full flex-col justify-center px-[18%] py-6">
             {links.map((link) => {
               const isActive = activeHref === link.href;
-
-              if (link.hasMenu) {
-                return (
-                  <div key={link.name} className="py-2">
-                    <Link
-                      href={link.href}
-                      onClick={() => handleNavClick(link.href)}
-                      aria-current={isActive ? "page" : undefined}
-                      className={`group inline-flex items-center gap-3 font-serif text-[36px] leading-none transition-colors hover:text-[#667030] sm:text-[42px] ${
-                        isActive ? "text-[#667030]" : "text-[#28291c]"
-                      }`}
-                    >
-                      <span>{link.name}</span>
-                      <FaAngleDown className="h-5 w-5 text-[#ad7f53]" aria-hidden="true" />
-                    </Link>
-
-                    <div className="mt-4 grid gap-3">
-                      {serviceMenu.map((section) => (
-                        <div key={section.title} className="rounded-[16px] border border-[#e4c797] bg-[#fff8ed] p-4">
-                          <div className="mb-3 flex items-center justify-between gap-3">
-                            <div>
-                              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#a77629]">
-                                {section.eyebrow}
-                              </p>
-                              <Link
-                                href={section.href}
-                                onClick={() => handleNavClick(section.href)}
-                                className="mt-1 inline-flex items-center gap-2 font-serif text-[24px] font-semibold leading-none text-[#667030]"
-                              >
-                                <span>{section.title}</span>
-                                <span className="text-[15px]" aria-hidden="true">-&gt;</span>
-                              </Link>
-                            </div>
-                            <span className="rounded-full border border-[#d9bd8c] bg-[#fff1da] px-2.5 py-1 text-[11px] font-semibold text-[#7d642f]">
-                              {section.items.length}
-                            </span>
-                          </div>
-                          <div className="grid gap-1.5">
-                            {section.items.map((item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={() => handleNavClick(item.href)}
-                                className={`block rounded-[9px] px-3 py-2 text-[15px] font-medium leading-snug transition-colors hover:bg-[#f3e2c5] hover:text-[#667030] ${
-                                  pathname === item.href ? "bg-[#f3e2c5] text-[#667030]" : "text-[#5d4b2c]"
-                                }`}
-                              >
-                                {item.title}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              }
 
               return (
                 <Link

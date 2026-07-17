@@ -7,7 +7,6 @@ import {
   upsertCatalogItem,
 } from "@/lib/repositories/catalogRepository";
 import { requireAdminSession } from "@/lib/auth/session";
-import { updateHomepageSettings } from "@/lib/services/homepageSettingsService";
 
 function slugify(value) {
   return value
@@ -244,7 +243,6 @@ async function upsertCatalog(collection, formData, payload) {
     }
     if (collection === "courses") {
       revalidatePath("/courses");
-      revalidatePath("/");
     }
     if (collection === "healings") {
       revalidatePath("/healings");
@@ -300,7 +298,6 @@ async function removeCatalog(collection, formData) {
     }
     if (collection === "courses") {
       revalidatePath("/courses");
-      revalidatePath("/");
     }
     if (collection === "healings") {
       revalidatePath("/healings");
@@ -494,36 +491,4 @@ export async function upsertBlog(formData) {
 
 export async function deleteBlog(formData) {
   return removeCatalog("blogs", formData);
-}
-
-export async function updateHomeListings(formData) {
-  try {
-    await requireAdminSession();
-
-    const selectedIds = [...new Set(formData.getAll("courseIds").map(normalizeText).filter(Boolean))];
-    const orderedIds = selectedIds
-      .map((id, index) => ({
-        id,
-        order: parseNumber(formData.get(`courseOrder:${id}`)) ?? index + 1,
-        index,
-      }))
-      .sort((a, b) => a.order - b.order || a.index - b.index)
-      .slice(0, 3)
-      .map((item) => item.id);
-
-    await updateHomepageSettings({
-      configured: true,
-      homeCourseIds: orderedIds,
-    });
-
-    revalidatePath("/");
-    revalidatePath("/admin/home-listings");
-
-    return { success: true };
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : JSON.stringify(error);
-    console.error("Home listings update error:", message);
-    return { success: false };
-  }
 }
