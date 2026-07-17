@@ -39,3 +39,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Google Drive source archive. Keep only assets that are referenced by the app.
+public/assets/drive/**
+!public/assets/drive/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/COUNSELLLING/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/COUNSELLLING/COUNSELLING.JPG
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/NUMEROLOGY\ CONSULTATION/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/CONSULTATION/NUMEROLOGY\ CONSULTATION/NUMO\ CONSULTATION.jpeg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/GRAND\ MASTER\ BATCH\ .jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/GROUP\ CLASSES.jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/MEDITATION\ SESSION\ 2.jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/COURSES/TAROT\ BATCH.jpg
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/HEALINGS/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/HEALINGS/REIKI\ HEALING/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/HEALINGS/REIKI\ HEALING/DSC_0607.JPG
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/LOGO/
+!public/assets/drive/HEALWITHGEETA\ WEBSITE/LOGO/logo-transparent-cropped.png
