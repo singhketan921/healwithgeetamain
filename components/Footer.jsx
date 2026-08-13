@@ -37,9 +37,14 @@ const socials = [
 ];
 
 const contactItems = [
-  { label: "Mumbai, India", href: "https://www.google.com/maps/search/?api=1&query=HealWithGeeta", icon: PiMapPinArea },
-  { label: "+91 98208 88862", href: "tel:+919820888862", icon: FaPhone },
-  { label: "hello@healwithgeeta.com", href: "mailto:hello@healwithgeeta.com", icon: FaRegEnvelope },
+  {
+    label:
+      "FAITH HEALERS INDIA, Kings Food, Basement Floor, 4D/2, Block 4A Road, Old Rajendra Nagar, New Delhi, Central Delhi, Delhi, 110060",
+    href: "https://www.google.com/maps/search/?api=1&query=FAITH%20HEALERS%20INDIA%20Kings%20Food%20Basement%20Floor%204D%2F2%20Block%204A%20Road%20Old%20Rajendra%20Nagar%20New%20Delhi%20110060",
+    icon: PiMapPinArea,
+  },
+  { label: "+91 98996 78977", href: "tel:+919899678977", icon: FaPhone },
+  { label: "faithhealersindia71@gmail.com", href: "mailto:faithhealersindia71@gmail.com", icon: FaRegEnvelope },
 ];
 
 export default function Footer() {
@@ -85,11 +90,11 @@ export default function Footer() {
             </Link>
 
             <p className="mx-auto mt-6 max-w-sm font-serif text-[24px] font-semibold leading-[1.12] text-[#667030] sm:mx-0 sm:text-[31px] sm:leading-[1.08]">
-              A quieter path into guidance, healing, and inner clarity.
+              A destination for mind, body and soul.
             </p>
             <p className="mx-auto mt-4 max-w-sm text-[14px] leading-[1.7] text-[#6e6b63] sm:mx-0 sm:leading-[1.75]">
-              Consultations, energy healing, workshops, and learning spaces for
-              seekers moving with intention.
+              FaithHealers offers consultations, Reiki healing, meditation,
+              astrology, numerology, tarot, Vastu, face reading and courses.
             </p>
           </div>
 

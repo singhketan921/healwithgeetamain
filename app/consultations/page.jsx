@@ -27,51 +27,51 @@ import { fetchSpinWheelSettings } from "@/lib/services/spinWheelService";
 export const dynamic = "force-dynamic";
 
 const featureItems = [
-  { title: "Experienced Guidance", text: "Sessions shaped by occult diagnosis and practical insight", icon: PiUsersThree },
-  { title: "Private & Confidential", text: "Your questions are held with respect and care", icon: PiShieldCheck },
-  { title: "Flexible Sessions", text: "Online and selected offline consultations", icon: PiCalendarBlank },
-  { title: "Holistic Approach", text: "Mind, body, energy and real-life decisions", icon: PiHeart },
+  { title: "Experienced Guidance", text: "More than 20 years of Reiki, astrology, numerology and tarot practice", icon: PiUsersThree },
+  { title: "Private & Confidential", text: "Each appointment is held with care for your questions and situation", icon: PiShieldCheck },
+  { title: "Flexible Sessions", text: "Visit the centre by appointment or choose an online session", icon: PiCalendarBlank },
+  { title: "Holistic Approach", text: "Guidance can combine tarot, astrology, numerology, Vastu and healing", icon: PiHeart },
 ];
 
 const consultationPresentation = [
   {
     title: "Personal Spiritual Guidance",
-    description: "Gain clarity, direction and deeper understanding of your life's path.",
+    description: "Receive guidance for situations where you need clarity, decision making and course correction.",
     image: "/assets/images/divine learning image.png",
     label: "Popular",
     price: "₹2,499",
   },
   {
     title: "Energy Healing Session",
-    description: "Release blockages, restore balance and uplift your energy.",
+    description: "Reiki and spiritual healing support the removal of emotional and energetic blocks.",
     image: "/assets/images/stones.png",
     label: "Best Seller",
     price: "₹2,999",
   },
   {
     title: "Relationship & Harmony",
-    description: "Improve relationships, resolve conflicts and create lasting harmony.",
+    description: "Relationship concerns can be supported through Reiki, tarot, face reading and practical remedies.",
     image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.10 (1).jpeg",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Career & Life Purpose",
-    description: "Discover your true purpose and align your career with your soul's calling.",
+    description: "Career and business questions can be explored through astrology, numerology, tarot and Reiki.",
     image: "/assets/images/learnings.jpeg",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Anxiety & Stress Relief",
-    description: "Find inner peace, calm your mind and heal emotional stress.",
+    description: "Counselling and healing practices help identify root causes and support emotional release.",
     image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (1).jpeg",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Vastu & Energy Alignment",
-    description: "Harmonize your space to attract peace, prosperity and positivity.",
+    description: "Kundli Vastu guidance helps identify home or workplace blocks and simple corrective remedies.",
     image: "/assets/images/astrology.jpg",
     label: "",
     price: "₹2,999",
@@ -81,22 +81,22 @@ const consultationPresentation = [
 const processItems = [
   {
     title: "1. Book Your Session",
-    text: "Choose the reading or healing guidance that matches your current concern.",
+    text: "Choose a consultation area such as tarot, astrology, numerology, face reading or Vastu.",
     icon: PiCalendarBlank,
   },
   {
     title: "2. Connect",
-    text: "Share your question, background and intention in a private space.",
+    text: "Share your question, background and any birth details or numbers needed for the reading.",
     icon: PiChatsCircle,
   },
   {
     title: "3. Receive Guidance",
-    text: "Receive focused insight, remedies where relevant and grounded next steps.",
+    text: "Receive insight into your situation along with simple remedies wherever they are relevant.",
     icon: PiFlowerLotus,
   },
   {
     title: "4. Transform",
-    text: "Integrate the guidance with more clarity, steadiness and self-trust.",
+    text: "Use the guidance to make clearer decisions and move forward with practical spiritual support.",
     icon: PiHeart,
   },
 ];

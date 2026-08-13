@@ -34,7 +34,7 @@ export default function HealingModalities({ modalities = [] }) {
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-[620px] text-[15px] leading-[1.7] text-[#ad7f53]/85 sm:text-[16px]">
-            Explore gentle, restorative sessions designed to balance energy, calm the mind, and renew the body.
+            Explore Reiki, sound, crystal and chakra healing sessions that work with life force energy, blockages and mind-body balance.
           </p>
         </div>
 

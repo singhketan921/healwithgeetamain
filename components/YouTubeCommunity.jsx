@@ -39,11 +39,11 @@ export default function YouTubeCommunity() {
         </div>
 
         <p className="youtube-community__copy">
-          Watch spiritual insights, healing wisdom,
+          Watch Reiki guidance, meditation,
           <br />
-          guided learning, and transformative
+          Aum chanting, course insights and
           <br />
-          conversations-anytime, anywhere.
+          healing videos anytime, anywhere.
         </p>
 
         <Link href="https://www.youtube.com/" className="youtube-community__cta" target="_blank">
@@ -54,7 +54,7 @@ export default function YouTubeCommunity() {
 
         <p className="youtube-community__note">
           <PiPlayCircle aria-hidden="true" />
-          <span>New videos, guidance, and inspiration every week.</span>
+          <span>Learn correct chanting, Reiki guidance and spiritual practices from the channel.</span>
         </p>
 
         <div className="youtube-community__topics" aria-label="Channel topics">

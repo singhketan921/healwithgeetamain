@@ -46,7 +46,7 @@ export default function CoursesLearnings({ courses = [] }) {
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-[620px] text-[15px] leading-[1.7] text-[#ad7f53]/85 sm:text-[16px]">
-            Explore our full list of certificate courses designed for spiritual seekers and future practitioners.
+            Learn Reiki, tarot, numerology, face reading and chakra practices through live guidance, meditation, notes and practical training.
           </p>
         </div>
 

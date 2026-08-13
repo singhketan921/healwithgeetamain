@@ -41,11 +41,10 @@ export default function SpiritualGuide() {
           </div>
 
           <p className="spiritual-guide__body">
-            Geeta Sharma brings together occult diagnosis, Reiki, tarot, numerology,
-            Vastu, face reading and practical remedies to help seekers understand the
-            patterns behind their questions. Her work is intuitive, but grounded:
-            every session is held with compassion, clarity and steps you can carry
-            into real life.
+            Geeta Sharma is the founder of FaithHealers, a Reiki Grandmaster teacher,
+            meditation expert, astrologer, numerologist and tarot card reader with more
+            than 20 years of experience. Her work combines different occult science
+            modalities to create healing experiences for mind, body and soul.
           </p>
         </div>
 

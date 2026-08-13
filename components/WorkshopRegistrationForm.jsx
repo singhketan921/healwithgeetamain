@@ -104,7 +104,7 @@ export default function WorkshopRegistrationForm() {
                 value={form.phone}
                 onChange={handleChange}
                 className="min-h-12 rounded-[12px] border border-[#dfc79f] bg-white px-4 text-base font-medium text-[#28291c] outline-none transition focus:border-[#667030] focus:ring-2 focus:ring-[#667030]/20"
-                placeholder="+91 98765 43210"
+                placeholder="+91 98996 78977"
                 required
               />
               {fieldError("phone") ? <span className="text-xs text-red-700">{fieldError("phone")}</span> : null}

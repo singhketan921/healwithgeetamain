@@ -1,17 +1,18 @@
 const CONTACT_CARDS = [
   {
     title: "Office Location",
-    value: "Mumbai, India",
-    description: "Address shared upon confirmation. Appointments are arranged in advance.",
+    value:
+      "FAITH HEALERS INDIA, Kings Food, Basement Floor, 4D/2, Block 4A Road, Old Rajendra Nagar, New Delhi, Central Delhi, Delhi, 110060",
+    description: "Visit us for appointments and in-person guidance.",
   },
   {
     title: "Phone Number",
-    value: "+91 98208 88862",
+    value: "+91 98996 78977",
     description: "Reach our team for appointment support or detailed inquiries today.",
   },
   {
     title: "E-mail Address",
-    value: "hello@healwithgeeta.com",
+    value: "faithhealersindia71@gmail.com",
     description: "Contact our team for guidance, scheduling, or information quickly.",
   },
 ];
