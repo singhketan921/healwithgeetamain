@@ -11,6 +11,34 @@ import { fetchConsultationById } from "@/lib/services/consultationService";
 
 export const dynamic = "force-dynamic";
 
+const consultationImageById = {
+  "tarot-card-reading": "/assets/generated/old-site-inspired/consultation-tarot.png",
+  tarot: "/assets/generated/old-site-inspired/consultation-tarot.png",
+  astrology: "/assets/generated/old-site-inspired/consultation-astrology.png",
+  "astrology-consultation": "/assets/generated/old-site-inspired/consultation-astrology.png",
+  numerology: "/assets/generated/old-site-inspired/consultation-numerology.png",
+  "mobile-numerology": "/assets/generated/old-site-inspired/consultation-mobile-numerology.png",
+  "kundali-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
+  "kundli-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
+  "kundli-vastu-consultation": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
+  "face-reading": "/assets/generated/old-site-inspired/consultation-face-reading.png",
+};
+
+function getConsultationImage(consultation) {
+  const id = String(consultation?.id ?? consultation?._id ?? "").toLowerCase();
+  const title = String(consultation?.title ?? "").toLowerCase();
+
+  if (consultationImageById[id]) return consultationImageById[id];
+  if (title.includes("mobile")) return consultationImageById["mobile-numerology"];
+  if (title.includes("tarot")) return consultationImageById["tarot-card-reading"];
+  if (title.includes("astrology")) return consultationImageById.astrology;
+  if (title.includes("numerology")) return consultationImageById.numerology;
+  if (title.includes("kundli") || title.includes("kundali") || title.includes("vastu")) return consultationImageById["kundali-vastu"];
+  if (title.includes("face")) return consultationImageById["face-reading"];
+
+  return consultation?.image || consultationImageById["tarot-card-reading"];
+}
+
 export default async function ConsultationDetailPage({ params }) {
   const resolvedParams = await params;
   const consultation = await fetchConsultationById(resolvedParams.id);
@@ -22,6 +50,7 @@ export default async function ConsultationDetailPage({ params }) {
   const modalities = consultation.modalities?.length
     ? consultation.modalities
     : ["Session overview", "Preparation guidance", "Integration support"];
+  const image = getConsultationImage(consultation);
 
   return (
     <PublicDetailLayout
@@ -29,7 +58,7 @@ export default async function ConsultationDetailPage({ params }) {
       backLabel="← Back to consultations"
       title={consultation.title}
       description={`${consultation.description}\n\nEvery consultation is held as a focused, intentional session so the guidance stays practical and easy to integrate.`}
-      image={consultation.image || "/assets/images/astrology.jpg"}
+      image={image}
       badges={[price, duration, "One-on-one"]}
       aside={
         <div>

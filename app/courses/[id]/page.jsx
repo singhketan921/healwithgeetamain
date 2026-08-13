@@ -12,6 +12,46 @@ import { fetchCourseById } from "@/lib/services/courseService";
 
 export const dynamic = "force-dynamic";
 
+const courseImageById = {
+  "reiki-all-levels": "/assets/generated/old-site-inspired/course-reiki.png",
+  reiki: "/assets/generated/old-site-inspired/course-reiki.png",
+  numerology: "/assets/generated/old-site-inspired/course-numerology.png",
+  "tarot-card-reading": "/assets/generated/old-site-inspired/course-tarot.png",
+  tarot: "/assets/generated/old-site-inspired/course-tarot.png",
+  vaastu: "/assets/generated/old-site-inspired/course-vaastu.png",
+  vastu: "/assets/generated/old-site-inspired/course-vaastu.png",
+  "money-reiki": "/assets/generated/old-site-inspired/course-money-reiki.png",
+  "switchword-mastery": "/assets/generated/old-site-inspired/course-switchword-mastery.png",
+  "face-reading": "/assets/generated/old-site-inspired/course-face-reading.png",
+  "chakra-balancing": "/assets/generated/old-site-inspired/course-chakra-balancing.png",
+  chakra: "/assets/generated/old-site-inspired/course-chakra-balancing.png",
+  "mobile-numerology": "/assets/generated/old-site-inspired/course-mobile-numerology.png",
+  "peacock-remedies": "/assets/generated/old-site-inspired/course-peacock-remedies.png",
+  "visiting-card": "/assets/generated/old-site-inspired/course-visiting-card.png",
+  "angel-healing": "/assets/generated/old-site-inspired/course-angel-healing.png",
+};
+
+function getCourseImage(course) {
+  const id = String(course?.id ?? course?._id ?? "").toLowerCase();
+  const title = String(course?.title ?? "").toLowerCase();
+
+  if (courseImageById[id]) return courseImageById[id];
+  if (title.includes("switchword")) return courseImageById["switchword-mastery"];
+  if (title.includes("money reiki")) return courseImageById["money-reiki"];
+  if (title.includes("mobile")) return courseImageById["mobile-numerology"];
+  if (title.includes("numerology")) return courseImageById.numerology;
+  if (title.includes("tarot")) return courseImageById["tarot-card-reading"];
+  if (title.includes("vaastu") || title.includes("vastu")) return courseImageById.vaastu;
+  if (title.includes("face")) return courseImageById["face-reading"];
+  if (title.includes("chakra")) return courseImageById["chakra-balancing"];
+  if (title.includes("peacock")) return courseImageById["peacock-remedies"];
+  if (title.includes("visiting card")) return courseImageById["visiting-card"];
+  if (title.includes("angel")) return courseImageById["angel-healing"];
+  if (title.includes("reiki")) return courseImageById["reiki-all-levels"];
+
+  return course?.image || courseImageById["reiki-all-levels"];
+}
+
 function extractLowestPrice(text, fallbackCurrency = "INR") {
   if (!text) return null;
   const normalized = text.toString();
@@ -69,6 +109,7 @@ export default async function CourseDetailPage({ params }) {
     durationText || "Custom duration",
     course.format || course.level || "Certificate course",
   ];
+  const image = getCourseImage(course);
 
   return (
     <PublicDetailLayout
@@ -76,7 +117,7 @@ export default async function CourseDetailPage({ params }) {
       backLabel="← Back to courses"
       title={course.title}
       description={course.summary || course.description}
-      image={course.image || "/assets/images/astrology.jpg"}
+      image={image}
       badges={[priceText, durationText || "Custom duration", course.level || "Certificate"]}
       aside={
         <div>

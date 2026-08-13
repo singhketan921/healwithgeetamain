@@ -23,9 +23,9 @@ export const PUBLIC_ASSETS = {
 
 export function formatPublicPrice(value, currency = "INR") {
   if (typeof value === "number") {
-    return new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
+    return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency,
+      currency: "INR",
       maximumFractionDigits: 0,
     }).format(value);
   }

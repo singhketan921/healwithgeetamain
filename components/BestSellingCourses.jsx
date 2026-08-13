@@ -1,11 +1,12 @@
 const driveBase = "/assets/drive/HEALWITHGEETA%20WEBSITE";
 
 const courseImages = {
-  moneyReiki: `${driveBase}/COURSES/MEDITATION%20SESSION%202.jpg`,
+  moneyReiki: "/assets/generated/old-site-inspired/course-money-reiki.png",
+  switchword: "/assets/generated/old-site-inspired/course-switchword-mastery.png",
   reiki: `${driveBase}/HEALINGS/REIKI%20HEALING/DSC_0607.JPG`,
   learning: `${driveBase}/COURSES/GRAND%20MASTER%20BATCH%20.jpg`,
   tarot: `${driveBase}/COURSES/TAROT%20BATCH.jpg`,
-  vastu: `${driveBase}/CONSULTATION/COUNSELLLING/COUNSELLING.JPG`,
+  vastu: "/assets/generated/old-site-inspired/course-vaastu.png",
   numerology: `${driveBase}/CONSULTATION/NUMEROLOGY%20CONSULTATION/NUMO%20CONSULTATION.jpeg`,
 };
 
@@ -46,7 +47,9 @@ const featuredCourseImages = {
   numerology: { image: courseImages.numerology, imagePosition: "50% 48%" },
   "mobile-numerology": { image: courseImages.numerology, imagePosition: "50% 48%" },
   "tarot-card-reading": { image: courseImages.tarot, imagePosition: "50% 58%" },
-  vaastu: { image: courseImages.vastu, imagePosition: "42% 52%" },
+  vaastu: { image: courseImages.vastu, imagePosition: "50% 50%" },
+  vastu: { image: courseImages.vastu, imagePosition: "50% 50%" },
+  "switchword-mastery": { image: courseImages.switchword, imagePosition: "50% 50%" },
 };
 
 const featuredImageFallbacks = [
@@ -55,11 +58,11 @@ const featuredImageFallbacks = [
   { image: courseImages.tarot, imagePosition: "50% 58%" },
 ];
 
-function formatCoursePrice(value, currency = "INR") {
+function formatCoursePrice(value) {
   if (typeof value === "number") {
-    return new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
+    return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency,
+      currency: "INR",
       maximumFractionDigits: 0,
     }).format(value);
   }
@@ -74,16 +77,16 @@ function getPriceDisplay(course, fallback) {
       course.priceTiers[0];
     const original = course.priceTiers.find((tier) => /original|mrp/i.test(tier.label || ""));
     return {
-      price: formatCoursePrice(sale?.amount, sale?.currency || course.currency) || fallback.price,
+      price: formatCoursePrice(sale?.amount) || fallback.price,
       oldPrice: original
-        ? formatCoursePrice(original.amount, original.currency || course.currency)
+        ? formatCoursePrice(original.amount)
         : fallback.oldPrice,
     };
   }
 
   return {
-    price: formatCoursePrice(course?.price ?? course?.investment, course?.currency) || fallback.price,
-    oldPrice: formatCoursePrice(course?.oldPrice ?? course?.mrp, course?.currency) || fallback.oldPrice,
+    price: formatCoursePrice(course?.price ?? course?.investment) || fallback.price,
+    oldPrice: formatCoursePrice(course?.oldPrice ?? course?.mrp) || fallback.oldPrice,
   };
 }
 
@@ -103,16 +106,16 @@ function getFeaturedCourseImage(course, fallback, index) {
     return featuredCourseImages[course.id];
   }
   if (/money\s*reiki/.test(title)) {
-    return { image: courseImages.moneyReiki, imagePosition: "50% 43%" };
+    return { image: courseImages.moneyReiki, imagePosition: "50% 50%" };
   }
   if (/reiki|healing|chakra/.test(title)) {
     return { image: courseImages.reiki, imagePosition: "56% 48%" };
   }
   if (/switchword|learning|mastery|class/.test(title)) {
-    return { image: courseImages.learning, imagePosition: "50% 42%" };
+    return { image: courseImages.switchword, imagePosition: "50% 50%" };
   }
   if (/vastu|vaastu/.test(title)) {
-    return { image: courseImages.vastu, imagePosition: "42% 52%" };
+    return { image: courseImages.vastu, imagePosition: "50% 50%" };
   }
   if (/astrology|numerology|life path/.test(title)) {
     return { image: courseImages.numerology, imagePosition: "50% 48%" };

@@ -45,7 +45,7 @@ export default async function BlogsPage() {
                   href={`/blogs/${id}`}
                   title={blog.title}
                   description={blog.excerpt || blog.content?.slice(0, 150) || "Read the latest reflection from the HealWithGeeta journal."}
-                  image={blog.image || "/assets/images/astrology.jpg"}
+                  image={blog.image || "/assets/generated/old-site-inspired/blog-default.png"}
                   price={blog.publishDate || "Journal"}
                   label="Insight"
                   meta={[
