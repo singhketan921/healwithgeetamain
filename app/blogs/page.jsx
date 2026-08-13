@@ -23,7 +23,7 @@ export default async function BlogsPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Blogs" }]}
         title="Ritual Notes & Spiritual Insights"
         description="A curated library of reflections, practices and teachings to keep your energy aligned."
-        image="/assets/images/learnings.jpeg"
+        image="/assets/images/learnings.webp"
       />
       <FeatureStrip
         items={[
@@ -45,7 +45,7 @@ export default async function BlogsPage() {
                   href={`/blogs/${id}`}
                   title={blog.title}
                   description={blog.excerpt || blog.content?.slice(0, 150) || "Read the latest reflection from the HealWithGeeta journal."}
-                  image={blog.image || "/assets/generated/old-site-inspired/blog-default.png"}
+                  image={blog.image || "/assets/generated/old-site-inspired/blog-default.webp"}
                   price={blog.publishDate || "Journal"}
                   label="Insight"
                   meta={[

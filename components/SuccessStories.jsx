@@ -1,10 +1,10 @@
 import { PiHandsPraying, PiHeart, PiShieldCheck, PiSparkle } from "react-icons/pi";
 
 const fallbackStoryImages = [
-  "/assets/images/story-arjun.png",
-  "/assets/images/story-meera.png",
-  "/assets/images/story-ritika.png",
-  "/assets/images/story-nikhil.png",
+  "/assets/images/story-arjun.webp",
+  "/assets/images/story-meera.webp",
+  "/assets/images/story-ritika.webp",
+  "/assets/images/story-nikhil.webp",
 ];
 
 const fallbackSmallStories = [
@@ -42,7 +42,7 @@ const fallbackStoryVideos = [
 ];
 
 const fallbackFeaturedStory = {
-  image: "/assets/images/story-meera.png",
+  image: "/assets/images/story-meera.webp",
   title: "From Anxiety to Inner Peace\nA New Way of Living",
   quote:
     "The practices and guidance I received helped me release years of fear and self-doubt. Today, I live with clarity, gratitude, and a deep sense of purpose.",
@@ -109,7 +109,7 @@ export default function SuccessStories({ testimonials = [] }) {
         <h2>Success Stories</h2>
         <div className="success-stories__divider" aria-hidden="true">
           <span />
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <span />
         </div>
         <p>Real journeys. Deep healing. Lasting transformation.</p>
@@ -118,7 +118,7 @@ export default function SuccessStories({ testimonials = [] }) {
       <div className="success-stories__grid">
         <article className="story-feature">
           <div className="story-feature__badge">
-            <img src="/assets/navicon.png" alt="" />
+            <img src="/assets/navicon.webp" alt="" />
             <span>Featured<br />Story</span>
           </div>
           <a
@@ -186,17 +186,17 @@ export default function SuccessStories({ testimonials = [] }) {
           ))}
 
           <article className="story-impact">
-            <img src="/assets/navicon.png" alt="" />
+            <img src="/assets/navicon.webp" alt="" />
             <div className="story-impact__stars">★★★★★</div>
             <strong>10,000+</strong>
             <p>lives touched. Countless hearts transformed.</p>
             <span />
             <small>Trusted by 10,000+ students & seekers</small>
             <div className="story-impact__avatars">
-              <img src="/assets/images/story-meera.png" alt="" />
-              <img src="/assets/images/story-arjun.png" alt="" />
-              <img src="/assets/images/story-ritika.png" alt="" />
-              <img src="/assets/images/story-nikhil.png" alt="" />
+              <img src="/assets/images/story-meera.webp" alt="" />
+              <img src="/assets/images/story-arjun.webp" alt="" />
+              <img src="/assets/images/story-ritika.webp" alt="" />
+              <img src="/assets/images/story-nikhil.webp" alt="" />
               <b>10K+</b>
             </div>
           </article>

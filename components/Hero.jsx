@@ -44,7 +44,7 @@ export default function Hero() {
         aria-hidden={activeSlide !== 3}
       >
         <img
-          src="/assets/geeta-hero-cutout.png"
+          src="/assets/geeta-hero-cutout.webp"
           alt=""
           width="1448"
           height="1086"
@@ -61,14 +61,14 @@ export default function Hero() {
             </h1>
             <div className="home-hero__divider" aria-hidden="true">
               <span />
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span />
             </div>
             <p className="home-hero__description">
               Discover clarity, healing, and transformation with ancient wisdom and intuitive insight.
             </p>
             <Link href="/consultations" className="home-hero__cta">
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span>Consultation</span>
               <span className="home-hero__cta-arrow" aria-hidden="true">-&gt;</span>
             </Link>
@@ -83,7 +83,7 @@ export default function Hero() {
         aria-hidden={activeSlide !== 2}
       >
         <img
-          src="/assets/geeta/healing-session-cutout.png"
+          src="/assets/geeta/healing-session-cutout.webp"
           alt=""
           width="1448"
           height="1086"
@@ -99,14 +99,14 @@ export default function Hero() {
             </h2>
             <div className="home-hero__divider" aria-hidden="true">
               <span />
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span />
             </div>
             <p className="home-hero__description">
               Awaken your inner harmony. Align your mind, body, and spirit for a life of clarity, purpose, and profound well-being.
             </p>
             <Link href="/healings" className="home-hero__cta">
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span>Let&apos;s Heal</span>
               <span className="home-hero__cta-arrow" aria-hidden="true">-&gt;</span>
             </Link>
@@ -121,7 +121,7 @@ export default function Hero() {
         aria-hidden={activeSlide !== 1}
       >
         <img
-          src="/assets/geeta/learning-session-cutout.png"
+          src="/assets/geeta/learning-session-cutout.webp"
           alt=""
           width="1535"
           height="1024"
@@ -135,14 +135,14 @@ export default function Hero() {
             </h2>
             <div className="home-hero__divider" aria-hidden="true">
               <span />
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span />
             </div>
             <p className="home-hero__description">
               Expand your awareness through soulful learning. Discover practical wisdom that nurtures clarity, confidence, and conscious growth.
             </p>
             <div className="home-hero__learning-card">
-              <img src="/assets/navicon.png" alt="" aria-hidden="true" />
+              <img src="/assets/navicon.webp" alt="" aria-hidden="true" />
               <p>Let&apos;s Learn</p>
               <Link href="/courses" className="home-hero__cta">
                 <span>Let&apos;s Learn</span>
@@ -160,7 +160,7 @@ export default function Hero() {
         aria-hidden={activeSlide !== 0}
       >
         <img
-          src="/assets/geeta/destiny-session-cutout.png"
+          src="/assets/geeta/destiny-session-cutout.webp"
           alt=""
           width="1536"
           height="1024"
@@ -175,7 +175,7 @@ export default function Hero() {
             </h2>
             <div className="home-hero__divider" aria-hidden="true">
               <span />
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span />
             </div>
             <p className="home-hero__modalities">
@@ -183,11 +183,11 @@ export default function Hero() {
             </p>
             <div className="home-hero__mini-divider" aria-hidden="true">
               <span />
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span />
             </div>
             <Link href="/consultations" className="home-hero__cta">
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span>Begin Your Journey</span>
               <span className="home-hero__cta-arrow" aria-hidden="true">-&gt;</span>
             </Link>

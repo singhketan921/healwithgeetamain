@@ -24,7 +24,7 @@ export default async function HealingsPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Healings" }]}
         title="Healing Sessions for Balance, Release & Renewal"
         description="Begin with compassionate counselling, then receive energy support for emotional stress, relationship strain, energetic blocks and the patterns that feel heavy to carry alone."
-        image="/assets/images/healings img .jpeg"
+        image="/assets/images/healings img .webp"
       />
       <FeatureStrip
         items={[

@@ -16,9 +16,9 @@ import {
 } from "react-icons/pi";
 
 export const PUBLIC_ASSETS = {
-  heroStillLife: "/assets/images/public-courses-hero-still-life.png",
-  fallbackImage: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (2).jpeg",
-  lotus: "/assets/navicon.png",
+  heroStillLife: "/assets/images/public-courses-hero-still-life.webp",
+  fallbackImage: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (2).webp",
+  lotus: "/assets/navicon.webp",
 };
 
 export function formatPublicPrice(value, currency = "INR") {

@@ -23,7 +23,7 @@ export default function SpiritualGuide() {
         <div className="spiritual-guide__copy">
           <div className="spiritual-guide__lotus-mark" aria-hidden="true">
             <span />
-            <img src="/assets/navicon.png" alt="" />
+            <img src="/assets/navicon.webp" alt="" />
             <span />
           </div>
 
@@ -36,7 +36,7 @@ export default function SpiritualGuide() {
 
           <div className="spiritual-guide__divider" aria-hidden="true">
             <span />
-            <img src="/assets/navicon.png" alt="" />
+            <img src="/assets/navicon.webp" alt="" />
             <span />
           </div>
 
@@ -50,7 +50,7 @@ export default function SpiritualGuide() {
 
         <div className="spiritual-guide__portrait-wrap" aria-hidden="true">
           <img
-            src="/assets/images/spiritual-guide-geeta-sharma.jpg"
+            src="/assets/images/spiritual-guide-geeta-sharma.webp"
             alt=""
             className="spiritual-guide__portrait"
           />

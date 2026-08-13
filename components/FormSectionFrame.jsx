@@ -15,7 +15,7 @@ export default function FormSectionFrame({
   title = "Can't Find What You're",
   accentTitle = "Looking For?",
   intro = "Ask us directly through the form below and our team will respond quickly.",
-  image = "/assets/images/astrology.jpg",
+  image = "/assets/images/astrology.webp",
   imageAlt = "",
   children,
   id,

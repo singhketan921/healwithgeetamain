@@ -42,7 +42,7 @@ export default function About() {
           </div>
           <div className="guide-figure">
             <img
-              src="/assets/images/HeroImg.png"
+              src="/assets/images/HeroImg.webp"
               alt="Geeta holding a glowing crystal"
               width="1024"
               height="878"

@@ -15,22 +15,22 @@ const chapters = [
   {
     title: "Roots of Devotion",
     description: "A quiet inner calling began inside ordinary daily life and slowly became a spiritual path.",
-    image: "/assets/images/lady.png",
+    image: "/assets/images/lady.webp",
   },
   {
     title: "First Awakenings",
     description: "Astrology, intuition and guidance opened the first doorway into deeper self-trust.",
-    image: "/assets/images/astrology.jpg",
+    image: "/assets/images/astrology.webp",
   },
   {
     title: "Sacred Study",
     description: "Dedicated learning transformed curiosity into disciplined practice and service.",
-    image: "/assets/images/divine learning image.png",
+    image: "/assets/images/divine learning image.webp",
   },
   {
     title: "Practitioner of Light",
     description: "The path became a living practice of guiding others toward clarity, healing and growth.",
-    image: "/assets/images/spiritual guide img.jpg",
+    image: "/assets/images/spiritual guide img.webp",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function TransformationPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Transformation" }]}
         title="A Journey of Growth, Healing & Spiritual Service"
         description="The story of devotion, study and courage becoming a path of guidance for seekers."
-        image="/assets/images/hero image faith healers.png"
+        image="/assets/images/hero image faith healers.webp"
       />
       <FeatureStrip
         items={[

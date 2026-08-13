@@ -27,7 +27,7 @@ export default function ContactPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         title="Contact Us"
         description="Book a consultation or ask about courses, healing sessions and personal guidance."
-        image="/assets/images/contact-still-life-transparent.png"
+        image="/assets/images/contact-still-life-transparent.webp"
       />
       <FeatureStrip
         items={[

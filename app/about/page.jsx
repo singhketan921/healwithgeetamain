@@ -59,7 +59,7 @@ export default function AboutPage() {
         eyebrow="Meet the guide"
         title="A Sacred Space for Clarity, Healing & Inner Alignment"
         description="HealWithGeeta is built around compassionate guidance, practical spiritual learning, Reiki healing and the belief that every seeker can reconnect with their own wisdom."
-        image="/assets/images/HeroImg.png"
+        image="/assets/images/HeroImg.webp"
       />
 
       <FeatureStrip items={featureItems} />
@@ -67,14 +67,14 @@ export default function AboutPage() {
       <PublicSection className="about-story-section">
         <div className="about-story">
           <div className="about-story__image" aria-hidden="true">
-            <img src="/assets/images/spiritual-guide-portrait.png" alt="" />
+            <img src="/assets/images/spiritual-guide-portrait.webp" alt="" />
           </div>
           <div className="about-story__copy">
             <p className="about-page__eyebrow">About Geeta Sharma</p>
             <h2>Guidance that meets you where life feels unclear.</h2>
             <div className="about-page__rule" aria-hidden="true">
               <span />
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
             </div>
             <p>
               Geeta Sharma is an acclaimed energy healer in Delhi and the founder of

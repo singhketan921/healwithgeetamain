@@ -21,7 +21,7 @@ export default async function FHMusicPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "FH Music" }]}
         title="Sound Journeys for Rest, Ritual & Renewal"
         description="Press play and let the soundwork unfold. Each track is designed for meditation, release and energetic alignment."
-        image="/assets/images/hero 2.png"
+        image="/assets/images/hero 2.webp"
       />
       <FeatureStrip
         items={[

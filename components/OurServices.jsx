@@ -8,7 +8,7 @@ const fallbackServices = [
       "FaithHealers offers certified courses in Reiki, tarot, numerology, face reading, chakra balancing and other occult sciences through practical live learning.",
     href: "/courses",
     cta: "Explore Courses",
-    image: "/assets/generated/old-site-inspired/service-courses.png",
+    image: "/assets/generated/old-site-inspired/service-courses.webp",
     icon: PiBookOpenText,
   },
   {
@@ -17,7 +17,7 @@ const fallbackServices = [
       "Personal consultations are available for tarot, astrology, numerology, face reading, Kundli Vastu and life situations that need clear guidance.",
     href: "/consultations",
     cta: "Explore Consultations",
-    image: "/assets/generated/old-site-inspired/service-consultations.png",
+    image: "/assets/generated/old-site-inspired/service-consultations.webp",
     icon: PiChatsCircle,
   },
   {
@@ -26,7 +26,7 @@ const fallbackServices = [
       "Reiki, sound, crystal and chakra healing sessions support mind, body and soul by working with energy blocks and life force flow.",
     href: "/healings",
     cta: "Explore Healings",
-    image: "/assets/generated/old-site-inspired/service-healings.png",
+    image: "/assets/generated/old-site-inspired/service-healings.webp",
     icon: PiHandsPraying,
   },
 ];
@@ -63,7 +63,7 @@ export default function OurServices({ courses = [], consultations = [], healings
       <div className="our-services__header">
         <div className="our-services__top-mark" aria-hidden="true">
           <span />
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <span />
         </div>
         <h2>Our Services</h2>
@@ -107,7 +107,7 @@ export default function OurServices({ courses = [], consultations = [], healings
 
       <div className="our-services__bottom-mark" aria-hidden="true">
         <span />
-        <img src="/assets/navicon.png" alt="" />
+        <img src="/assets/navicon.webp" alt="" />
         <span />
       </div>
     </section>

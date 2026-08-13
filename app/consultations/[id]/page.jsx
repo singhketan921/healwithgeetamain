@@ -12,16 +12,16 @@ import { fetchConsultationById } from "@/lib/services/consultationService";
 export const dynamic = "force-dynamic";
 
 const consultationImageById = {
-  "tarot-card-reading": "/assets/generated/old-site-inspired/consultation-tarot.png",
-  tarot: "/assets/generated/old-site-inspired/consultation-tarot.png",
-  astrology: "/assets/generated/old-site-inspired/consultation-astrology.png",
-  "astrology-consultation": "/assets/generated/old-site-inspired/consultation-astrology.png",
-  numerology: "/assets/generated/old-site-inspired/consultation-numerology.png",
-  "mobile-numerology": "/assets/generated/old-site-inspired/consultation-mobile-numerology.png",
-  "kundali-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
-  "kundli-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
-  "kundli-vastu-consultation": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
-  "face-reading": "/assets/generated/old-site-inspired/consultation-face-reading.png",
+  "tarot-card-reading": "/assets/generated/old-site-inspired/consultation-tarot.webp",
+  tarot: "/assets/generated/old-site-inspired/consultation-tarot.webp",
+  astrology: "/assets/generated/old-site-inspired/consultation-astrology.webp",
+  "astrology-consultation": "/assets/generated/old-site-inspired/consultation-astrology.webp",
+  numerology: "/assets/generated/old-site-inspired/consultation-numerology.webp",
+  "mobile-numerology": "/assets/generated/old-site-inspired/consultation-mobile-numerology.webp",
+  "kundali-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.webp",
+  "kundli-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.webp",
+  "kundli-vastu-consultation": "/assets/generated/old-site-inspired/consultation-kundli-vastu.webp",
+  "face-reading": "/assets/generated/old-site-inspired/consultation-face-reading.webp",
 };
 
 function getConsultationImage(consultation) {
