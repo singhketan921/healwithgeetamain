@@ -28,7 +28,7 @@ export default async function ProductsPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Products" }]}
         title="Sacred Tools for Ritual, Healing & Protection"
         description="Curated crystals, oils and ritual kits selected to support your altar, practice and daily energetic care."
-        image="/assets/images/moonstone.jpg"
+        image="/assets/images/moonstone.webp"
       />
       <FeatureStrip
         items={[

@@ -6,22 +6,22 @@ const VIDEO_TESTIMONIALS = [
   {
     src: "https://www.youtube.com/embed/8VdXcf7Dke4",
     title: "HealWithGeeta testimonial",
-    image: "/assets/images/spiritual guide img.jpg",
+    image: "/assets/images/spiritual guide img.webp",
   },
   {
     src: "https://www.youtube.com/embed/qODcx8MckdM",
     title: "HealWithGeeta testimonial video 2",
-    image: "/assets/images/spiritual guide img.jpg",
+    image: "/assets/images/spiritual guide img.webp",
   },
   {
     src: "https://www.youtube.com/embed/trNw4MSuNRg",
     title: "HealWithGeeta testimonial video 3",
-    image: "/assets/images/spiritual guide img.jpg",
+    image: "/assets/images/spiritual guide img.webp",
   },
   {
     src: "https://www.youtube.com/embed/g7ZnJU-_iYE",
     title: "HealWithGeeta testimonial video 4",
-    image: "/assets/images/spiritual guide img.jpg",
+    image: "/assets/images/spiritual guide img.webp",
   },
 ];
 
@@ -68,17 +68,17 @@ export default function Testimonials({ testimonials = [] } = {}) {
   return (
     <section className="relative overflow-hidden bg-[#f8f3ef] px-6 py-12 text-[#4c4740] sm:py-16">
       <img
-        src="/assets/images/bgFlower.png"
+        src="/assets/images/bgFlower.webp"
         alt=""
         className="pointer-events-none absolute -left-12 top-0 w-[260px] opacity-25 sm:w-[360px]"
       />
       <img
-        src="/assets/images/bgFlower.png"
+        src="/assets/images/bgFlower.webp"
         alt=""
         className="pointer-events-none absolute -right-16 top-[28%] w-[260px] rotate-180 opacity-20 sm:w-[380px]"
       />
       <img
-        src="/assets/images/bgFlower.png"
+        src="/assets/images/bgFlower.webp"
         alt=""
         className="pointer-events-none absolute bottom-0 left-1/2 w-[260px] -translate-x-1/2 opacity-20 sm:w-[360px]"
       />

@@ -46,7 +46,7 @@ const serviceMenu = [
   },
 ];
 
-const brandLogo = "/assets/drive/HEALWITHGEETA%20WEBSITE/LOGO/logo-transparent-cropped.png";
+const brandLogo = "/assets/drive/HEALWITHGEETA%20WEBSITE/LOGO/logo-transparent-cropped.webp";
 
 function getActiveHref(pathname) {
   if (pathname === "/") return "/";

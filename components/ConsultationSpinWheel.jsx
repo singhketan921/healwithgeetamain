@@ -161,7 +161,7 @@ export default function ConsultationSpinWheel({ winProbability = 0.1 }) {
             </span>
           ))}
           <i>
-            <img src="/assets/navicon.png" alt="" />
+            <img src="/assets/navicon.webp" alt="" />
           </i>
         </div>
       </div>

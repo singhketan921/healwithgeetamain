@@ -72,7 +72,7 @@ export default function AdminConsultationNewPage() {
             <input
               name="image"
               className="w-full rounded-xl border border-gray-200 px-3 py-2"
-              placeholder="/assets/images/modality1.png"
+              placeholder="/assets/images/modality1.webp"
             />
           </label>
           <label className="space-y-2 text-sm md:col-span-2">

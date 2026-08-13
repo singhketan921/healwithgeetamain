@@ -1,12 +1,12 @@
 const driveBase = "/assets/drive/HEALWITHGEETA%20WEBSITE";
 
 const courseImages = {
-  moneyReiki: "/assets/generated/old-site-inspired/course-money-reiki.png",
-  switchword: "/assets/generated/old-site-inspired/course-switchword-mastery.png",
+  moneyReiki: "/assets/generated/old-site-inspired/course-money-reiki.webp",
+  switchword: "/assets/generated/old-site-inspired/course-switchword-mastery.webp",
   reiki: `${driveBase}/HEALINGS/REIKI%20HEALING/DSC_0607.JPG`,
   learning: `${driveBase}/COURSES/GRAND%20MASTER%20BATCH%20.jpg`,
   tarot: `${driveBase}/COURSES/TAROT%20BATCH.jpg`,
-  vastu: "/assets/generated/old-site-inspired/course-vaastu.png",
+  vastu: "/assets/generated/old-site-inspired/course-vaastu.webp",
   numerology: `${driveBase}/CONSULTATION/NUMEROLOGY%20CONSULTATION/NUMO%20CONSULTATION.jpeg`,
 };
 
@@ -167,7 +167,7 @@ export default function BestSellingCourses({ courses = [], useExactCourses = fal
       <div className="best-courses__ornament best-courses__ornament--right" aria-hidden="true" />
 
       <div className="best-courses__header">
-        <img src="/assets/navicon.png" alt="" className="best-courses__lotus" />
+        <img src="/assets/navicon.webp" alt="" className="best-courses__lotus" />
         <p>
           <span />
           Popular Learning Paths
@@ -199,7 +199,7 @@ export default function BestSellingCourses({ courses = [], useExactCourses = fal
             </div>
 
             <div className="course-card__lotus" aria-hidden="true">
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
             </div>
 
             <div className="course-card__body">

@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa6";
 import { PiArrowUpRight, PiFlowerLotus, PiMapPinArea, PiSparkle } from "react-icons/pi";
 
-const logo = "/assets/drive/HEALWITHGEETA%20WEBSITE/LOGO/logo-transparent-cropped.png";
+const logo = "/assets/drive/HEALWITHGEETA%20WEBSITE/LOGO/logo-transparent-cropped.webp";
 const mandala = "/assets/hero-mandala.svg";
 
 const footerSections = {

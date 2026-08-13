@@ -26,7 +26,7 @@ export default async function HealingDetailPage({ params }) {
       backLabel="← Back to healings"
       title={modality.title}
       description={modality.description}
-      image={modality.image || "/assets/images/astrology.jpg"}
+      image={modality.image || "/assets/images/astrology.webp"}
       badges={[price, duration, "Healing Session"]}
       aside={
         <div>

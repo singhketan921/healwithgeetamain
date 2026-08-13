@@ -36,7 +36,7 @@ export default function GuidancePanel() {
             </text>
           </svg>
           <span>→</span>
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
         </a>
 
         <div className="guidance-panel__chips">
@@ -49,7 +49,7 @@ export default function GuidancePanel() {
 
         <div className="guidance-panel__divider" aria-hidden="true">
           <span />
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <span />
         </div>
 

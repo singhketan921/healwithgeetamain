@@ -62,7 +62,7 @@ export default function ContactUs() {
       <div className="contact-us__inner">
         <form className="contact-us__form-card" onSubmit={handleSubmit}>
           <img
-            src="/assets/navicon.png"
+            src="/assets/navicon.webp"
             alt=""
             className="contact-us__lotus-large"
             aria-hidden="true"
@@ -75,7 +75,7 @@ export default function ContactUs() {
           <h2>Contact Us</h2>
           <div className="contact-us__divider" aria-hidden="true">
             <span />
-            <img src="/assets/navicon.png" alt="" />
+            <img src="/assets/navicon.webp" alt="" />
             <span />
           </div>
           <p className="contact-us__intro">
@@ -157,7 +157,7 @@ export default function ContactUs() {
         <aside className="contact-us__side" aria-label="Contact details">
           <div className="contact-us__note-card">
             <div className="contact-us__note-mark">
-              <img src="/assets/navicon.png" alt="" aria-hidden="true" />
+              <img src="/assets/navicon.webp" alt="" aria-hidden="true" />
             </div>
             <p>
               Book a consultation or ask about courses, healing sessions, and
@@ -165,7 +165,7 @@ export default function ContactUs() {
             </p>
             <div className="contact-us__note-divider" aria-hidden="true">
               <span />
-              <img src="/assets/navicon.png" alt="" />
+              <img src="/assets/navicon.webp" alt="" />
               <span />
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function ContactUs() {
                   <p>{value}</p>
                 </div>
                 <img
-                  src="/assets/images/mandala.png"
+                  src="/assets/images/mandala.webp"
                   alt=""
                   className="contact-us__detail-mandala"
                   aria-hidden="true"
@@ -195,7 +195,7 @@ export default function ContactUs() {
         <div className="contact-us__bottom-ornament" aria-hidden="true">
           <span />
           <i />
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <i />
           <span />
         </div>

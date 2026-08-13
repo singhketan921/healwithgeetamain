@@ -13,22 +13,22 @@ import { fetchCourseById } from "@/lib/services/courseService";
 export const dynamic = "force-dynamic";
 
 const courseImageById = {
-  "reiki-all-levels": "/assets/generated/old-site-inspired/course-reiki.png",
-  reiki: "/assets/generated/old-site-inspired/course-reiki.png",
-  numerology: "/assets/generated/old-site-inspired/course-numerology.png",
-  "tarot-card-reading": "/assets/generated/old-site-inspired/course-tarot.png",
-  tarot: "/assets/generated/old-site-inspired/course-tarot.png",
-  vaastu: "/assets/generated/old-site-inspired/course-vaastu.png",
-  vastu: "/assets/generated/old-site-inspired/course-vaastu.png",
-  "money-reiki": "/assets/generated/old-site-inspired/course-money-reiki.png",
-  "switchword-mastery": "/assets/generated/old-site-inspired/course-switchword-mastery.png",
-  "face-reading": "/assets/generated/old-site-inspired/course-face-reading.png",
-  "chakra-balancing": "/assets/generated/old-site-inspired/course-chakra-balancing.png",
-  chakra: "/assets/generated/old-site-inspired/course-chakra-balancing.png",
-  "mobile-numerology": "/assets/generated/old-site-inspired/course-mobile-numerology.png",
-  "peacock-remedies": "/assets/generated/old-site-inspired/course-peacock-remedies.png",
-  "visiting-card": "/assets/generated/old-site-inspired/course-visiting-card.png",
-  "angel-healing": "/assets/generated/old-site-inspired/course-angel-healing.png",
+  "reiki-all-levels": "/assets/generated/old-site-inspired/course-reiki.webp",
+  reiki: "/assets/generated/old-site-inspired/course-reiki.webp",
+  numerology: "/assets/generated/old-site-inspired/course-numerology.webp",
+  "tarot-card-reading": "/assets/generated/old-site-inspired/course-tarot.webp",
+  tarot: "/assets/generated/old-site-inspired/course-tarot.webp",
+  vaastu: "/assets/generated/old-site-inspired/course-vaastu.webp",
+  vastu: "/assets/generated/old-site-inspired/course-vaastu.webp",
+  "money-reiki": "/assets/generated/old-site-inspired/course-money-reiki.webp",
+  "switchword-mastery": "/assets/generated/old-site-inspired/course-switchword-mastery.webp",
+  "face-reading": "/assets/generated/old-site-inspired/course-face-reading.webp",
+  "chakra-balancing": "/assets/generated/old-site-inspired/course-chakra-balancing.webp",
+  chakra: "/assets/generated/old-site-inspired/course-chakra-balancing.webp",
+  "mobile-numerology": "/assets/generated/old-site-inspired/course-mobile-numerology.webp",
+  "peacock-remedies": "/assets/generated/old-site-inspired/course-peacock-remedies.webp",
+  "visiting-card": "/assets/generated/old-site-inspired/course-visiting-card.webp",
+  "angel-healing": "/assets/generated/old-site-inspired/course-angel-healing.webp",
 };
 
 function getCourseImage(course) {

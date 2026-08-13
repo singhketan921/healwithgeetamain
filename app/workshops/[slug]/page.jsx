@@ -37,7 +37,7 @@ export default async function WorkshopLandingPage({ params }) {
       backLabel="← Back to workshops"
       title={workshop.title}
       description={workshop.teaser || workshop.subtitle || workshop.description}
-      image={workshop.heroImage || "/assets/generated/old-site-inspired/workshop-default.png"}
+      image={workshop.heroImage || "/assets/generated/old-site-inspired/workshop-default.webp"}
       badges={[workshop.offerBadge || "Live Workshop", schedule, price]}
       aside={
         <div>

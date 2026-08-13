@@ -37,58 +37,58 @@ const consultationPresentation = [
   {
     title: "Personal Spiritual Guidance",
     description: "Receive guidance for situations where you need clarity, decision making and course correction.",
-    image: "/assets/generated/old-site-inspired/consultation-tarot.png",
+    image: "/assets/generated/old-site-inspired/consultation-tarot.webp",
     label: "Popular",
     price: "₹2,499",
   },
   {
     title: "Energy Healing Session",
     description: "Reiki and spiritual healing support the removal of emotional and energetic blocks.",
-    image: "/assets/generated/old-site-inspired/consultation-astrology.png",
+    image: "/assets/generated/old-site-inspired/consultation-astrology.webp",
     label: "Best Seller",
     price: "₹2,999",
   },
   {
     title: "Relationship & Harmony",
     description: "Relationship concerns can be supported through Reiki, tarot, face reading and practical remedies.",
-    image: "/assets/generated/old-site-inspired/consultation-numerology.png",
+    image: "/assets/generated/old-site-inspired/consultation-numerology.webp",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Career & Life Purpose",
     description: "Career and business questions can be explored through astrology, numerology, tarot and Reiki.",
-    image: "/assets/generated/old-site-inspired/consultation-face-reading.png",
+    image: "/assets/generated/old-site-inspired/consultation-face-reading.webp",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Anxiety & Stress Relief",
     description: "Counselling and healing practices help identify root causes and support emotional release.",
-    image: "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
+    image: "/assets/generated/old-site-inspired/consultation-kundli-vastu.webp",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Vastu & Energy Alignment",
     description: "Kundli Vastu guidance helps identify home or workplace blocks and simple corrective remedies.",
-    image: "/assets/generated/old-site-inspired/consultation-mobile-numerology.png",
+    image: "/assets/generated/old-site-inspired/consultation-mobile-numerology.webp",
     label: "",
     price: "₹2,999",
   },
 ];
 
 const consultationImageById = {
-  "tarot-card-reading": "/assets/generated/old-site-inspired/consultation-tarot.png",
-  tarot: "/assets/generated/old-site-inspired/consultation-tarot.png",
-  astrology: "/assets/generated/old-site-inspired/consultation-astrology.png",
-  "astrology-consultation": "/assets/generated/old-site-inspired/consultation-astrology.png",
-  numerology: "/assets/generated/old-site-inspired/consultation-numerology.png",
-  "mobile-numerology": "/assets/generated/old-site-inspired/consultation-mobile-numerology.png",
-  "kundali-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
-  "kundli-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
-  "kundli-vastu-consultation": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
-  "face-reading": "/assets/generated/old-site-inspired/consultation-face-reading.png",
+  "tarot-card-reading": "/assets/generated/old-site-inspired/consultation-tarot.webp",
+  tarot: "/assets/generated/old-site-inspired/consultation-tarot.webp",
+  astrology: "/assets/generated/old-site-inspired/consultation-astrology.webp",
+  "astrology-consultation": "/assets/generated/old-site-inspired/consultation-astrology.webp",
+  numerology: "/assets/generated/old-site-inspired/consultation-numerology.webp",
+  "mobile-numerology": "/assets/generated/old-site-inspired/consultation-mobile-numerology.webp",
+  "kundali-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.webp",
+  "kundli-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.webp",
+  "kundli-vastu-consultation": "/assets/generated/old-site-inspired/consultation-kundli-vastu.webp",
+  "face-reading": "/assets/generated/old-site-inspired/consultation-face-reading.webp",
 };
 
 function getConsultationImage(item, display) {
@@ -142,7 +142,7 @@ function ConsultationCard({ item, display, index }) {
         </div>
         <img
           className="consultation-card__avatar"
-          src="/assets/images/story-meera.png"
+          src="/assets/images/story-meera.webp"
           alt=""
           aria-hidden="true"
         />
@@ -211,7 +211,7 @@ export default async function ConsultationsPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Consultations" }]}
         title="Consultations for Every Journey"
         description="Receive focused guidance through tarot, astrology, numerology, face reading, Vastu and healing insight so your next step feels clearer and more grounded."
-        image="/assets/images/consultations-hero-still-life.png"
+        image="/assets/images/consultations-hero-still-life.webp"
       />
       <FeatureStrip items={featureItems} />
       <PublicCatalogPanel>

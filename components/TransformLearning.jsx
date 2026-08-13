@@ -6,11 +6,11 @@ export default function TransformLearning() {
   return (
     <section className="transform-learning" aria-label="Transform through learning">
       <div className="transform-learning__visual" aria-hidden="true">
-        <img src="/assets/images/HeroSection Image faithhealers.png" alt="" />
+        <img src="/assets/images/HeroSection Image faithhealers.webp" alt="" />
       </div>
 
       <div className="transform-learning__content">
-        <img src="/assets/navicon.png" alt="" className="transform-learning__lotus" />
+        <img src="/assets/navicon.webp" alt="" className="transform-learning__lotus" />
 
         <p className="transform-learning__eyebrow">
           <span />
@@ -26,7 +26,7 @@ export default function TransformLearning() {
 
         <div className="transform-learning__divider" aria-hidden="true">
           <span />
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <span />
         </div>
 
@@ -39,7 +39,7 @@ export default function TransformLearning() {
         </p>
 
         <Link href="/courses" className="transform-learning__cta">
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <span>Explore Courses</span>
         </Link>
       </div>

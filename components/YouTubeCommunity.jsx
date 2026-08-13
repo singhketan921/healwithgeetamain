@@ -15,7 +15,7 @@ export default function YouTubeCommunity() {
     <section className="youtube-community" aria-label="Join our YouTube community">
       <div className="youtube-community__content">
         <div className="youtube-community__top-mark" aria-hidden="true">
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
         </div>
 
         <p className="youtube-community__eyebrow">Connect Beyond The Website</p>
@@ -34,7 +34,7 @@ export default function YouTubeCommunity() {
 
         <div className="youtube-community__divider" aria-hidden="true">
           <span />
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <span />
         </div>
 
@@ -47,7 +47,7 @@ export default function YouTubeCommunity() {
         </p>
 
         <Link href="https://www.youtube.com/" className="youtube-community__cta" target="_blank">
-          <img src="/assets/navicon.png" alt="" />
+          <img src="/assets/navicon.webp" alt="" />
           <span>Explore The Channel</span>
           <span aria-hidden="true">→</span>
         </Link>

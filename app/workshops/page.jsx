@@ -21,7 +21,7 @@ export default async function WorkshopsPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Workshops" }]}
         title="Register for Upcoming Workshops"
         description="Share your interest and contact details. We will notify you when the next live workshop opens for registration."
-        image="/assets/images/hero image faith healers.png"
+        image="/assets/images/hero image faith healers.webp"
       />
       <FeatureStrip
         items={[

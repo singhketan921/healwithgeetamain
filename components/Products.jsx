@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { useCart } from "@/context/CartContext";
 
-const moonstone = "/assets/images/moonstone.jpg";
+const moonstone = "/assets/images/moonstone.webp";
 
 const fallbackProducts = [
   {
