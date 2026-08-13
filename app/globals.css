@@ -11893,14 +11893,14 @@ a {
   content: "";
 }
 
-.consultation-spin__wheel span {
+.consultation-spin__slice {
   position: absolute;
   z-index: 1;
-  top: var(--spin-label-y);
-  left: var(--spin-label-x);
+  top: 50%;
+  left: 50%;
   display: flex;
-  width: var(--spin-label-width);
-  min-height: 58px;
+  width: clamp(58px, 19%, 76px);
+  min-height: 62px;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -11914,10 +11914,23 @@ a {
   text-align: center;
   text-shadow: 0 1px 0 rgba(255, 252, 243, 0.72);
   text-transform: uppercase;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(var(--spin-angle)) translateY(clamp(-120px, -31%, -96px));
+  pointer-events: none;
 }
 
-.consultation-spin__wheel span svg {
+.consultation-spin__slice-content {
+  display: flex;
+  width: 100%;
+  min-height: 62px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  transform: rotate(var(--spin-counter-angle));
+  transition: transform 1.2s cubic-bezier(0.16, 0.84, 0.24, 1);
+}
+
+.consultation-spin__slice svg {
   width: clamp(17px, 1.55vw, 22px);
   height: clamp(17px, 1.55vw, 22px);
   flex: 0 0 auto;
@@ -11926,18 +11939,18 @@ a {
   stroke-width: 1.35;
 }
 
-.consultation-spin__wheel span b {
+.consultation-spin__slice b {
   display: block;
   font: inherit;
   max-width: 100%;
-  overflow-wrap: normal;
+  overflow-wrap: anywhere;
   text-wrap: balance;
 }
 
-.consultation-spin__wheel span em {
+.consultation-spin__slice em {
   display: block;
   font: inherit;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .consultation-spin__wheel i {
@@ -12205,13 +12218,18 @@ a {
     width: min(280px, 82vw);
   }
 
-  .consultation-spin__wheel span {
+  .consultation-spin__slice {
     min-height: 50px;
     font-size: 7px;
     gap: 2px;
   }
 
-  .consultation-spin__wheel span svg {
+  .consultation-spin__slice-content {
+    min-height: 50px;
+    gap: 2px;
+  }
+
+  .consultation-spin__slice svg {
     width: 18px;
     height: 18px;
   }
@@ -16085,8 +16103,9 @@ body header > div {
 
 /* Transform Learning: enlarge foreground Geeta image */
 .transform-learning__visual {
-  right: clamp(-300px, -14vw, -150px) !important;
+  right: clamp(-42px, -1vw, -12px) !important;
   width: min(76vw, 1500px) !important;
+  transform: scaleX(-1) !important;
 }
 
 .transform-learning__visual img {
@@ -16970,4 +16989,132 @@ body header > div {
     min-width: 44px !important;
     height: 44px !important;
   }
+}
+
+/* Spiritual guide: clean 50/50 split with flipped image */
+.spiritual-guide__main {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  align-items: stretch !important;
+  gap: clamp(28px, 4vw, 76px) !important;
+  min-height: clamp(560px, 39vw, 740px) !important;
+  padding: clamp(92px, 7vw, 132px) clamp(42px, 6vw, 120px) clamp(44px, 4vw, 76px) !important;
+}
+
+.spiritual-guide__copy {
+  display: flex !important;
+  max-width: 640px !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  justify-self: end !important;
+  text-align: left !important;
+}
+
+.spiritual-guide__lotus-mark,
+.spiritual-guide__divider {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.spiritual-guide__lotus-mark {
+  width: min(420px, 100%) !important;
+}
+
+.spiritual-guide__divider {
+  width: min(360px, 78%) !important;
+}
+
+.spiritual-guide__body {
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+
+.spiritual-guide__portrait-wrap {
+  position: relative !important;
+  display: block !important;
+  min-width: 0 !important;
+  min-height: clamp(500px, 36vw, 690px) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  background: #fbf0dc !important;
+  box-shadow: none !important;
+}
+
+.spiritual-guide__portrait-wrap::before {
+  display: none !important;
+}
+
+.spiritual-guide__portrait-wrap::after {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  width: auto !important;
+  height: auto !important;
+  background:
+    linear-gradient(90deg, rgba(251, 240, 220, 0.76) 0%, rgba(251, 240, 220, 0.24) 34%, rgba(35, 60, 35, 0.1) 100%),
+    linear-gradient(180deg, rgba(193, 141, 61, 0.16) 0%, rgba(23, 53, 29, 0.2) 100%) !important;
+  content: "" !important;
+  filter: none !important;
+  transform: none !important;
+  pointer-events: none !important;
+}
+
+.spiritual-guide__portrait {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: 46% 50% !important;
+  transform: scaleX(-1) !important;
+}
+
+@media (max-width: 1100px) {
+  .spiritual-guide__main {
+    grid-template-columns: 1fr !important;
+    padding: 76px clamp(18px, 5vw, 48px) 34px !important;
+  }
+
+  .spiritual-guide__copy {
+    justify-self: center !important;
+    text-align: center !important;
+  }
+
+  .spiritual-guide__lotus-mark,
+  .spiritual-guide__divider,
+  .spiritual-guide__body {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  .spiritual-guide__body {
+    text-align: center !important;
+  }
+
+  .spiritual-guide__portrait-wrap {
+    width: min(760px, 100%) !important;
+    justify-self: center !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .spiritual-guide__main {
+    gap: 26px !important;
+    min-height: 0 !important;
+    padding: 58px 16px 28px !important;
+  }
+
+  .spiritual-guide__portrait-wrap {
+    min-height: 360px !important;
+  }
+}
+
+/* About hero: mirror only Geeta's portrait. */
+.about-page .public-hero__image img {
+  transform: translateX(11%) scaleX(-1) !important;
+}
+
+.about-page .public-hero__image:hover img {
+  transform: translateX(11%) scaleX(-1) scale(1.035) translateY(-4px) !important;
 }

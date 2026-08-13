@@ -49,13 +49,11 @@ export default function SpiritualGuide() {
         </div>
 
         <div className="spiritual-guide__portrait-wrap" aria-hidden="true">
-          <div className="spiritual-guide__portrait-frame">
-            <img
-              src="/assets/images/spiritual-guide-geeta-sharma.jpg"
-              alt=""
-              className="spiritual-guide__portrait"
-            />
-          </div>
+          <img
+            src="/assets/images/spiritual-guide-geeta-sharma.jpg"
+            alt=""
+            className="spiritual-guide__portrait"
+          />
         </div>
       </div>
 

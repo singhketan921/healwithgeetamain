@@ -15,36 +15,27 @@ import {
 } from "react-icons/pi";
 
 const outcomes = [
-  { label: "Reiki Healing", type: "win", icon: PiSun, x: 50, y: 17, width: 15, lines: ["Reiki", "Healing"] },
+  { label: "Reiki Healing", type: "win", icon: PiSun, lines: ["Reiki", "Healing"] },
   {
     label: "Face Reading Mini Reading",
     type: "win",
     icon: PiMoonStars,
-    x: 78,
-    y: 31,
-    width: 15,
     lines: ["Face", "Reading", "Mini Reading"],
   },
-  { label: "Numerology Insight", type: "win", icon: PiNumberCircleNine, x: 82, y: 56, width: 14, lines: ["Numerology", "Insight"] },
-  { label: "Crystal Guidance", type: "win", icon: PiDiamond, x: 70, y: 79, width: 14, lines: ["Crystal", "Guidance"] },
-  { label: "Surprise Gift", type: "win", icon: PiGift, x: 50, y: 84, width: 14, lines: ["Surprise", "Gift"] },
+  { label: "Numerology Insight", type: "win", icon: PiNumberCircleNine, lines: ["Numerology", "Insight"] },
+  { label: "Crystal Guidance", type: "win", icon: PiDiamond, lines: ["Crystal", "Guidance"] },
+  { label: "Surprise Gift", type: "win", icon: PiGift, lines: ["Surprise", "Gift"] },
   {
     label: "Abundance Affirmation",
     type: "note",
     icon: PiFlowerLotus,
-    x: 30,
-    y: 79,
-    width: 14,
     lines: ["Abundance", "Affirmation"],
   },
-  { label: "Chakra Check-In", type: "note", icon: PiHandsPraying, x: 18, y: 56, width: 14, lines: ["Chakra", "Check-In"] },
+  { label: "Chakra Check-In", type: "note", icon: PiHandsPraying, lines: ["Chakra", "Check-In"] },
   {
     label: "Better Luck Next Time",
     type: "note",
     icon: PiHeart,
-    x: 22,
-    y: 31,
-    width: 15,
     lines: ["Better", "Luck", "Next Time"],
   },
 ];
@@ -75,6 +66,8 @@ export default function ConsultationSpinWheel({ winProbability = 0.1 }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (status !== "idle") return;
+
     const formData = new FormData(event.currentTarget);
     const payload = {
       name: formData.get("name")?.toString().trim(),
@@ -88,11 +81,24 @@ export default function ConsultationSpinWheel({ winProbability = 0.1 }) {
     setError("");
     setResult(null);
 
-    const response = await fetch("/api/spin-wheel-leads", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    let response;
+    try {
+      response = await fetch("/api/spin-wheel-leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      setStatus("idle");
+      setError("We could not submit your details. Please try again.");
+      return;
+    }
+
+    if (response.status === 409) {
+      setStatus("blocked");
+      setError("This connection has already used its spin.");
+      return;
+    }
 
     if (!response.ok) {
       setStatus("idle");
@@ -103,7 +109,7 @@ export default function ConsultationSpinWheel({ winProbability = 0.1 }) {
     const outcome = pickOutcome(winProbability);
     const outcomeIndex = outcomes.findIndex((item) => item.label === outcome.label);
     const segmentAngle = 360 / outcomes.length;
-    const targetAngle = 360 - (outcomeIndex * segmentAngle + segmentAngle / 2);
+    const targetAngle = 360 - outcomeIndex * segmentAngle;
     const nextRotation = rotation + 1440 + targetAngle;
 
     setStatus("spinning");
@@ -116,6 +122,7 @@ export default function ConsultationSpinWheel({ winProbability = 0.1 }) {
   }
 
   const busy = status === "submitting" || status === "spinning";
+  const hasFinished = status === "complete" || status === "blocked";
 
   return (
     <section className="consultation-spin" aria-label="Consultation offer wheel">
@@ -136,19 +143,21 @@ export default function ConsultationSpinWheel({ winProbability = 0.1 }) {
         <div className="consultation-spin__wheel" style={segmentStyle}>
           {outcomes.map((outcome, index) => (
             <span
+              className="consultation-spin__slice"
               key={outcome.label}
               style={{
-                "--spin-label-x": `${outcome.x}%`,
-                "--spin-label-y": `${outcome.y}%`,
-                "--spin-label-width": `${outcome.width}%`,
+                "--spin-angle": `${index * (360 / outcomes.length)}deg`,
+                "--spin-counter-angle": `${-rotation - index * (360 / outcomes.length)}deg`,
               }}
             >
-              <outcome.icon aria-hidden="true" />
-              <b>
-                {outcome.lines.map((line) => (
-                  <em key={line}>{line}</em>
-                ))}
-              </b>
+              <span className="consultation-spin__slice-content">
+                <outcome.icon aria-hidden="true" />
+                <b>
+                  {outcome.lines.map((line) => (
+                    <em key={line}>{line}</em>
+                  ))}
+                </b>
+              </span>
             </span>
           ))}
           <i>
@@ -192,8 +201,8 @@ export default function ConsultationSpinWheel({ winProbability = 0.1 }) {
           </p>
         ) : null}
 
-        <button type="submit" disabled={busy}>
-          <span>{busy ? "Spinning" : "Submit and Spin"}</span>
+        <button type="submit" disabled={busy || hasFinished}>
+          <span>{busy ? "Spinning" : hasFinished ? "Spin Used" : "Submit and Spin"}</span>
           <PiArrowRight aria-hidden="true" />
         </button>
       </form>

@@ -93,6 +93,46 @@ const coursePresentation = [
   },
 ];
 
+const courseImageById = {
+  "reiki-all-levels": "/assets/generated/old-site-inspired/course-reiki.png",
+  reiki: "/assets/generated/old-site-inspired/course-reiki.png",
+  numerology: "/assets/generated/old-site-inspired/course-numerology.png",
+  "tarot-card-reading": "/assets/generated/old-site-inspired/course-tarot.png",
+  tarot: "/assets/generated/old-site-inspired/course-tarot.png",
+  vaastu: "/assets/generated/old-site-inspired/course-vaastu.png",
+  vastu: "/assets/generated/old-site-inspired/course-vaastu.png",
+  "money-reiki": "/assets/generated/old-site-inspired/course-money-reiki.png",
+  "switchword-mastery": "/assets/generated/old-site-inspired/course-switchword-mastery.png",
+  "face-reading": "/assets/generated/old-site-inspired/course-face-reading.png",
+  "chakra-balancing": "/assets/generated/old-site-inspired/course-chakra-balancing.png",
+  chakra: "/assets/generated/old-site-inspired/course-chakra-balancing.png",
+  "mobile-numerology": "/assets/generated/old-site-inspired/course-mobile-numerology.png",
+  "peacock-remedies": "/assets/generated/old-site-inspired/course-peacock-remedies.png",
+  "visiting-card": "/assets/generated/old-site-inspired/course-visiting-card.png",
+  "angel-healing": "/assets/generated/old-site-inspired/course-angel-healing.png",
+};
+
+function getCourseImage(course, display) {
+  const id = String(course?.id ?? course?._id ?? "").toLowerCase();
+  const title = String(course?.title ?? display?.title ?? "").toLowerCase();
+
+  if (courseImageById[id]) return courseImageById[id];
+  if (title.includes("switchword")) return courseImageById["switchword-mastery"];
+  if (title.includes("money reiki")) return courseImageById["money-reiki"];
+  if (title.includes("mobile")) return courseImageById["mobile-numerology"];
+  if (title.includes("numerology")) return courseImageById.numerology;
+  if (title.includes("tarot")) return courseImageById["tarot-card-reading"];
+  if (title.includes("vaastu") || title.includes("vastu")) return courseImageById.vaastu;
+  if (title.includes("face")) return courseImageById["face-reading"];
+  if (title.includes("chakra")) return courseImageById["chakra-balancing"];
+  if (title.includes("peacock")) return courseImageById["peacock-remedies"];
+  if (title.includes("visiting card")) return courseImageById["visiting-card"];
+  if (title.includes("angel")) return courseImageById["angel-healing"];
+  if (title.includes("reiki")) return courseImageById["reiki-all-levels"];
+
+  return display?.image || course?.image || courseImageById["reiki-all-levels"];
+}
+
 function courseMeta(course) {
   return [
     { label: formatPublicDuration(course.durationMonths, course.format, course.durationWeeks) },
@@ -135,13 +175,14 @@ export default async function CoursesPage() {
             const id = course.id ?? course._id;
             const price = derivePublicPrice(course);
             const display = coursePresentation[index];
+            const image = getCourseImage(course, display);
             return (
               <PublicCatalogCard
                 key={id}
                 href={`/courses/${id}`}
                 title={course.title || display?.title}
                 description={course.headline || course.description || display?.description}
-                image={course.image || display?.image}
+                image={image}
                 price={price.price !== "On request" ? price.price : display?.price}
                 oldPrice={price.oldPrice || display?.oldPrice}
                 meta={courseMeta(course).map((item, metaIndex) => ({

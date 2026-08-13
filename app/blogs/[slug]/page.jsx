@@ -19,7 +19,7 @@ export default async function BlogDetailPage({ params }) {
       backLabel="← Back to blogs"
       title={blog.title}
       description={blog.excerpt || `By ${blog.author || "Geeta Sharma"}`}
-      image={blog.image || "/assets/images/astrology.jpg"}
+      image={blog.image || "/assets/generated/old-site-inspired/blog-default.png"}
       badges={[blog.publishDate || "Journal", blog.author || "Geeta Sharma", "Insight"]}
     >
       <PublicInfoCard title="Reflection">

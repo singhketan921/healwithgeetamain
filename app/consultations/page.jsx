@@ -37,46 +37,74 @@ const consultationPresentation = [
   {
     title: "Personal Spiritual Guidance",
     description: "Receive guidance for situations where you need clarity, decision making and course correction.",
-    image: "/assets/images/divine learning image.png",
+    image: "/assets/generated/old-site-inspired/consultation-tarot.png",
     label: "Popular",
     price: "₹2,499",
   },
   {
     title: "Energy Healing Session",
     description: "Reiki and spiritual healing support the removal of emotional and energetic blocks.",
-    image: "/assets/images/stones.png",
+    image: "/assets/generated/old-site-inspired/consultation-astrology.png",
     label: "Best Seller",
     price: "₹2,999",
   },
   {
     title: "Relationship & Harmony",
     description: "Relationship concerns can be supported through Reiki, tarot, face reading and practical remedies.",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.10 (1).jpeg",
+    image: "/assets/generated/old-site-inspired/consultation-numerology.png",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Career & Life Purpose",
     description: "Career and business questions can be explored through astrology, numerology, tarot and Reiki.",
-    image: "/assets/images/learnings.jpeg",
+    image: "/assets/generated/old-site-inspired/consultation-face-reading.png",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Anxiety & Stress Relief",
     description: "Counselling and healing practices help identify root causes and support emotional release.",
-    image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (1).jpeg",
+    image: "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
     label: "",
     price: "₹2,499",
   },
   {
     title: "Vastu & Energy Alignment",
     description: "Kundli Vastu guidance helps identify home or workplace blocks and simple corrective remedies.",
-    image: "/assets/images/astrology.jpg",
+    image: "/assets/generated/old-site-inspired/consultation-mobile-numerology.png",
     label: "",
     price: "₹2,999",
   },
 ];
+
+const consultationImageById = {
+  "tarot-card-reading": "/assets/generated/old-site-inspired/consultation-tarot.png",
+  tarot: "/assets/generated/old-site-inspired/consultation-tarot.png",
+  astrology: "/assets/generated/old-site-inspired/consultation-astrology.png",
+  "astrology-consultation": "/assets/generated/old-site-inspired/consultation-astrology.png",
+  numerology: "/assets/generated/old-site-inspired/consultation-numerology.png",
+  "mobile-numerology": "/assets/generated/old-site-inspired/consultation-mobile-numerology.png",
+  "kundali-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
+  "kundli-vastu": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
+  "kundli-vastu-consultation": "/assets/generated/old-site-inspired/consultation-kundli-vastu.png",
+  "face-reading": "/assets/generated/old-site-inspired/consultation-face-reading.png",
+};
+
+function getConsultationImage(item, display) {
+  const id = String(item?.id ?? item?._id ?? "").toLowerCase();
+  const title = String(item?.title ?? display?.title ?? "").toLowerCase();
+
+  if (consultationImageById[id]) return consultationImageById[id];
+  if (title.includes("mobile")) return consultationImageById["mobile-numerology"];
+  if (title.includes("tarot")) return consultationImageById["tarot-card-reading"];
+  if (title.includes("astrology")) return consultationImageById.astrology;
+  if (title.includes("numerology")) return consultationImageById.numerology;
+  if (title.includes("kundli") || title.includes("kundali") || title.includes("vastu")) return consultationImageById["kundali-vastu"];
+  if (title.includes("face")) return consultationImageById["face-reading"];
+
+  return display?.image || item?.image || consultationImageById["tarot-card-reading"];
+}
 
 const processItems = [
   {
@@ -104,12 +132,13 @@ const processItems = [
 function ConsultationCard({ item, display, index }) {
   const id = item?.id ?? item?._id ?? index;
   const price = derivePublicPrice(item);
+  const image = getConsultationImage(item, display);
   return (
     <Link className="consultation-card-link" href={`/consultations/${id}`}>
       <article className="consultation-card">
         <div className="consultation-card__image">
           {item?.label || item?.badge || display.label ? <span>{item?.label || item?.badge || display.label}</span> : null}
-          <img src={item?.image || display.image} alt="" />
+          <img src={image} alt="" />
         </div>
         <img
           className="consultation-card__avatar"

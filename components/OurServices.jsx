@@ -8,7 +8,7 @@ const fallbackServices = [
       "FaithHealers offers certified courses in Reiki, tarot, numerology, face reading, chakra balancing and other occult sciences through practical live learning.",
     href: "/courses",
     cta: "Explore Courses",
-    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/COURSES/GROUP%20CLASSES.jpg",
+    image: "/assets/generated/old-site-inspired/service-courses.png",
     icon: PiBookOpenText,
   },
   {
@@ -17,7 +17,7 @@ const fallbackServices = [
       "Personal consultations are available for tarot, astrology, numerology, face reading, Kundli Vastu and life situations that need clear guidance.",
     href: "/consultations",
     cta: "Explore Consultations",
-    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/CONSULTATION/COUNSELLLING/COUNSELLING.JPG",
+    image: "/assets/generated/old-site-inspired/service-consultations.png",
     icon: PiChatsCircle,
   },
   {
@@ -26,7 +26,7 @@ const fallbackServices = [
       "Reiki, sound, crystal and chakra healing sessions support mind, body and soul by working with energy blocks and life force flow.",
     href: "/healings",
     cta: "Explore Healings",
-    image: "/assets/drive/HEALWITHGEETA%20WEBSITE/HEALINGS/REIKI%20HEALING/DSC_0607.JPG",
+    image: "/assets/generated/old-site-inspired/service-healings.png",
     icon: PiHandsPraying,
   },
 ];
