@@ -5,7 +5,7 @@ const fallbackServices = [
   {
     title: "Online Courses",
     description:
-      "Structured learning in Reiki, tarot, numerology, chakra work and remedies, with practical tools you can use for yourself and others.",
+      "FaithHealers offers certified courses in Reiki, tarot, numerology, face reading, chakra balancing and other occult sciences through practical live learning.",
     href: "/courses",
     cta: "Explore Courses",
     image: "/assets/drive/HEALWITHGEETA%20WEBSITE/COURSES/GROUP%20CLASSES.jpg",
@@ -14,7 +14,7 @@ const fallbackServices = [
   {
     title: "Consultations",
     description:
-      "Private one-on-one readings for career, relationships, money, health, timing and life direction, with grounded remedies where needed.",
+      "Personal consultations are available for tarot, astrology, numerology, face reading, Kundli Vastu and life situations that need clear guidance.",
     href: "/consultations",
     cta: "Explore Consultations",
     image: "/assets/drive/HEALWITHGEETA%20WEBSITE/CONSULTATION/COUNSELLLING/COUNSELLING.JPG",
@@ -23,7 +23,7 @@ const fallbackServices = [
   {
     title: "Healings",
     description:
-      "Energy support for stress, emotional heaviness, strained relationships and energetic blocks, held with care and after-session guidance.",
+      "Reiki, sound, crystal and chakra healing sessions support mind, body and soul by working with energy blocks and life force flow.",
     href: "/healings",
     cta: "Explore Healings",
     image: "/assets/drive/HEALWITHGEETA%20WEBSITE/HEALINGS/REIKI%20HEALING/DSC_0607.JPG",
@@ -73,9 +73,9 @@ export default function OurServices({ courses = [], consultations = [], healings
           <span />
         </div>
         <p>
-          Courses, consultations and healing sessions crafted to support your spiritual growth, clarity, and
+          FaithHealers offers occult science services that can help you lead a happy, healthy and successful life through
           <br />
-          transformation with practical guidance.
+          personalized consultations, healing sessions and certified courses.
         </p>
       </div>
 

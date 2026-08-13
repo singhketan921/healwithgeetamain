@@ -34,7 +34,7 @@ export default function ConsultationOfferings({ offerings = [] }) {
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-[620px] text-[15px] leading-[1.7] text-[#ad7f53]/85 sm:text-[16px]">
-            Choose the reading that brings clarity and calm. Each session blends sacred insight with practical next steps.
+            Choose tarot, astrology, numerology, face reading or Vastu guidance for decision making, remedies and deeper understanding.
           </p>
         </div>
 

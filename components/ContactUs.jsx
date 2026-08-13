@@ -16,17 +16,18 @@ const contactDetails = [
   {
     icon: PiEnvelopeSimple,
     title: "Email",
-    value: "hello@sacredpathways.com",
+    value: "faithhealersindia71@gmail.com",
   },
   {
     icon: PiPhone,
     title: "Phone",
-    value: "+91 98765 43210",
+    value: "+91 98996 78977",
   },
   {
     icon: PiMapPin,
     title: "Location",
-    value: "New Delhi, India",
+    value:
+      "FAITH HEALERS INDIA, Kings Food, Basement Floor, 4D/2, Block 4A Road, Old Rajendra Nagar, New Delhi, Central Delhi, Delhi, 110060",
   },
   {
     icon: PiClock,

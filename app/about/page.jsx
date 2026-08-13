@@ -32,23 +32,23 @@ const featureItems = [
 const values = [
   {
     title: "A safe space for truth",
-    text: "Every session begins with listening. Your concerns are held with privacy, patience and respect, whether the question is emotional, practical or spiritual.",
+    text: "FaithHealers began from an unwavering faith in the healing power of Reiki and has grown into a space where mind, body and soul are approached together.",
   },
   {
     title: "Guidance you can live with",
-    text: "Readings and healing insights are translated into remedies, practices and next steps, so the guidance remains useful after the session ends.",
+    text: "Geeta Sharma combines Reiki, tarot, numerology, astrology, face reading and Vastu so each client receives guidance that is practical, specific and rooted in spiritual understanding.",
   },
   {
     title: "Healing with responsibility",
-    text: "The intention is to support balance and self-trust without fear, pressure or dependency. The work guides, it does not replace your own wisdom.",
+    text: "Her focus is always to bring maximum benefit with simple remedies, compassionate teaching and a healing approach that supports the person's higher good.",
   },
 ];
 
 const journey = [
-  "Helping seekers understand repeating emotional, relationship, money and life patterns.",
-  "Creating learning spaces for people called to heal, read, guide, teach and serve.",
-  "Blending occult diagnosis, intuitive insight, Reiki and practical remedies into clear direction.",
-  "Supporting students as they practice tools, build confidence and step into self-led growth.",
+  "Started with Reiki healing for family and friends before growing into a full healing centre.",
+  "Trained countless students in Reiki, tarot, numerology and other occult sciences.",
+  "Created healing experiences by combining different modalities according to the client's need.",
+  "Continues to teach Reiki traditionally, with deep satisfaction when students make Reiki a way of life.",
 ];
 
 export default function AboutPage() {
@@ -77,14 +77,16 @@ export default function AboutPage() {
               <img src="/assets/navicon.png" alt="" />
             </div>
             <p>
-              Geeta Sharma is an occult diagnosis and healing expert who helps seekers
-              understand the deeper patterns behind their questions, emotions, relationships,
-              money blocks and life direction.
+              Geeta Sharma is an acclaimed energy healer in Delhi and the founder of
+              FaithHealers. She is a Reiki Grandmaster teacher, meditation expert,
+              astrologer, numerologist and tarot card reader with more than 20 years
+              of experience.
             </p>
             <p>
-              Her work brings together Reiki, tarot, numerology, Vastu, face reading,
-              switch words, energy healing and soulful teaching. The intention is simple:
-              help people feel clear, steady and connected to their own inner knowing.
+              Her journey with Reiki began when she learnt it to heal herself from
+              health problems. After experiencing Reiki as life-changing, she chose to
+              take it up professionally and later built FaithHealers as a destination
+              for mind, body and soul.
             </p>
           </div>
         </div>
@@ -108,9 +110,10 @@ export default function AboutPage() {
             <p className="about-page__eyebrow">The work</p>
             <h2>Where healing becomes confidence.</h2>
             <p>
-              HealWithGeeta is not only about receiving answers. It is about understanding
-              the pattern, learning the practice, making aligned choices and moving forward
-              with steadiness.
+              FaithHealers has catered to clients across the globe and trained students
+              in occult sciences. Geeta Sharma&apos;s work brings together Reiki healing,
+              tarot, numerology, face reading, Vastu, counselling, chakra healing,
+              meditation and astrology.
             </p>
           </div>
           <ul>

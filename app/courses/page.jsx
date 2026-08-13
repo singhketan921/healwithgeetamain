@@ -17,23 +17,23 @@ import { fetchCourses } from "@/lib/services/courseService";
 export const dynamic = "force-dynamic";
 
 const featureItems = [
-  { title: "Guided Learning", text: "Study with structured practices, examples and clear next steps", icon: PiUsersThree },
-  { title: "Live & Online Batches", text: "Learn through Zoom or selected in-person learning spaces", icon: PiMonitorPlay },
-  { title: "Certificate Pathways", text: "Build confidence through practice, integration and completion guidance", icon: PiCertificate },
-  { title: "Practical Transformation", text: "Use the tools for self-healing, guidance and daily life decisions", icon: PiHeart },
+  { title: "Guided Learning", text: "Courses are taught with theory, meditation, practical training and notes", icon: PiUsersThree },
+  { title: "Live & Online Batches", text: "Many programs are live interactive Zoom classes in Hindi and English", icon: PiMonitorPlay },
+  { title: "Certificate Pathways", text: "Students learn the essentials before moving deeper into practice", icon: PiCertificate },
+  { title: "Practical Transformation", text: "Use Reiki, tarot, numerology and chakra practices in daily life", icon: PiHeart },
 ];
 
 const whyItems = [
-  { title: "Rooted Teachings", text: "Reiki, tarot, numerology and energy practices taught with context" },
-  { title: "Hands-on Practice", text: "Examples, remedies and exercises that make the learning usable" },
-  { title: "Responsible Guidance", text: "A grounded approach to intuition, healing and client support" },
-  { title: "Spiritual Confidence", text: "Learn how to trust your tools without fear or dependency" },
+  { title: "Rooted Teachings", text: "Reiki is taught in its traditional way, not only as a commercial course" },
+  { title: "Hands-on Practice", text: "Students experience energies, meditations and practical techniques during class" },
+  { title: "Responsible Guidance", text: "Geeta Sharma focuses on the higher good and safe spiritual practice" },
+  { title: "Spiritual Confidence", text: "The learning helps students make Reiki and occult science a way of life" },
 ];
 
 const coursePresentation = [
   {
     title: "Spiritual Awakening Masterclass",
-    description: "Discover your true self and awaken to a higher state of consciousness.",
+    description: "Learn how spiritual practices strengthen the connection between mind, body and soul.",
     image: "/assets/images/divine learning image.png",
     duration: "8 Hours",
     lessons: "16 Lessons",
@@ -43,7 +43,7 @@ const coursePresentation = [
   },
   {
     title: "Energy Healing Foundations",
-    description: "Learn powerful energy healing techniques to heal yourself and others.",
+    description: "Begin with Reiki self-healing, aura awareness, chakras, meditation and energy protection.",
     image: "/assets/images/stones.png",
     duration: "6 Hours",
     lessons: "12 Lessons",
@@ -53,7 +53,7 @@ const coursePresentation = [
   },
   {
     title: "Relationship & Harmony Healing",
-    description: "Build stronger relationships and create harmony in your personal life.",
+    description: "Use healing practices to clear emotional blocks and support harmony in relationships.",
     image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.10 (1).jpeg",
     duration: "5 Hours",
     lessons: "10 Lessons",
@@ -63,7 +63,7 @@ const coursePresentation = [
   },
   {
     title: "Life Purpose & Soul Mission",
-    description: "Align with your soul's calling and live a purpose-driven life.",
+    description: "Explore tools that help you understand patterns, decisions and life direction.",
     image: "/assets/images/learnings.jpeg",
     duration: "7 Hours",
     lessons: "14 Lessons",
@@ -73,7 +73,7 @@ const coursePresentation = [
   },
   {
     title: "Anxiety & Stress Relief Program",
-    description: "Heal your mind, reduce stress and cultivate inner peace.",
+    description: "Practice meditation and healing techniques that calm the mind and balance energy.",
     image: "/assets/newImages/WhatsApp Image 2026-07-06 at 15.41.08 (1).jpeg",
     duration: "4 Hours",
     lessons: "9 Lessons",
@@ -83,7 +83,7 @@ const coursePresentation = [
   },
   {
     title: "Vastu Shastra for Positive Energy",
-    description: "Balance your space and attract prosperity, health and happiness.",
+    description: "Understand how space energy and Vastu remedies support prosperity and harmony.",
     image: "/assets/images/astrology.jpg",
     duration: "6 Hours",
     lessons: "11 Lessons",

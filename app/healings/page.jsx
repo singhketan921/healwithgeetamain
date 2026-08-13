@@ -28,10 +28,10 @@ export default async function HealingsPage() {
       />
       <FeatureStrip
         items={[
-          { title: "Energy Balance", text: "Clear blocks and restore flow through subtle energy work", icon: PiFlowerLotus },
-          { title: "Emotional Calm", text: "Support anxiety, heaviness and nervous-system reset", icon: PiHeart },
-          { title: "Guided Integration", text: "Receive simple aftercare practices for daily life", icon: PiHandsPraying },
-          { title: "Held with Care", text: "A private, intentional space for mind, body and soul", icon: PiSparkle },
+          { title: "Energy Balance", text: "Restore the flow of life force energy through Reiki and chakra work", icon: PiFlowerLotus },
+          { title: "Emotional Calm", text: "Support stress, anxiety, pain and emotional heaviness through healing", icon: PiHeart },
+          { title: "Guided Integration", text: "Healing may combine Reiki, sound, crystals, meditation and counselling", icon: PiHandsPraying },
+          { title: "Held with Care", text: "Sessions are shaped according to aura, chakras, symptoms and life history", icon: PiSparkle },
         ]}
       />
       <section className="public-section">
@@ -63,10 +63,10 @@ export default async function HealingsPage() {
       <WhyLearnBand
         title="Why Choose Healing?"
         items={[
-          { title: "Release Blocks", text: "Work gently with stagnant emotional and energetic patterns" },
-          { title: "Restore Balance", text: "Support mind, body, aura and subtle energy flow" },
-          { title: "Deep Rest", text: "Create space for the nervous system to soften" },
-          { title: "Grounded Aftercare", text: "Leave with practical steps instead of vague advice" },
+          { title: "Release Blocks", text: "Reiki helps remove energetic blocks from the physical and spiritual systems" },
+          { title: "Restore Balance", text: "Balanced chakras support health, emotions and spiritual well-being" },
+          { title: "Deep Rest", text: "Sound and mantra healing relax the mind and reduce stress" },
+          { title: "Grounded Aftercare", text: "Healing is offered as an aid alongside responsible medical care where needed" },
         ]}
       />
       <SubscribeBand title="Receive healing notes" text="Get gentle practices, session updates and grounded reminders for energetic balance." />

@@ -9,9 +9,14 @@ import {
 import { PiClock, PiEnvelopeSimple, PiMapPin, PiPhone, PiSparkle } from "react-icons/pi";
 
 const details = [
-  { title: "Email", value: "hello@sacredpathways.com", icon: PiEnvelopeSimple },
-  { title: "Phone", value: "+91 98765 43210", icon: PiPhone },
-  { title: "Location", value: "New Delhi, India", icon: PiMapPin },
+  { title: "Email", value: "faithhealersindia71@gmail.com", icon: PiEnvelopeSimple },
+  { title: "Phone", value: "+91 98996 78977", icon: PiPhone },
+  {
+    title: "Location",
+    value:
+      "FAITH HEALERS INDIA, Kings Food, Basement Floor, 4D/2, Block 4A Road, Old Rajendra Nagar, New Delhi, Central Delhi, Delhi, 110060",
+    icon: PiMapPin,
+  },
   { title: "Working Hours", value: "Mon - Sat | 10 AM - 6 PM", icon: PiClock },
 ];
 

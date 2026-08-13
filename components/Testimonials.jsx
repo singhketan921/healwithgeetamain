@@ -29,17 +29,17 @@ const FALLBACK_TESTIMONIALS = [
   {
     name: "Transformation Story",
     quote:
-      "The guidance brought clarity, steadiness, and a deeper connection to my own intuition. Each session felt practical, sacred, and deeply personal.",
+      "My experience in learning Reiki under the guidance of Geeta ma'am has been outstanding. She teaches things in a very logical and scientific manner.",
   },
   {
     name: "Healing Journey",
     quote:
-      "I arrived with questions and left with grounded next steps. The experience helped me understand my energy, patterns, and timing with more compassion.",
+      "I have learnt level 3 Reiki from Geeta ma'am and the experience has been magical. It has opened up a new way of life for me.",
   },
   {
     name: "Sacred Learning",
     quote:
-      "The work felt both mystical and usable. I could take the insights into my daily life immediately, and that made the transformation last.",
+      "Geeta Ma'am is an extremely knowledgeable person who does not hold back the knowledge she possesses. It has been a pleasure to learn from her.",
   },
 ];
 
@@ -51,7 +51,7 @@ const SOCIAL_LINKS = [
 ];
 
 const EXPANDED_COPY =
-  " Through the session, the guidance unfolded with a calm rhythm: first naming the emotional pattern, then connecting it to timing, energy, and practical next steps. What stayed with me was how grounded it felt. The reading did not feel abstract or distant; it gave me language for what I was sensing, helped me understand the choices in front of me, and offered a clearer way to move through the next phase with trust, patience, and self-awareness.";
+  " FaithHealers students often describe the classes as systematic, peaceful and easy to understand, with practical teaching that helps them trust the process and continue learning Reiki, tarot, numerology and other courses.";
 
 function toWatchUrl(src) {
   return src.replace("/embed/", "/watch?v=");

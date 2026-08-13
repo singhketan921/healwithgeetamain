@@ -50,8 +50,9 @@ const sections = [
       "To request a cancellation, reschedule, replacement, or refund, contact us with your order or booking reference and reason for request.",
     ],
     items: [
-      "Email: hello@healwithgeeta.com",
-      "WhatsApp: +91 98208 88862",
+      "Email: faithhealersindia71@gmail.com",
+      "WhatsApp: +91 98996 78977",
+      "Address: FAITH HEALERS INDIA, Kings Food, Basement Floor, 4D/2, Block 4A Road, Old Rajendra Nagar, New Delhi, Central Delhi, Delhi, 110060",
       "Contact Form: /contact",
     ],
   },

@@ -31,11 +31,11 @@ export default function TransformLearning() {
         </div>
 
         <p className="transform-learning__copy">
-          From homemaker to entrepreneur, discover
+          Learn how to co-create your destiny
           <br />
-          the confidence, clarity, and spiritual strength
+          with spiritual practices for abundance,
           <br />
-          to create a life of purpose.
+          peace and prosperity.
         </p>
 
         <Link href="/courses" className="transform-learning__cta">
