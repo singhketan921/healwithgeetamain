@@ -95,6 +95,7 @@ function getConsultationImage(item, display) {
   const id = String(item?.id ?? item?._id ?? "").toLowerCase();
   const title = String(item?.title ?? display?.title ?? "").toLowerCase();
 
+  if (item?.image) return item.image;
   if (consultationImageById[id]) return consultationImageById[id];
   if (title.includes("mobile")) return consultationImageById["mobile-numerology"];
   if (title.includes("tarot")) return consultationImageById["tarot-card-reading"];
@@ -103,7 +104,7 @@ function getConsultationImage(item, display) {
   if (title.includes("kundli") || title.includes("kundali") || title.includes("vastu")) return consultationImageById["kundali-vastu"];
   if (title.includes("face")) return consultationImageById["face-reading"];
 
-  return display?.image || item?.image || consultationImageById["tarot-card-reading"];
+  return display?.image || consultationImageById["tarot-card-reading"];
 }
 
 const processItems = [

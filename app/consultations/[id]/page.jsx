@@ -28,6 +28,7 @@ function getConsultationImage(consultation) {
   const id = String(consultation?.id ?? consultation?._id ?? "").toLowerCase();
   const title = String(consultation?.title ?? "").toLowerCase();
 
+  if (consultation?.image) return consultation.image;
   if (consultationImageById[id]) return consultationImageById[id];
   if (title.includes("mobile")) return consultationImageById["mobile-numerology"];
   if (title.includes("tarot")) return consultationImageById["tarot-card-reading"];
@@ -36,7 +37,7 @@ function getConsultationImage(consultation) {
   if (title.includes("kundli") || title.includes("kundali") || title.includes("vastu")) return consultationImageById["kundali-vastu"];
   if (title.includes("face")) return consultationImageById["face-reading"];
 
-  return consultation?.image || consultationImageById["tarot-card-reading"];
+  return consultationImageById["tarot-card-reading"];
 }
 
 export default async function ConsultationDetailPage({ params }) {

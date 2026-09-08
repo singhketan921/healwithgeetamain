@@ -102,6 +102,9 @@ function getDiscount(oldPrice, price, fallbackDiscount) {
 function getFeaturedCourseImage(course, fallback, index) {
   const title = course?.title?.toLowerCase() || "";
 
+  if (course?.image) {
+    return { image: course.image, imagePosition: "50% 50%" };
+  }
   if (course?.id && featuredCourseImages[course.id]) {
     return featuredCourseImages[course.id];
   }

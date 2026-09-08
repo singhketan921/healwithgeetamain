@@ -116,6 +116,7 @@ function getCourseImage(course, display) {
   const id = String(course?.id ?? course?._id ?? "").toLowerCase();
   const title = String(course?.title ?? display?.title ?? "").toLowerCase();
 
+  if (course?.image) return course.image;
   if (courseImageById[id]) return courseImageById[id];
   if (title.includes("switchword")) return courseImageById["switchword-mastery"];
   if (title.includes("money reiki")) return courseImageById["money-reiki"];
@@ -130,7 +131,7 @@ function getCourseImage(course, display) {
   if (title.includes("angel")) return courseImageById["angel-healing"];
   if (title.includes("reiki")) return courseImageById["reiki-all-levels"];
 
-  return display?.image || course?.image || courseImageById["reiki-all-levels"];
+  return display?.image || courseImageById["reiki-all-levels"];
 }
 
 function courseMeta(course) {

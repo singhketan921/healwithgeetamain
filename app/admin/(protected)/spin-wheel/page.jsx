@@ -18,7 +18,7 @@ export default async function AdminSpinWheelPage() {
           Spin Wheel Settings
         </h1>
         <p className="text-sm text-[#7a736c]">
-          Control win rate for the homepage spin wheel.
+          Control the win rate for the consultation-page spin wheel.
         </p>
       </header>
 
