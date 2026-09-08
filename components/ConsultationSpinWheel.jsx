@@ -45,10 +45,10 @@ function pickOutcome(winProbability) {
     typeof winProbability === "number" && Number.isFinite(winProbability)
       ? Math.min(Math.max(winProbability, 0), 1)
       : 0.1;
-  const pool = outcomes.filter((item) =>
-    Math.random() <= normalizedProbability ? item.type === "win" : item.type !== "win"
-  );
-  return pool[Math.floor(Math.random() * pool.length)] || outcomes[0];
+  const resultType = Math.random() < normalizedProbability ? "win" : "note";
+  const pool = outcomes.filter((item) => item.type === resultType);
+
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 export default function ConsultationSpinWheel({ winProbability = 0.1 }) {

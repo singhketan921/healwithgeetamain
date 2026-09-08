@@ -35,6 +35,7 @@ function getCourseImage(course) {
   const id = String(course?.id ?? course?._id ?? "").toLowerCase();
   const title = String(course?.title ?? "").toLowerCase();
 
+  if (course?.image) return course.image;
   if (courseImageById[id]) return courseImageById[id];
   if (title.includes("switchword")) return courseImageById["switchword-mastery"];
   if (title.includes("money reiki")) return courseImageById["money-reiki"];
@@ -49,7 +50,7 @@ function getCourseImage(course) {
   if (title.includes("angel")) return courseImageById["angel-healing"];
   if (title.includes("reiki")) return courseImageById["reiki-all-levels"];
 
-  return course?.image || courseImageById["reiki-all-levels"];
+  return courseImageById["reiki-all-levels"];
 }
 
 function extractLowestPrice(text, fallbackCurrency = "INR") {

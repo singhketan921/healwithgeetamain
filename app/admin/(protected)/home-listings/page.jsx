@@ -41,7 +41,8 @@ export default async function AdminHomeListingsPage() {
           <h1 className="text-3xl font-semibold text-[#6b625a]">Home Listings</h1>
           <p className="mt-2 max-w-2xl text-sm text-[#7a736c]">
             Choose the course cards shown in the homepage Best Selling Courses
-            section. The first three selected courses will be shown in position order.
+            section. Only checked courses are considered, and the first three are
+            shown in position order.
           </p>
         </div>
       </header>
@@ -116,8 +117,6 @@ export default async function AdminHomeListingsPage() {
                         <input
                           type="number"
                           name={`courseOrder:${courseId}`}
-                          min="1"
-                          max="3"
                           defaultValue={getOrderValue(courseId, selectedIds, index)}
                           className="h-10 w-20 rounded-lg border border-[#d9c5a5] bg-white px-3 text-sm text-[#6b625a]"
                         />
