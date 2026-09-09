@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { put } from "@vercel/blob";
 import {
   deleteCatalogItem,
   upsertCatalogItem,
@@ -166,58 +167,50 @@ function parseFaqs(value) {
 }
 
 
-async function storeUploadedImage(file) {
+async function storeUploadedFile(file, fallbackExtension) {
   if (!file || typeof file.arrayBuffer !== "function") {
     return "";
   }
+
+  await requireAdminSession();
 
   const bytes = await file.arrayBuffer();
   if (!bytes || !bytes.byteLength) {
     return "";
   }
 
-  try {
-    const { mkdir, writeFile } = await import("fs/promises");
-    const path = await import("path");
-    const ext = path.extname(file.name || "").toLowerCase() || ".png";
-    const fileName = `${crypto.randomUUID()}${ext}`;
-    const uploadDir = path.join(process.cwd(), "public", "uploads");
-    await mkdir(uploadDir, { recursive: true });
-    await writeFile(path.join(uploadDir, fileName), Buffer.from(bytes));
-    return `/uploads/${fileName}`;
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : JSON.stringify(error);
-    console.error("Image upload skipped:", message);
-    return "";
+  const path = await import("path");
+  const ext = path.extname(file.name || "").toLowerCase() || fallbackExtension;
+  const fileName = `${crypto.randomUUID()}${ext}`;
+
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    const blob = await put(`uploads/${fileName}`, Buffer.from(bytes), {
+      access: "public",
+      addRandomSuffix: false,
+      contentType: file.type || undefined,
+    });
+    return blob.url;
   }
+
+  if (process.env.VERCEL) {
+    throw new Error(
+      "BLOB_READ_WRITE_TOKEN is missing. Connect a public Vercel Blob store to this project.",
+    );
+  }
+
+  const { mkdir, writeFile } = await import("fs/promises");
+  const uploadDir = path.join(process.cwd(), "public", "uploads");
+  await mkdir(uploadDir, { recursive: true });
+  await writeFile(path.join(uploadDir, fileName), Buffer.from(bytes));
+  return `/uploads/${fileName}`;
+}
+
+async function storeUploadedImage(file) {
+  return storeUploadedFile(file, ".png");
 }
 
 async function storeUploadedAsset(file) {
-  if (!file || typeof file.arrayBuffer !== "function") {
-    return "";
-  }
-
-  const bytes = await file.arrayBuffer();
-  if (!bytes || !bytes.byteLength) {
-    return "";
-  }
-
-  try {
-    const { mkdir, writeFile } = await import("fs/promises");
-    const path = await import("path");
-    const ext = path.extname(file.name || "").toLowerCase() || ".bin";
-    const fileName = `${crypto.randomUUID()}${ext}`;
-    const uploadDir = path.join(process.cwd(), "public", "uploads");
-    await mkdir(uploadDir, { recursive: true });
-    await writeFile(path.join(uploadDir, fileName), Buffer.from(bytes));
-    return `/uploads/${fileName}`;
-  } catch (error) {
-    const message =
-      error instanceof Error ? error.message : JSON.stringify(error);
-    console.error("Asset upload skipped:", message);
-    return "";
-  }
+  return storeUploadedFile(file, ".bin");
 }
 
 async function upsertCatalog(collection, formData, payload) {
