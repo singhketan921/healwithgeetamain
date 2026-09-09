@@ -10,6 +10,7 @@
     "sync:drive-assets": "node scripts/sync-google-drive-assets.mjs"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.0",
     "bcryptjs": "^3.0.3",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.23.24",
